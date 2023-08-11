@@ -725,7 +725,7 @@ body {
     position: relative;
     padding: 5px 17px 5px 12px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: lowercase;
     background-color: transparent;
     border: none
 }
