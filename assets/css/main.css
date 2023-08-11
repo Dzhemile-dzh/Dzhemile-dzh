@@ -699,7 +699,8 @@ body {
 .logo-text {
     display: flex;
     flex-direction: column;
-    margin-left: 10px; /* Add margin between logo and text */
+    margin-left: 10px; 
+    color: #fbcd08;
   }
   
   .logo-text p {
@@ -708,7 +709,7 @@ body {
   
   .logo-text small {
     margin: 0; /* Reset margin for <small> element */
-    font-size: 0.8em; /* Adjust font size as needed */
+    font-size: 0.6em; /* Adjust font size as needed */
   }
 
 .intro--banner h1 {
