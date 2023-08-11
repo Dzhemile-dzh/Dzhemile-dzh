@@ -696,6 +696,20 @@ body {
     height: 4px;
     background-color: #fd3cd6
 }
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px; /* Add margin between logo and text */
+  }
+  
+  .logo-text p {
+    margin: 0; /* Reset margin for <p> element */
+  }
+  
+  .logo-text small {
+    margin: 0; /* Reset margin for <small> element */
+    font-size: 0.8em; /* Adjust font size as needed */
+  }
 
 .intro--banner h1 {
     position: relative;
