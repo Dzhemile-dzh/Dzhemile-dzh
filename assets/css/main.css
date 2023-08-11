@@ -939,7 +939,7 @@ body {
 
 .work--lockup .slider--item-image {
     width: 150px;
-    height: 150px;
+    height: 200px;
     margin: 0 auto;
     border-radius: 50%;
     overflow: hidden
@@ -954,7 +954,8 @@ body {
     left: 0;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    display: block
+    display: block;
+    filter: brightness(50%);
 }
 
 .work--lockup .slider--item-right {
@@ -962,7 +963,8 @@ body {
     right: 0;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    display: block
+    display: block;
+    filter: brightness(50%);
 }
 
 .work--lockup .slider--item-center {
@@ -988,7 +990,7 @@ body {
 }
 
 .work--lockup .slider--item-center .slider--item-image {
-    width: 300px;
+    width: 200px;
     height: 300px
 }
 
