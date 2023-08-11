@@ -752,6 +752,7 @@ body {
 
 .intro--banner button svg {
     position: relative;
+    top:2px;
     left: 5px;
     width: 15px;
     fill: #fff
@@ -1409,11 +1410,11 @@ body {
 }
 
 .contact--lockup .modal--options li:nth-child(1) {
-    background-color: #1769ff
+    background-color: #3c3cfd
 }
 
 .contact--lockup .modal--options li:nth-child(2) {
-    background-color: #ea4c89
+    background-color: #fd3cd6
 }
 
 .contact--lockup .modal--options li:nth-child(3) {
@@ -1488,7 +1489,7 @@ body {
     line-height: 50px;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: lowercase;
     background-color: #fd3cd6;
     border: none;
     border-radius: 0
