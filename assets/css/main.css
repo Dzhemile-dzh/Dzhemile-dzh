@@ -1347,8 +1347,7 @@ body {
     }
 
     .about--options {
-        display: inline-grid;
-        justify-content: space-evenly;
+        display: inline-flex;
     }
 }
 
@@ -1451,8 +1450,7 @@ body {
 
 @media (max-width: 600px) {
     .about2--options {
-        display: inline-grid;
-        justify-content: space-evenly;
+        display: inline-flex;
     }
 }
 
