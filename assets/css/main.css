@@ -1267,6 +1267,13 @@ body {
     font-size: 12px;
 }
 
+.about h2 {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    background-color: #fbcd08;
+}
+
+
 @media (max-width: 767px) {
     .about--banner {
         height: 305px
