@@ -1228,7 +1228,7 @@ body {
     height: 180px;
     text-decoration: none;
     color: #fff;
-    border: 10px solid #fd3cd6;
+    border: 2px solid #fbcd08;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1342,6 +1342,79 @@ body {
     }
 
     .about--options {
+        display: inline-grid;
+        justify-content: space-evenly;
+    }
+}
+
+.about2--options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 30px;
+}
+
+.about2--options>a {
+    position: relative;
+    width: 160px;
+    height: 180px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fd3cd6;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+}
+
+.about2--options>a:nth-child(1) {
+    background-image: url("../img/work-alex-nowak.jpg")
+}
+
+.about2--options>a:nth-child(2) {
+    background-image: url("../img/work-metiew-smith.jpg")
+}
+
+.about2--options>a:nth-child(3) {
+    background-image: url("../img/work-sheep.jpg")
+}
+
+.about2--options>a:nth-child(4) {
+    background-image: url("../img/work-wolf.jpg")
+}
+
+.about2--options>a:hover h3 {
+    bottom: -50px
+}
+
+.about2--options h3 {
+    position: absolute;
+    bottom: -38px;
+    left: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    -webkit-transition: bottom .2s ease-in-out, left .2s ease-in-out;
+    transition: bottom .2s ease-in-out, left .2s ease-in-out;
+    background-color: #000000b0;
+    font-size: 12px;
+}
+
+.about2 h2 {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    background-color: #fd3cd6;
+}
+
+@media (max-width: 600px) {
+    .about2--options {
         display: inline-grid;
         justify-content: space-evenly;
     }
