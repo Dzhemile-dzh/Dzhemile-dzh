@@ -1224,7 +1224,7 @@ body {
 
 .about--options>a:hover {
     scale: 1.2;
-    filter:brightness(110%)
+    filter:brightness(115%)
 }
 
 .about--options>a {
@@ -1376,6 +1376,11 @@ body {
     .about2 {
         max-width: 100%
     }
+}
+
+.about2--options>a:hover {
+    scale: 1.2;
+    filter:brightness(115%)
 }
 
 .about2--options {
