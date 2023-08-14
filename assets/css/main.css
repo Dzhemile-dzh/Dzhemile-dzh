@@ -1222,6 +1222,11 @@ body {
     padding-top: 30px;
 }
 
+.about--options>a:hover {
+    scale: 1.2;
+    filter:brightness(110%)
+}
+
 .about--options>a {
     position: relative;
     width: 160px;
