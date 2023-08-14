@@ -1100,7 +1100,6 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 900px;
     max-width: 75%;
     height: 100%;
     -webkit-box-orient: vertical;
@@ -1213,7 +1212,6 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    max-width: 600px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
@@ -1225,8 +1223,8 @@ body {
 
 .about--options>a {
     position: relative;
-    width: 150px;
-    height: 75px;
+    width: 160px;
+    height: 180px;
     text-decoration: none;
     color: #fff;
     border: 10px solid #fd3cd6;
@@ -1236,15 +1234,19 @@ body {
 }
 
 .about--options>a:nth-child(1) {
-    background-image: url("../img/about-winners.jpg")
+    background-image: url("../img/work-alex-nowak.jpg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/about-philosophy.jpg")
+    background-image: url("../img/work-metiew-smith.jpg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/about-history.jpg")
+    background-image: url("../img/work-sheep.jpg")
+}
+
+.about--options>a:nth-child(4) {
+    background-image: url("../img/work-wolf.jpg")
 }
 
 .about--options>a:hover h3 {
