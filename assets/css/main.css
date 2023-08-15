@@ -1222,8 +1222,9 @@ body {
 }
 
 .about--options>a:hover {
-    scale: 1.2;
-    filter:brightness(115%)
+    scale: 1.8;
+    filter: brightness(115%);
+    z-index: 999;
 }
 
 .about--options>a {
@@ -1236,7 +1237,6 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 30px;
 }
 
 .about--options>a:nth-child(1) {
@@ -1269,6 +1269,10 @@ body {
     transition: bottom .2s ease-in-out, left .2s ease-in-out;
     background-color: #000000b0;
     font-size: 12px;
+}
+
+.about--options h3:hover {
+    font-size: 8px;
 }
 
 .about h2 {
@@ -1377,8 +1381,9 @@ body {
 }
 
 .about2--options>a:hover {
-    scale: 1.2;
-    filter:brightness(115%)
+    scale: 1.8;
+    filter: brightness(115%);
+    z-index: 999;
 }
 
 .about2--options {
@@ -1406,7 +1411,6 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 30px;
 }
 
 .about2--options>a:nth-child(1) {
