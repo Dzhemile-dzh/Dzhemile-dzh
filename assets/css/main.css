@@ -1314,8 +1314,18 @@ body {
     }
 }
 
+#bio {
+    display: flex;
+}
+
+@media (max-width: 1180px) {
+    #bio {
+        display: contents;
+    }
+}
+
 .mySlides {
-    width: 200px; 
+    width: 250px; 
     display: none; 
     height: 350px; 
     border: 10px solid #fbcd08; 
@@ -1593,6 +1603,7 @@ body {
 .hire h2 {
     margin: 0 0 10px 0;
     font-size: 13px;
+    padding-top: 20px;
 }
 
 .work-request {
