@@ -10,6 +10,13 @@
   <meta name="author" content="Dzhemile Ahmed">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .mySlides {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -248,10 +255,27 @@
             </li>
             <li class="l-section section">
               <div class="hire">
-                <h2>Hey there, I'm not just your typical software engineer — I've got a secret life as an art enthusiast and painter extraordinaire! 🎨 While I'm a pro at coding lines, I've also got a knack for drawing them with a paintbrush.<p>
-                  My journey into the world of art started with a simple curiosity — I couldn't resist capturing the little details that make each face a unique work of living, breathing art. It's like I've been on a quest to reveal people's inner Mona Lisas!</p><p>
-                  But let's be real, my passion didn't stop there. I've embraced the challenge of blending beauty and nature in the most harmonious way possible. That's why I dove headfirst into the world of portraiture and painting. And guess what? I've been rocking those oil paints since 2022 at Diyan Dimitrov's art school.</p>     
-                  So, whether I'm crafting lines of code or brushing strokes of oil paint, I'm on a mission to add a splash of creativity and color to the world. Join me on this wild ride of bits, bytes, and beautiful art that makes life way more vibrant! 🎨💻
+                <h2 class="w3-center">Automatic Slideshow</h2>
+
+                <div class="w3-content w3-section" style="max-width:500px">
+                  <img class="mySlides" src="assets/img/work-wolf.jpg" style="width:100%">
+                  <img class="mySlides" src="assets/img/work-sheep.jpg" style="width:100%">
+                  <img class="mySlides" src="assets/img/work-metiew-smith.jpg" style="width:100%">
+                </div>
+                <h2>Hey there, I'm not just your typical software engineer — I've got a secret life as an art enthusiast
+                  and painter extraordinaire! 🎨 While I'm a pro at coding lines, I've also got a knack for drawing them
+                  with a paintbrush.<p>
+                    My journey into the world of art started with a simple curiosity — I couldn't resist capturing the
+                    little details that make each face a unique work of living, breathing art. It's like I've been on a
+                    quest to reveal people's inner Mona Lisas!</p>
+                  <p>
+                    But let's be real, my passion didn't stop there. I've embraced the challenge of blending beauty and
+                    nature in the most harmonious way possible. That's why I dove headfirst into the world of
+                    portraiture and painting. And guess what? I've been rocking those oil paints since 2022 at Diyan
+                    Dimitrov's art school.</p>
+                  So, whether I'm crafting lines of code or brushing strokes of oil paint, I'm on a mission to add a
+                  splash of creativity and color to the world. Join me on this wild ride of bits, bytes, and beautiful
+                  art that makes life way more vibrant! 🎨💻
                 </h2>
               </div>
             </li>
@@ -272,6 +296,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
   <script src="assets/js/functions-min.js"></script>
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1 }
+      x[myIndex - 1].style.display = "block";
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+  </script>
 </body>
 
 </html>
