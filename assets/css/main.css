@@ -1350,7 +1350,7 @@ body {
     }
         .mySlides {
             width: 100%!important;
-            margin-top: 220px;
+            margin-top: 160px;
     }
 }
 
@@ -1840,7 +1840,8 @@ body {
         font-size: 14px
     }
     .hire h2 {
-        font-size: 13px;
+        font-size: 10px;
+        padding: unset;
     }
 
     .work-request--options input[type="checkbox"]:checked+label svg {
