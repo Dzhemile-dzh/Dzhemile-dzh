@@ -1266,30 +1266,19 @@ body {
 }
 
 .about--options>a:nth-child(1) {
-    background-image: url("../img/2022-e.jpg")
+    background-image: url("../img/work-alex-nowak.jpg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/2022-d.jpg")
+    background-image: url("../img/work-metiew-smith.jpg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/2022-f.jpg")
+    background-image: url("../img/work-sheep.jpg")
 }
 
 .about--options>a:nth-child(4) {
-    background-image: url("../img/2022-g.jpg")
-}
-.about--options>a:nth-child(5) {
-    background-image: url("../img/2022-a.jpg")
-}
-
-.about--options>a:nth-child(6) {
-    background-image: url("../img/2022-b.jpg")
-}
-
-.about--options>a:nth-child(7) {
-    background-image: url("../img/2022-c.jpg")
+    background-image: url("../img/work-wolf.jpg")
 }
 
 .about--options>a:hover h3 {
@@ -1411,7 +1400,7 @@ body {
     }
 }
 
-.about2 {
+.about2, .about3, .about4 {
     position: relative;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1437,13 +1426,13 @@ body {
     }
 }
 
-.about2--options>a:hover {
+.about2--options>a:hover, .about3--options>a:hover, .about4--options>a:hover {
     scale: 1.8;
     filter: brightness(115%);
     z-index: 999;
 }
 
-.about2--options {
+.about2--options, .about3--options, .about4--options{
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1458,7 +1447,7 @@ body {
     padding-top: 30px;
 }
 
-.about2--options>a {
+.about2--options>a, .about3--options>a, .about4--options>a {
     position: relative;
     width: 160px;
     height: 180px;
@@ -1490,7 +1479,39 @@ body {
     bottom: -50px
 }
 
-.about2--options h3 {
+.about3--options>a:nth-child(1) {
+    background-image: url("../img/2022-e.jpg")
+}
+
+.about3--options>a:nth-child(2) {
+    background-image: url("../img/2022-d.jpg")
+}
+
+.about3--options>a:nth-child(3) {
+    background-image: url("../img/2022-f.jpg")
+}
+
+.about3--options>a:nth-child(4) {
+    background-image: url("../img/2022-g.jpg")
+}
+
+.about4--options>a:nth-child(1) {
+    background-image: url("../img/2022-a.jpg")
+}
+
+.about4--options>a:nth-child(2) {
+    background-image: url("../img/2022-b.jpg")
+}
+
+.about4--options>a:nth-child(3) {
+    background-image: url("../img/2022-c.jpg")
+}
+
+.about3--options>a:hover h3 {
+    bottom: -50px
+}
+
+.about2--options h3, .about3--options h3 , .about4--options h3{
     position: absolute;
     bottom: -38px;
     left: 10px;
@@ -1502,14 +1523,14 @@ body {
     font-size: 12px;
 }
 
-.about2 h2 {
+.about2 h2, .about3 h2, .about4 h2 {
     margin: 0 0 20px 0;
     font-size: 30px;
     background-color: #fd3cd6;
 }
 
 @media (max-width: 600px) {
-    .about2--options {
+    .about2--options, .about3--options, .about4--options {
         display: inline-flex;
     }
 }
