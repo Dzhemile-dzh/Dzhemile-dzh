@@ -1250,7 +1250,8 @@ body {
     z-index: 999;
 }
 
-.about--options>a {
+.about--options>a,
+.about2--options>a {
     position: relative;
     width: 200px;
     height: 240px;
@@ -1450,7 +1451,6 @@ body {
     padding-top: 30px;
 }
 
-.about2--options>a, 
 .about3--options>a, 
 .about4--options>a {
     position: relative;
