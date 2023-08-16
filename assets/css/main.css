@@ -1322,12 +1322,9 @@ body {
     #bio {
         display: contents;
     }
-}
-
-@media (max-width: 690px) {
-    .mySlides {
-        width: 100%!important;
-        margin-top: 280px;
+        .mySlides {
+            width: 100%!important;
+            margin-top: 220px;
     }
 }
 
