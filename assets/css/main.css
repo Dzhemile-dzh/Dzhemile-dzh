@@ -1101,16 +1101,16 @@ body {
     }
 
     .about--options h3 {
-        font-size: 8px;
+        font-size: 8px!important;
     }
 
     .about2--options h3 {
-        font-size: 8px;
+        font-size: 8px!important;
     }
 
     .about2--options>a {
-        width: 100px;
-        height: 150px;
+        width: 100px!important;
+        height: 150px!important;
     }
 
     .about2--options>a:hover {
