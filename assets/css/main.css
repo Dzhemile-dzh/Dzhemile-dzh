@@ -1089,6 +1089,34 @@ body {
     .work--lockup .slider--item-left, .work--lockup .slider--item-right {
         display: none
     }
+
+    .about--options>a {
+        width: 100px;
+        height: 150px;
+    }
+
+    .about--options>a:hover {
+        scale: 1.4 !important;
+        filter: brightness(120%)!important;
+    }
+
+    .about--options h3 {
+        font-size: 8px;
+    }
+
+    .about2--options h3 {
+        font-size: 8px;
+    }
+
+    .about2--options>a {
+        width: 100px;
+        height: 150px;
+    }
+
+    .about2--options>a:hover {
+        scale: 1.4 !important;
+        filter: brightness(120%)!important;
+    }
 }
 
 .about {
