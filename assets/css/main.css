@@ -1252,8 +1252,8 @@ body {
 
 .about--options>a {
     position: relative;
-    width: 160px;
-    height: 180px;
+    width: 200px;
+    height: 240px;
     text-decoration: none;
     color: #fff;
     border: 2px solid #fbcd08;
@@ -1452,8 +1452,8 @@ body {
 .about3--options>a, 
 .about4--options>a {
     position: relative;
-    width: 160px;
-    height: 180px;
+    width: 200px;
+    height: 2400px;
     text-decoration: none;
     color: #fff;
     border: 2px solid #fd3cd6;
