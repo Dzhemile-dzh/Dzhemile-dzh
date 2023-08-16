@@ -1324,6 +1324,13 @@ body {
     }
 }
 
+@media (max-width: 790px) {
+    #bio {
+        width: 100%!important;
+        margin-top: 280px;
+    }
+}
+
 .mySlides {
     width: 250px; 
     display: none; 
