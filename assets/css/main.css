@@ -1680,7 +1680,7 @@ body {
     margin: 0 0 10px 0;
     font-size: 14px;
     padding-top: 10px;
-    font-family: unset;
+    font-weight: normal;
 }
 
 .work-request {
