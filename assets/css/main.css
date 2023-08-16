@@ -1324,7 +1324,7 @@ body {
     }
 }
 
-@media (max-width: 790px) {
+@media (max-width: 690px) {
     .mySlides {
         width: 100%!important;
         margin-top: 280px;

@@ -90,7 +90,7 @@ $( document ).ready(function() {
         lastItem = $('.side-nav').children().length - 1,
         nextPos = 0;
 
-    if (param.type === "swipeup" || param.keyCode === 40 || param > 0) {
+    if (param.keyCode === 40 || param > 0) {
       if (curPos !== lastItem) {
         nextPos = curPos + 1;
         updateNavs(nextPos);
@@ -101,7 +101,7 @@ $( document ).ready(function() {
         updateContent(curPos, nextPos, lastItem);
       }
     }
-    else if (param.type === "swipedown" || param.keyCode === 38 || param < 0){
+    else if (param.keyCode === 38 || param < 0){
       if (curPos !== 0){
         nextPos = curPos - 1;
         updateNavs(nextPos);
