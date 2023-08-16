@@ -1266,19 +1266,30 @@ body {
 }
 
 .about--options>a:nth-child(1) {
-    background-image: url("../img/work-alex-nowak.jpg")
+    background-image: url("../img/2022-e.jpg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/work-metiew-smith.jpg")
+    background-image: url("../img/2022-d.jpg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/work-sheep.jpg")
+    background-image: url("../img/2022-f.jpg")
 }
 
 .about--options>a:nth-child(4) {
-    background-image: url("../img/work-wolf.jpg")
+    background-image: url("../img/2022-g.jpg")
+}
+.about--options>a:nth-child(5) {
+    background-image: url("../img/2022-a.jpg")
+}
+
+.about--options>a:nth-child(6) {
+    background-image: url("../img/2022-b.jpg")
+}
+
+.about--options>a:nth-child(7) {
+    background-image: url("../img/2022-c.jpg")
 }
 
 .about--options>a:hover h3 {
