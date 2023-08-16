@@ -1346,8 +1346,9 @@ body {
         display: contents;
     }
         .mySlides {
-            width: 100%!important;
-            margin-top: 160px!important;
+            height: 250px !important;
+            margin-left: 30px;
+            margin-bottom: 20px;
     }
 }
 
