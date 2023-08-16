@@ -1501,31 +1501,31 @@ body {
 }
 
 .about3--options>a:nth-child(1) {
-    background-image: url("../img/2022-e.jpg")
-}
-
-.about3--options>a:nth-child(2) {
-    background-image: url("../img/2022-d.jpg")
-}
-
-.about3--options>a:nth-child(3) {
-    background-image: url("../img/2022-f.jpg")
-}
-
-.about3--options>a:nth-child(4) {
-    background-image: url("../img/2022-g.jpg")
-}
-
-.about4--options>a:nth-child(1) {
     background-image: url("../img/2022-a.jpg")
 }
 
-.about4--options>a:nth-child(3) {
+.about3--options>a:nth-child(2) {
     background-image: url("../img/2022-b.jpg")
 }
 
-.about4--options>a:nth-child(4) {
+.about3--options>a:nth-child(3) {
     background-image: url("../img/2022-c.jpg")
+}
+
+.about3--options>a:nth-child(4) {
+    background-image: url("../img/2022-d.jpg")
+}
+
+.about4--options>a:nth-child(1) {
+    background-image: url("../img/2022-e.jpg")
+}
+
+.about4--options>a:nth-child(3) {
+    background-image: url("../img/2022-f.jpg")
+}
+
+.about4--options>a:nth-child(4) {
+    background-image: url("../img/2022-g.jpg")
 }
 
 .about4--options>a:nth-child(2) {
