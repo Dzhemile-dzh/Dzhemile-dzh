@@ -1325,7 +1325,7 @@ body {
 }
 
 @media (max-width: 790px) {
-    #bio {
+    .mySlides {
         width: 100%!important;
         margin-top: 280px;
     }
