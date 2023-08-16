@@ -746,6 +746,22 @@ body {
     left: 0
 }
 
+.intro--banner button .btn-background-buy {
+    position: absolute;
+    top: 0;
+    left: 23px;
+    right: 0;
+    height: 100%;
+    background-color: #fbcd08;
+    color: #000;
+    z-index: -1;
+    -webkit-transition: left .2s ease-in-out;
+    transition: left .2s ease-in-out
+}
+
+.intro--banner button:hover .btn-background-buy {
+    left: 0
+}
 .intro--banner button:focus {
     outline: none
 }
