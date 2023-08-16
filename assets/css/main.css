@@ -1090,33 +1090,30 @@ body {
         display: none
     }
 
-    .about--options>a {
+    .about--options>a,
+    .about2--options>a,
+    .about3--options>a,
+    .about4--options>a {
         width: 100px!important;
         height: 150px!important;
     }
 
-    .about--options>a:hover {
+    .about--options>a:hover,
+    .about2--options>a:hover
+    .about3--options>a:hover
+    .about4--options>a:hover {
         scale: 1.4 !important;
         filter: brightness(120%)!important;
     }
 
-    .about--options h3 {
+    .about--options h3,
+    .about2--options h3,
+    .about3--options h3,
+    .about4--options h3 {
         font-size: 8px!important;
     }
 
-    .about2--options h3 {
-        font-size: 8px!important;
-    }
 
-    .about2--options>a {
-        width: 100px!important;
-        height: 150px!important;
-    }
-
-    .about2--options>a:hover {
-        scale: 1.4 !important;
-        filter: brightness(120%)!important;
-    }
 }
 
 .about {
@@ -1421,18 +1418,22 @@ body {
 }
 
 @media (max-width: 1180px) {
-    .about2 {
+    .about2, .about3, .about4 {
         max-width: 100%
     }
 }
 
-.about2--options>a:hover, .about3--options>a:hover, .about4--options>a:hover {
+.about2--options>a:hover, 
+.about3--options>a:hover, 
+.about4--options>a:hover {
     scale: 1.8;
     filter: brightness(115%);
     z-index: 999;
 }
 
-.about2--options, .about3--options, .about4--options{
+.about2--options, 
+.about3--options, 
+.about4--options {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1447,7 +1448,9 @@ body {
     padding-top: 30px;
 }
 
-.about2--options>a, .about3--options>a, .about4--options>a {
+.about2--options>a, 
+.about3--options>a, 
+.about4--options>a {
     position: relative;
     width: 160px;
     height: 180px;
@@ -1511,11 +1514,14 @@ body {
     background-image: url("../img/2022-h.jpg")
 }
 
-.about3--options>a:hover h3 {
+.about3--options>a:hover h3, 
+.about4--options>a:hover h3{
     bottom: -50px
 }
 
-.about2--options h3, .about3--options h3 , .about4--options h3{
+.about2--options h3, 
+.about3--options h3, 
+.about4--options h3 {
     position: absolute;
     bottom: -38px;
     left: 10px;
@@ -1527,14 +1533,18 @@ body {
     font-size: 12px;
 }
 
-.about2 h2, .about3 h2, .about4 h2 {
+.about2 h2, 
+.about3 h2, 
+.about4 h2 {
     margin: 0 0 20px 0;
     font-size: 30px;
     background-color: #fd3cd6;
 }
 
 @media (max-width: 600px) {
-    .about2--options, .about3--options, .about4--options {
+    .about2--options, 
+    .about3--options, 
+    .about4--options {
         display: inline-flex;
     }
 }
