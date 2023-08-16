@@ -1091,8 +1091,8 @@ body {
     }
 
     .about--options>a {
-        width: 100px;
-        height: 150px;
+        width: 100px!important;
+        height: 150px!important;
     }
 
     .about--options>a:hover {
