@@ -1631,18 +1631,13 @@ body {
     background-color: #3c3cfd
 }
 
-.contact--lockup .modal--options li:nth-child(2) {
+.contact--lockup .modal--options li:nth-child(3) {
     background-color: #fd3cd6
 }
-.contact--lockup .modal--options li:nth-child(3) {
+.contact--lockup .modal--options li:nth-child(2) {
     background-color: #fbcd08
 }
 
-.contact--lockup .modal--options li:nth-child(3) {
-    margin-bottom: 0;
-    background-color: #fd3cd6;
-    text-transform: uppercase
-}
 
 .contact--lockup .modal--options a {
     display: block;
