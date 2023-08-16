@@ -1499,12 +1499,16 @@ body {
     background-image: url("../img/2022-a.jpg")
 }
 
-.about4--options>a:nth-child(2) {
+.about4--options>a:nth-child(3) {
     background-image: url("../img/2022-b.jpg")
 }
 
-.about4--options>a:nth-child(3) {
+.about4--options>a:nth-child(4) {
     background-image: url("../img/2022-c.jpg")
+}
+
+.about4--options>a:nth-child(2) {
+    background-image: url("../img/2022-h.jpg")
 }
 
 .about3--options>a:hover h3 {
