@@ -1356,8 +1356,8 @@ body {
 
 .mySlides {
     display: none; 
-    width: 250px;
-    height: 350px; 
+    width: 260px;
+    height: 282px; 
     border: 10px solid #fbcd08; 
     margin-right: 15px;
   }
@@ -1691,8 +1691,7 @@ body {
 
 .hire h2 {
     margin: 0 0 10px 0;
-    font-size: 14px;
-    padding-top: 10px;
+    font-size: 13px;
     font-weight: normal;
 }
 
