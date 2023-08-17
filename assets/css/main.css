@@ -1279,22 +1279,6 @@ body {
     background-repeat: no-repeat;
 }
 
-.about--options>a:nth-child(1) {
-    background-image: url("../img/work-alex-nowak.jpg")
-}
-
-.about--options>a:nth-child(2) {
-    background-image: url("../img/work-metiew-smith.jpg")
-}
-
-.about--options>a:nth-child(3) {
-    background-image: url("../img/work-sheep.jpg")
-}
-
-.about--options>a:nth-child(4) {
-    background-image: url("../img/work-wolf.jpg")
-}
-
 .about--options>a:hover h3 {
     bottom: -50px
 }
@@ -1479,35 +1463,35 @@ body {
     background-repeat: no-repeat;
 }
 .about--options>a:nth-child(1) {
-    background-image: url("../img/2023-a.jpg")
+    background-image: url("../img/2023-a.svg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/2023-b.jpg")
+    background-image: url("../img/2023-b.svg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/2023-c.jpg")
+    background-image: url("../img/2023-c.svg")
 }
 
 .about--options>a:nth-child(4) {
-    background-image: url("../img/2023-d.jpg")
+    background-image: url("../img/2023-d.svg")
 }
 
 .about2--options>a:nth-child(1) {
-    background-image: url("../img/2023-e.jpg")
+    background-image: url("../img/2023-e.svg")
 }
 
 .about2--options>a:nth-child(2) {
-    background-image: url("../img/2023-f.jpg")
+    background-image: url("../img/2023-f.svg")
 }
 
 .about2--options>a:nth-child(3) {
-    background-image: url("../img/2023-g.jpg")
+    background-image: url("../img/2023-g.svg")
 }
 
 .about2--options>a:nth-child(4) {
-    background-image: url("../img/2023-h.jpg")
+    background-image: url("../img/2023-h.svg")
 }
 
 .about2--options>a:hover h3 {
@@ -1515,35 +1499,35 @@ body {
 }
 
 .about3--options>a:nth-child(1) {
-    background-image: url("../img/2022-a.jpg")
+    background-image: url("../img/2022-a.svg")
 }
 
 .about3--options>a:nth-child(2) {
-    background-image: url("../img/2022-b.jpg")
+    background-image: url("../img/2022-b.svg")
 }
 
 .about3--options>a:nth-child(3) {
-    background-image: url("../img/2022-c.jpg")
+    background-image: url("../img/2022-c.svg")
 }
 
 .about3--options>a:nth-child(4) {
-    background-image: url("../img/2022-d.jpg")
+    background-image: url("../img/2022-d.svg")
 }
 
 .about4--options>a:nth-child(1) {
-    background-image: url("../img/2022-e.jpg")
+    background-image: url("../img/2022-e.svg")
 }
 
 .about4--options>a:nth-child(3) {
-    background-image: url("../img/2022-f.jpg")
+    background-image: url("../img/2022-f.svg")
 }
 
 .about4--options>a:nth-child(4) {
-    background-image: url("../img/2022-g.jpg")
+    background-image: url("../img/2022-g.svg")
 }
 
 .about4--options>a:nth-child(2) {
-    background-image: url("../img/2022-h.jpg")
+    background-image: url("../img/2022-h.svg")
 }
 
 .about3--options>a:hover h3, 
@@ -1586,7 +1570,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/contact-visual.png");
+    background-image: url("../img/contact-visual.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat
