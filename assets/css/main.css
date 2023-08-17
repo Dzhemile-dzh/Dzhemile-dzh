@@ -1355,7 +1355,6 @@ body {
 }
 
 .mySlides {
-    width: 250px; 
     display: none; 
     height: 350px; 
     border: 10px solid #fbcd08; 
