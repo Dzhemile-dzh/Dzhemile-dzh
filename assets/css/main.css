@@ -1024,7 +1024,7 @@ body {
 }
 
 .work--lockup .slider--item-center .slider--item-image {
-    width: 200px;
+    width: 220px;
     height: 300px
 }
 
@@ -1088,8 +1088,8 @@ body {
     }
 
     .work--lockup .slider--item-center .slider--item-image {
-        width: 190px;
-        height: 290px;
+        width: 220px;
+        height: 300px;
     }
 
     .work--lockup .slider--next, .work--lockup .slider--prev {
