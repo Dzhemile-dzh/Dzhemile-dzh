@@ -1349,6 +1349,7 @@ body {
     }
         .mySlides {
             height: 250px !important;
+            width: 272px !important;
             margin-left: 30px;
             margin-bottom: 20px;
     }
