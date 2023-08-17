@@ -798,7 +798,7 @@ body {
 .intro--options>a {
     max-width: 250px;
     text-decoration: none;
-    color: #282828;
+    color: #a0a0a0;
     -webkit-transition: color .2s ease-in-out;
     transition: color .2s ease-in-out
 }
@@ -1569,7 +1569,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/contact-visual.svg");
+  /*  background-image: url("../img/contact-visual.svg");*/
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat
