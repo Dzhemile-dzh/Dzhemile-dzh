@@ -1463,35 +1463,35 @@ body {
     background-repeat: no-repeat;
 }
 .about--options>a:nth-child(1) {
-    background-image: url("../img/2023-a.svg")
+    background-image: url("../img/2023-a.jpg")
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("../img/2023-b.svg")
+    background-image: url("../img/2023-b.jpg")
 }
 
 .about--options>a:nth-child(3) {
-    background-image: url("../img/2023-c.svg")
+    background-image: url("../img/2023-c.jpg")
 }
 
 .about--options>a:nth-child(4) {
-    background-image: url("../img/2023-d.svg")
+    background-image: url("../img/2023-d.jpg")
 }
 
 .about2--options>a:nth-child(1) {
-    background-image: url("../img/2023-e.svg")
+    background-image: url("../img/2023-e.jpg")
 }
 
 .about2--options>a:nth-child(2) {
-    background-image: url("../img/2023-f.svg")
+    background-image: url("../img/2023-f.jpg")
 }
 
 .about2--options>a:nth-child(3) {
-    background-image: url("../img/2023-g.svg")
+    background-image: url("../img/2023-g.jpg")
 }
 
 .about2--options>a:nth-child(4) {
-    background-image: url("../img/2023-h.svg")
+    background-image: url("../img/2023-h.jpg")
 }
 
 .about2--options>a:hover h3 {
@@ -1499,35 +1499,35 @@ body {
 }
 
 .about3--options>a:nth-child(1) {
-    background-image: url("../img/2022-a.svg")
+    background-image: url("../img/2022-a.jpg")
 }
 
 .about3--options>a:nth-child(2) {
-    background-image: url("../img/2022-b.svg")
+    background-image: url("../img/2022-b.jpg")
 }
 
 .about3--options>a:nth-child(3) {
-    background-image: url("../img/2022-c.svg")
+    background-image: url("../img/2022-c.jpg")
 }
 
 .about3--options>a:nth-child(4) {
-    background-image: url("../img/2022-d.svg")
+    background-image: url("../img/2022-d.jpg")
 }
 
 .about4--options>a:nth-child(1) {
-    background-image: url("../img/2022-e.svg")
+    background-image: url("../img/2022-e.jpg")
 }
 
 .about4--options>a:nth-child(3) {
-    background-image: url("../img/2022-f.svg")
+    background-image: url("../img/2022-f.jpg")
 }
 
 .about4--options>a:nth-child(4) {
-    background-image: url("../img/2022-g.svg")
+    background-image: url("../img/2022-g.jpg")
 }
 
 .about4--options>a:nth-child(2) {
-    background-image: url("../img/2022-h.svg")
+    background-image: url("../img/2022-h.jpg")
 }
 
 .about3--options>a:hover h3, 
@@ -1570,7 +1570,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-  /*  background-image: url("../img/contact-visual.svg");*/
+  /*  background-image: url("../img/contact-visual.jpg");*/
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat
