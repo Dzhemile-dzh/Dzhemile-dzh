@@ -1303,7 +1303,9 @@ body {
 
 
 .about h2,
-.about2 h2 {
+.about2 h2,
+.about3 h2,
+.about4 h2 {
     margin: 0 0 20px 0;
     font-size: 30px;
     background-color: #fbcd08;
@@ -1553,13 +1555,6 @@ body {
     font-size: 12px;
 }
  
-.about3 h2, 
-.about4 h2 {
-    margin: 0 0 20px 0;
-    font-size: 30px;
-    background-color: #fd3cd6;
-}
-
 @media (max-width: 600px) {
     .about2--options, 
     .about3--options, 
