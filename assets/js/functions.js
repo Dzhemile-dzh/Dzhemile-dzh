@@ -82,48 +82,9 @@ $( document ).ready(function() {
 
   });
 
-  // determine scroll, swipe, and arrow key direction
-  function updateHelper(param) {
 
-    var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = 0;
 
-    if (param.keyCode === 40 || param > 0) {
-      if (curPos !== lastItem) {
-        nextPos = curPos + 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-      else {
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-    }
-    else if (param.keyCode === 38 || param < 0){
-      if (curPos !== 0){
-        nextPos = curPos - 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-      else {
-        nextPos = lastItem;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-    }
 
-  }
-
-  // sync side and outer navigations
-  function updateNavs(nextPos) {
-
-    $('.side-nav, .outer-nav').children().removeClass('is-active');
-    $('.side-nav').children().eq(nextPos).addClass('is-active');
-    $('.outer-nav').children().eq(nextPos).addClass('is-active');
-
-  }
 
   // update main content area
   function updateContent(curPos, nextPos, lastItem) {
