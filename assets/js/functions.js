@@ -2,6 +2,54 @@
 
 $( document ).ready(function() {
 
+  // DOMMouseScroll included for firefox support
+  var canScroll = true,
+      scrollController = null;
+  $(this).on('mousewheel DOMMouseScroll', function(e){
+
+    if (!($('.outer-nav').hasClass('is-vis'))) {
+
+      e.preventDefault();
+
+      var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
+
+      if (delta > 50 && canScroll) {
+        canScroll = false;
+        clearTimeout(scrollController);
+        scrollController = setTimeout(function(){
+          canScroll = true;
+        }, 800);
+        updateHelper(1);
+      }
+      else if (delta < -50 && canScroll) {
+        canScroll = false;
+        clearTimeout(scrollController);
+        scrollController = setTimeout(function(){
+          canScroll = true;
+        }, 800);
+        updateHelper(-1);
+      }
+
+    }
+
+  });
+
+  $('.side-nav li, .outer-nav li').click(function(){
+
+    if (!($(this).hasClass('is-active'))) {
+
+      var $this = $(this),
+          curActive = $this.parent().find('.is-active'),
+          curPos = $this.parent().children().index(curActive),
+          nextPos = $this.parent().children().index($this),
+          lastItem = $(this).parent().children().length - 1;
+
+      updateNavs(nextPos);
+      updateContent(curPos, nextPos, lastItem);
+
+    }
+
+  });
 
   $('.cta').click(function(){
 
@@ -15,6 +63,67 @@ $( document ).ready(function() {
 
   });
 
+  // swipe support for touch devices
+  var targetElement = document.getElementById('viewport'),
+      mc = new Hammer(targetElement);
+  mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+  mc.on('swipeup swipedown', function(e) {
+
+    updateHelper(e);
+
+  });
+
+  $(document).keyup(function(e){
+
+    if (!($('.outer-nav').hasClass('is-vis'))) {
+      e.preventDefault();
+      updateHelper(e);
+    }
+
+  });
+
+  // determine scroll, swipe, and arrow key direction
+  function updateHelper(param) {
+
+    var curActive = $('.side-nav').find('.is-active'),
+        curPos = $('.side-nav').children().index(curActive),
+        lastItem = $('.side-nav').children().length - 1,
+        nextPos = 0;
+
+    if (param.keyCode === 40 || param > 0) {
+      if (curPos !== lastItem) {
+        nextPos = curPos + 1;
+        updateNavs(nextPos);
+        updateContent(curPos, nextPos, lastItem);
+      }
+      else {
+        updateNavs(nextPos);
+        updateContent(curPos, nextPos, lastItem);
+      }
+    }
+    else if (param.keyCode === 38 || param < 0){
+      if (curPos !== 0){
+        nextPos = curPos - 1;
+        updateNavs(nextPos);
+        updateContent(curPos, nextPos, lastItem);
+      }
+      else {
+        nextPos = lastItem;
+        updateNavs(nextPos);
+        updateContent(curPos, nextPos, lastItem);
+      }
+    }
+
+  }
+
+  // sync side and outer navigations
+  function updateNavs(nextPos) {
+
+    $('.side-nav, .outer-nav').children().removeClass('is-active');
+    $('.side-nav').children().eq(nextPos).addClass('is-active');
+    $('.outer-nav').children().eq(nextPos).addClass('is-active');
+
+  }
 
   // update main content area
   function updateContent(curPos, nextPos, lastItem) {
