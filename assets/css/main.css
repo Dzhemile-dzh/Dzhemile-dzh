@@ -1267,6 +1267,7 @@ body {
 .about--options>a:hover {
     scale: 1.8;
     filter: brightness(115%);
+    border: 2px solid #fbcd08;
     z-index: 999;
 }
 
@@ -1279,7 +1280,6 @@ body {
     height: 240px;
     text-decoration: none;
     color: #fff;
-    border: 2px solid #fbcd08;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1449,6 +1449,7 @@ body {
     scale: 1.8;
     filter: brightness(115%);
     z-index: 999;
+    border: 2px solid #fbcd08;
 }
 
 .about2--options, 
