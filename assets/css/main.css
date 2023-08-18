@@ -979,7 +979,7 @@ body {
     width: 150px;
     margin: 0 auto;
     overflow: hidden;
-    border: 8px solid #fbcd08;
+    border-top: 8px solid #fbcd08;
 }
 
 .work--lockup .slider--item-image img {
