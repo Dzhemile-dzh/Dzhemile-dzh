@@ -33,6 +33,10 @@
     margin-top: 8vh;
 }
 
+#planet {
+    width: 100%;
+}
+
 .permission_denied h1 {
     text-align: center;
     color: #fff;
