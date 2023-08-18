@@ -1614,16 +1614,15 @@ body {
 .contact--lockup .modal {
     padding: 45px 45px;
     text-align: center;
-    background-color: #0c0c0c;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75)
+    background-color: #ffcf40;
+    box-shadow: 0 0 30px 0 rgba(243, 209, 25, 0.75);
 }
 
 .contact--lockup .modal--information p, .contact--lockup .modal--information a {
     display: block;
     margin: 14px 0;
     text-decoration: none;
-    color: #fff;
-    font-weight: 700
+    color: #000;
 }
 
 .contact--lockup .modal--information p {
