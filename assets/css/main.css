@@ -1359,6 +1359,15 @@ body {
     }
 }
 
+.notify-badges {
+    position: relative;
+    background: #fbcd08;
+    color: black;
+    height: 2rem;
+    width: 4rem;
+    text-align: center;
+    font-size: 8px;
+}
 .mySlides {
     display: none; 
     width: 260px;
