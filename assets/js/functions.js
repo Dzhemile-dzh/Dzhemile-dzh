@@ -2,54 +2,6 @@
 
 $( document ).ready(function() {
 
-  // DOMMouseScroll included for firefox support
-  var canScroll = true,
-      scrollController = null;
-  $(this).on('mousewheel DOMMouseScroll', function(e){
-
-    if (!($('.outer-nav').hasClass('is-vis'))) {
-
-      e.preventDefault();
-
-      var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
-
-      if (delta > 50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
-          canScroll = true;
-        }, 800);
-        updateHelper(1);
-      }
-      else if (delta < -50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
-          canScroll = true;
-        }, 800);
-        updateHelper(-1);
-      }
-
-    }
-
-  });
-
-  $('.side-nav li, .outer-nav li').click(function(){
-
-    if (!($(this).hasClass('is-active'))) {
-
-      var $this = $(this),
-          curActive = $this.parent().find('.is-active'),
-          curPos = $this.parent().children().index(curActive),
-          nextPos = $this.parent().children().index($this),
-          lastItem = $(this).parent().children().length - 1;
-
-      updateNavs(nextPos);
-      updateContent(curPos, nextPos, lastItem);
-
-    }
-
-  });
 
   $('.cta').click(function(){
 
@@ -62,28 +14,6 @@ $( document ).ready(function() {
     updateContent(curPos, nextPos, lastItem);
 
   });
-
-  // swipe support for touch devices
-  var targetElement = document.getElementById('viewport'),
-      mc = new Hammer(targetElement);
-  mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  mc.on('swipeup swipedown', function(e) {
-
-    updateHelper(e);
-
-  });
-
-  $(document).keyup(function(e){
-
-    if (!($('.outer-nav').hasClass('is-vis'))) {
-      e.preventDefault();
-      updateHelper(e);
-    }
-
-  });
-
-
-
 
 
   // update main content area
