@@ -740,7 +740,7 @@ body {
     left: 23px;
     right: 0;
     height: 100%;
-    background-color: #fbcd0852;
+    background-color: #fd3cd6;
     z-index: -1;
     -webkit-transition: left .2s ease-in-out;
     transition: left .2s ease-in-out
@@ -756,7 +756,7 @@ body {
     left: 23px;
     right: 0;
     height: 100%;
-    background-color: #fb08ef52;
+    background-color: #fd3cd6;
     color: #000;
     z-index: -1;
     -webkit-transition: left .2s ease-in-out;
