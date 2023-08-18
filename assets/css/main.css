@@ -1651,6 +1651,10 @@ body {
     background-color: #fb0841
 }
 
+.contactInfo {
+    width: 25px;
+    height: 15px;
+}
 
 .contact--lockup .modal--options a {
     display: block;
