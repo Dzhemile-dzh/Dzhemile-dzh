@@ -1576,8 +1576,10 @@ body {
         display: inline-flex;
     }
     .about-me {
-        width: 220px;
-        margin-left: 58px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
     }
 }
 
