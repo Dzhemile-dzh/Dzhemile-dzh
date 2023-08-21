@@ -1587,6 +1587,11 @@ body {
     scale: 1.1;
 }
 
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+ }
+
 .contact {
     position: fixed;
     top: 0;
