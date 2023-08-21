@@ -1055,7 +1055,7 @@ body {
 }
 
 .about-mew {
-    background-color: #fbcd08;
+    border-bottom: 5px solid #fbcd08;
 }
 
 .work--lockup .slider--next svg, .work--lockup .slider--prev svg {
@@ -1574,6 +1574,7 @@ body {
     }
     .about-me {
         width: 220px;
+        margin-left: 58px;
     }
 }
 
