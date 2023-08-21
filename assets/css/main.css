@@ -1384,6 +1384,11 @@ body {
     .about--banner {
         height: auto
     }
+    .notify-badge {
+        height: unset !important;
+        width: 2rem !important;
+        font-size: 6px !important;
+    }
 
     .about--banner::before {
         left: 155px
