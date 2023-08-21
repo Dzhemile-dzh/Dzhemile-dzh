@@ -1054,6 +1054,10 @@ body {
     cursor: pointer
 }
 
+.about-mew {
+    background-color: #fbcd08;
+}
+
 .work--lockup .slider--next svg, .work--lockup .slider--prev svg {
     width: 20px;
     fill: #fff
@@ -1376,13 +1380,10 @@ body {
     text-align: center;
     font-size: 8px;
 }
-.mySlides {
-    display: none; 
-    width: 260px;
-    height: 282px; 
-    border: 10px solid #fbcd08; 
-    margin-right: 15px;
-  }
+
+.about-me {
+    width: 340px;
+}
 
 @media (max-width: 600px) {
     .about--banner {
@@ -1571,6 +1572,9 @@ body {
     .about4--options {
         display: inline-flex;
     }
+    .about-me {
+        width: 220px;
+    }
 }
 
 .contact {
@@ -1704,8 +1708,9 @@ body {
 
 .hire h2 {
     margin: 0 0 10px 0;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: normal;
+    text-align: end;
 }
 
 .work-request {
