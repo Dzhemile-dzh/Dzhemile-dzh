@@ -1928,6 +1928,7 @@ body {
     .hire h2 {
         font-size: 12px !important;
         font-weight: lighter !important;
+        text-align: center !important;
     }
 
     .work-request--options input[type="checkbox"]:checked+label svg {
