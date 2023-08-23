@@ -17,7 +17,6 @@
 </head>
 
 <body>
-<div class="english-content">
   <div class="device-notification">
     <a class="device-notification--logo" href="https://42-brush-whisker.com">
       <img src="assets/img/logo.png" alt="Brush & Whisker" style="width:50px;height:50px">
@@ -282,8 +281,8 @@
       <li>Bio</li>
     </ul>
   </div>
-</div>
 
+<!----
 <div class="bulgarian-content">
   <div class="device-notification">
     <a class="device-notification--logo" href="https://42-brush-whisker.com">
@@ -547,25 +546,9 @@
     </ul>
   </div>
 </div>
-
-
+-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
   <script src="assets/js/functions-min.js"></script>
-  <script>
-    const languageSwitcher = document.getElementById("language-switcher");
-    const englishContent = document.querySelector(".english-content");
-    const bulgarianContent = document.querySelector(".bulgarian-content");
-  
-    languageSwitcher.addEventListener("click", () => {
-      if (englishContent.style.display === "none") {
-        englishContent.style.display = "block";
-        bulgarianContent.style.display = "none";
-      } else {
-        englishContent.style.display = "none";
-        bulgarianContent.style.display = "block";
-      }
-    });
-  </script>
 </body>
 </html>
