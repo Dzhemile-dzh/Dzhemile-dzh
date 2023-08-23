@@ -41,7 +41,7 @@
                 <small>Dzhemile Ahmed</small>
               </div>
             </a>
-            <h3 class="header--lang"><a>bg </a>/ <a> en</a></h3>
+            <h3 class="header--lang"><a class="lang-switch" data-lang="bg">bg</a> / <a class="lang-switch" data-lang="en">en</a></h3
             <div class="header--nav-toggle">
               <span></span>
             </div>
@@ -60,7 +60,8 @@
             <li class="l-section section section--is-active">
               <div class="intro">
                 <div class="intro--banner">
-                  <h1 data-lang-en="Utopia <br>in reality <br>with colors" data-lang-bg="Утопия <br>в реалността <br>с цветове"></h1>
+                  <h1 data-lang="en">Utopia <br>in reality <br>with colors </h1> 
+                  <h1 data-lang="bg">Утопия <br>в реалност <br>с цветове </h1>
                   <button class="cta">Have a look
                     <span class="btn-background"></span>
                   </button>
@@ -288,9 +289,9 @@
   <script>
     $(document).ready(function() {
       var currentLang = 'en';
-      $('.header--lang a').click(function(e) {
+      $('.lang-switch').click(function(e) {
         e.preventDefault();
-        var lang = $(this).text().trim();
+        var lang = $(this).attr('data-lang');
         currentLang = lang;
         $('[data-lang]').each(function() {
           var element = $(this);
