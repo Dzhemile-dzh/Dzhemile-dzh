@@ -60,8 +60,8 @@
             <li class="l-section section section--is-active">
               <div class="intro">
                 <div class="intro--banner">
-                  <h1 data-lang="en">Utopia <br>in reality <br>with colors </h1> 
-                  <h1 data-lang="bg">Утопия <br>в реалност <br>с цветове </h1>
+                  <h1 data-lang="en">Utopia <br>in reality <br>with colors </h1>
+                  <h1 data-lang="bg" style="display: none;">Утопия <br>в реалност <br>с цветове </h1>
                   <button class="cta">Have a look
                     <span class="btn-background"></span>
                   </button>
@@ -296,7 +296,7 @@
         $('[data-lang]').each(function() {
           var element = $(this);
           var translation = element.attr('data-lang-' + lang);
-  
+          
           if (translation) {
             element.html(translation);
           }
