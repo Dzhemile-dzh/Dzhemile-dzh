@@ -1031,9 +1031,17 @@ body {
     display: block
 }
 
+
+@media (min-width: 1300px) {
+    .work--lockup .slider--item-center .slider--item-image {
+        width: 420px !important;
+        height: 520px !important;
+    }
+}
+
 .work--lockup .slider--item-center .slider--item-image {
-    width: 420px;
-    height: 520px
+    width: 320px;
+    height: 420px;
 }
 
 .work--lockup .slider--next, .work--lockup .slider--prev {
