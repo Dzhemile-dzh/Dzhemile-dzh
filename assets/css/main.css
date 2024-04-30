@@ -1032,7 +1032,7 @@ body {
 }
 
 
-@media (min-width: 1300px) {
+@media (min-width: 2000px) {
     .work--lockup .slider--item-center .slider--item-image {
         width: 420px !important;
         height: 520px !important;
