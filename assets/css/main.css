@@ -1289,6 +1289,8 @@ body {
 .about--options>a,
 .about2--options>a, 
 .about3--options>a, 
+.about6--options>a, 
+.about7--options>a, 
 .about4--options>a {
     position: relative;
     width: 200px;
@@ -1320,7 +1322,9 @@ body {
 .about h2,
 .about2 h2,
 .about3 h2,
-.about4 h2 {
+.about4 h2,
+.about7 h2,
+.about6 h2 {
     margin: 0 0 20px 0;
     font-size: 30px;
     background-color: #fbcd08;
@@ -1434,7 +1438,7 @@ body {
     }
 }
 
-.about2, .about3, .about4 {
+.about2, .about3, .about4, .about6, .about7 {
     position: relative;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1455,13 +1459,15 @@ body {
 }
 
 @media (max-width: 1180px) {
-    .about2, .about3, .about4 {
+    .about2, .about3, .about4, .about6, .about7 {
         max-width: 100%
     }
 }
 
 .about2--options>a:hover, 
 .about3--options>a:hover, 
+.about6--options>a:hover, 
+.about7--options>a:hover, 
 .about4--options>a:hover {
     scale: 1.8;
     filter: brightness(115%);
@@ -1471,7 +1477,9 @@ body {
 
 .about2--options, 
 .about3--options, 
-.about4--options {
+.about4--options,
+.about7--options,
+.about6--options {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1547,19 +1555,55 @@ body {
 }
 
 .about4--options>a:nth-child(4) {
-    background-image: url("../img/2022-h.jpg")
+    background-image: url("../img/2023-nora.jpg")
 }
 
 .about4--options>a:nth-child(2) {
     background-image: url("../img/2022-g.jpg")
 }
 
+.about6--options>a:nth-child(1) {
+    background-image: url("../img/2024-e.png")
+}
+
+.about6--options>a:nth-child(3) {
+    background-image: url("../img/2024-i.png")
+}
+
+.about6--options>a:nth-child(4) {
+    background-image: url("../img/2024-h.png")
+}
+
+.about6--options>a:nth-child(2) {
+    background-image: url("../img/2024-g.png")
+}
+
+.about7--options>a:nth-child(1) {
+    background-image: url("../img/2024-a.png")
+}
+
+.about7--options>a:nth-child(3) {
+    background-image: url("../img/2024-b.png")
+}
+
+.about7--options>a:nth-child(4) {
+    background-image: url("../img/2024-c.png")
+}
+
+.about7--options>a:nth-child(2) {
+    background-image: url("../img/2024-d.png")
+}
+
 .about3--options>a:hover h3, 
+.about6--options>a:hover h3,
+.about7--options>a:hover h3,
 .about4--options>a:hover h3{
     bottom: -50px
 }
 
 .about2--options h3, 
+.about6--options h3,
+.about7--options h3,
 .about3--options h3, 
 .about4--options h3 {
     position: absolute;
@@ -1576,7 +1620,9 @@ body {
 @media (max-width: 600px) {
     .about2--options, 
     .about3--options, 
-    .about4--options {
+    .about4--options,
+    .about7--options,
+    .about6--options {
         display: inline-flex;
     }
     .about-me {
