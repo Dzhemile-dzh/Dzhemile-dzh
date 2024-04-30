@@ -744,7 +744,7 @@ body {
     left: 23px;
     right: 0;
     height: 100%;
-    background-color: #fbcd08;
+    background-color: #3d3c49;
     z-index: -1;
     -webkit-transition: left .2s ease-in-out;
     transition: left .2s ease-in-out
@@ -1128,14 +1128,18 @@ body {
     .about--options>a,
     .about2--options>a,
     .about3--options>a,
+    .about6--options>a,
+    .about7--options>a,
     .about4--options>a {
         width: 100px!important;
         height: 150px!important;
     }
 
     .about--options>a:hover,
-    .about2--options>a:hover
-    .about3--options>a:hover
+    .about2--options>a:hover,
+    .about3--options>a:hover,
+    .about6--options>a:hover,
+    .about7--options>a:hover,
     .about4--options>a:hover {
         scale: 1.4 !important;
         filter: brightness(120%)!important;
@@ -1144,6 +1148,8 @@ body {
     .about--options h3,
     .about2--options h3,
     .about3--options h3,
+    .about6--options h3,
+    .about7--options h3,
     .about4--options h3 {
         font-size: 8px!important;
     }
