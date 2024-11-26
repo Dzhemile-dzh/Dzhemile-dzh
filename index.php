@@ -6,7 +6,7 @@
                 <h1 class="text-white"><?php echo $translations['hero_title']; ?></h1>
             </div>
             <div class="owl-carousel owl-theme">
-                <?php
+                <?php 
                 $profiles = [
                     ['img' => '1.jpg', 'name' => 'Aurora', 'badges' => ['portrait', 'surrealism'], 'links' => ['2024/aurora.php', 'https://www.instagram.com/doarti42/']],
                     ['img' => '2.jpg', 'name' => 'Alice', 'badges' => ['present & past'], 'links' => ['2024/alice.php', 'https://www.instagram.com/doarti42/']],
