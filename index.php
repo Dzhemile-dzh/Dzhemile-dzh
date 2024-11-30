@@ -61,7 +61,7 @@
                             <div class="row">
                                 <div class="col-5" id="index-image">
                                     <a href="<?php echo $painting['link']; ?>">
-                                        <img src="<?php echo $painting['image']; ?>" class="img-fluid" alt="">
+                                        <img src="<?php echo $painting['image']; ?>" class="img-fluid" alt="" id="section-painting-img">
                                     </a>
                                 </div>
                                 <div class="col-7 custom-block-info" id="index-content">
@@ -78,7 +78,9 @@
                                     </h5>
                                     <div class="profile-block d-flex">
                                         <p>
-                                            <?php echo $translations['oil_painting']; ?>
+                                            <small class="me-4">
+                                                <?php echo $translations['oil_painting']; ?>
+                                            </small>
                                             <img src="images/verified.png" class="verified-image img-fluid" alt="">
                                             <strong><?php echo $translations['badges']['portraits']; ?></strong>
                                         </p>
@@ -96,7 +98,7 @@
     <section id="section_3">
         <div class="row">
             <div class="col-lg-12">
-                <video autoplay loop muted style="width: 100%; height: 800px; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-size: 100%;">
+                <video autoplay loop muted class="video-index" style="width: 100%; height: 800px; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: 100%; mask-size: 100%;">
                     <source src="images/20230917_152650_1_1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -117,7 +119,7 @@
                 foreach ($favorites as $fav) { ?>
                     <div class="col-lg-4 col-12 mb-4">
                         <div class="custom-block custom-block-full">
-                            <a href="<?php echo $fav['link']; ?>">
+                            <a href="<?php echo $fav['link']; ?>" style="width:100%">
                                 <img src="images/homepage/<?php echo $fav['img']; ?>" class="custom-block-image img-fluid" alt="">
                             </a>
                             <h5 class="mb-2">

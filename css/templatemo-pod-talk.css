@@ -215,6 +215,10 @@ main {
   padding: 10px 20px;
 }
 
+#section-painting-img{
+  border-radius: 15px;
+}
+
 .custom-btn:hover {
   background: var(--custom-btn-bg-hover-color);
   color: var(--white-color);
@@ -1263,6 +1267,21 @@ main {
 }
 
 @media screen and (max-width: 540px) {
+  .about-image-main {
+    display: none;
+  }
+  .video-index {
+    width: unset;
+  }
+  .owl-carousel-info {
+    padding: 15px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  #section-painting-img{
+    border-radius: 15px;
+  }
   .navbar .logo-image {
     width: 70px;
   }
@@ -1291,7 +1310,7 @@ main {
     margin-right: 5px;
   }
   .custom-block-full .custom-block-image {
-    width: 380px !important;
+    height: 400px !important;
   }
   .profile-detail-block {
     justify-content: center !important;
@@ -1306,11 +1325,11 @@ main {
     /* T o o p l a t e . c o m   C u s t o m i z e d */
   }
   .owl-item img {
-    height: 200px;
+    height: 280px;
   }
 
   .custom-block .custom-block-top {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .custom-block .custom-block-top small:last-child {

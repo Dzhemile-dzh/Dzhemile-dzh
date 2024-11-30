@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
 <main>
     <header class="site-header d-flex flex-column justify-content-center align-items-center"
-        style="background-color: #260178 !important; min-height: 160px !important; background-image: unset !important;">
+        style="background-color: #260178 !important; min-height: 120px !important; background-image: unset !important;">
     </header>
     <section class="about-section section-padding" id="section_2" style="padding-top: 50px!important;">
         <div class="container">

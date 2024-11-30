@@ -34,8 +34,8 @@
                                         <span class="badge">oil on canvas</span>
                                     </small>
                                 </div>
-                                <h2 class="mb-2"><?= $translations['painting_title'] ?></h2>
-                                <p><?= $translations['painting_description'] ?></p>
+                                <h2 class="mb-2"><?= $translations['twins_title'] ?></h2>
+                                <p><?= $translations['twins_description'] ?></p>
                                 <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                     <div class="row" style="display: contents;">
                                         <p><strong><?= $translations['price'] ?>:
