@@ -24,7 +24,7 @@
                 </p>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-6 col-12" id="footer-socials">
                 <h6 class="site-footer-title mb-3"><?php echo $translations['footer']['socials']; ?></h6>
                 <ul class="social-icon">
                     <li class="social-icon-item">

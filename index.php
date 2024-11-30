@@ -59,12 +59,12 @@
                     <div class="col-lg-6 col-12 mb-4">
                         <div class="custom-block d-flex">
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-5" id="index-image">
                                     <a href="<?php echo $painting['link']; ?>">
                                         <img src="<?php echo $painting['image']; ?>" class="img-fluid" alt="">
                                     </a>
                                 </div>
-                                <div class="col-7 custom-block-info">
+                                <div class="col-7 custom-block-info" id="index-content">
                                     <div class="custom-block-top d-flex mb-1">
                                         <small class="me-4">
                                             <i class="bi-clock-fill custom-icon"></i> <?php echo $painting['year']; ?>

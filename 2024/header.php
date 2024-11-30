@@ -3,12 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>Doarti</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Author: Dzhemile Ahmed, Doarti website. My journey into the world of art started with a simple curiosity — I couldn't resist capturing the little details that make each face a unique work of living, breathing art. But let's be real, my passion didn't stop there. I've embraced the challenge of blending beauty and nature in the most harmonious way possible. That's why I dove headfirst into the world of portraiture and painting.">
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <meta name="keywords" content="art, painting, portraits, Dzhemile Ahmed, Doarti, artist, artwork">
+    <meta name="author" content="Dzhemile Ahmed">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="referrer" content="always">
+    <meta name="language" content="English">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    <meta name="classification" content="art and culture">
+    <meta property="og:title" content="Doarti">
+    <meta property="og:description" content="Author: Dzhemile Ahmed, Doarti Art website. My journey into the world of art started with a simple curiosity — I couldn't resist capturing the little details that make each face a unique work of living, breathing art. But let's be real, my passion didn't stop there. I've embraced the challenge of blending beauty and nature in the most harmonious way possible. That's why I dove headfirst into the world of portraiture and painting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doarti.com">
+    <meta property="og:image" content="https://doarti.com/images/logo-doarti.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +88,8 @@ $translations = include "../languages/{$lang}.php";
                     </li>
                     <!-- Language Selector -->
                     <li class="nav-item dropdown">
-                        <div class="ms-4">
-                        <a class="nav-link dropdown-toggle"role="button"  aria-expanded="false">
+                        <div>
+                            <a class="nav-link dropdown-toggle" role="button" aria-expanded="false">
                                 <?php echo strtoupper($lang); ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light">
@@ -84,7 +100,7 @@ $translations = include "../languages/{$lang}.php";
                                     <a class="dropdown-item" href="?lang=bg">BG</a>
                                 </li>
                             </ul>
-                            </div>
+                        </div>
                     </li>
                 </ul>
 
@@ -94,7 +110,7 @@ $translations = include "../languages/{$lang}.php";
             </div>
         </div>
     </nav>
-    
+
     <header class="site-header d-flex flex-column justify-content-center align-items-center"
         style="background-color: #260178 !important; min-height: 160px !important; background-image: unset !important;">
     </header>

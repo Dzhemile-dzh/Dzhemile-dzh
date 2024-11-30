@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0" >
                 <h6 class="site-footer-title mb-3"><?php echo $translations['footer']['contact']; ?></h6>
                 <p class="mb-2">
                     <strong class="d-inline me-2"><?php echo $translations['footer']['phone']; ?></strong> +359 895 62 75 11
@@ -24,7 +24,7 @@
                 </p>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-6 col-12" id="footer-socials">
                 <h6 class="site-footer-title mb-3"><?php echo $translations['footer']['socials']; ?></h6>
                 <ul class="social-icon">
                     <li class="social-icon-item">
