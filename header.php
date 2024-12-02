@@ -1,13 +1,23 @@
+<?php
+session_start();
+
+// Set the language based on the user's selection or default to 'en'.
+if (isset($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+}
+
+$lang = $_SESSION['lang'] ?? 'en';
+$translations = include "languages/{$lang}.php";
+?>
 <!doctype html>
-<html lang="<?php echo $lang; ?>">
+<html lang="<?php echo htmlspecialchars($lang, ENT_QUOTES, 'UTF-8'); ?>">
 
 <head>
     <meta charset="utf-8">
     <title>Doarti</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Author: Dzhemile Ahmed, Doarti website. My journey into the world of art started with a simple curiosity — I couldn't resist capturing the little details that make each face a unique work of living, breathing art. But let's be real, my passion didn't stop there. I've embraced the challenge of blending beauty and nature in the most harmonious way possible. That's why I dove headfirst into the world of portraiture and painting.">
-    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta name="keywords" content="art, painting, portraits, Dzhemile Ahmed, Doarti, artist, artwork">
     <meta name="author" content="Dzhemile Ahmed">
     <meta name="robots" content="index, follow">
@@ -36,16 +46,6 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link href="css/templatemo-pod-talk.css" rel="stylesheet">
 </head>
-<?php
-session_start();
-
-if (isset($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
-}
-
-$lang = $_SESSION['lang'] ?? 'en';
-$translations = include "languages/{$lang}.php";
-?>
 
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -83,12 +83,8 @@ $translations = include "languages/{$lang}.php";
                                 <?php echo strtoupper($lang); ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light">
-                                <li>
-                                    <a class="dropdown-item" href="?lang=en">EN</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="?lang=bg">BG</a>
-                                </li>
+                                <li><a class="dropdown-item" href="?lang=en" <?php echo $lang === 'en' ? 'aria-current="true"' : ''; ?>>EN</a></li>
+                                <li><a class="dropdown-item" href="?lang=bg" <?php echo $lang === 'bg' ? 'aria-current="true"' : ''; ?>>BG</a></li>
                             </ul>
                         </div>
                     </li>
