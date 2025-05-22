@@ -37,13 +37,13 @@
                                     </small>
                                 </div>
 
-                                <h2 class="mb-2"><?= $translations['dreamshapertitle'] ?></h2>
-                                <p><?= $translations['dreamshaperdescription'] ?></p>
+                                <h2 class="mb-2"><?= $translations['dreamshaper_title'] ?></h2>
+                                <p><?= $translations['dreamshaper_description'] ?></p>
 
                                 <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                     <div class="row" style="display: contents;">
                                         <p><strong><?= $translations['price'] ?>:
-                                                <span style="color: #49e98e; font-size: 20px">500<?= $translations['leva'] ?></span>
+                                                <span style="color: #49e98e; font-size: 20px">850<?= $translations['leva'] ?></span>
                                             </strong>
                                         </p>
                                     </div>

@@ -43,7 +43,7 @@
                                 <div class="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                                     <div class="row" style="display: contents;">
                                         <p><strong><?= $translations['price'] ?>:
-                                                <span style="color: #49e98e; font-size: 20px">500<?= $translations['leva'] ?></span>
+                                                <span style="color: #49e98e; font-size: 20px">700<?= $translations['leva'] ?></span>
                                             </strong>
                                         </p>
                                     </div>
