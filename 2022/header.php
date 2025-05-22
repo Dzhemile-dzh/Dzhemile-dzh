@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+}
+
+$lang = $_SESSION['lang'] ?? 'en';
+$translations = include "../languages/{$lang}.php";
+?>
 <!doctype html>
 <html lang="<?php echo $lang; ?>">
 
@@ -44,17 +52,6 @@
 
     <link href="../css/templatemo-pod-talk.css" rel="stylesheet">
 </head>
-
-<?php
-session_start();
-
-if (isset($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
-}
-
-$lang = $_SESSION['lang'] ?? 'en';
-$translations = include "../languages/{$lang}.php";
-?>
 
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -111,5 +108,5 @@ $translations = include "../languages/{$lang}.php";
     </nav>
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center"
-        style="background-color: #260178 !important; min-height: 120px !important; background-image: unset !important;">
+        id="header-solid">
     </header>

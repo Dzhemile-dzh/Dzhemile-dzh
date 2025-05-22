@@ -2,7 +2,7 @@
 
 <main>
     <header class="site-header d-flex flex-column justify-content-center align-items-center"
-        style="background-color: #260178 !important; min-height: 120px !important; background-image: unset !important;">
+        id="header-solid">
     </header>
 
     <section class="section-padding" id="section_2">

@@ -1061,6 +1061,11 @@ main {
   background-color: #fbcd08;
   border-bottom: 5px solid #fbcd08;
 }
+#header-solid {
+  background-color: #260178 !important;
+   min-height: 160px ; 
+   background-image: unset !important;
+}
 
 /*---------------------------------------
   SITE FOOTER              
@@ -1267,6 +1272,12 @@ main {
 }
 
 @media screen and (max-width: 540px) {
+  .custom-block-top small {
+    font-size: 12px !important;
+  }
+  #header-solid {
+    min-height: 120px !important;
+  }
   .about-image-main {
     display: none;
   }
