@@ -78,6 +78,10 @@
                             src="images/about/6.jpg"
                             class="w-100 shadow-1-strong rounded mb-4 img-ab"
                             alt="Waves at Sea" />
+                        <img
+                            src="images/about/9.jpg"
+                            class="w-100 shadow-1-strong rounded mb-4 img-ab"
+                            alt="Waves at Sea" />
                     </div>
                 </div>
             </div>

@@ -51,6 +51,7 @@ return [
         'paintings' => 'Paintings',
         'contact' => 'Contact',
         'years' => [
+            '2025' => '2025',
             '2024' => '2024',
             '2023' => '2023',
             '2022' => '2022',
@@ -322,6 +323,41 @@ return [
             ],
         ],
     ],
+    'gallery2025' => [
+        'header' => '2025 Paintings',
+        'paintings' => [
+            [
+                'title' => 'Feline Echo',
+                'dimensions' => '60 x 80 cm',
+                'description' => 'Presents a striking fusion of poise and enigma, capturing a moment of silent communion between a woman and her tattooed, hairless cat...',
+                'sold' => '',
+                'link' => '2025/feline-echo.php',
+                'image' => 'images/2025/2025-c.jpg',
+            ],
+            [
+                'title' => 'Celestial Flow',
+                'dimensions' => '60 x 80 cm',
+                'description' => 'Presents a serene convergence of aquatic grace and cosmic wonder. At the center stands a young woman whose contemplative gaze draws the viewer into a world suspended between sky and sea...',
+                'sold' => '',
+                'link' => '2025/celestial-flow.php',
+                'image' => 'images/2025/2025-b.jpg',
+            ],
+            [
+                'title' => 'Dreamshaper',
+                'dimensions' => '60 x 80 cm',
+                'description' => 'Unveils a realm where imagination weaves its own architecture. At its heart is a poised young woman whose serene expression...',
+                'link' => '2025/dreamshaper.php',
+                'image' => 'images/2025/2025-d.jpg',
+            ],
+            [
+                'title' => 'Sacred Flame',
+                'dimensions' => '60 x 80 cm',
+                'description' => 'Radiates a quiet intensity, drawing the viewer into a moment suspended between ritual and revelation. At its center stands a dignified...',
+                'link' => '2025/sacred-flame.php',
+                'image' => 'images/2025/2025-a.jpg',
+            ],
+        ]
+    ],
     'articles2022' => [
         [
             'title' => 'Mia - Whisper of Valor',
@@ -571,6 +607,41 @@ return [
             'image' => "../images/2024/2024-f.png"
         ]
     ],
+    'articles2025' => [
+        [
+            'title'       => 'Feline Echo',
+            'description' => 'Presents a striking fusion of poise and enigma, capturing a moment of silent communion between a woman and her tattooed, hairless cat...',
+            'size'        => '60 x 80 cm',
+            'medium'      => 'Oil painting',
+            'link'        => '../2025/feline-echo.php',
+            'image'       => '../images/2025/2025-c.jpg',
+        ],
+        [
+            'title'       => 'Celestial Flow',
+            'description' => 'Presents a serene convergence of aquatic grace and cosmic wonder. At the center stands a young woman whose contemplative gaze draws the viewer into a world suspended between sky and sea...',
+            'size'        => '60 x 80 cm',
+            'medium'      => 'Oil painting',
+            'link'        => '../2025/celestial-flow.php',
+            'image'       => '../images/2025/2025-b.jpg',
+        ],
+        [
+            'title'       => 'Dreamshaper',
+            'description' => 'Unveils a realm where imagination weaves its own architecture. At its heart is a poised young woman whose serene expression...',
+            'size'        => '60 x 80 cm',
+            'medium'      => 'Oil painting',
+            'link'        => '../2025/dreamshaper.php',
+            'image'       => '../images/2025/2025-d.jpg',
+        ],
+        [
+            'title'       => 'Sacred Flame',
+            'description' => 'Radiates a quiet intensity, drawing the viewer into a moment suspended between ritual and revelation. At its center stands a dignified...',
+            'size'        => '60 x 80 cm',
+            'medium'      => 'Oil painting',
+            'link'        => '../2025/sacred-flame.php',
+            'image'       => '../images/2025/2025-a.jpg',
+        ],
+    ],
+
     'brandy_heading' => "Brandy - Avian Reverie",
     'brandy_description' => [
         'intro' => '"Avian Reverie" is a mesmerizing painting that celebrates the harmonious interplay between humanity and the natural world, brought to life through an intricate tapestry of avian life. At its heart, the piece features a figure whose serene expression emerges from a vivid gathering of birds, seamlessly blending the human and natural realms.',
@@ -864,4 +935,32 @@ return [
 
         <br>\"Amaya Rei - Guardian Spirit of Serenity\" stands as a testament to the enduring power of portraiture in capturing not just the likeness of a subject, but the essence of their character and the profound stories that lie beneath the surface",
 
-];
+
+    'feline_echo_title' =>"Feline Echo",
+    'feline_echo_description' =>"\"Feline Echo\" presents a striking fusion of poise and enigma, capturing a moment of silent communion between a woman and her tattooed, hairless cat. The woman’s cropped pink hair, rendered with delicate brushstrokes, creates a futuristic contrast against the painting’s deep turquoise backdrop, suggesting an otherworldly calm. Her gaze, direct yet introspective, meets the viewer’s with a quiet intensity that resonates with the sphynx cat perched at her shoulder.
+
+                                <br>Nearly hairless and adorned with intricate tattoos, the cat’s sleek form adds an edge of bold mystique. Its inked patterns, seemingly alive against the cat’s skin, serve as both a guardian’s mark and a reflection of the woman’s inner strength. Their shared composure radiates an unspoken bond, hinting at an inner dialogue that transcends words. The interplay of warm and cool hues across the canvas underscores this connection, weaving together elements of mystery, elegance, and understated power.
+
+                                <br>Entitled \"Feline Echo,\" this oil painting explores the delicate balance between human vulnerability and feline grace. The minimalistic details of each figure—accentuated by the bold color palette—invite viewers to ponder the resonant echoes that exist between two souls attuned to each other’s energy. Created with meticulous care, \"Feline Echo\" stands as a testament to the quiet yet profound links we share with the companions who walk alongside us, guiding our reflections and kindling our inner strength",
+
+    'celestial_flow_title' =>"Celestial Flow",
+    'celestial_flow_tescription' =>"\"Celestial Flow\" presents a serene convergence of aquatic grace and cosmic wonder. At the center stands a young woman whose contemplative gaze draws the viewer into a world suspended between sky and sea. Her flowing scarf frames her face in soft folds, reflecting the subtle dance of light across the painting’s deep blues and radiant oranges.
+
+                                <br>Encircling her are luminous goldfish, their fins trailing like ethereal ribbons in the currents of a hidden tide. Each fish seems both weightless and purposeful, embodying the gentle yet persistent flow of life’s cycles. Behind the woman, a glowing orb suggests a celestial halo, highlighting the delicate balance between earthly existence and the vast expanse of the cosmos.
+
+                                <br>Entitled \"Celestial Flow\" this oil painting evokes a sense of calm introspection and timeless connection. The interplay of cool and warm hues underscores the harmony between water and sky, life and spirit. Through the meeting of human presence and aquatic companions, \"Celestial Flow\" invites viewers to contemplate the quiet, ever-shifting rhythms that guide us—reminding us that even amidst the infinite, each soul carries its own luminous current.",
+
+    'dreamshaper_title' =>"Dream Shaper",
+    'dreamshaper_description' =>"“Dream Shaper” unveils a realm where imagination weaves its own architecture. At its heart is a poised young woman whose serene expression anchors the composition, inviting the viewer into a landscape spun from the threads of slumber. Her chestnut hair parts to reveal a miniature city of towers and domes, each lovingly rendered in warm ochres and muted siennas, as though plucked from a half-remembered reverie and set afloat upon her brow.
+
+                                <br>Soft, wispy clouds drift at her shoulders like silent confidants, tethered by slender, ink-black lines that echo the arcs of her hair and the curves of her neck. These veils of mist lend an ethereal lightness, gently contrasting the solidity of the stone spires above. Subtle transitions from teal to twilight blue in the background suggest the edge of consciousness—neither fully night nor day—where dreams take shape.
+
+                                <br>Entitled “Dream Shaper,” this oil painting beckons contemplation of the worlds we build within. The interplay of architectural precision and vaporous softness speaks to the dual forces of intention and imagination. Through the meeting of human presence and sculpted fantasy, “Dream Shaper” gently reminds us that our inner visions have the power to erect entire cities of possibility—one quiet thought at a time.",
+
+    'sacred_flame_title' =>"Sacred Flame",
+    'sacred_flame_description' =>"“Sacred Flame” radiates a quiet intensity, drawing the viewer into a moment suspended between ritual and revelation. At its center stands a dignified woman, her calm yet determined gaze set against a muted twilight background. Dark braids frame her face, and a single hairpin crowns her up-do—an emblem of poised strength. Her richly layered robes, woven in deep russets and burnished golds, evoke the warmth of embers glowing in the hush before dawn.
+
+                                <br>To her side floats a translucent sphere, within which a dancing flame flickers like a captive spirit. The fire’s curls of amber and crimson pulse against the cool halo of the orb, suggesting both containment and yearning. Light from this inner blaze casts gentle highlights across her cheeks and collarbone, underscoring the bond between inner resolve and outward poise. Her ornate earrings catch stray sparks, transforming metal into quiet witnesses of the flame’s energy.
+
+                                <br>Entitled “Sacred Flame,” this oil painting speaks to the sacred spark that lives within each of us. The interplay of shadow and firelight reflects the dual nature of power—both restrained and elemental. Through the woman’s steadfast presence and the orb’s living glow, “Sacred Flame” invites contemplation of our own inner rituals and the enduring fire that guides us through darkness."
+    ];
