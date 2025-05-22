@@ -11,7 +11,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="custom-block-icon-wrap">
                                 <div class="custom-block-image-wrap custom-block-image-detail-page">
-                                    <img src="../images/2025/2025-c.jpg" class="custom-block-image img-fluid" alt=""
+                                    <img src="../images/2025/2025-b.jpg" class="custom-block-image img-fluid" alt=""
                                         style="height: 100%!important;">
                                 </div>
                                 <span class="badge-left badgem position-absolute"><?= $translations['available'] ?></span>

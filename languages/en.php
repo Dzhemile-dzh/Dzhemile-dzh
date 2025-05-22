@@ -21,12 +21,12 @@ return [
         'alice_desc' => "'Alice: A Fusion of Past and Present' is a captivating oil painting that seamlessly blends the elegance of the Renaissance with the vibrancy of modernity. At its core stands Alice..."
     ],
     'favorites' => [
-        'future_keeper_desc' => "Future's Keeper: Wisdom of the Ages portrays an elegant older woman...",
-        'twins_pact_desc' => "Мischief Unleashed: The Twins Pact captures a playful yet mischievous...",
-        'oscar_dichotomy_desc' => "Oscar's Dichotomy depicts a poignant tableau of resilience...",
-        'future_keeper_title' => "Future's Keeper",
-        'twins_pact_title' => "The Twins Pact",
-        'oscar_dichotomy_title' => "Oscar's Dichotomy"
+        'feline_echo_desc' => "Presents a striking fusion of poise and enigma, capturing a moment of...",
+        'dreamshaper_desc' => "Unveils a realm where imagination weaves its own architecture. At its heart...",
+        'sacred_flame_desc' => "Radiates a quiet intensity, drawing the viewer into a moment suspended...",
+        'feline_echo_title' => "Feline Echo",
+        'dreamshaper_title' => "Dreamshaper",
+        'sacred_flame_title' => "Sacred Flame"
     ],
     'badges' => [
         'portrait' => 'portrait',
@@ -330,7 +330,6 @@ return [
                 'title' => 'Feline Echo',
                 'dimensions' => '60 x 80 cm',
                 'description' => 'Presents a striking fusion of poise and enigma, capturing a moment of silent communion between a woman and her tattooed, hairless cat...',
-                'sold' => '',
                 'link' => '2025/feline-echo.php',
                 'image' => 'images/2025/2025-c.jpg',
             ],
@@ -338,7 +337,6 @@ return [
                 'title' => 'Celestial Flow',
                 'dimensions' => '60 x 80 cm',
                 'description' => 'Presents a serene convergence of aquatic grace and cosmic wonder. At the center stands a young woman whose contemplative gaze draws the viewer into a world suspended between sky and sea...',
-                'sold' => '',
                 'link' => '2025/celestial-flow.php',
                 'image' => 'images/2025/2025-b.jpg',
             ],

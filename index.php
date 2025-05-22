@@ -112,9 +112,9 @@
             <div class="row mt-5">
                 <?php
                 $favorites = [
-                    ['img' => '1.jpg', 'name' => $translations['favorites']['future_keeper_title'], 'link' => '2024/futures-keeper.php', 'likes' => 17, 'downloads' => 12, "size" => "60 x 80 cm", "desc" => $translations['favorites']['future_keeper_desc']],
-                    ['img' => '2.jpg', 'name' => $translations['favorites']['twins_pact_title'], 'link' => '2024/twins.php', 'likes' => 34, 'downloads' => 45, "size" => "60 x 80 cm", "desc" => $translations['favorites']['twins_pact_desc']],
-                    ['img' => '3.jpg', 'name' => $translations['favorites']['oscar_dichotomy_title'], 'link' => '2024/oscars-dichotomy.php', 'likes' => 25, 'downloads' => 3, "size" => "60 x 80 cm", "desc" => $translations['favorites']['oscar_dichotomy_desc']]
+                    ['img' => '1.jpg', 'name' => $translations['favorites']['dreamshaper_title'], 'link' => '2025/dreamshaper.php', 'likes' => 17, 'downloads' => 12, "size" => "60 x 80 cm", "desc" => $translations['favorites']['dreamshaper_desc']],
+                    ['img' => '2.jpg', 'name' => $translations['favorites']['feline_echo_title'], 'link' => '2025/feline-echo.php', 'likes' => 34, 'downloads' => 45, "size" => "60 x 80 cm", "desc" => $translations['favorites']['feline_echo_desc']],
+                    ['img' => '3.jpg', 'name' => $translations['favorites']['sacred_flame_title'], 'link' => '2025/sacred-flame.php', 'likes' => 25, 'downloads' => 3, "size" => "60 x 80 cm", "desc" => $translations['favorites']['sacred_flame_desc']]
                 ];
                 foreach ($favorites as $fav) { ?>
                     <div class="col-lg-4 col-12 mb-4">
