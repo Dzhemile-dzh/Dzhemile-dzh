@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { initInteractiveFeatures } from './utils/interactive';
 import Header from './components/Header';
@@ -61,6 +62,7 @@ function App() {
           </main>
           <Footer />
           <ScrollToTop />
+          <SpeedInsights />
         </div>
       </Router>
     </LanguageProvider>
