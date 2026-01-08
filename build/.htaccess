@@ -1,0 +1,141 @@
+# React Router - Handle client-side routing
+RewriteEngine On
+
+# Handle Angular and React Router
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ index.html [L]
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options nosniff
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self';"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Images
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Video
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/avi "access plus 1 month"
+    
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Others
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # 1 Month for most static assets
+    <filesmatch "\.(css|jpg|jpeg|png|gif|js|ico|svg|webp)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </filesmatch>
+    
+    # 1 Week for HTML files
+    <filesmatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=604800, public"
+    </filesmatch>
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to source maps in production
+<FilesMatch "\.map$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Error Pages
+ErrorDocument 404 /index.html
+ErrorDocument 500 /index.html
+
+# MIME Types
+<IfModule mod_mime.c>
+    # Web fonts
+    AddType application/font-woff woff
+    AddType application/font-woff2 woff2
+    AddType application/vnd.ms-fontobject eot
+    AddType application/x-font-ttf ttf
+    AddType font/opentype otf
+    
+    # Images
+    AddType image/svg+xml svg svgz
+    AddType image/webp webp
+    
+    # JavaScript
+    AddType application/javascript js
+    AddType text/javascript js
+</IfModule>
+
+# Force HTTPS (uncomment if you have SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} /+[^?\s]*?/[\s?] [NC]
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+
+

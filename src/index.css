@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fix image aspect ratios */
+.owl-carousel-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.custom-block-image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.custom-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gallery images */
+.gallery-section .custom-block-image {
+  /* height: 300px; - removed to allow natural aspect ratio */
+}
+
+/* Painting detail images */
+.painting-detail-section img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+/* Status badges */
+.status-badge .badge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Related paintings section */
+.related-paintings-section {
+  background-color: #f8f9fa;
+}
+
+.related-paintings-section .card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-paintings-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.related-paintings-section .card-img-top {
+  border-radius: 15px 15px 0 0;
+}
+
+.related-paintings-section .card-body {
+  padding: 1.5rem;
+}
+
+.related-paintings-section .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.related-paintings-section .badge {
+  font-size: 0.8rem;
+  border-radius: 15px;
+}

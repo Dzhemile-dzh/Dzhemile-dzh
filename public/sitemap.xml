@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://doarti.com/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/logo-doarti.png</image:loc>
+      <image:title>Dzhemile Ahmed - Doarti Art Gallery</image:title>
+      <image:caption>Professional artist specializing in oil paintings and portraits</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://doarti.com/about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://doarti.com/contact</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Gallery Pages -->
+  <url>
+    <loc>https://doarti.com/gallery/2022</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/gallery/2023</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/gallery/2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/gallery/2025</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Individual Painting Pages (2022) -->
+  <url>
+    <loc>https://doarti.com/painting/brandy</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-a.jpg</image:loc>
+      <image:title>Brandy - Avian Reverie</image:title>
+      <image:caption>Oil painting featuring birds and nature</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/carl</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-b.jpg</image:loc>
+      <image:title>Carl - Portrait</image:title>
+      <image:caption>Portrait painting by Dzhemile Ahmed</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/ella</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-c.jpg</image:loc>
+      <image:title>Ella - Portrait</image:title>
+      <image:caption>Portrait painting by Dzhemile Ahmed</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/gracel</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-d.jpg</image:loc>
+      <image:title>Gracel - Portrait</image:title>
+      <image:caption>Portrait painting by Dzhemile Ahmed</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/grogu</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-e.jpg</image:loc>
+      <image:title>Grogu - Portrait</image:title>
+      <image:caption>Portrait painting by Dzhemile Ahmed</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/liesel</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-f.jpg</image:loc>
+      <image:title>Liesel - Sovereign of the Wild</image:title>
+      <image:caption>Wildlife and nature painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/mia</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-g.jpg</image:loc>
+      <image:title>Mia - Portrait</image:title>
+      <image:caption>Portrait painting by Dzhemile Ahmed</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/ellia</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2022/2022-h.jpg</image:loc>
+      <image:title>Ellia - Veil of Plumes</image:title>
+      <image:caption>Peacock and nature inspired painting</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Individual Painting Pages (2023) -->
+  <url>
+    <loc>https://doarti.com/painting/nora</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-a.jpg</image:loc>
+      <image:title>Nora - Fires of Resilience</image:title>
+      <image:caption>Portrait with fire elements</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/horse</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-horse.jpg</image:loc>
+      <image:title>Svetla's Grace - A Tribute to Childhood Joy</image:title>
+      <image:caption>White horse running painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/megan</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-b.jpg</image:loc>
+      <image:title>Megan - Midnight Enigma</image:title>
+      <image:caption>Portrait with panther companion</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/clansy</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-c.jpg</image:loc>
+      <image:title>Clansy - Spirit of Connection</image:title>
+      <image:caption>Portrait with fox companion</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/luna</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-d.jpg</image:loc>
+      <image:title>Luna - Whisperer of the White Wolf</image:title>
+      <image:caption>Native American inspired portrait with wolf</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/lyla</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-e.jpg</image:loc>
+      <image:title>Lyla - Shepherdess Serenade</image:title>
+      <image:caption>Village maiden with sheep</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/mia-whisper</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-f.jpg</image:loc>
+      <image:title>Mia - Whisper of Valor</image:title>
+      <image:caption>Archer portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/gracel-golden</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-g.jpg</image:loc>
+      <image:title>Gracel - Golden Serenity</image:title>
+      <image:caption>Geisha portrait with golden umbrella</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/fred</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-h.jpg</image:loc>
+      <image:title>Fred - Portrait</image:title>
+      <image:caption>Male portrait painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/greg</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-nora.jpg</image:loc>
+      <image:title>Greg - Portrait</image:title>
+      <image:caption>Male portrait painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/scofield</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-portrait.jpg</image:loc>
+      <image:title>Scofield - Portrait</image:title>
+      <image:caption>Male portrait painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/lincoln</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2023/2023-nora.jpg</image:loc>
+      <image:title>Lincoln - Portrait</image:title>
+      <image:caption>Male portrait painting</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Individual Painting Pages (2024) -->
+  <url>
+    <loc>https://doarti.com/painting/oscars-dichotomy</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-a.png</image:loc>
+      <image:title>Oscar's Dichotomy</image:title>
+      <image:caption>Elderly woman and young girl portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/twins</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-b.png</image:loc>
+      <image:title>Mischief Unleashed: The Twins' Pact</image:title>
+      <image:caption>Twin boys mischief scene</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/futures-keeper</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-c.png</image:loc>
+      <image:title>The Future's Keeper: Wisdom of the Ages</image:title>
+      <image:caption>Elderly woman with futuristic helmet</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/amaya-rei</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-d.png</image:loc>
+      <image:title>Amaya Rei - Guardian Spirit of Serenity</image:title>
+      <image:caption>Asian warrior portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/aurora</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-e.png</image:loc>
+      <image:title>Aurora's Vineyard Dream</image:title>
+      <image:caption>Surreal grape and nature painting</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/newa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-f.png</image:loc>
+      <image:title>Newa - Genesis Unveiled</image:title>
+      <image:caption>Nude figure with apple symbolism</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/gaia</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-g.png</image:loc>
+      <image:title>Gaia's Awakening</image:title>
+      <image:caption>Nude figure with falling apple</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/hera</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-h.png</image:loc>
+      <image:title>Hera: A Glimpse into Maternal Majesty</image:title>
+      <image:caption>Mother and child portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/alice</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-i.png</image:loc>
+      <image:title>Alice: A Fusion of Past and Present</image:title>
+      <image:caption>Renaissance dress with modern headphones</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/algara</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-j.png</image:loc>
+      <image:title>Algara - Essence of Bulgarian Folklore</image:title>
+      <image:caption>Traditional Bulgarian costume portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/rorschach</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-latest-1.jpg</image:loc>
+      <image:title>Rorschach Reverie: A Surreal Portrait</image:title>
+      <image:caption>Surreal portrait with cats and butterflies</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/lamias-essence</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-latest-2.jpg</image:loc>
+      <image:title>Lamia's Essence</image:title>
+      <image:caption>Mythological portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/twins-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2024/2024-latest-3.jpg</image:loc>
+      <image:title>Twins - 2024</image:title>
+      <image:caption>Twin figures portrait</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Individual Painting Pages (2025) -->
+  <url>
+    <loc>https://doarti.com/painting/feline-echo</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2025/2025-a.jpg</image:loc>
+      <image:title>Feline Echo</image:title>
+      <image:caption>Woman with tattooed cat</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/celestial-flow</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2025/2025-b.jpg</image:loc>
+      <image:title>Celestial Flow</image:title>
+      <image:caption>Woman with golden fish and celestial elements</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/dreamshaper</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2025/2025-c.jpg</image:loc>
+      <image:title>Dream Shaper</image:title>
+      <image:caption>Woman with city in her hair</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://doarti.com/painting/sacred-flame</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://doarti.com/images/2025/2025-d.jpg</image:loc>
+      <image:title>Sacred Flame</image:title>
+      <image:caption>Woman with floating flame orb</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>
+
+
+
