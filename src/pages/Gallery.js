@@ -105,9 +105,9 @@ const Gallery = () => {
         <div className="container">
           {paintings.length === 0 ? (
             <div className="text-center py-5">
-              <h3>No paintings found for {year}</h3>
-              <p>Please check back later or browse other years.</p>
-              <Link to="/" className="btn custom-btn">Back to Home</Link>
+              <h3>{t('no_paintings_found').replace('{year}', year)}</h3>
+              <p>{t('check_back_later')}</p>
+              <Link to="/" className="btn custom-btn">{t('back_to_home')}</Link>
             </div>
           ) : (
             <div className="row">
