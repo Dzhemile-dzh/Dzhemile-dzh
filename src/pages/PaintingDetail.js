@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
+import './PaintingDetail.css';
 
 // Utility function to truncate text to 200 characters
 const truncateText = (text, maxLength = 200) => {
@@ -14,6 +15,8 @@ const truncateText = (text, maxLength = 200) => {
 const PaintingDetail = () => {
   const { year, slug } = useParams();
   const { t, translations } = useLanguage();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(100);
 
   // This would typically come from an API or more detailed data structure
   const getPaintingData = (year, slug) => {
@@ -90,6 +93,23 @@ const PaintingDetail = () => {
 
   const relatedPaintings = getRelatedPaintings();
 
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 25, 300));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 25, 50));
+  };
+
+  const handleResetZoom = () => {
+    setZoomLevel(100);
+  };
+
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false);
+    setZoomLevel(100);
+  };
+
   return (
     <>
       <header className="site-header d-flex flex-column justify-content-center align-items-center" id="header-solid">
@@ -132,13 +152,23 @@ const PaintingDetail = () => {
                 <div className="row">
                   <div className="col-lg-6 col-12">
                         <div className="custom-block-icon-wrap">
-                          <div className="custom-block-image-wrap custom-block-image-detail-page">
+                          <div className="custom-block-image-wrap custom-block-image-detail-page painting-image-container">
                             <ImageLoader
                               src={`/${painting.image}`}
                               alt={painting.title}
-                              className="custom-block-image img-fluid"
+                              className="custom-block-image img-fluid painting-main-image"
                               style={{ height: '100%', width: '100%', objectFit: 'cover' }}
                             />
+                            <button 
+                              className="painting-view-fullsize-btn"
+                              onClick={() => setLightboxOpen(true)}
+                              aria-label="View full size"
+                            >
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                              </svg>
+                              <span>{t('view_full_size') || 'View Full Size'}</span>
+                            </button>
                           </div>
                       <span className={`position-absolute ${painting.sold ? 'badge-sold-left' : 'badge-left badgem'}`}>
                         {painting.sold ? t('sold') : t('available')}
@@ -298,6 +328,77 @@ const PaintingDetail = () => {
           </section>
         )}
       </main>
+
+      {/* Full Size Lightbox with Zoom */}
+      {lightboxOpen && (
+        <div 
+          className="painting-lightbox" 
+          onClick={handleCloseLightbox}
+        >
+          <div className="painting-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="painting-lightbox-close"
+              onClick={handleCloseLightbox}
+              aria-label="Close lightbox"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            
+            <div className="painting-lightbox-zoom-controls">
+              <button 
+                className="painting-zoom-btn"
+                onClick={handleZoomOut}
+                disabled={zoomLevel <= 50}
+                aria-label="Zoom out"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <span className="painting-zoom-level">{zoomLevel}%</span>
+              <button 
+                className="painting-zoom-btn"
+                onClick={handleZoomIn}
+                disabled={zoomLevel >= 300}
+                aria-label="Zoom in"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </button>
+              <button 
+                className="painting-zoom-btn"
+                onClick={handleResetZoom}
+                aria-label="Reset zoom"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                  <path d="M21 3v5h-5"></path>
+                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                  <path d="M3 21v-5h5"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div className="painting-lightbox-image-container">
+              <img 
+                src={`/${painting.image}`} 
+                alt={painting.title} 
+                className="painting-lightbox-image"
+                style={{ transform: `scale(${zoomLevel / 100})` }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

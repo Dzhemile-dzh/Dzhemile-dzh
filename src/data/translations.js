@@ -20,6 +20,7 @@ export const translations = {
     no_paintings_found: 'No paintings found for {year}',
     check_back_later: 'Please check back later or browse other years.',
     back_to_home: 'Back to Home',
+    view_full_size: 'View Full Size',
     painting_details: {
       aurora_desc: "'Aurora's Vineyard Dream' is a mesmerizing canvas that transcends traditional boundaries, blending symbolism and surrealism with...",
       alice_desc: "'Alice: A Fusion of Past and Present' is a captivating oil painting that seamlessly blends the elegance of the Renaissance with the vibrancy of modernity. At its core stands Alice..."
@@ -81,7 +82,7 @@ export const translations = {
       homepage: 'Homepage',
       contact_page: 'Contact',
       about_page: 'About',
-      copyright: 'Copyright <strong>© Doarti</strong>2026 by Dzhemile Ahmed',
+      copyright: 'Copyright <strong>© Doarti</strong> 2026 by Dzhemile Ahmed',
     },
     about: {
       header: 'My Story',
@@ -91,6 +92,7 @@ export const translations = {
         paragraph3: 'So you will be able to see my progress here on <b class="about-mew">Doarti</b>.',
       },
       studio_title: 'Studio & Exhibitions',
+      studio_subtitle: 'A glimpse into the creative process and artistic journey',
     },
     contact: {
       header: "I'm open for commissions",
@@ -695,7 +697,7 @@ export const translations = {
     'lincoln_description_bg': "Картината 'Линкълн' улавя същността на устойчивостта и достойнството."
   },
   bg: {
-    hero_title: 'Утопия в реалността \n с <span class="bordered">цветове</span>',
+    hero_title: 'Утопия в реалността <br> с <span class="bordered">цветове</span>',
     euro: '€',
     latest_paintings: 'Последни картини',
     oil_painting: 'масло на платно',
@@ -715,6 +717,7 @@ export const translations = {
     no_paintings_found: 'Не са намерени картини за {year}',
     check_back_later: 'Моля, проверете отново по-късно или разгледайте други години.',
     back_to_home: 'Обратно към началото',
+    view_full_size: 'Виж в пълен размер',
     painting_details: {
       aurora_desc: "'Мечтата на Аврора' е завладяващ живопис, който надхвърля традиционните граници, съчетавайки символизъм и сюрреализъм...",
       alice_desc: "'Алиса: Сливане на минало и настояще' е масло на платно, който плавно обединява елегантността на Ренесанса с жизнеността на съвремието. В центъра ѝ стои Алиса..."
@@ -888,6 +891,7 @@ export const translations = {
         paragraph3: 'Така че ще можете да видите моя прогрес тук в <b class="about-mew">Doarti</b>.',
       },
       studio_title: 'Студио и изложби',
+      studio_subtitle: 'Поглед в творческия процес и художествения път',
     },
     contact: {
       header: "Отворенa съм за поръчки",

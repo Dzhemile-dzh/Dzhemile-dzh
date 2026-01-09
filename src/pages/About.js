@@ -2,14 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
+import './About.css';
 
 const About = () => {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
   const sectionRef = useRef(null);
 
   const aboutImages = [
-    '4.jpg', '1.jpg', '2.jpg', '3.jpg', '8.jpg', '7.jpg', '6.jpg', '9.jpg'
+    { src: '4.jpg', size: 'medium' },
+    { src: '1.jpg', size: 'large' },
+    { src: '2.jpg', size: 'small' },
+    { src: '3.jpg', size: 'medium' },
+    { src: '8.jpg', size: 'small' },
+    { src: '7.jpg', size: 'large' },
+    { src: '6.jpg', size: 'medium' },
+    { src: '9.jpg', size: 'small' }
   ];
 
   useEffect(() => {
@@ -70,30 +79,66 @@ const About = () => {
             <div className="col-lg-12 col-12">
               <div className="section-title-wrap mb-5">
                 <h4 className="section-title">{t('about.studio_title')}</h4>
+                <p className="section-subtitle">{t('about.studio_subtitle') || 'A glimpse into the creative process and artistic journey'}</p>
               </div>
             </div>
 
-            <div className="row" ref={sectionRef}>
+            <div className="studio-gallery" ref={sectionRef}>
               {aboutImages.map((image, index) => (
                 <div 
                   key={index} 
-                  className={`col-lg-3 col-md-12 mb-4 mb-lg-0 ${isVisible ? 'fade-in-visible' : 'fade-in'}`}
+                  className={`studio-gallery-item studio-gallery-item-${image.size} ${isVisible ? 'fade-in-visible' : 'fade-in'}`}
                   style={{ 
                     animationDelay: `${index * 0.1}s`
                   }}
+                  onClick={() => setLightboxImage(`/images/about/${image.src}`)}
                 >
-                  <ImageLoader
-                    src={`/images/about/${image}`}
-                    alt={`Studio ${index + 1}`}
-                    className="w-100 shadow-1-strong rounded mb-4 img-ab"
-                    style={{ 
-                      width: '100%', 
-                      objectFit: 'cover'
-                    }}
-                  />
+                  <div className="studio-gallery-image-wrapper">
+                    <ImageLoader
+                      src={`/images/about/${image.src}`}
+                      alt={`Studio & Exhibition ${index + 1}`}
+                      className="studio-gallery-image"
+                    />
+                    <div className="studio-gallery-overlay">
+                      <div className="studio-gallery-overlay-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span className="studio-gallery-view-text">View Full Size</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* Lightbox Modal */}
+            {lightboxImage && (
+              <div 
+                className="studio-lightbox" 
+                onClick={() => setLightboxImage(null)}
+              >
+                <div className="studio-lightbox-content" onClick={(e) => e.stopPropagation()}>
+                  <button 
+                    className="studio-lightbox-close"
+                    onClick={() => setLightboxImage(null)}
+                    aria-label="Close lightbox"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                  <img 
+                    src={lightboxImage} 
+                    alt="Studio & Exhibition" 
+                    className="studio-lightbox-image"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -1,0 +1,266 @@
+/* Painting Detail Page - Full Size View & Zoom */
+
+.painting-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.painting-main-image {
+  transition: transform 0.3s ease;
+}
+
+.painting-view-fullsize-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.painting-view-fullsize-btn:hover {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.painting-view-fullsize-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: #333;
+}
+
+.painting-view-fullsize-btn span {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Lightbox Modal */
+.painting-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  overflow: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.painting-lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.painting-lightbox-close {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.painting-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: rotate(90deg);
+}
+
+.painting-lightbox-zoom-controls {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 8px 16px;
+  backdrop-filter: blur(10px);
+}
+
+.painting-zoom-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.painting-zoom-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.painting-zoom-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.painting-zoom-btn svg {
+  stroke: white;
+}
+
+.painting-zoom-level {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: center;
+}
+
+.painting-lightbox-image-container {
+  position: relative;
+  max-width: 100%;
+  max-height: 85vh;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.painting-lightbox-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+.painting-lightbox-image:active {
+  cursor: grabbing;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .painting-view-fullsize-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .painting-view-fullsize-btn span {
+    display: none;
+  }
+
+  .painting-lightbox {
+    padding: 1rem;
+  }
+
+  .painting-lightbox-close {
+    top: -50px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .painting-lightbox-zoom-controls {
+    top: -50px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .painting-zoom-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .painting-zoom-level {
+    font-size: 0.8rem;
+    min-width: 40px;
+  }
+
+  .painting-lightbox-image-container {
+    max-height: 80vh;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .painting-view-fullsize-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+  }
+
+  .painting-lightbox-zoom-controls {
+    flex-wrap: wrap;
+    top: -80px;
+    max-width: 200px;
+  }
+
+  .painting-lightbox-image-container {
+    max-height: 75vh;
+    padding: 10px;
+  }
+}
