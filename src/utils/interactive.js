@@ -105,6 +105,7 @@ export const debounce = (func, wait) => {
   };
 };
 
+
 // Throttle function for scroll events
 export const throttle = (func, limit) => {
   let inThrottle;
