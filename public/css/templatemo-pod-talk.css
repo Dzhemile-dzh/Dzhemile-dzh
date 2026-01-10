@@ -1147,7 +1147,6 @@ main {
 }
 
 .bordered {
-  border-bottom: 5px solid linear-gradient(90deg, #ffec07, #0dcaf0);
   padding: 2px;
   display: inline-block;
   background: linear-gradient(90deg, #ffec07, #0dcaf0);

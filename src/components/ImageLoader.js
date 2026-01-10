@@ -16,6 +16,16 @@ const ImageLoader = ({
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Check if element is already in view on mount
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight + 100 && rect.bottom > -100;
+      if (isVisible) {
+        setIsInView(true);
+        return;
+      }
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,7 +33,7 @@ const ImageLoader = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.01, rootMargin: '100px' }
     );
 
     if (containerRef.current) {
@@ -47,11 +57,11 @@ const ImageLoader = ({
     <div 
       ref={containerRef}
       className={`image-loader-container ${className}`}
-      style={{ position: 'relative', overflow: 'hidden' }}
+      style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '100%', minHeight: '200px' }}
     >
       {/* Placeholder/Skeleton */}
       {!imageLoaded && !imageError && (
-        <div className="image-placeholder">
+        <div className="image-placeholder" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
           <div className="skeleton-loader">
             <div className="skeleton-shimmer"></div>
           </div>
@@ -60,7 +70,7 @@ const ImageLoader = ({
 
       {/* Error State */}
       {imageError && (
-        <div className="image-error">
+        <div className="image-error" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
           <div className="error-icon">⚠️</div>
           <p>Failed to load image</p>
         </div>
@@ -80,7 +90,11 @@ const ImageLoader = ({
             transform: imageLoaded ? 'scale(1)' : 'scale(1.1)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
             width: '100%',
-            height: 'auto'
+            height: '100%',
+            objectFit: 'contain',
+            position: 'absolute',
+            top: 0,
+            left: 0
           }}
           {...props}
         />
