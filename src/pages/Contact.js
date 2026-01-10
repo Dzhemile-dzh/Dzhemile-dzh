@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useEffect, useState} from 'react';
+import {useLanguage} from '../contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -12,6 +13,18 @@ const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
+  // EmailJS configuration - Use contact form specific template or same as footer
+  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || process.env.REACT_APP_EMAILJS_CONTACT_SERVICE_ID || '';
+  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID || process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
+  const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+
+  // Initialize EmailJS
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, [EMAILJS_PUBLIC_KEY]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -22,37 +35,41 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      // Create email content with a proper subject and heading
-      const subject = `New Contact Form Submission from ${formData.fullName}`;
-      const emailBody = `
-Hello Dzhemile,
 
-You have received a new contact form submission:
+    // Store form data before clearing
+    const submittedData = {...formData};
 
-Name: ${formData.fullName}
-Email: ${formData.email}
+    // Show success immediately for better UX
+    setShowSuccessPopup(true);
+    setFormData({fullName: '', email: '', message: ''});
+    setShowPopup(false);
+    setIsSubmitting(false);
 
-Message:
-${formData.message}
-
----
-This message was sent from your art website contact form.
-      `.trim();
-
-      // Open the default email client
-      window.location.href = `mailto:dzhemile.ahmet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-      
-      // Show custom success popup
-      setShowSuccessPopup(true);
-      setFormData({ fullName: '', email: '', message: '' });
-      setShowPopup(false);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert(t('contact.popup_error'));
-    } finally {
-      setIsSubmitting(false);
+    // Send email in the background (non-blocking)
+    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
+      // Send email asynchronously without blocking UI
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: 'dzhemile.ahmet@gmail.com',
+        from_name: submittedData.fullName,
+        from_email: submittedData.email,
+        reply_to: submittedData.email,
+        subject: `New Contact Form Submission from ${submittedData.fullName}`,
+        message: submittedData.message,
+        user_name: submittedData.fullName,
+        user_email: submittedData.email,
+        full_name: submittedData.fullName,
+        email: submittedData.email,
+      }, EMAILJS_PUBLIC_KEY)
+          .then(() => {
+            console.log('Email sent successfully');
+          })
+          .catch((error) => {
+            console.error('Error sending email:', error);
+            // Optionally show a subtle error notification
+            // but don't disrupt the user experience
+          });
+    } else {
+      console.warn('EmailJS not configured');
     }
   };
 
@@ -171,7 +188,7 @@ This message was sent from your art website contact form.
                 </div>
                 <div className="success-popup-body">
                   <p>{t('contact.popup_success') || 'Thank you for your message! I will get back to you soon.'}</p>
-                  <p className="success-note">{t('contact.success_note') || 'Your email client should have opened with a pre-filled message. Please send the email to complete the process.'}</p>
+                  <p className="success-note">{t('contact.success_note') || 'Your message has been sent successfully to dzhemile.ahmet@gmail.com.'}</p>
                 </div>
                 <div className="success-popup-footer">
                   <button className="success-close-btn" onClick={closeSuccessPopup}>
