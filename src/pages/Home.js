@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import ImageLoader from '../components/ImageLoader';
+import '../components/ImageLoader.css';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -91,18 +93,14 @@ const Home = () => {
             <div className="owl-carousel owl-theme" role="region" aria-label="Featured Artwork Carousel">
               {profiles.map((profile, index) => (
                 <article key={index} className="owl-carousel-info-wrap item">
-                  <img 
-                    src={`/images/profile/${profile.img}`} 
-                    className="owl-carousel-image img-fluid" 
-                    alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by Dzhemile Ahmed`}
-                    loading="lazy"
-                    width="300"
-                    height="400"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      console.warn(`Failed to load image: /images/profile/${profile.img}`);
-                    }}
-                  />
+                  <div style={{ width: '100%', height: '400px', position: 'relative' }}>
+                    <ImageLoader
+                      src={`/images/profile/${profile.img}`}
+                      alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by Dzhemile Ahmed`}
+                      className="owl-carousel-image img-fluid"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
                   <div className="owl-carousel-info">
                     <h2 className="mb-2">
                       {t(`names.${profile.name}`) || profile.name}
@@ -236,13 +234,11 @@ const Home = () => {
                   <div className="custom-block custom-block-full">
                     <div className="custom-block-image-wrap">
                       <Link to={fav.link} aria-label={`View ${fav.name} painting details`}>
-                        <img 
-                          src={`/images/homepage/${fav.img}`} 
-                          className="custom-block-image img-fluid" 
+                        <ImageLoader
+                          src={`/images/homepage/${fav.img}`}
                           alt={`${fav.name} - Oil painting by Dzhemile Ahmed, ${fav.size}`}
-                          loading="lazy"
-                          width="400"
-                          height="300"
+                          className="custom-block-image img-fluid"
+                          style={{ width: '100%', height: '300px', objectFit: 'cover' }}
                         />
                       </Link>
                     </div>

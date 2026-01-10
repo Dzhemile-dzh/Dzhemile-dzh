@@ -195,6 +195,21 @@ const PaintingDetail = () => {
                         </small>
                       </div>
 
+                      {painting.framed && (
+                        <div className="mb-3">
+                          <span className="badge" style={{ 
+                            backgroundColor: '#8B4513', 
+                            color: '#fff', 
+                            fontSize: '14px', 
+                            padding: '8px 16px',
+                            fontWeight: 'bold',
+                            border: '2px solid #654321'
+                          }}>
+                            {t('framed')}
+                          </span>
+                        </div>
+                      )}
+
                       <p style={{ whiteSpace: 'pre-line' }}>
                         {(() => {
                           const descKey = `${slug}_description`;
@@ -215,6 +230,21 @@ const PaintingDetail = () => {
                           return description;
                         })()}
                       </p>
+
+                      {painting.recreatedBy && (
+                        <div className="mb-3 mt-3">
+                          <span className="badge" style={{ 
+                            backgroundColor: '#6c757d', 
+                            color: '#fff', 
+                            fontSize: '13px', 
+                            padding: '6px 12px',
+                            fontWeight: 'normal',
+                            fontStyle: 'italic'
+                          }}>
+                            {t(`created_by_${painting.recreatedBy}`)}
+                          </span>
+                        </div>
+                      )}
 
                       <div className="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
                         <div className="row" style={{ display: 'contents' }}>
