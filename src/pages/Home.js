@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useEffect, useRef} from 'react';
+import {Link} from 'react-router-dom';
+import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
 
@@ -9,7 +9,7 @@ const Home = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    // Load jQuery and Owl Carousel from CDN
+    // Load jQuery and Owl Carousel
     const loadScript = (src) => {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -28,7 +28,7 @@ const Home = () => {
     };
 
     // Load jQuery first, then Owl Carousel
-    loadScript('https://code.jquery.com/jquery-3.6.0.min.js')
+    loadScript('/js/jquery.min.js')
       .then(() => loadScript('/js/owl.carousel.min.js'))
       .then(() => {
         // eslint-disable-next-line no-undef
