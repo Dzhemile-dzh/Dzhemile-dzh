@@ -111,7 +111,7 @@ export const translations = {
       popup_success: 'Thank you for your message! I will get back to you soon.',
       popup_error: 'Sorry, there was an error sending your message. Please try again.',
       success_title: 'Message Sent Successfully!',
-      success_note: 'Your email client should have opened with a pre-filled message. Please send the email to complete the process.',
+      success_note: 'We will contact you as soon as possible.',
       success_close: 'Close',
       modal_title: 'Contact Me',
       form: {
@@ -925,7 +925,7 @@ export const translations = {
       popup_success: 'Благодаря за съобщението! Ще се свържа с вас скоро.',
       popup_error: 'Съжалявам, имаше грешка при изпращането. Моля, опитайте отново.',
       success_title: 'Съобщението е изпратено успешно!',
-      success_note: 'Вашият имейл клиент трябва да се е отворил с предварително попълнено съобщение. Моля, изпратете имейла, за да завършите процеса.',
+      success_note: 'Ще се свържем с Вас в най-кратко време.',
       success_close: 'Затвори',
       modal_title: 'Свържете се с мен',
       form: {

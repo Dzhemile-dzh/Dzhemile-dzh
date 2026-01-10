@@ -227,6 +227,7 @@ html {
   text-decoration: none;
   z-index: 1001;
   height: 100px;
+  gap: 15px;
 }
 
 .logo-img {
@@ -235,6 +236,42 @@ html {
   object-fit: contain;
   padding: 5px 0;
   max-height: 100%;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.logo-title {
+  font-size: 24px;
+  font-weight: 1000;
+  color: #FFA500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.logo-subtitle {
+  font-size: 9px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .logo-title {
+    font-size: 18px;
+  }
+
+  .logo-subtitle {
+    font-size: 8px;
+  }
+
+  .nav-logo {
+    gap: 10px;
+  }
 }
 
 /* Mobile Menu Button */
@@ -969,7 +1006,7 @@ main {
 
 .navbar .dropdown-item {
   display: inline-block;
-  color: var(--p-bg-color);
+  color: var(--dark-color);
   font-family: var(--title-font-family);
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-medium);
@@ -2322,7 +2359,7 @@ main {
   }
 
   .nav-tabs .nav-link {
-    font-size: var(--copyright-font-size);
+    font-size: var(--menu-font-size);
     padding: 10px;
   }
 

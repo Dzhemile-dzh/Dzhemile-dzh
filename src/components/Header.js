@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useEffect, useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import {useLanguage} from '../contexts/LanguageContext';
 
 const Header = () => {
   const { language, changeLanguage, t } = useLanguage();
@@ -77,6 +77,10 @@ const Header = () => {
               className="logo-img"
               style={{ maxWidth: '120px', maxHeight: '80px', width: 'auto', height: 'auto' }}
             />
+            <div className="logo-text">
+              <div className="logo-title">DOARTi</div>
+              <div className="logo-subtitle">BY DZHEMILE AHMED</div>
+            </div>
           </Link>
 
           {/* Mobile Menu Button */}
