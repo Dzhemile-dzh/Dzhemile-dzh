@@ -380,6 +380,7 @@ export const translations = {
           image: 'images/2024/2024-b.png',
           price: '500',
           sold: false,
+          framed: true,
           tags: ['surrealism', 'dream', 'vibrant'],
           year: '2024'
         },
@@ -511,6 +512,8 @@ export const translations = {
           description: 'Radiates a quiet intensity, drawing the viewer into a moment suspended between ritual and revelation. At its center stands a dignified...',
           link: '2025/sacred-flame',
           image: 'images/2025/2025-a.jpg',
+          price: '450',
+          sold: false,
         },
         {
           title: 'Hunter',
@@ -535,7 +538,9 @@ export const translations = {
         size: "60 x 80 cm",
         medium: "Oil painting",
         link: "../2024/oscars-dichotomy.php",
-        image: "../images/2024/2024-latest-1.jpg"
+        image: "../images/2024/2024-latest-1.jpg",
+        price: '320',
+        sold: false,
       },
       {
         title: "Мischief Unleashed: The Twins' Pact",
@@ -543,7 +548,9 @@ export const translations = {
         size: "60 x 80 cm",
         medium: "Oil painting",
         link: "../2024/twins.php",
-        image: "../images/2024/2024-latest-2.jpg"
+        image: "../images/2024/2024-latest-2.jpg",
+        price: '500',
+        sold: false,
       },
       {
         title: "The Future's Keeper",
@@ -551,7 +558,9 @@ export const translations = {
         size: "60 x 80 cm",
         medium: "Oil painting",
         link: "../2024/futures-keeper.php",
-        image: "../images/2024/2024-latest-3.jpg"
+        image: "../images/2024/2024-latest-3.jpg",
+        price: '520',
+        sold: false,
       },
       {
         title: "Amaya Rei - Guardian Spirit of Serenity",
@@ -559,7 +568,9 @@ export const translations = {
         size: "60 x 80 cm",
         medium: "Oil painting",
         link: "../2024/amaya-rei.php",
-        image: "../images/2024/2024-a.png"
+        image: "../images/2024/2024-a.png",
+        price: '450',
+        sold: false,
       },
       {
         title: "Aurora's Vineyard Dream",
@@ -567,7 +578,10 @@ export const translations = {
         size: "60 x 80 cm",
         medium: "Oil painting",
         link: "../2024/aurora.php",
-        image: "../images/2024/2024-b.png"
+        image: "../images/2024/2024-b.png",
+        framed: true,
+        price: '500',
+        sold: false,
       }
     ],
     // Specific painting translations using URL slug format
