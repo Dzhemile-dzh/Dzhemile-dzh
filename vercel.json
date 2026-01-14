@@ -51,6 +51,36 @@
       ],
       "destination": "https://doarti.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/2022.php",
+      "destination": "/gallery/2022",
+      "permanent": true
+    },
+    {
+      "source": "/2023.php",
+      "destination": "/gallery/2023",
+      "permanent": true
+    },
+    {
+      "source": "/2024.php",
+      "destination": "/gallery/2024",
+      "permanent": true
+    },
+    {
+      "source": "/2025.php",
+      "destination": "/gallery/2025",
+      "permanent": true
+    },
+    {
+      "source": "/about.php",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact.php",
+      "destination": "/contact",
+      "permanent": true
     }
   ]
 }
