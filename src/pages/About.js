@@ -55,15 +55,16 @@ const About = () => {
             <div className="col-lg-12 col-12 mx-auto">
               <div className="pb-5 mb-5">
                 <div className="section-title-wrap mb-4">
-                  <h4 className="section-title">{t('about.header')}</h4>
+                  <h4 className="section-title">{t('about.header_about')}</h4>
                 </div>
                 <div className="row">
-                  <div className="col" style={{ height: '100%!important' }}>
+                  <div className="col-lg-5 col-md-12 about-text-content" style={{height: '100%!important'}}>
                     <p style={{ fontSize: '22px' }} dangerouslySetInnerHTML={{ __html: t('about.intro.paragraph1') }}></p>
+                    <h3 className="about-section-heading-inline">{t('about.intro.section1_title')}</h3>
                     <p style={{ fontSize: '22px' }} dangerouslySetInnerHTML={{ __html: t('about.intro.paragraph2') }}></p>
                     <p style={{ fontSize: '22px' }} dangerouslySetInnerHTML={{ __html: t('about.intro.paragraph3') }}></p>
                   </div>
-                  <div className="col-7">
+                  <div className="col-lg-7 col-md-12">
                     <img 
                       src="/images/about-me.png" 
                       className="about-image-main img-fluid" 
@@ -71,6 +72,26 @@ const About = () => {
                       style={{ height: '100%!important' }}
                       loading="lazy"
                     />
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col-lg-12 col-md-12 about-text-full-width">
+                    <h3 className="about-section-heading">{t('about.intro.section2_title')}</h3>
+                    <p style={{fontSize: '22px'}} dangerouslySetInnerHTML={{__html: t('about.intro.paragraph4')}}></p>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col-lg-12 col-md-12 about-text-full-width">
+                    <h3 className="about-section-heading">{t('about.intro.section3_title')}</h3>
+                    <p style={{fontSize: '22px'}} dangerouslySetInnerHTML={{__html: t('about.intro.paragraph5')}}></p>
+                    {t('about.intro.paragraph5_list') && Array.isArray(t('about.intro.paragraph5_list')) && (
+                        <ul className="about-modern-list">
+                          {t('about.intro.paragraph5_list').map((item, index) => (
+                              <li key={index} dangerouslySetInnerHTML={{__html: item}}></li>
+                          ))}
+                        </ul>
+                    )}
+                    <p style={{fontSize: '22px'}} dangerouslySetInnerHTML={{__html: t('about.intro.paragraph6')}}></p>
                   </div>
                 </div>
               </div>

@@ -86,10 +86,22 @@ export const translations = {
     },
     about: {
       header: 'My Story',
+      header_about: 'Between Logic and Liminality: The Art of Dzhemile',
       intro: {
-        paragraph1: 'Hey there, away from my software engineer identity- <b class="about-mew1">I\'ve got another life as an art enthusiast and painter extraordinaire! 🎨 </b> My journey into the world of art started with a simple curiosity - I couldn\'t resist capturing the little details that make each face a unique work of living, breathing art.',
-        paragraph2: 'But let\'s be real, my passion didn\'t stop there. I\'ve embraced the challenge of blending beauty and nature in the most harmonious way possible. That\'s why I dove headfirst into the world of portraiture and painting. And guess what? I\'ve been rocking those oil paints since 2022.',
-        paragraph3: 'So you will be able to see my progress here on <b class="about-mew">Doarti</b>.',
+        paragraph1: 'By day, I exist in a world of binary - a landscape of rigid logic, semicolons, and the relentless pursuit of "The Fix." But when the screen goes dark, I step into a different dimension. Away from my software engineer identity, <b class="about-mew">I am a traveler in the realm of the subconscious, an art enthusiast, and an oil painter</b> wandering through the beautiful fog of Surrealism.',
+        paragraph2: 'My journey didn\'t start with a plan; it started with a glitch in my perception. I became obsessed with the architecture of the human face - <b class="about-mew">not just the anatomy, but the stories hidden in the twitch of a lip or the shadow of an eyelid</b>. I realized that every face is a living, breathing work of art, but it\'s the things we don\'t see that interest me most.',
+        paragraph3: '<b class="about-mew">I\'ve embraced the challenge of bending reality to find a deeper truth.</b> Why paint a tree as it is, when I can paint how it feels to stand beneath it in a dream? My work is a constant dialogue between the harmony of nature and the delightful chaos of the surreal.',
+        section1_title: 'The Spark of the Strange',
+        paragraph4: 'I\'ve been deep-diving into the buttery, slow-moving world of oil paints since 2022. Unlike the instant execution of a line of code, <b class="about-mew">oils demand patience, scent, and a bit of soul</b>. It is a medium that allows for "beautiful bugs" - those happy accidents where a stray brushstroke turns a standard portrait into something otherworldly.',
+        section2_title: 'The Medium and the Metamorphosis',
+        paragraph5: 'On this page, you aren\'t just seeing finished pieces; you are witnessing a systematic "system update" of my creative spirit. You\'ll see:',
+        paragraph5_list: [
+          'Portraits that peel back the skin to reveal the stars.',
+          'Nature reimagined through a lens of impossible logic.',
+          'Progress logs from my start in 2022 to the strange places I\'m heading next.'
+        ],
+        section3_title: 'What You\'ll Find Here',
+        paragraph6: 'Art, much like code, is a language. But here on <b class="about-mew">Doarti</b>, I\'ve stopped trying to solve the problem. <b class="about-mew">I\'m just enjoying the beautiful, surreal mystery of the process.</b><br><br>Welcome to my laboratory of dreams.',
       },
       studio_title: 'Studio & Exhibitions',
       studio_subtitle: 'A glimpse into the creative process and artistic journey',
@@ -956,10 +968,22 @@ export const translations = {
     },
     about: {
       header: 'Моята история',
+      header_about: 'Между логиката и лиминалността: Изкуството на Джемиле',
       intro: {
-        paragraph1: 'Аз съм Джемиле, софтуерен инженер съм и съм в света на компютрите около 8 години, но  от ранна детска възраст <b class="about-mew">незатихващата ми страст беше рисуването </b>- обичах да наблюдавам детайлите и да виждам как частиците образуващи лицата на хората се превръщат в живи изображения, олицетворяващи техните души. Моето желание да откривам красотата и да я съчетая хармонично с природата породи любовта ми към портретното и живописното изкуство.',
-        paragraph2: 'Но нека бъдем честни, моята страст не спря дотук. Приех предизвикателството да съчетая красотата и природата по най-хармоничния възможен начин. Ето защо се потопих с главата напред в света на портретната живопис. И знаете ли какво? Занимавам се с маслени бои от 2022 г.',
-        paragraph3: 'Така че ще можете да видите моя прогрес тук в <b class="about-mew">Doarti</b>.',
+        paragraph1: 'През деня съществувам в свят на бинарни кодове - пейзаж от твърда логика, точка и запетая, и безмилостното преследване на "Бъга" Но когато екранът потъмнее, стъпвам в различна размерност. Далеч от моята идентичност като софтуерен инженер, <b class="about-mew">аз съм пътешественик в царството на подсъзнанието, ентусиаст по изкуство и художник</b> с маслени бои, който се скита през красивата мъгла на Сюрреализма.',
+        paragraph2: 'Моето пътешествие не започна с план; започна с грешка в моето възприятие. Станах обсебена от архитектурата на човешкото лице - <b class="about-mew">не само анатомията, а историите, скрити в подръпването на устна или сянката на клепач</b>. Разбрах, че всяко лице е жива, дишаща творба на изкуството, но нещата, които не виждаме, са тези, които ме интересуват най-много.',
+        paragraph3: '<b class="about-mew">Приех предизвикателството да изкривя реалността, за да намеря по-дълбока истина.</b> Защо да рисувам дърво такова, каквото е, когато мога да рисувам как се чувства да стоиш под него в сън? Моята работа е постоянен диалог между хармонията на природата и възхитителния хаос на сюрреализма.',
+        section1_title: 'Искрата на странното',
+        paragraph4: 'От 2022 г. се гмурвам дълбоко в маслените бои - кремообразния, бавно движещ се свят. За разлика от мигновеното изпълнение на ред код, <b class="about-mew">маслените бои изискват търпение, аромат и малко душа</b>. Това е среда, която позволява "красиви грешки" - тези щастливи случайности, където случайно движение на четка превръща стандартен портрет в нещо свръхестествено.',
+        section2_title: 'Средата и метаморфозата',
+        paragraph5: 'На тази страница не просто виждате завършени творби; вие ставате свидетели на систематично "системно обновление" на моя творчески дух. Ще видите:',
+        paragraph5_list: [
+          'Портрети, които разкриват кожата, за да разкрият звездите.',
+          'Природа, преосмислена през леща на невъзможна логика.',
+          'Дневници за прогрес от моето начало през 2022 г. до странните места, където се насочвам.'
+        ],
+        section3_title: 'Какво ще намерите тук',
+        paragraph6: 'Изкуството, точно като кода, е език. Но тук в <b class="about-mew">Doarti</b>, спрях да се опитвам да реша проблема. <b class="about-mew">Просто се наслаждавам на красивата, сюрреалистична мистерия на процеса.</b><br><br>Добре дошли в моята лаборатория на мечтите.',
       },
       studio_title: 'Студио и изложби',
       studio_subtitle: 'Поглед в творческия процес и художествения път',
