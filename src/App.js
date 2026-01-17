@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { initInteractiveFeatures } from './utils/interactive';
@@ -62,6 +63,7 @@ function App() {
           </main>
           <Footer />
           <ScrollToTop />
+          <Analytics />
           <SpeedInsights />
         </div>
       </Router>
