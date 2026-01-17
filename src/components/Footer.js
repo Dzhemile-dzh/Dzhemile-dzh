@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import {useLanguage} from '../contexts/LanguageContext';
 import emailjs from '@emailjs/browser';
 
 const Footer = () => {
@@ -131,7 +131,7 @@ This subscription was made from your art website.
             <h4 className="site-footer-title mb-3">{t('footer.contact')}</h4>
             <p className="contact-info">
               <strong>{t('footer.phone')}</strong>
-              <a href="tel:+359888123456">+359 888 123 456</a>
+              <a href="tel:+359888123456">+359 895 627 511</a>
             </p>
             <p className="contact-info">
               <strong>{t('footer.email')}</strong>
