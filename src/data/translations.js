@@ -9,7 +9,7 @@ export const translations = {
     available: 'Available',
     framed: 'FRAMED',
     price: 'Price',
-    contact_for_orders: 'For orders and details contact me on:',
+    contact_for_orders: 'For orders and details contact me',
     you_may_also_like: 'You can also like',
     created_by_aykut: 'recreated art by Aykut Aydogdu',
     created_by_andi: 'recreated art by Andi Claussen',
@@ -64,7 +64,7 @@ export const translations = {
       },
     },
     footer: {
-      subscribe: 'Subscribe. Every weekly.',
+      subscribe: 'Subscribe',
       email_placeholder: 'Email Address',
       subscribe_button: 'Subscribe',
       subscribe_sending: 'Subscribing...',
@@ -775,7 +775,7 @@ export const translations = {
     available: 'налична',
     framed: 'РАМКИРАНА',
     price: 'Цена',
-    contact_for_orders: 'За поръчки и подробности се свържете с мен на:',
+    contact_for_orders: 'За поръчки и подробности се свържете с мен',
     you_may_also_like: 'Също може да ви хареса',
     created_by_aykut: 'пресъздадено изкуство от Аикут Айдогду',
     created_by_andi: 'пресъздадено изкуство от Анди Клаусен',
@@ -957,7 +957,7 @@ export const translations = {
     about: {
       header: 'Моята история',
       intro: {
-        paragraph1: 'Аз съм Джемиле, софтуерен инженер съм и съм в света на компютрите около 8 години, но  от ранна детска възраст <b class="about-mew">незатихващата ми страст беше рисуването </b>- обичах да наблюдавам детайлите и да виждам как частиците образуващи лицата на хората се превръщат в живи изображения, олицетворяващи техните души. Моето желание да откривам красотата и да я съчетавам хармонично с природата породи любовта ми към портретното и живописното изкуство.',
+        paragraph1: 'Аз съм Джемиле, софтуерен инженер съм и съм в света на компютрите около 8 години, но  от ранна детска възраст <b class="about-mew">незатихващата ми страст беше рисуването </b>- обичах да наблюдавам детайлите и да виждам как частиците образуващи лицата на хората се превръщат в живи изображения, олицетворяващи техните души. Моето желание да откривам красотата и да я съчетая хармонично с природата породи любовта ми към портретното и живописното изкуство.',
         paragraph2: 'Но нека бъдем честни, моята страст не спря дотук. Приех предизвикателството да съчетая красотата и природата по най-хармоничния възможен начин. Ето защо се потопих с главата напред в света на портретната живопис. И знаете ли какво? Занимавам се с маслени бои от 2022 г.',
         paragraph3: 'Така че ще можете да видите моя прогрес тук в <b class="about-mew">Doarti</b>.',
       },

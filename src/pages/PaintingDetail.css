@@ -197,6 +197,50 @@
   cursor: grabbing;
 }
 
+/* Related Paintings Cards - Clickable */
+.related-podcast-section .custom-block {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.related-podcast-section .custom-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.related-podcast-section .custom-block-info h5 {
+  color: #000 !important;
+  transition: color 0.2s ease;
+}
+
+.related-podcast-section a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-podcast-section a:hover {
+  text-decoration: none;
+}
+
+/* Ensure all related painting images are the same size */
+.related-podcast-section .custom-block-image-wrap {
+  height: 400px !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.related-podcast-section .custom-block-image-wrap .image-loader-container {
+  height: 100% !important;
+  min-height: 400px !important;
+}
+
+.related-podcast-section .custom-block-image-wrap img,
+.related-podcast-section .custom-block-image-wrap .image-loaded {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .painting-view-fullsize-btn {
@@ -262,5 +306,224 @@
   .painting-lightbox-image-container {
     max-height: 75vh;
     padding: 10px;
+  }
+}
+
+/* Modern Price CTA Section */
+.modern-price-cta-section {
+  margin-top: 1.5rem;
+}
+
+.price-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid #e9ecef;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.price-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.price-card.sold-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-color: #dee2e6;
+  opacity: 0.8;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.price-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.price-label-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.price-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  line-height: 1;
+}
+
+.price-currency {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-left: 0.25rem;
+}
+
+.price-contact {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.price-right {
+  display: flex;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.price-subtitle {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+.contact-cta-text-row {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.contact-cta-text {
+  font-size: 0.85rem;
+  color: #495057;
+  margin: 0;
+  text-align: left;
+  font-weight: 500;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.contact-btn i {
+  font-size: 1rem;
+}
+
+.contact-btn-email {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.contact-btn-email:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-btn-viber {
+  background: linear-gradient(135deg, #49e98e 0%, #2dd4bf 100%);
+  color: #ffffff;
+}
+
+.contact-btn-viber:hover {
+  background: linear-gradient(135deg, #2dd4bf 0%, #49e98e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(73, 233, 142, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Responsive Design for Price Section */
+@media (max-width: 768px) {
+  .price-card {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .price-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .price-left {
+    width: 100%;
+  }
+
+  .price-right {
+    width: 100%;
+  }
+
+  .price-value {
+    font-size: 1.5rem;
+  }
+
+  .price-currency {
+    font-size: 1rem;
+  }
+
+  .contact-buttons {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .contact-btn {
+    flex: 1;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  .price-card {
+    padding: 0.875rem;
+  }
+
+  .price-value {
+    font-size: 1.4rem;
+  }
+
+  .contact-cta-text {
+    font-size: 0.8rem;
+  }
+
+  .contact-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }

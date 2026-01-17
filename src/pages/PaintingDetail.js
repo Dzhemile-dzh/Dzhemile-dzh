@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
+import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
 import './PaintingDetail.css';
 
-// Utility function to truncate text to 200 characters
-const truncateText = (text, maxLength = 200) => {
+// Utility function to truncate text to 100 characters and clean paragraph spacing
+const truncateText = (text, maxLength = 100) => {
   if (!text) return '';
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength).trim() + '...';
+  // Replace multiple newlines and spaces with a single space
+  const cleanedText = text.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+  if (cleanedText.length <= maxLength) return cleanedText;
+  return cleanedText.substring(0, maxLength).trim() + '...';
 };
 
 const PaintingDetail = () => {
@@ -110,45 +112,53 @@ const PaintingDetail = () => {
     setZoomLevel(100);
   };
 
-  return (
-    <>
-      <header className="site-header d-flex flex-column justify-content-center align-items-center" id="header-solid">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 col-12 text-center">
-              <h2 className="text-white">
-                {(() => {
-                  const headingKey = `${slug}_heading`;
-                  let heading = t(headingKey);
-                  // If translation returns the key itself, it wasn't found - use fallback
-                  if (heading === headingKey) {
-                    // Try to get title from painting data, or translate it if it's a key
-                    const title = painting?.title;
-                    if (title && title.includes('_heading')) {
-                      // Title is a translation key reference, try to translate it
-                      heading = t(title);
-                      if (heading === title) {
-                        return title; // Return the key if translation still not found
-                      }
-                    }
-                    return title || 'Painting';
-                  }
-                  return heading;
-                })()}
-              </h2>
-            </div>
-          </div>
-        </div>
-      </header>
+  // Get painting title
+  const getPaintingTitle = () => {
+    const headingKey = `${slug}_heading`;
+    let heading = t(headingKey);
+    // If translation returns the key itself, it wasn't found - use fallback
+    if (heading === headingKey) {
+      // Try to get title from painting data, or translate it if it's a key
+      const title = painting?.title;
+      if (title && title.includes('_heading')) {
+        // Title is a translation key reference, try to translate it
+        heading = t(title);
+        if (heading === title) {
+          return title; // Return the key if translation still not found
+        }
+      }
+      return title || 'Painting';
+    }
+    return heading;
+  };
 
+  // Get painting description
+  const getPaintingDescription = () => {
+    const descKey = `${slug}_description`;
+    let description = t(descKey);
+    // If translation returns the key itself, it wasn't found - use fallback
+    if (description === descKey) {
+      // Try to get description from painting data, or translate it if it's a key
+      const desc = painting?.description;
+      if (desc && desc.includes('_description')) {
+        // Description is a translation key reference, try to translate it
+        description = t(desc);
+        if (description === desc) {
+          return desc; // Return the key if translation still not found
+        }
+      }
+      return desc || '';
+    }
+    return description;
+  };
+
+  return (
+      <>
       <main>
         <section className="latest-podcast-section section-padding pb-0" id="section_2">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-10 col-12">
-                <div className="section-title-wrap mb-5">
-                  <h4 className="section-title">{t('details')}</h4>
-                </div>
                 <div className="row">
                   <div className="col-lg-6 col-12">
                         <div className="custom-block-icon-wrap">
@@ -167,7 +177,6 @@ const PaintingDetail = () => {
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
                               </svg>
-                              <span>{t('view_full_size') || 'View Full Size'}</span>
                             </button>
                           </div>
                       <span className={`position-absolute ${painting.sold ? 'badge-sold-left' : 'badge-left badgem'}`}>
@@ -177,7 +186,11 @@ const PaintingDetail = () => {
                   </div>
                   <div className="col-lg-6 col-12">
                     <div className="custom-block-info">
-                      <div className="custom-block-top d-flex mb-1">
+                      <h2 className="mb-4" style={{fontSize: '2rem', fontWeight: '600'}}>
+                        {getPaintingTitle()}
+                      </h2>
+
+                      <div className="custom-block-top d-flex mb-3">
                         <small className="me-4">
                           <span>
                             <i className="bi-play"></i>
@@ -210,25 +223,8 @@ const PaintingDetail = () => {
                         </div>
                       )}
 
-                      <p style={{ whiteSpace: 'pre-line' }}>
-                        {(() => {
-                          const descKey = `${slug}_description`;
-                          let description = t(descKey);
-                          // If translation returns the key itself, it wasn't found - use fallback
-                          if (description === descKey) {
-                            // Try to get description from painting data, or translate it if it's a key
-                            const desc = painting?.description;
-                            if (desc && desc.includes('_description')) {
-                              // Description is a translation key reference, try to translate it
-                              description = t(desc);
-                              if (description === desc) {
-                                return desc; // Return the key if translation still not found
-                              }
-                            }
-                            return desc || '';
-                          }
-                          return description;
-                        })()}
+                      <p style={{whiteSpace: 'pre-line', marginTop: '1.5rem'}}>
+                        {getPaintingDescription()}
                       </p>
 
                       {painting.recreatedBy && (
@@ -246,59 +242,58 @@ const PaintingDetail = () => {
                         </div>
                       )}
 
-                      <div className="profile-block profile-detail-block d-flex flex-wrap align-items-center mt-5">
-                        <div className="row" style={{ display: 'contents' }}>
-                          <div>
-                            <strong>
-                              {painting.sold ? (
-                                <div style={{ fontSize: '20px' }}>
-                                  <div style={{ color: '#333333' }}>{t('sold')}</div>
-                                  <div style={{ fontSize: '14px', marginTop: '5px', color: '#666666' }}>
-                                    {t('not_available')}
+                      <div className="modern-price-cta-section mt-5">
+                        {painting.sold ? (
+                            <div className="price-card sold-card">
+                              <div className="price-label">{t('sold')}</div>
+                              <div className="price-subtitle">{t('not_available')}</div>
+                          </div>
+                        ) : (
+                            <div className="price-card">
+                              <div className="price-row">
+                                <div className="price-left">
+                                  <span className="price-label-text">{t('price')}</span>
+                                  <div className="price-amount">
+                                    {painting.price ? (
+                                        <>
+                                          <span className="price-value">{painting.price}</span>
+                                          <span className="price-currency">{t('euro')}</span>
+                                        </>
+                                    ) : (
+                                        <span className="price-contact">Contact for price</span>
+                                    )}
                                   </div>
                                 </div>
-                              ) : (
-                                <>
-                                  {t('price')}:
-                                  <span style={{ color: '#49e98e', fontSize: '20px', marginLeft: '8px' }}>
-                                    {painting.price ? `${painting.price} ${t('euro')}` : `Contact for price`}
-                                  </span>
-                                </>
-                              )}
-                            </strong>
-                          </div>
-                        </div>
-                        {!painting.sold && (
-                          <>
-                            <div className="d-flex mb-3 mb-lg-0 mb-md-0">
-                              <p>{t('contact_for_orders')}</p>
-                            </div>
 
-                            <ul className="social-icon ms-lg-auto ms-md-auto">
-                              <li className="social-icon-item">
-                                <a 
-                                  href="mailto:dzhemile.ahmet@gmail.com"
-                                  className="social-icon-link bi-envelope" 
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  aria-label="Email"
-                                >
-                                  <span className="sr-only">Email</span>
-                                </a>
-                              </li>
-                              <li className="social-icon-item">
-                                <a 
-                                  href="viber://chat?number=0895627511"
-                                  className="social-icon-link bi-cursor" 
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  aria-label="Viber"
-                                >
-                                  <span className="sr-only">Viber</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </>
+                                <div className="price-right">
+                                  <div className="contact-buttons">
+                                    <a
+                                        href="mailto:dzhemile.ahmet@gmail.com"
+                                        className="contact-btn contact-btn-email"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Email"
+                                    >
+                                      <i className="bi bi-envelope-fill"></i>
+                                      <span>Email</span>
+                                    </a>
+                                    <a
+                                        href="viber://chat?number=0895627511"
+                                        className="contact-btn contact-btn-viber"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Viber"
+                                    >
+                                      <i className="bi bi-chat-fill"></i>
+                                      <span>Viber</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="contact-cta-text-row">
+                                <p className="contact-cta-text">{t('contact_for_orders')}</p>
+                              </div>
+                            </div>
                         )}
                       </div>
                     </div>
@@ -320,38 +315,48 @@ const PaintingDetail = () => {
                   </div>
                 </div>
                 <div className="row">
-                  {relatedPaintings.map((relatedPainting, index) => (
-                    <div key={index} className="col-lg-4 col-12 mb-4 mb-lg-0">
-                      <div className="custom-block custom-block-full">
-                            <div className="custom-block-image-wrap">
-                              <Link to={`/painting/${relatedPainting.link}`}>
+                  {relatedPaintings.map((relatedPainting, index) => {
+                    const paintingSlug = relatedPainting.link.split('/').pop();
+                    const paintingTitle = t(`${paintingSlug}_heading`) || relatedPainting.title;
+                    const paintingDescription = truncateText(t(`${paintingSlug}_description`) || relatedPainting.description, 100);
+
+                    return (
+                        <div key={index} className="col-lg-4 col-12 mb-4 mb-lg-0">
+                          <Link
+                              to={`/painting/${relatedPainting.link}`}
+                              style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
+                          >
+                            <div className="custom-block custom-block-full"
+                                 style={{cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%'}}>
+                              <div className="custom-block-image-wrap" style={{height: '400px', overflow: 'hidden'}}>
                                 <ImageLoader
-                                  src={`/${relatedPainting.image}`}
-                                  alt={relatedPainting.title}
-                                  className="custom-block-image img-fluid gallery-image-loader"
-                                  style={{ width: '100%', objectFit: 'cover' }}
+                                    src={`/${relatedPainting.image}`}
+                                    alt={relatedPainting.title}
+                                    className="custom-block-image img-fluid gallery-image-loader"
+                                    style={{width: '100%', height: '100%', objectFit: 'cover'}}
                                 />
                                 {relatedPainting.sold && (
-                                  <span className="badge-soldmin badgem position-absolute">
-                                    <strong>{t('sold')}</strong>
-                                  </span>
+                                    <span className="badge-soldmin badgem position-absolute">
+                                  <strong>{t('sold')}</strong>
+                                </span>
                                 )}
-                              </Link>
                             </div>
-                        <div className="custom-block-info">
-                          <h5 className="mb-2">
-                            <Link to={`/painting/${relatedPainting.link}`}>
-                              {t(`${relatedPainting.link.split('/').pop()}_heading`) || relatedPainting.title}
-                            </Link>
-                          </h5>
-                          <div className="profile-block d-flex">
-                            <p>{t('oil_painting')} <strong>{relatedPainting.dimensions}</strong></p>
-                          </div>
-                          <p className="mb-0" style={{ whiteSpace: 'pre-line' }}>{truncateText(t(`${relatedPainting.link.split('/').pop()}_description`) || relatedPainting.description)}</p>
+                              <div className="custom-block-info">
+                                <h5 className="mb-2" style={{color: '#000'}}>
+                                  {paintingTitle}
+                                </h5>
+                                <div className="profile-block d-flex">
+                                  <p>{t('oil_painting')} <strong>{relatedPainting.dimensions}</strong></p>
+                                </div>
+                                <p className="mb-0">
+                                  {paintingDescription}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
                         </div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -76,9 +76,7 @@ html {
 }
 
 /* Gallery images */
-.gallery-section .custom-block-image {
-  /* height: 300px; - removed to allow natural aspect ratio */
-}
+/* height: 300px; - removed to allow natural aspect ratio */
 
 /* Painting detail images */
 .painting-detail-section img {
@@ -131,4 +129,40 @@ html {
 .related-paintings-section .badge {
   font-size: 0.8rem;
   border-radius: 15px;
+}
+
+/* Favorites section - clickable cards */
+.section-padding .custom-block-full {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-padding .custom-block-full:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.section-padding .custom-block-image-wrap {
+  position: relative;
+}
+
+.section-padding .custom-block-image-wrap .image-loader-container {
+  height: 100% !important;
+}
+
+.section-padding .custom-block-image-wrap img,
+.section-padding .custom-block-image-wrap .image-loaded {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Owl Carousel cards - clickable */
+.owl-carousel .owl-carousel-info-wrap {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.owl-carousel .owl-carousel-info-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }

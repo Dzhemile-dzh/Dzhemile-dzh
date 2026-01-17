@@ -92,50 +92,34 @@ const Home = () => {
             </header>
             <div className="owl-carousel owl-theme" role="region" aria-label="Featured Artwork Carousel">
               {profiles.map((profile, index) => (
-                <article key={index} className="owl-carousel-info-wrap item">
-                  <div style={{ width: '100%', height: '400px', position: 'relative' }}>
-                    <ImageLoader
-                      src={`/images/profile/${profile.img}`}
-                      alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by Dzhemile Ahmed`}
-                      className="owl-carousel-image img-fluid"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </div>
-                  <div className="owl-carousel-info">
-                    <h2 className="mb-2">
-                      {t(`names.${profile.name}`) || profile.name}
-                      {['Aurora', 'Alice', 'Nora'].includes(profile.name) && (
-                        <img 
-                          src="/images/verified.png" 
-                          className="owl-carousel-verified-image img-fluid" 
-                          alt="Verified Artist" 
-                          style={{ width: '20px', height: '20px', maxWidth: '20px', maxHeight: '20px' }}
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
+                  <Link
+                      key={index}
+                      to={profile.links[0]}
+                      style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
+                      aria-label={`View ${t(`names.${profile.name}`) || profile.name} painting details`}
+                  >
+                    <article className="owl-carousel-info-wrap item"
+                             style={{cursor: 'pointer', transition: 'transform 0.2s ease'}}>
+                      <div style={{width: '100%', height: '400px', position: 'relative'}}>
+                        <ImageLoader
+                            src={`/images/profile/${profile.img}`}
+                            alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by Dzhemile Ahmed`}
+                            className="owl-carousel-image img-fluid"
+                            style={{width: '100%', height: '100%', objectFit: 'cover'}}
                         />
-                      )}
-                    </h2>
-                  {profile.badges.map((badge, badgeIndex) => (
-                    <span key={badgeIndex} className="badge">{t(`badges.${badge}`) || badge}</span>
-                  ))}
-                </div>
-                <div className="social-share">
-                  <ul className="social-icon">
-                    <li className="social-icon-item">
-                      <a href={profile.links[1]} className="social-icon-link bi-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <span className="sr-only">Instagram</span>
-                      </a>
-                    </li>
-                    <li className="social-icon-item">
-                      <a href={profile.links[0]} className="social-icon-link bi-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                        <span className="sr-only">WhatsApp</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </article>
-            ))}
+                      </div>
+                      <div className="owl-carousel-info">
+                        <h2 className="mb-2">
+                          {t(`names.${profile.name}`) || profile.name}
+                          {['Aurora', 'Alice', 'Nora'].includes(profile.name)}
+                        </h2>
+                        {profile.badges.map((badge, badgeIndex) => (
+                            <span key={badgeIndex} className="badge">{t(`badges.${badge}`) || badge}</span>
+                        ))}
+                      </div>
+                    </article>
+                  </Link>
+              ))}
           </div>
         </div>
       </section>
@@ -170,14 +154,6 @@ const Home = () => {
                           <small className="me-4">
                             {t('oil_painting')}
                           </small>
-                          <img 
-                            src="/images/verified.png" 
-                            className="verified-image img-fluid" 
-                            alt="" 
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                            }}
-                          />
                           <strong>{t('badges.portraits')}</strong>
                         </p>
                       </div>
@@ -231,27 +207,32 @@ const Home = () => {
             <div className="row">
               {favorites.map((fav, index) => (
                 <article key={index} className="col-lg-4 col-12 mb-4 mb-lg-0">
-                  <div className="custom-block custom-block-full">
-                    <div className="custom-block-image-wrap">
-                      <Link to={fav.link} aria-label={`View ${fav.name} painting details`}>
+                  <Link
+                      to={fav.link}
+                      style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
+                      aria-label={`View ${fav.name} painting details`}
+                  >
+                    <div className="custom-block custom-block-full"
+                         style={{cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%'}}>
+                      <div className="custom-block-image-wrap" style={{height: '400px', overflow: 'hidden'}}>
                         <ImageLoader
                           src={`/images/homepage/${fav.img}`}
                           alt={`${fav.name} - Oil painting by Dzhemile Ahmed, ${fav.size}`}
                           className="custom-block-image img-fluid"
-                          style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                          style={{width: '100%', height: '100%', objectFit: 'cover'}}
                         />
-                      </Link>
-                    </div>
-                    <div className="custom-block-info">
-                      <h3 className="mb-2">
-                        <Link to={fav.link}>{fav.name}</Link>
-                      </h3>
-                      <div className="profile-block d-flex">
-                        <p>{t('oil_painting')} <strong>{fav.size}</strong></p>
                       </div>
-                      <p className="mb-0">{fav.desc}</p>
+                      <div className="custom-block-info">
+                        <h3 className="mb-2" style={{color: '#000'}}>
+                          {fav.name}
+                        </h3>
+                        <div className="profile-block d-flex">
+                          <p>{t('oil_painting')} <strong>{fav.size}</strong></p>
+                        </div>
+                        <p className="mb-0">{fav.desc}</p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </article>
               ))}
             </div>
