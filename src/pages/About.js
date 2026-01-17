@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, {useEffect, useRef, useState} from 'react';
+import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
 import './About.css';
@@ -79,8 +79,8 @@ const About = () => {
             <div className="col-lg-12 col-12">
               <div className="section-title-wrap mb-5">
                 <h4 className="section-title">{t('about.studio_title')}</h4>
-                <p className="section-subtitle">{t('about.studio_subtitle') || 'A glimpse into the creative process and artistic journey'}</p>
               </div>
+              <p className="section-subtitle">{t('about.studio_subtitle') || 'A glimpse into the creative process and artistic journey'}</p>
             </div>
 
             <div className="studio-gallery" ref={sectionRef}>
