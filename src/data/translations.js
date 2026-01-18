@@ -302,6 +302,8 @@ export const translations = {
           description: 'megan-midnight-enigma-painting_description',
           link: '2023/megan',
           image: 'images/2023/2023-a.jpg',
+          price: '300',
+          sold: false,
         },
         {
           title: 'clansy-spirit-of-connection_heading',
@@ -1195,6 +1197,8 @@ export const translations = {
           description: 'megan_description',
           link: '2023/megan',
           image: 'images/2023/2023-a.jpg',
+          price: '300',
+          sold: false,
         },
         {
           title: 'clansy_heading',

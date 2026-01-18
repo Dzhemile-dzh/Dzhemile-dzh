@@ -529,17 +529,17 @@
   }
 
   .contact-btn {
-    padding: 0.35rem 0.5rem;
+    padding: 0.25rem 0.4rem;
     font-size: 0.65rem;
     min-width: unset;
     flex-shrink: 1;
-    gap: 0.25rem;
+    gap: 0.2rem;
     border-radius: 6px;
     white-space: nowrap;
   }
 
   .contact-btn i {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .contact-btn span {
@@ -582,24 +582,18 @@
   }
 
   .contact-btn {
-    padding: 0.3rem 0.45rem;
+    padding: 0.2rem 0.35rem;
     font-size: 0.6rem;
-    gap: 0.2rem;
+    gap: 0.15rem;
     flex-shrink: 1;
     white-space: nowrap;
   }
 
   .contact-btn i {
-    font-size: 0.7rem;
-  }
-
-  .contact-btn i {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
   .contact-cta-text {
     font-size: 0.75rem;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
   }
 }
