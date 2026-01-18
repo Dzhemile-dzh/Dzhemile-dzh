@@ -75,7 +75,6 @@ const Header = () => {
               src="/images/logo-doarti.png" 
               alt="Dzhemile Ahmed - Doarti Art Gallery Logo" 
               className="logo-img"
-              style={{ maxWidth: '120px', maxHeight: '80px', width: 'auto', height: 'auto' }}
             />
             <div className="logo-text">
               <div className="logo-title">DOARTi</div>

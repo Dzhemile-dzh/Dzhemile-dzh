@@ -91,7 +91,7 @@ const Contact = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-12 text-center">
-              <h2 className="text-white">Свържи се с мен</h2>
+              <h2 className="text-white">{t('contact.contact_me_header')}</h2>
             </div>
           </div>
         </div>

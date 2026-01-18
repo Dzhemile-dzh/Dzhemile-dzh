@@ -166,3 +166,22 @@ html {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+
+/* Latest Paintings section - clickable cards */
+.latest-podcast-section .custom-block {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.latest-podcast-section .custom-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.latest-podcast-section a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.latest-podcast-section a:hover {
+  text-decoration: none;
+}

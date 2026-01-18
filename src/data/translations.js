@@ -108,6 +108,7 @@ export const translations = {
     },
     contact: {
       header: "I'm open for commissions",
+      contact_me_header: 'Contact Me',
       phone: 'Phone:',
       email: 'Email:',
       location: 'Location:',
@@ -990,6 +991,7 @@ export const translations = {
     },
     contact: {
       header: "Отворенa съм за поръчки",
+      contact_me_header: 'Свържи се с мен',
       phone: 'Телефон:',
       email: 'Имейл:',
       location: 'Местоположение:',

@@ -54,8 +54,8 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12 col-12 mx-auto">
               <div className="pb-5 mb-5">
-                <div className="section-title-wrap mb-4">
-                  <h4 className="section-title">{t('about.header_about')}</h4>
+                <div className="mb-4">
+                  <h3 className="about-section-heading">{t('about.header_about')}</h3>
                 </div>
                 <div className="row">
                   <div className="col-lg-5 col-md-12 about-text-content" style={{height: '100%!important'}}>

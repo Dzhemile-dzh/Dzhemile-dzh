@@ -203,39 +203,39 @@ const Home = () => {
                         <div className="row justify-content-center mt-5">
                             {paintings.map((painting, index) => (
                                 <div key={index} className="col-lg-6 col-12 mb-4">
-                                    <div className="custom-block d-flex">
-                                        <div className="row">
-                                            <div className="col-5" id="index-image">
-                                                <Link to={painting.link}>
+                                    <Link to={painting.link}
+                                          style={{textDecoration: 'none', color: 'inherit', display: 'block'}}>
+                                        <div className="custom-block d-flex"
+                                             style={{cursor: 'pointer', transition: 'transform 0.2s ease'}}>
+                                            <div className="row">
+                                                <div className="col-5" id="index-image">
                                                     <img src={painting.image} className="img-fluid" alt=""
                                                          id="section-painting-img"
                                                          loading="lazy"/>
-                                                </Link>
-                                            </div>
-                                            <div className="col-7 custom-block-info" id="index-content">
-                                                <div className="custom-block-top d-flex mb-1">
-                                                    <small className="me-4">
-                                                        <i className="bi-clock-fill custom-icon"></i> {painting.year}
-                                                    </small>
-                                                    <span className="badge">{painting.size}</span>
                                                 </div>
-                                                <h5 className="mb-2">
-                                                    <Link to={painting.link}>
-                                                        {t(`names.${painting.name}`) || painting.name}
-                                                    </Link>
-                                                </h5>
-                                                <div className="profile-block d-flex">
-                                                    <p>
+                                                <div className="col-7 custom-block-info" id="index-content">
+                                                    <div className="custom-block-top d-flex mb-1">
                                                         <small className="me-4">
-                                                            {t('oil_painting')}
+                                                            <i className="bi-clock-fill custom-icon"></i> {painting.year}
                                                         </small>
-                                                        <strong>{t('badges.portraits')}</strong>
-                                                    </p>
+                                                        <span className="badge">{painting.size}</span>
+                                                    </div>
+                                                    <h5 className="mb-2">
+                                                        {t(`names.${painting.name}`) || painting.name}
+                                                    </h5>
+                                                    <div className="profile-block d-flex">
+                                                        <p>
+                                                            <small className="me-4">
+                                                                {t('oil_painting')}
+                                                            </small>
+                                                            <strong>{t('badges.portraits')}</strong>
+                                                        </p>
+                                                    </div>
+                                                    <p>{painting.desc}</p>
                                                 </div>
-                                                <p>{painting.desc}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
