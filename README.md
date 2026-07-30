@@ -15,7 +15,7 @@
 ## Contribution pet
 
 <p align="center">
-  <img src="https://github-readme-widget.vercel.app/api/pet" alt="GitHub contribution pet" width="330" height="330" />
+  <img src="https://raw.githubusercontent.com/Dzhemile-dzh/Dzhemile-dzh/main/pet.svg" alt="GitHub contribution pet" width="330" height="330" />
 </p>
 
 <br/>
