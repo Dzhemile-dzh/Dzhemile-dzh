@@ -12,14 +12,6 @@
 
 <br/>
 
-## Contribution pet
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Dzhemile-dzh/Dzhemile-dzh/main/pet.svg" alt="GitHub contribution pet" width="330" height="330" />
-</p>
-
-<br/>
-
 ## About me
 
 I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and React frontends that feel fast. Lately I ship modern portfolios, API driven systems, and dive deeper into SQL and data analysis.
