@@ -4,15 +4,11 @@
 
 <br/>
 
-![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF6BCB?style=for-the-badge)
-![Location](https://img.shields.io/badge/📍_Varna,_Bulgaria-00D4FF?style=for-the-badge)
-![Role](https://img.shields.io/badge/💻_Fullstack_+_Data-7CFF6B?style=for-the-badge&labelColor=111827)
-
-<br/>
-
-[![Portfolio](https://img.shields.io/badge/Live_Portfolio-111827?style=for-the-badge&logo=vercel&logoColor=00D4FF)](https://cv-portfolio-ten-beryl.vercel.app/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dzhemile-ahmed-b27049185/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Dzhemile-dzh)
+<a href="https://www.dzhemile-ahmed.xyz">
+  <img src="https://img.shields.io/badge/🌐_Portfolio-FF6BCB?style=for-the-badge" alt="Portfolio" />
+</a>
+<img src="https://img.shields.io/badge/📍_Varna,_Bulgaria-00D4FF?style=for-the-badge" alt="Location" />
+<img src="https://img.shields.io/badge/💻_Fullstack_+_Data-7CFF6B?style=for-the-badge&labelColor=111827" alt="Role" />
 
 </div>
 
@@ -33,8 +29,7 @@ I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and R
 
 | | Project | Stack | Link |
 | :---: | --- | --- | --- |
-| 🩷 | [cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio) | `React 19` `TypeScript` `PHP 8.5` | [Live site](https://cv-portfolio-ten-beryl.vercel.app/) |
-| 🩵 | [jigi-game](https://github.com/Dzhemile-dzh/jigi-game) | `HTML` `CSS` `JS` | [Play game](https://jigi-game.vercel.app) |
+| 🩷 | [cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio) | `React 19` `TypeScript` `PHP 8.5` | [Live site](https://www.dzhemile-ahmed.xyz) |
 | 🧡 | [hotel-api](https://github.com/Dzhemile-dzh/hotel-api) | `Laravel` `REST` | PMS synced hotel API |
 | 💚 | [ecomerce-api](https://github.com/Dzhemile-dzh/ecomerce-api) | `PHP` `API` | Product catalog backend |
 | 💛 | [World Life Expectancy](https://github.com/Dzhemile-dzh/DataAnalysis-World-Life-Expectancy-Project) | `MySQL` | Cleaning and analysis |
@@ -45,50 +40,39 @@ I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and R
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="28" /> Tech stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <br/>
-  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
-  <img src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white" />
-  <img src="https://img.shields.io/badge/Drupal-0678BE?style=for-the-badge&logo=drupal&logoColor=white" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" />
-  <img src="https://img.shields.io/badge/OpenAPI-85EA2D?style=for-the-badge&logo=openapiinitiative&logoColor=black" />
+  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" />
+  <img src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white" alt="Symfony" />
+  <img src="https://img.shields.io/badge/Drupal-0678BE?style=for-the-badge&logo=drupal&logoColor=white" alt="Drupal" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle" />
+  <img src="https://img.shields.io/badge/OpenAPI-85EA2D?style=for-the-badge&logo=openapiinitiative&logoColor=black" alt="OpenAPI" />
   <br/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/GitLab-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" />
-  <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" />
-  <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/GitLab-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" alt="GitLab" />
+  <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins" />
+  <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
 </p>
 
 <br/>
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Chart" width="28" /> GitHub snapshot
 
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Dzhemile-dzh&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=FF6BCB&icon_color=00D4FF&text_color=E6EDF3&count_private=true)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Dzhemile-dzh&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=7CFF6B&text_color=E6EDF3&count_private=true)
-
-![Streak](https://streak-stats.demolab.com/?user=Dzhemile-dzh&theme=radical&hide_border=true&background=0D1117&ring=FF6BCB&fire=00D4FF&currStreakLabel=7CFF6B)
-
-</div>
-
-<br/>
-
-<div align="center">
-
-### See the full story on my portfolio
-
-[![Open Portfolio](https://img.shields.io/badge/✨_Open_Portfolio-FF6BCB?style=for-the-badge&logoColor=white)](https://cv-portfolio-ten-beryl.vercel.app/)
-
-</div>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Dzhemile-dzh&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="GitHub Stats" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dzhemile-dzh&layout=compact&theme=radical&hide_border=true&count_private=true" alt="Top Langs" height="165" />
+</p>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=Dzhemile-dzh&theme=radical&hide_border=true" alt="GitHub Streak" />
+</p>
