@@ -12,6 +12,14 @@
 
 <br/>
 
+## Contribution pet
+
+<p align="center">
+  <img src="https://github-readme-widget.vercel.app/api/pet" alt="GitHub contribution pet" width="330" height="330" />
+</p>
+
+<br/>
+
 ## About me
 
 I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and React frontends that feel fast. Lately I ship modern portfolios, API driven systems, and dive deeper into SQL and data analysis.
