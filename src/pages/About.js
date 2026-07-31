@@ -18,7 +18,10 @@ const About = () => {
     { src: '8.jpg', size: 'small' },
     { src: '7.jpg', size: 'large' },
     { src: '6.jpg', size: 'medium' },
-    { src: '9.jpg', size: 'small' }
+    { src: '9.jpg', size: 'small' },
+    { src: '10.png', size: 'large' },
+    { src: '11.png', size: 'medium' },
+    { src: '12.png', size: 'large' },
   ];
 
   useEffect(() => {

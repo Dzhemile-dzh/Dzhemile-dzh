@@ -3,12 +3,26 @@
 ## Pre-Deployment Checklist
 
 ### 1. Environment Variables
-Make sure your `.env` file contains production values:
+Make sure your `.env` / Vercel Environment Variables contain production values:
 ```
 REACT_APP_EMAILJS_PUBLIC_KEY=your_production_key
 REACT_APP_EMAILJS_SERVICE_ID=your_service_id
 REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id (optional - uses REACT_APP_EMAILJS_TEMPLATE_ID if not set)
+
+# Stripe Checkout (required for Buy Now on prints & originals)
+STRIPE_SECRET_KEY=sk_live_or_sk_test_...
+REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 ```
+
+**Stripe setup (Vercel):**
+1. Create a Stripe account and get API keys from the Dashboard.
+2. Add `STRIPE_SECRET_KEY` as a Vercel environment variable (Production + Preview).
+3. Redeploy. The `/api/create-checkout-session` function creates hosted Checkout sessions.
+4. Optional: set a `paymentLink` on any print in `src/data/prints.js` to use a Stripe Payment Link instead of the API.
+5. Test with `sk_test_...` keys first (card `4242 4242 4242 4242`).
+
+**Note:** For the contact form, you can use a separate template ID (`REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID`) or the same template ID. The contact form will send emails directly to dzhemile.ahmet@gmail.com without opening an email client.
 
 ### 2. Build the Production Version
 ```bash

@@ -149,6 +149,28 @@ const Header = () => {
                 </div>
               </li>
 
+              {/* Prints */}
+              <li className="nav-item">
+                <Link
+                  to="/prints"
+                  className={`nav-link ${isActive('/prints') ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('header.prints')}
+                </Link>
+              </li>
+
+              {/* Shipping */}
+              <li className="nav-item">
+                <Link
+                  to="/shipping"
+                  className={`nav-link ${isActive('/shipping') ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('header.shipping')}
+                </Link>
+              </li>
+
               {/* Language Dropdown */}
               <li className="nav-item nav-dropdown">
                 <button 

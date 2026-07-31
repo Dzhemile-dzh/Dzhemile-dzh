@@ -1,0 +1,95 @@
+.shipping-page__intro {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.shipping-page__scope {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shipping-page__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.shipping-block__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.02em;
+}
+
+.shipping-block__text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.shipping-page__link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-page__link:hover {
+  color: #1d4ed8;
+}
+
+.shipping-page__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 2.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shipping-page__nav-link {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.shipping-page__nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-teaser {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.shipping-teaser__text {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #495057;
+  font-weight: 500;
+}
+
+.shipping-teaser__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-teaser__link:hover {
+  color: #1d4ed8;
+}

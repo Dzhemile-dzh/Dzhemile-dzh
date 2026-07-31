@@ -1,0 +1,139 @@
+.print-intro {
+  max-width: 46rem;
+  text-align: center;
+}
+
+.print-intro__lead {
+  color: #333;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.print-intro__paper {
+  color: #555;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+}
+
+.print-specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.print-spec-chip {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #222;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+}
+
+.print-card {
+  position: relative;
+}
+
+.print-card__edition {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  z-index: 2;
+}
+
+.print-card__meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.print-detail-specs {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 1rem 1.1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.print-detail-specs li {
+  margin-bottom: 0.45rem;
+}
+
+.print-detail-specs li:last-child {
+  margin-bottom: 0;
+}
+
+.print-size-picker {
+  margin-bottom: 0.5rem;
+}
+
+.print-size-picker__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin: 0 0 0.65rem;
+}
+
+.print-size-picker__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.print-size-option {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid #e9ecef;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.print-size-option:hover {
+  border-color: #2563eb;
+}
+
+.print-size-option.is-active {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.print-size-option__size {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.print-size-option__price {
+  font-size: 0.85rem;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.print-selected-size {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.print-detail-note {
+  color: #555;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}

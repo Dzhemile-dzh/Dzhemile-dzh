@@ -176,6 +176,12 @@ This subscription was made from your art website.
                 <Link to="/" className="site-footer-link">{t('footer.homepage')}</Link>
               </li>
               <li className="site-footer-link-item">
+                <Link to="/prints" className="site-footer-link">{t('footer.prints_page')}</Link>
+              </li>
+              <li className="site-footer-link-item">
+                <Link to="/shipping" className="site-footer-link">{t('footer.shipping_page')}</Link>
+              </li>
+              <li className="site-footer-link-item">
                 <Link to="/contact" className="site-footer-link">{t('footer.contact_page')}</Link>
               </li>
               <li className="site-footer-link-item">

@@ -12,6 +12,11 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import PaintingDetail from './pages/PaintingDetail';
+import Prints from './pages/Prints';
+import PrintDetail from './pages/PrintDetail';
+import Shipping from './pages/Shipping';
+import CheckoutSuccess from './pages/CheckoutSuccess';
+import CheckoutCancel from './pages/CheckoutCancel';
 import './App.css';
 
 function App() {
@@ -58,6 +63,11 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery/:year" element={<Gallery />} />
               <Route path="/painting/:year/:slug" element={<PaintingDetail />} />
+              <Route path="/prints" element={<Prints />} />
+              <Route path="/prints/:slug" element={<PrintDetail />} />
+              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/checkout/success" element={<CheckoutSuccess />} />
+              <Route path="/checkout/cancel" element={<CheckoutCancel />} />
             </Routes>
           </main>
           <Footer />

@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
+import {getPrintDisplayTitle, prints} from '../data/prints';
 import '../components/ImageLoader.css';
 
 const Home = () => {
@@ -121,37 +122,6 @@ const Home = () => {
         }
     ];
 
-    const favorites = [
-        // "dreamshaper" is the correct painting name (not a typo)
-        {
-            img: '1.jpg',
-            name: t('favorites.dreamshaper_title'),
-            link: '/painting/2025/dreamshaper',
-            likes: 17,
-            downloads: 12,
-            size: "60 x 80 cm",
-            desc: t('favorites.dreamshaper_desc')
-        },
-        {
-            img: '2.jpg',
-            name: t('favorites.feline_echo_title'),
-            link: '/painting/2025/feline-echo',
-            likes: 34,
-            downloads: 45,
-            size: "60 x 80 cm",
-            desc: t('favorites.feline_echo_desc')
-        },
-        {
-            img: '3.jpg',
-            name: t('favorites.sacred_flame_title'),
-            link: '/painting/2025/sacred-flame',
-            likes: 25,
-            downloads: 3,
-            size: "60 x 80 cm",
-            desc: t('favorites.sacred_flame_desc')
-        }
-    ];
-
     return (
         <>
             <main>
@@ -173,7 +143,7 @@ const Home = () => {
                                         <div style={{width: '100%', height: '400px', position: 'relative'}}>
                                             <ImageLoader
                                                 src={`/images/profile/${profile.img}`}
-                                                alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by Dzhemile Ahmed`}
+                                                alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by me`}
                                                 className="owl-carousel-image img-fluid"
                                                 style={{width: '100%', height: '100%', objectFit: 'cover'}}
                                             />
@@ -271,51 +241,50 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className="section-padding">
+                <section className="section-padding pb-0" id="prints_section">
                     <div className="container">
+                        <div className="section-title-wrap mb-5">
+                            <h4 className="section-title">{t('prints.section_title')}</h4>
+                        </div>
                         <div className="row">
-                            <div className="col-lg-12 col-12">
-                                <div className="section-title-wrap mb-5">
-                                    <h4 className="section-title">{t('my_favorites')}</h4>
-                                </div>
-                            </div>
-                            <div className="row">
-                                {favorites.map((fav, index) => (
-                                    <article key={index} className="col-lg-4 col-12 mb-4 mb-lg-0">
+                            {prints.slice(0, 6).map((print) => {
+                                const title = getPrintDisplayTitle(print, t);
+                                return (
+                                    <div key={print.slug} className="col-lg-4 col-md-6 col-12 mb-4">
                                         <Link
-                                            to={fav.link}
+                                            to={`/prints/${print.slug}`}
                                             style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
-                                            aria-label={`View ${fav.name} painting details`}
                                         >
-                                            <div className="custom-block custom-block-full"
-                                                 style={{
-                                                     cursor: 'pointer',
-                                                     transition: 'transform 0.2s ease',
-                                                     height: '100%'
-                                                 }}>
-                                                <div className="custom-block-image-wrap"
-                                                     style={{height: '400px', overflow: 'hidden'}}>
+                                            <div
+                                                className="custom-block custom-block-full"
+                                                style={{cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%'}}
+                                            >
+                                                <div className="custom-block-image-wrap" style={{height: '360px', overflow: 'hidden'}}>
                                                     <ImageLoader
-                                                        src={`/images/homepage/${fav.img}`}
-                                                        alt={`${fav.name} - Oil painting by Dzhemile Ahmed, ${fav.size}`}
+                                                        src={`/${print.image}`}
+                                                        alt={title}
                                                         className="custom-block-image img-fluid"
                                                         style={{width: '100%', height: '100%', objectFit: 'cover'}}
                                                     />
                                                 </div>
                                                 <div className="custom-block-info">
-                                                    <h3 className="mb-2" style={{color: '#000'}}>
-                                                        {fav.name}
-                                                    </h3>
-                                                    <div className="profile-block d-flex">
-                                                        <p>{t('oil_painting')} <strong>{fav.size}</strong></p>
-                                                    </div>
-                                                    <p className="mb-0">{fav.desc}</p>
+                                                    <span className="badge mb-2">{t('prints.fine_art_print')}</span>
+                                                    <h5 className="mb-2" style={{color: '#000'}}>{title}</h5>
+                                                    <p className="mb-0">
+                                                        {t('prints.from_price')}{' '}
+                                                        <strong>{print.priceEur} {t('euro')}</strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </Link>
-                                    </article>
-                                ))}
-                            </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="text-center mb-4">
+                            <Link to="/prints" className="btn custom-btn">
+                                {t('prints.view_all')}
+                            </Link>
                         </div>
                     </div>
                 </section>

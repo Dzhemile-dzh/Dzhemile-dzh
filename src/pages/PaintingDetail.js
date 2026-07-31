@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
+import BuyButton from '../components/BuyButton';
+import ShippingInfo from '../components/ShippingInfo';
+import { getPrintForPainting } from '../data/prints';
 import '../components/ImageLoader.css';
 import './PaintingDetail.css';
 
@@ -43,6 +46,7 @@ const PaintingDetail = () => {
   };
 
   const painting = getPaintingData(year, slug);
+  const matchingPrint = getPrintForPainting(year, slug);
 
   // Show loading state if translations are not loaded
   if (!translations || Object.keys(translations).length === 0) {
@@ -75,7 +79,8 @@ const PaintingDetail = () => {
       '2022': translations.gallery,
       '2023': translations.gallery2023,
       '2024': translations.gallery2024,
-      '2025': translations.gallery2025
+      '2025': translations.gallery2025,
+      '2026': translations.gallery2026,
     };
     
     const allPaintings = [];
@@ -248,6 +253,37 @@ const PaintingDetail = () => {
                               <div className="price-label">{t('sold')}</div>
                               <div className="price-subtitle">{t('not_available')}</div>
                           </div>
+                        ) : painting.externalBuyUrl ? (
+                            <div className="price-card">
+                              <div className="price-row">
+                                <div className="price-left">
+                                  <span className="price-label-text">{t('price')}</span>
+                                  <div className="price-amount">
+                                    {painting.price ? (
+                                        <>
+                                          <span className="price-value">{painting.price}</span>
+                                          <span className="price-currency">{t('euro')}</span>
+                                        </>
+                                    ) : (
+                                        <span className="price-contact">Contact for price</span>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="mt-3">
+                                <a
+                                  href={painting.externalBuyUrl}
+                                  className="btn custom-btn w-100"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {t('buy_external')}
+                                </a>
+                              </div>
+                              <div className="contact-cta-text-row">
+                                <p className="contact-cta-text">{t('contact_for_orders')}</p>
+                              </div>
+                            </div>
                         ) : (
                             <div className="price-card">
                               <div className="price-row">
@@ -290,10 +326,29 @@ const PaintingDetail = () => {
                                   </div>
                                 </div>
                               </div>
+                              {painting.price && (
+                                <div className="mt-3">
+                                  <BuyButton
+                                    productType="original"
+                                    productId={`${year}/${slug}`}
+                                    title={getPaintingTitle()}
+                                    priceEur={painting.price}
+                                    imagePath={`/${painting.image}`}
+                                  />
+                                </div>
+                              )}
+                              <ShippingInfo />
                               <div className="contact-cta-text-row">
                                 <p className="contact-cta-text">{t('contact_for_orders')}</p>
                               </div>
                             </div>
+                        )}
+                        {matchingPrint && (
+                          <div className="mt-3">
+                            <Link to={`/prints/${matchingPrint.slug}`} className="btn custom-btn w-100">
+                              {t('prints.buy_print')}
+                            </Link>
+                          </div>
                         )}
                       </div>
                     </div>
