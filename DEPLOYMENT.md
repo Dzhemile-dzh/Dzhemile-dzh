@@ -8,17 +8,26 @@ Make sure your `.env` / Vercel Environment Variables contain production values:
 REACT_APP_EMAILJS_PUBLIC_KEY=your_production_key
 REACT_APP_EMAILJS_SERVICE_ID=your_service_id
 REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
-REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id (optional - uses REACT_APP_EMAILJS_TEMPLATE_ID if not set)
+REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id (optional - uses TEMPLATE_ID if not set)
+REACT_APP_EMAILJS_SUBSCRIBE_TEMPLATE_ID=your_subscribe_thank_you_template_id
+REACT_APP_EMAILJS_PURCHASE_TEMPLATE_ID=your_purchase_thank_you_template_id
 
 # Stripe Checkout (required for Buy Now on prints & originals)
 STRIPE_SECRET_KEY=sk_live_or_sk_test_...
 REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 ```
 
+**EmailJS thank-you emails:**
+1. In EmailJS, create two templates from `email-templates/subscribe-thank-you.html` and `email-templates/purchase-thank-you.html`.
+2. Set **To email** to `{{to_email}}` and **Subject** to `{{subject}}`.
+3. Add `REACT_APP_EMAILJS_SUBSCRIBE_TEMPLATE_ID` and `REACT_APP_EMAILJS_PURCHASE_TEMPLATE_ID` in Vercel.
+4. Keep `REACT_APP_EMAILJS_TEMPLATE_ID` for artist alerts (new subscriber / new order), or set dedicated `*_NOTIFY_TEMPLATE_ID` vars.
+5. Redeploy after changing any `REACT_APP_*` value (they are baked into the frontend build).
+
 **Stripe setup (Vercel):**
 1. Create a Stripe account and get API keys from the Dashboard.
 2. Add `STRIPE_SECRET_KEY` as a Vercel environment variable (Production + Preview).
-3. Redeploy. The `/api/create-checkout-session` function creates hosted Checkout sessions.
+3. Redeploy. The `/api/create-checkout-session` function creates hosted Checkout sessions. After payment, `/api/get-checkout-session` loads order details for the success page and purchase email.
 4. Optional: set a `paymentLink` on any print in `src/data/prints.js` to use a Stripe Payment Link instead of the API.
 5. Test with `sk_test_...` keys first (card `4242 4242 4242 4242`).
 

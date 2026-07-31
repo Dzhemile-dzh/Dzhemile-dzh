@@ -1,11 +1,12 @@
 /**
  * Local Stripe Checkout API for Create React App (`npm start`).
- * Production uses /api/create-checkout-session on Vercel instead.
+ * Production uses /api/* on Vercel instead.
  */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { createCheckoutSession } = require('../api/_lib/buildCheckoutSession');
+const { getCheckoutSessionSummary } = require('../api/_lib/getCheckoutSession');
 
 const PORT = Number(process.env.STRIPE_DEV_API_PORT) || 4242;
 const ROOT = path.join(__dirname, '..');
@@ -65,7 +66,7 @@ function sendJson(res, status, payload) {
   res.writeHead(status, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   });
   res.end(body);
@@ -85,6 +86,39 @@ const server = http.createServer(async (req, res) => {
   const isCheckout =
     url.pathname === '/api/create-checkout-session' ||
     url.pathname === '/create-checkout-session';
+  const isGetSession =
+    url.pathname === '/api/get-checkout-session' ||
+    url.pathname === '/get-checkout-session';
+
+  if (isGetSession) {
+    if (req.method !== 'GET') {
+      sendJson(res, 405, { error: 'Method not allowed' });
+      return;
+    }
+
+    const secret = process.env.STRIPE_SECRET_KEY;
+    if (typeof secret !== 'string' || secret.length === 0) {
+      sendJson(res, 503, { error: 'STRIPE_SECRET_KEY is missing in .env' });
+      return;
+    }
+
+    const sessionId = url.searchParams.get('session_id') || '';
+
+    try {
+      const summary = await getCheckoutSessionSummary({ secret, sessionId });
+      sendJson(res, 200, summary);
+    } catch (error) {
+      console.error('Get checkout session error:', error.message || error);
+      const status = error.statusCode === 400 ? 400 : 500;
+      sendJson(res, status, {
+        error:
+          status === 400
+            ? error.message
+            : 'Unable to load order details. Please contact the artist.',
+      });
+    }
+    return;
+  }
 
   if (!isCheckout) {
     sendJson(res, 404, { error: 'Not found' });

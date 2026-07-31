@@ -1,84 +1,91 @@
-import React, {useEffect, useState} from 'react';
-import {useLanguage} from '../contexts/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import emailjs from '@emailjs/browser';
+import './Contact.css';
 
 const Contact = () => {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [entered, setEntered] = useState(false);
 
-  // EmailJS configuration - Use contact form specific template or same as footer
-  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || process.env.REACT_APP_EMAILJS_CONTACT_SERVICE_ID || '';
-  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID || process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
+  const EMAILJS_SERVICE_ID =
+    process.env.REACT_APP_EMAILJS_SERVICE_ID ||
+    process.env.REACT_APP_EMAILJS_CONTACT_SERVICE_ID ||
+    '';
+  const EMAILJS_TEMPLATE_ID =
+    process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID ||
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
+    '';
   const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
 
-  // Initialize EmailJS
   useEffect(() => {
     if (EMAILJS_PUBLIC_KEY) {
       emailjs.init(EMAILJS_PUBLIC_KEY);
     }
   }, [EMAILJS_PUBLIC_KEY]);
 
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
+    if (formError.length > 0) {
+      setFormError('');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormError('');
 
-    // Store form data before clearing
-    const submittedData = {...formData};
+    const submittedData = { ...formData };
 
-    // Show success immediately for better UX
-    setShowSuccessPopup(true);
-    setFormData({fullName: '', email: '', message: ''});
-    setShowPopup(false);
-    setIsSubmitting(false);
-
-    // Send email in the background (non-blocking)
-    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
-      // Send email asynchronously without blocking UI
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: 'dzhemile.ahmet@gmail.com',
-        from_name: submittedData.fullName,
-        from_email: submittedData.email,
-        reply_to: submittedData.email,
-        subject: `New Contact Form Submission from ${submittedData.fullName}`,
-        message: submittedData.message,
-        user_name: submittedData.fullName,
-        user_email: submittedData.email,
-        full_name: submittedData.fullName,
-        email: submittedData.email,
-      }, EMAILJS_PUBLIC_KEY)
-          .then(() => {
-            console.log('Email sent successfully');
-          })
-          .catch((error) => {
-            console.error('Error sending email:', error);
-            // Optionally show a subtle error notification
-            // but don't disrupt the user experience
-          });
-    } else {
-      console.warn('EmailJS not configured');
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setFormError(t('contact.popup_error'));
+      setIsSubmitting(false);
+      return;
     }
-  };
 
-  const handleGetInTouch = () => {
-    setShowPopup(true);
-  };
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          to_email: 'dzhemile.ahmet@gmail.com',
+          from_name: submittedData.fullName,
+          from_email: submittedData.email,
+          reply_to: submittedData.email,
+          subject: `New Contact Form Submission from ${submittedData.fullName}`,
+          message: submittedData.message,
+          user_name: submittedData.fullName,
+          user_email: submittedData.email,
+          full_name: submittedData.fullName,
+          email: submittedData.email,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
-  const closePopup = () => {
-    setShowPopup(false);
+      setFormData({ fullName: '', email: '', message: '' });
+      setShowSuccessPopup(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setFormError(t('contact.popup_error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeSuccessPopup = () => {
@@ -87,7 +94,10 @@ const Contact = () => {
 
   return (
     <>
-      <header className="site-header d-flex flex-column justify-content-center align-items-center" id="header-solid">
+      <header
+        className="site-header d-flex flex-column justify-content-center align-items-center"
+        id="header-solid"
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-12 text-center">
@@ -97,107 +107,149 @@ const Contact = () => {
         </div>
       </header>
 
-      <section className="contact-commission-section section-padding">
+      <section
+        className={`contact-page section-padding${entered ? ' contact-page--entered' : ''}`}
+      >
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8 col-12 text-center">
-              <h1 className="commission-title">{t('contact.commission_title')}</h1>
-              
-              <div className="contact-details">
-                <div className="contact-item">
-                  <span className="contact-label">{t('contact.phone')}</span>
-                  <span className="contact-value">+359 895 62 75 11</span>
-                </div>
-                <div className="contact-separator"></div>
-                <div className="contact-item">
-                  <span className="contact-label">{t('contact.email')}</span>
-                  <a href="mailto:dzhemile.ahmet@gmail.com" className="contact-value contact-link">dzhemile.ahmet@gmail.com</a>
-                </div>
-                <div className="contact-separator"></div>
-                <div className="contact-item">
-                  <span className="contact-label">{t('contact.location')}</span>
-                  <span className="contact-value">{t('contact.location_value')}</span>
-                </div>
+          <div className="row g-5 align-items-start">
+            <div className="col-lg-5 col-12">
+              <div className="contact-page__intro contact-page__reveal contact-page__reveal--1">
+                <p className="contact-page__eyebrow">{t('contact.commission_title')}</p>
+                <h1 className="contact-page__title">{t('contact.page_title')}</h1>
+                <p className="contact-page__lead">{t('contact.intro')}</p>
+                <p className="contact-page__note">{t('contact.response_note')}</p>
               </div>
 
-              <button className="get-in-touch-btn" onClick={handleGetInTouch}>
-                {t('contact.get_in_touch')}
-              </button>
+              <ul className="contact-channels contact-page__reveal contact-page__reveal--2">
+                <li>
+                  <a
+                    className="contact-channel"
+                    href="mailto:dzhemile.ahmet@gmail.com"
+                  >
+                    <span className="contact-channel__label">{t('contact.email')}</span>
+                    <span className="contact-channel__value">dzhemile.ahmet@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="contact-channel" href="tel:+359895627511">
+                    <span className="contact-channel__label">{t('contact.phone')}</span>
+                    <span className="contact-channel__value">+359 895 627 511</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="contact-channel"
+                    href="viber://chat?number=0895627511"
+                  >
+                    <span className="contact-channel__label">{t('contact.viber')}</span>
+                    <span className="contact-channel__value">{t('contact.viber_value')}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="contact-channel"
+                    href="https://www.instagram.com/doarti42/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="contact-channel__label">{t('contact.instagram')}</span>
+                    <span className="contact-channel__value">@doarti42</span>
+                  </a>
+                </li>
+                <li>
+                  <div className="contact-channel contact-channel--static">
+                    <span className="contact-channel__label">{t('contact.location')}</span>
+                    <span className="contact-channel__value">{t('contact.location_value')}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-          {/* Email Popup */}
-          {showPopup && (
-            <div className="popup-overlay" onClick={closePopup}>
-              <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                <div className="popup-header">
-                  <h3>{t('contact.popup_title')}</h3>
-                  <button className="popup-close" onClick={closePopup}>×</button>
-                </div>
-                <form onSubmit={handleSubmit} className="popup-form">
-                  <div className="form-group">
-                    <label htmlFor="popup-name">{t('contact.popup_name')}</label>
+            <div className="col-lg-7 col-12">
+              <div className="contact-form-panel contact-page__reveal contact-page__reveal--3">
+                <h2 className="contact-form-panel__title">{t('contact.form_title')}</h2>
+                <p className="contact-form-panel__subtitle">{t('contact.form_subtitle')}</p>
+
+                <form onSubmit={handleSubmit} className="contact-form" noValidate>
+                  <div className="contact-form__field">
+                    <label htmlFor="contact-name">{t('contact.popup_name')}</label>
                     <input
                       type="text"
-                      id="popup-name"
+                      id="contact-name"
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
+                      autoComplete="name"
                       required
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="popup-email">{t('contact.popup_email')}</label>
+
+                  <div className="contact-form__field">
+                    <label htmlFor="contact-email">{t('contact.popup_email')}</label>
                     <input
                       type="email"
-                      id="popup-email"
+                      id="contact-email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      autoComplete="email"
                       required
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="popup-message">{t('contact.popup_message')}</label>
+
+                  <div className="contact-form__field">
+                    <label htmlFor="contact-message">{t('contact.popup_message')}</label>
                     <textarea
-                      id="popup-message"
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows="4"
+                      rows="6"
                     ></textarea>
                   </div>
-                  <button type="submit" className="popup-submit-btn" disabled={isSubmitting}>
+
+                  {formError.length > 0 && (
+                    <p className="contact-form__error" role="alert">
+                      {formError}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="contact-form__submit"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? t('contact.popup_sending') : t('contact.popup_send')}
                   </button>
                 </form>
               </div>
             </div>
-          )}
+          </div>
+        </div>
+      </section>
 
-          {/* Success Popup */}
-          {showSuccessPopup && (
-            <div className="popup-overlay" onClick={closeSuccessPopup}>
-              <div className="success-popup-content" onClick={(e) => e.stopPropagation()}>
-                <div className="success-popup-header">
-                  <div className="success-icon">✓</div>
-                  <h3>{t('contact.success_title')}</h3>
-                </div>
-                <div className="success-popup-body">
-                  <p>{t('contact.popup_success') || 'Thank you for your message! I will get back to you soon.'}</p>
-                  <p className="success-note">{t('contact.success_note') || 'Your message has been sent successfully to dzhemile.ahmet@gmail.com.'}</p>
-                </div>
-                <div className="success-popup-footer">
-                  <button className="success-close-btn" onClick={closeSuccessPopup}>
-                    {t('contact.success_close')}
-                  </button>
-                </div>
-              </div>
+      {showSuccessPopup && (
+        <div className="popup-overlay contact-success-overlay" onClick={closeSuccessPopup}>
+          <div
+            className="contact-success-dialog"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-success-title"
+          >
+            <div className="contact-success-dialog__icon" aria-hidden="true">
+              ✓
             </div>
-          )}
+            <h3 id="contact-success-title">{t('contact.success_title')}</h3>
+            <p>{t('contact.popup_success')}</p>
+            <p className="contact-success-dialog__note">{t('contact.success_note')}</p>
+            <button className="contact-form__submit" onClick={closeSuccessPopup}>
+              {t('contact.success_close')}
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
