@@ -245,6 +245,7 @@ export const translations = {
       },
       studio_title: 'Studio & Exhibitions',
       studio_subtitle: 'A glimpse into the creative process and artistic journey',
+      studio_view: 'View',
     },
     contact: {
       header: "I'm open for commissions",
@@ -1326,6 +1327,7 @@ export const translations = {
       },
       studio_title: 'Студио и изложби',
       studio_subtitle: 'Поглед в творческия процес и художествения път',
+      studio_view: 'Разгледай',
     },
     contact: {
       header: 'Отворена съм за поръчки',

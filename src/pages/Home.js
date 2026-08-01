@@ -145,15 +145,15 @@ const Home = () => {
                                             alt={painting.title}
                                             className="img-fluid"
                                         />
-                                    </div>
-                                    <div className="home-painting__meta">
-                                        <h3 className="home-painting__title">{painting.title}</h3>
-                                        <p className="home-painting__info">
-                                            {painting.dimensions}{' \u00B7 '}{t('oil_painting')}
-                                        </p>
-                                        {isFeature && descText ? (
-                                            <p className="home-painting__desc">{truncateText(descText)}</p>
-                                        ) : null}
+                                        <div className="home-painting__meta">
+                                            <h3 className="home-painting__title">{painting.title}</h3>
+                                            <p className="home-painting__info">
+                                                {painting.dimensions}{' \u00B7 '}{t('oil_painting')}
+                                            </p>
+                                            {isFeature && descText ? (
+                                                <p className="home-painting__desc">{truncateText(descText)}</p>
+                                            ) : null}
+                                        </div>
                                     </div>
                                 </Link>
                             );

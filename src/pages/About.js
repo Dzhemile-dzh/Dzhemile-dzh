@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import ImageLoader from '../components/ImageLoader';
-import '../components/ImageLoader.css';
 import './About.css';
 
 const About = () => {
@@ -160,16 +158,23 @@ const About = () => {
                   className={`studio-gallery-item studio-gallery-item-${image.size} ${
                     isVisible ? 'fade-in-visible' : 'fade-in'
                   }`}
-                  style={{ animationDelay: `${index * 0.08}s` }}
+                  style={{ animationDelay: `${index * 0.07}s` }}
                   onClick={() => setLightboxImage(`/images/about/${image.src}`)}
                   aria-label={`View studio image ${index + 1}`}
                 >
                   <div className="studio-gallery-image-wrapper">
-                    <ImageLoader
+                    <img
                       src={`/images/about/${image.src}`}
                       alt={`Studio & Exhibition ${index + 1}`}
                       className="studio-gallery-image"
+                      loading="lazy"
+                      decoding="async"
                     />
+                    <span className="studio-gallery-veil" aria-hidden="true" />
+                    <span className="studio-gallery-cue" aria-hidden="true">
+                      <i className="bi bi-arrows-fullscreen"></i>
+                      <span>{t('about.studio_view')}</span>
+                    </span>
                   </div>
                 </button>
               ))}

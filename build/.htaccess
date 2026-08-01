@@ -1,6 +1,9 @@
 # React Router - Handle client-side routing
 RewriteEngine On
 
+# Block sensitive files and source maps before any pass-through
+RewriteRule \.(?:htaccess|htpasswd|ini|log|sh|inc|bak|map)$ - [F,L,NC]
+
 # Handle Angular and React Router
 # If an existing asset or directory is requested go to it as it is
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -26,6 +29,12 @@ RewriteRule ^ index.html [L]
     
     # Content Security Policy
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self';"
+
+    # 1 Month for most static assets
+    Header set Cache-Control "max-age=2592000, public" "expr=%{REQUEST_URI} =~ m#\.(?:css|jpg|jpeg|png|gif|js|ico|svg|webp)$#"
+
+    # 1 Week for HTML files
+    Header set Cache-Control "max-age=604800, public" "expr=%{REQUEST_URI} =~ m#\.(?:html|htm)$#"
 </IfModule>
 
 # Compression
@@ -81,31 +90,6 @@ RewriteRule ^ index.html [L]
     ExpiresByType application/x-shockwave-flash "access plus 1 month"
 </IfModule>
 
-# Cache-Control Headers
-<IfModule mod_headers.c>
-    # 1 Month for most static assets
-    <filesmatch "\.(css|jpg|jpeg|png|gif|js|ico|svg|webp)$">
-        Header set Cache-Control "max-age=2592000, public"
-    </filesmatch>
-    
-    # 1 Week for HTML files
-    <filesmatch "\.(html|htm)$">
-        Header set Cache-Control "max-age=604800, public"
-    </filesmatch>
-</IfModule>
-
-# Prevent access to sensitive files
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
-# Prevent access to source maps in production
-<FilesMatch "\.map$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
 # Error Pages
 ErrorDocument 404 /index.html
 ErrorDocument 500 /index.html
@@ -136,6 +120,3 @@ ErrorDocument 500 /index.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{THE_REQUEST} /+[^?\s]*?/[\s?] [NC]
 RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-
-
