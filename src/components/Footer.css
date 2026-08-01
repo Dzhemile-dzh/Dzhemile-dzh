@@ -61,7 +61,7 @@
   background: #fff !important;
   border: none !important;
   border-radius: 4px !important;
-  color: #161513 !important;
+  color: #1e1b4b !important;
   text-align: left;
   font-size: 0.92rem;
   font-weight: 700;
@@ -90,8 +90,8 @@
 
 .doarti-footer .subscribe-form #subscribe-email:focus {
   outline: none;
-  border-color: #161513;
-  box-shadow: 0 0 0 2px rgba(22, 21, 19, 0.2);
+  border-color: #1e1b4b;
+  box-shadow: 0 0 0 2px rgba(30, 27, 75, 0.2);
 }
 
 .doarti-footer .subscribe-form #submit {

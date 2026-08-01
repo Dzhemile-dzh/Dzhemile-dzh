@@ -36,6 +36,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: #12103a;
   /* Seamless fade into the page below */
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -65,7 +66,13 @@
   object-fit: cover;
   object-position: center;
   transform: scale(1.04);
+  opacity: 0;
+  transition: opacity 0.55s ease;
   animation: home-hero-drift 28s ease-in-out infinite alternate;
+}
+
+.home-hero__video.is-ready {
+  opacity: 1;
 }
 
 .home-hero__veil {
@@ -734,8 +741,20 @@
   .home-print {
     animation: none !important;
     transition: none !important;
-    opacity: 1 !important;
     transform: none !important;
+  }
+
+  .home-hero__headline,
+  .home-hero__lede,
+  .home-hero__actions,
+  .home-hero__scroll,
+  .home-painting,
+  .home-print {
+    opacity: 1 !important;
+  }
+
+  .home-hero__video.is-ready {
+    opacity: 1 !important;
   }
 
   .home-painting__frame img,

@@ -6,20 +6,11 @@ import {getPrintDisplayTitle, prints} from '../data/prints';
 import '../components/ImageLoader.css';
 import './Home.css';
 
-const truncateText = (text, maxLength = 160) => {
-    if (!text) {
-        return '';
-    }
-    if (text.length <= maxLength) {
-        return text;
-    }
-    return `${text.substring(0, maxLength).trim()}\u2026`;
-};
-
 const Home = () => {
     const {t, translations} = useLanguage();
     const videoRef = useRef(null);
     const [ready, setReady] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
 
     const latestPaintings = (() => {
         const all = translations?.gallery2026?.paintings?.slice(0, 4) ?? [];
@@ -42,18 +33,35 @@ const Home = () => {
             return undefined;
         }
 
+        const reveal = () => setVideoReady(true);
+
         const tryPlay = () => {
             const playPromise = video.play();
-            if (playPromise && typeof playPromise.catch === 'function') {
-                playPromise.catch(() => {
-                    // Autoplay may be blocked; muted loop still works on interaction.
+            if (playPromise && typeof playPromise.then === 'function') {
+                playPromise.then(reveal).catch(() => {
+                    // Autoplay may be blocked; still reveal once a frame is available.
+                    if (video.readyState >= 2) {
+                        reveal();
+                    }
                 });
+            } else if (video.readyState >= 2) {
+                reveal();
             }
         };
 
-        tryPlay();
+        if (video.readyState >= 2) {
+            tryPlay();
+        }
+
         video.addEventListener('loadeddata', tryPlay);
-        return () => video.removeEventListener('loadeddata', tryPlay);
+        video.addEventListener('playing', reveal);
+        video.addEventListener('canplay', tryPlay);
+
+        return () => {
+            video.removeEventListener('loadeddata', tryPlay);
+            video.removeEventListener('playing', reveal);
+            video.removeEventListener('canplay', tryPlay);
+        };
     }, []);
 
     return (
@@ -62,13 +70,12 @@ const Home = () => {
                 <div className="home-hero__media" aria-hidden="true">
                     <video
                         ref={videoRef}
-                        className="home-hero__video"
+                        className={`home-hero__video${videoReady ? ' is-ready' : ''}`}
                         autoPlay
                         muted
                         loop
                         playsInline
-                        preload="metadata"
-                        poster="/images/2026/2026-imago.png"
+                        preload="auto"
                     >
                         <source src="/images/20230917_152650_1_1.mp4" type="video/mp4"/>
                     </video>
@@ -112,8 +119,6 @@ const Home = () => {
 
                     <div className="home-latest__grid">
                         {latestPaintings.map((painting, index) => {
-                            const description = t(painting.description);
-                            const descText = typeof description === 'string' ? description : '';
                             const isLandscape =
                                 typeof painting.link === 'string' &&
                                 painting.link.includes('from-flesh-to-icon');
@@ -150,9 +155,6 @@ const Home = () => {
                                             <p className="home-painting__info">
                                                 {painting.dimensions}{' \u00B7 '}{t('oil_painting')}
                                             </p>
-                                            {isFeature && descText ? (
-                                                <p className="home-painting__desc">{truncateText(descText)}</p>
-                                            ) : null}
                                         </div>
                                     </div>
                                 </Link>

@@ -3,9 +3,9 @@
   --load-ink: #f7f4ef;
   --load-muted: rgba(247, 244, 239, 0.58);
   --load-gold: #ffc107;
-  --load-deep: #0e0d0c;
-  --load-surface: #161513;
-  --load-edge: #242220;
+  --load-deep: #12103a;
+  --load-surface: #1e1b4b;
+  --load-edge: #312e81;
   --load-teal: #1f9bb5;
 
   position: fixed;
@@ -276,7 +276,7 @@ html {
   position: relative;
   margin: 0 0 0.55rem;
   padding-bottom: 0.85rem;
-  color: #161513;
+  color: #1e1b4b;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: clamp(1.55rem, 2.8vw, 2.2rem);
   font-weight: 700;
@@ -343,7 +343,7 @@ html {
 
 .badge--muted {
   background: #f1f1ef;
-  border-color: rgba(22, 21, 19, 0.14);
+  border-color: rgba(30, 27, 75, 0.14);
   color: #5c5852;
   font-style: italic;
   font-weight: 500;

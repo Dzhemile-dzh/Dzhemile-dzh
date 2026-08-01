@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 1000;
   padding: 8px 0;
-  background: rgba(22, 21, 19, 0.72) !important;
+  background: rgba(30, 27, 75, 0.72) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
@@ -46,7 +46,7 @@
 }
 
 .modern-header .dropdown-menu {
-  background: rgba(22, 21, 19, 0.88) !important;
+  background: rgba(30, 27, 75, 0.88) !important;
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
@@ -68,16 +68,36 @@ body[data-page='inner'] .App {
   height: auto;
 }
 
-/* Solid page banners under fixed header */
+/*
+ * Page banners extend under the glass nav so the header blurs the same
+ * dark indigo (#1e1b4b) surface — no seam between chrome and heading.
+ */
+body[data-page='inner'] .modern-header:not(.modern-header--over-hero) {
+  border-bottom-color: transparent;
+  box-shadow: none;
+  background: rgba(30, 27, 75, 0.55) !important;
+}
+
 body[data-page='inner'] .site-header#header-solid {
   max-height: none;
-  min-height: 7.5rem;
+  min-height: 11.5rem;
   overflow: visible;
+  margin-top: -5rem;
+  padding-top: 5rem;
+  background-image: linear-gradient(
+    180deg,
+    #1e1b4b 0%,
+    #1e1b4b 42%,
+    #312e81 62%,
+    #a5b4fc 82%,
+    #ffffff 100%
+  );
+  background-color: #1e1b4b;
 }
 
 /* Homepage: lighter glass over video, denser when scrolled */
 .modern-header--over-hero {
-  background: rgba(22, 21, 19, 0.32) !important;
+  background: rgba(30, 27, 75, 0.32) !important;
   box-shadow: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px) saturate(1.2);
@@ -86,7 +106,7 @@ body[data-page='inner'] .site-header#header-solid {
 
 .modern-header--over-hero.modern-header--scrolled,
 .modern-header--over-hero.modern-header--menu-open {
-  background: rgba(22, 21, 19, 0.82) !important;
+  background: rgba(30, 27, 75, 0.82) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
@@ -115,11 +135,17 @@ body[data-page='inner'] .site-header#header-solid {
     padding-top: 4rem;
   }
 
+  body[data-page='inner'] .site-header#header-solid {
+    margin-top: -4rem;
+    padding-top: 4rem;
+    min-height: 10rem;
+  }
+
   .modern-header .nav-menu {
     justify-content: flex-start;
     padding: 4.5rem 1.25rem 1.5rem;
     overflow-y: auto;
-    background: rgba(22, 21, 19, 0.92) !important;
+    background: rgba(30, 27, 75, 0.92) !important;
     backdrop-filter: blur(22px) saturate(1.35);
     -webkit-backdrop-filter: blur(22px) saturate(1.35);
   }

@@ -28,6 +28,14 @@ function App() {
   useEffect(() => {
     initInteractiveFeatures();
 
+    // Warm the hero video cache during splash so Home can play without a poster flash.
+    const warmVideo = document.createElement('video');
+    warmVideo.muted = true;
+    warmVideo.playsInline = true;
+    warmVideo.preload = 'auto';
+    warmVideo.src = '/images/20230917_152650_1_1.mp4';
+    warmVideo.load();
+
     const exitTimer = setTimeout(() => {
       setIsExiting(true);
     }, 1100);
@@ -39,6 +47,8 @@ function App() {
     return () => {
       clearTimeout(exitTimer);
       clearTimeout(doneTimer);
+      warmVideo.removeAttribute('src');
+      warmVideo.load();
     };
   }, []);
 
