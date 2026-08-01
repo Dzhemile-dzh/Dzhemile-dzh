@@ -56,7 +56,7 @@ function checkoutCopy(locale, productType, sizeLabel) {
       econt: 'Econt (Еконт) до адрес - безплатна доставка',
       phone: 'Телефон за доставка',
       note: isPrint
-        ? `Лимитиран принт, серия от 10. Хартия Twirdo, ${sizeText}, с мой подпис. Доставката е безплатна и само в България (1-3 работни дни). Адресът и телефонът са задължителни.`
+        ? `Лимитиран принт, серия от 10. Fine-art хартия, ${sizeText}, с мой подпис. Доставката е безплатна и само в България (1-3 работни дни). Адресът и телефонът са задължителни.`
         : 'Оригинална маслена картина от мен. Доставката е безплатна и само в България (1-3 работни дни). Адресът и телефонът са задължителни. Изберете куриер Speedy или Econt.',
       productNameSuffix: isPrint ? ' | Лимитирана серия от 10' : '',
       sizeMeta: isPrint ? sizeText : 'original',
@@ -68,7 +68,7 @@ function checkoutCopy(locale, productType, sizeLabel) {
     econt: 'Econt to your address - free shipping',
     phone: 'Phone number for delivery',
     note: isPrint
-      ? `Limited edition of 10. Twirdo paper, ${sizeText}, hand-signed by me. Free shipping within Bulgaria only (1-3 business days). Address and phone are required.`
+      ? `Limited edition of 10. Fine-art paper, ${sizeText}, hand-signed by me. Free shipping within Bulgaria only (1-3 business days). Address and phone are required.`
       : 'Original oil painting by me. Free shipping within Bulgaria only (1-3 business days). Address and phone are required. Choose Speedy or Econt delivery.',
     productNameSuffix: isPrint ? ' | Limited edition of 10' : '',
     sizeMeta: isPrint ? sizeText : 'original',

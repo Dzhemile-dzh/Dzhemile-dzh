@@ -8,7 +8,6 @@ Make sure your `.env` / Vercel Environment Variables contain production values:
 REACT_APP_EMAILJS_PUBLIC_KEY=your_production_key
 REACT_APP_EMAILJS_SERVICE_ID=your_service_id
 REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
-REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id (optional - uses TEMPLATE_ID if not set)
 REACT_APP_EMAILJS_SUBSCRIBE_TEMPLATE_ID=your_subscribe_thank_you_template_id
 REACT_APP_EMAILJS_PURCHASE_TEMPLATE_ID=your_purchase_thank_you_template_id
 
@@ -24,6 +23,8 @@ REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 4. Keep `REACT_APP_EMAILJS_TEMPLATE_ID` for artist alerts (new subscriber / new order), or set dedicated `*_NOTIFY_TEMPLATE_ID` vars.
 5. Redeploy after changing any `REACT_APP_*` value (they are baked into the frontend build).
 
+**Contact form:** sends to `dzhemile.ahmet@gmail.com` via FormSubmit - no EmailJS template. Confirm the address once if FormSubmit asks.
+
 **Stripe setup (Vercel):**
 1. Create a Stripe account and get API keys from the Dashboard.
 2. Add `STRIPE_SECRET_KEY` as a Vercel environment variable (Production + Preview).
@@ -31,7 +32,7 @@ REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 4. Optional: set a `paymentLink` on any print in `src/data/prints.js` to use a Stripe Payment Link instead of the API.
 5. Test with `sk_test_...` keys first (card `4242 4242 4242 4242`).
 
-**Note:** For the contact form, you can use a separate template ID (`REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID`) or the same template ID. The contact form will send emails directly to dzhemile.ahmet@gmail.com without opening an email client.
+**Note:** The contact form sends messages directly to dzhemile.ahmet@gmail.com via FormSubmit (no EmailJS template). On first use, FormSubmit may email you once to confirm the address. Subscribe and purchase thank-you emails still use EmailJS templates.
 
 ### 2. Build the Production Version
 ```bash

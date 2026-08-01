@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { isEmailJsConfigured, sendSubscribeEmails } from '../utils/sendEmails';
+import './Footer.css';
 
 const Footer = () => {
   const { t, language } = useLanguage();
@@ -72,10 +73,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="row mb-5">
-          <div className="col-lg-4 col-12 mb-4 mb-lg-0">
+    <footer className="site-footer doarti-footer">
+      <div className="container doarti-footer__inner">
+        <div className="doarti-footer__grid">
+          <section className="doarti-footer__col doarti-footer__col--subscribe">
             <div className="subscription-box">
               <div className="subscribe-form-wrap">
                 <h6>{t('footer.subscribe')}</h6>
@@ -95,49 +96,47 @@ const Footer = () => {
                 </form>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="col-lg-4 col-12 mb-4 mb-lg-0">
-            <h4 className="site-footer-title mb-3">{t('footer.contact')}</h4>
-            <p className="contact-info">
-              <strong>{t('footer.phone')}</strong>
-              <a href="tel:+359888123456">+359 895 627 511</a>
-            </p>
-            <p className="contact-info">
-              <strong>{t('footer.email')}</strong>
-              <a href="mailto:dzhemile.ahmet@gmail.com">dzhemile.ahmet@gmail.com</a>
-            </p>
-          </div>
+          <section className="doarti-footer__col">
+            <h3 className="doarti-footer__heading">{t('footer.contact')}</h3>
+            <ul className="doarti-footer__contacts">
+              <li>
+                <span>{t('footer.phone')}</span>
+                <a href="tel:+359895627511">+359 895 627 511</a>
+              </li>
+              <li>
+                <span>{t('footer.email')}</span>
+                <a href="mailto:dzhemile.ahmet@gmail.com">dzhemile.ahmet@gmail.com</a>
+              </li>
+            </ul>
+          </section>
 
-          <div className="col-lg-4 col-12">
-            <h4 className="site-footer-title mb-3">{t('footer.socials')}</h4>
-            <ul className="social-icon">
-              <li className="social-icon-item">
+          <section className="doarti-footer__col">
+            <h3 className="doarti-footer__heading">{t('footer.socials')}</h3>
+            <ul className="doarti-footer__socials">
+              <li>
                 <a
                   href="mailto:dzhemile.ahmet@gmail.com"
-                  className="social-icon-link bi-envelope"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  className="doarti-footer__social-link bi-envelope"
                   aria-label="Email"
                 >
                   <span className="sr-only">Email</span>
                 </a>
               </li>
-              <li className="social-icon-item">
+              <li>
                 <a
                   href="viber://chat?number=0895627511"
-                  className="social-icon-link bi-cursor"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  className="doarti-footer__social-link bi-cursor"
                   aria-label="Viber"
                 >
                   <span className="sr-only">Viber</span>
                 </a>
               </li>
-              <li className="social-icon-item">
+              <li>
                 <a
                   href="https://www.instagram.com/doarti42/"
-                  className="social-icon-link bi-instagram"
+                  className="doarti-footer__social-link bi-instagram"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -146,52 +145,26 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </section>
         </div>
 
-        <div className="row">
-          <div className="col-lg-4 col-12 mb-3 mb-lg-0">
-            <div className="footer-logo">
-              <img src="/images/logo-doarti.png" alt="Doarti" className="logo-img" />
-            </div>
+        <div className="doarti-footer__bar">
+          <div className="doarti-footer__brand">
+            <img src="/images/logo-doarti.png" alt="Doarti" />
           </div>
 
-          <div className="col-lg-4 col-12 mb-3 mb-lg-0">
-            <ul className="site-footer-links">
-              <li className="site-footer-link-item">
-                <Link to="/" className="site-footer-link">
-                  {t('footer.homepage')}
-                </Link>
-              </li>
-              <li className="site-footer-link-item">
-                <Link to="/prints" className="site-footer-link">
-                  {t('footer.prints_page')}
-                </Link>
-              </li>
-              <li className="site-footer-link-item">
-                <Link to="/shipping" className="site-footer-link">
-                  {t('footer.shipping_page')}
-                </Link>
-              </li>
-              <li className="site-footer-link-item">
-                <Link to="/contact" className="site-footer-link">
-                  {t('footer.contact_page')}
-                </Link>
-              </li>
-              <li className="site-footer-link-item">
-                <Link to="/about" className="site-footer-link">
-                  {t('footer.about_page')}
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <nav className="doarti-footer__nav" aria-label="Footer">
+            <Link to="/">{t('footer.homepage')}</Link>
+            <Link to="/prints">{t('footer.prints_page')}</Link>
+            <Link to="/shipping">{t('footer.shipping_page')}</Link>
+            <Link to="/contact">{t('footer.contact_page')}</Link>
+            <Link to="/about">{t('footer.about_page')}</Link>
+          </nav>
 
-          <div className="col-lg-4 col-12">
-            <p
-              className="copyright-text"
-              dangerouslySetInnerHTML={{ __html: t('footer.copyright') }}
-            ></p>
-          </div>
+          <p
+            className="doarti-footer__copy"
+            dangerouslySetInnerHTML={{ __html: t('footer.copyright') }}
+          ></p>
         </div>
       </div>
 

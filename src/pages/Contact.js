@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import emailjs from '@emailjs/browser';
 import './Contact.css';
+
+const CONTACT_EMAIL = 'dzhemile.ahmet@gmail.com';
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -14,22 +16,6 @@ const Contact = () => {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [formError, setFormError] = useState('');
   const [entered, setEntered] = useState(false);
-
-  const EMAILJS_SERVICE_ID =
-    process.env.REACT_APP_EMAILJS_SERVICE_ID ||
-    process.env.REACT_APP_EMAILJS_CONTACT_SERVICE_ID ||
-    '';
-  const EMAILJS_TEMPLATE_ID =
-    process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID ||
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
-    '';
-  const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
-
-  useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY) {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
-  }, [EMAILJS_PUBLIC_KEY]);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setEntered(true));
@@ -53,35 +39,35 @@ const Contact = () => {
 
     const submittedData = { ...formData };
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      setFormError(t('contact.popup_error'));
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: 'dzhemile.ahmet@gmail.com',
-          from_name: submittedData.fullName,
-          from_email: submittedData.email,
-          reply_to: submittedData.email,
-          subject: `New Contact Form Submission from ${submittedData.fullName}`,
-          message: submittedData.message,
-          user_name: submittedData.fullName,
-          user_email: submittedData.email,
-          full_name: submittedData.fullName,
-          email: submittedData.email,
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        EMAILJS_PUBLIC_KEY
-      );
+        body: JSON.stringify({
+          name: submittedData.fullName,
+          email: submittedData.email,
+          message: submittedData.message,
+          _subject: `Doarti contact - ${submittedData.fullName}`,
+          _replyto: submittedData.email,
+          _captcha: 'false',
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(
+          typeof result.message === 'string' ? result.message : 'Send failed'
+        );
+      }
 
       setFormData({ fullName: '', email: '', message: '' });
       setShowSuccessPopup(true);
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error sending contact email:', error);
       setFormError(t('contact.popup_error'));
     } finally {
       setIsSubmitting(false);
@@ -122,12 +108,9 @@ const Contact = () => {
 
               <ul className="contact-channels contact-page__reveal contact-page__reveal--2">
                 <li>
-                  <a
-                    className="contact-channel"
-                    href="mailto:dzhemile.ahmet@gmail.com"
-                  >
+                  <a className="contact-channel" href={`mailto:${CONTACT_EMAIL}`}>
                     <span className="contact-channel__label">{t('contact.email')}</span>
-                    <span className="contact-channel__value">dzhemile.ahmet@gmail.com</span>
+                    <span className="contact-channel__value">{CONTACT_EMAIL}</span>
                   </a>
                 </li>
                 <li>
@@ -155,12 +138,6 @@ const Contact = () => {
                     <span className="contact-channel__label">{t('contact.instagram')}</span>
                     <span className="contact-channel__value">@doarti42</span>
                   </a>
-                </li>
-                <li>
-                  <div className="contact-channel contact-channel--static">
-                    <span className="contact-channel__label">{t('contact.location')}</span>
-                    <span className="contact-channel__value">{t('contact.location_value')}</span>
-                  </div>
                 </li>
               </ul>
             </div>

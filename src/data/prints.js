@@ -1,6 +1,6 @@
 /**
  * Fine-art prints catalog.
- * One limited print edition per painting: 10 copies, Twirdo paper, signed.
+ * One limited print edition per painting: 10 copies, archival fine-art paper, signed.
  * Sizes: 40 x 60 cm (50 EUR, default) and 60 x 80 cm (70 EUR).
  */
 import { translations } from './translations';
@@ -11,7 +11,7 @@ export const PRINT_SIZES = [
 ];
 
 const PRINT_DEFAULT_SIZE = PRINT_SIZES[0];
-const PRINT_PAPER = 'Twirdo';
+const PRINT_PAPER = 'Fine-art paper';
 const PRINT_EDITION_SIZE = 10;
 const PRINT_EDITION = 'Limited edition of 10';
 
