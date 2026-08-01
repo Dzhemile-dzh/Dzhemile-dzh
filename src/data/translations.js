@@ -128,6 +128,14 @@ export const translations = {
     check_back_later: 'Please check back later or browse other years.',
     back_to_home: 'Back to Home',
     view_full_size: 'View Full Size',
+    notFound: {
+      title: 'This canvas slipped away',
+      message:
+        'The page you wanted has wandered off the easel. Choose another path through the atelier.',
+      home: 'Back to home',
+      gallery: 'Browse paintings',
+      prints: 'View prints',
+    },
     painting_details: {
       aurora_desc: "'Aurora's Vineyard Dream' is a mesmerizing canvas that transcends traditional boundaries, blending symbolism and surrealism with...",
       alice_desc: "'Alice: A Fusion of Past and Present' is a captivating oil painting that seamlessly blends the elegance of the Renaissance with the vibrancy of modernity. At its core stands Alice..."
@@ -1109,6 +1117,14 @@ export const translations = {
     check_back_later: 'Моля, проверете отново по-късно или разгледайте други години.',
     back_to_home: 'Обратно към началото',
     view_full_size: 'Виж в пълен размер',
+    notFound: {
+      title: 'Това платно се измъкна',
+      message:
+        'Страницата, която търсите, е напуснала статива. Изберете друг път през ателието.',
+      home: 'Към началото',
+      gallery: 'Към картините',
+      prints: 'Към принтовете',
+    },
     painting_details: {
       aurora_desc: "'Мечтата на Аврора' е завладяващ живопис, който надхвърля традиционните граници, съчетавайки символизъм и сюрреализъм...",
       alice_desc: "'Алиса: Сливане на минало и настояще' е масло на платно, който плавно обединява елегантността на Ренесанса с жизнеността на съвремието. В центъра ѝ стои Алиса..."

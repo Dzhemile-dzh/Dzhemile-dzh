@@ -19,6 +19,7 @@ import PrintDetail from './pages/PrintDetail';
 import Shipping from './pages/Shipping';
 import CheckoutSuccess from './pages/CheckoutSuccess';
 import CheckoutCancel from './pages/CheckoutCancel';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -104,6 +105,7 @@ function App() {
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/checkout/success" element={<CheckoutSuccess />} />
               <Route path="/checkout/cancel" element={<CheckoutCancel />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
