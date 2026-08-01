@@ -25,35 +25,141 @@
 }
 
 .print-spec-chip {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: #fff;
-  color: #222;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  border: 1px solid rgba(31, 155, 181, 0.28);
+  background: #eef7f9;
+  color: #1a5f6e;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.45rem 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 2px;
+}
+
+.prints-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
 }
 
 .print-card {
-  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
+.print-card__frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #161513;
+  isolation: isolate;
+  border-radius: 1rem;
+}
+
+.print-card__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 8, 0.08) 0%,
+    rgba(12, 10, 8, 0.05) 42%,
+    rgba(12, 10, 8, 0.55) 72%,
+    rgba(12, 10, 8, 0.88) 100%
+  );
+  transition: opacity 0.45s ease;
+}
+
+.print-card:hover .print-card__frame::after {
+  opacity: 0.92;
+}
+
+.print-card__frame img,
+.print-card__frame .image-loader-container,
+.print-card__frame .image-loaded {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+  border-radius: inherit;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.print-card__frame .image-loader-container {
+  min-height: 0 !important;
+  height: 100%;
+  border-radius: inherit;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.print-card:hover .print-card__frame .image-loader-container {
+  transform: scale(1.045);
+}
+
+.print-card__badge,
 .print-card__edition {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(0, 0, 0, 0.78);
-  color: #fff;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.65rem;
+  top: 0.85rem;
+  left: 0.85rem;
   z-index: 2;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f7f4ef;
+  background: rgba(18, 18, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.print-card__meta {
-  color: #666;
-  font-size: 0.9rem;
+.print-card__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 1.35rem 1.1rem 1.2rem;
+  color: #f7f4ef;
+  transform: translateY(0);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    0 10px 32px rgba(0, 0, 0, 0.35);
+}
+
+.print-card:hover .print-card__overlay {
+  transform: translateY(-4px);
+}
+
+.print-card__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.print-card__price {
+  margin: 0;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: rgba(247, 244, 239, 0.86);
+}
+
+.print-card__price strong {
+  color: #fff;
+  font-weight: 600;
 }
 
 .print-detail-specs {
@@ -132,6 +238,26 @@
   white-space: nowrap;
 }
 
+.print-detail-note {
+  color: #555;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+  .prints-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .prints-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 576px) {
   .price-card .price-left {
     flex-wrap: wrap;
@@ -143,11 +269,4 @@
     width: 100%;
     margin-top: 0.15rem;
   }
-}
-
-.print-detail-note {
-  color: #555;
-  line-height: 1.65;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
 }

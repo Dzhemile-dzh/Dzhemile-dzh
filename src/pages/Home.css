@@ -347,6 +347,10 @@
   height: 100%;
 }
 
+.home-print__frame .image-loader-container {
+  border-radius: inherit;
+}
+
 .home-painting__frame {
   position: relative;
   overflow: hidden;
@@ -441,7 +445,7 @@
 .home-prints__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem 1.25rem;
+  gap: 1.35rem;
 }
 
 .home-print {
@@ -471,7 +475,29 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  background: var(--home-fog);
+  background: #161513;
+  isolation: isolate;
+  border-radius: 1rem;
+}
+
+.home-print__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 8, 0.08) 0%,
+    rgba(12, 10, 8, 0.05) 42%,
+    rgba(12, 10, 8, 0.55) 72%,
+    rgba(12, 10, 8, 0.88) 100%
+  );
+  transition: opacity 0.45s ease;
+}
+
+.home-print:hover .home-print__frame::after {
+  opacity: 0.92;
 }
 
 .home-print__frame img,
@@ -494,9 +520,9 @@
 
 .home-print__badge {
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 1;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
   padding: 0.35rem 0.6rem;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.62rem;
@@ -504,32 +530,52 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #f7f4ef;
-  background: rgba(18, 18, 18, 0.62);
+  background: rgba(18, 18, 18, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 .home-print__meta {
-  margin-top: 0.85rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 1.35rem 1.1rem 1.2rem;
+  color: #f7f4ef;
+  transform: translateY(0);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    0 10px 32px rgba(0, 0, 0, 0.35);
+}
+
+.home-print:hover .home-print__meta {
+  transform: translateY(-4px);
 }
 
 .home-print__title {
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.35rem;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 700;
-  color: var(--home-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #fff;
 }
 
 .home-print__price {
   margin: 0;
-  font-size: 0.88rem;
-  color: var(--home-muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: rgba(247, 244, 239, 0.86);
 }
 
 .home-print__price strong {
-  color: var(--home-ink);
+  color: #fff;
   font-weight: 600;
 }
 

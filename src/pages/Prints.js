@@ -21,7 +21,7 @@ const Prints = () => {
         </div>
       </header>
 
-      <section className="section-padding">
+      <section className="section-padding prints-page">
         <div className="container">
           <div className="print-intro mx-auto mb-5">
             <p className="print-intro__lead">{t('prints.intro')}</p>
@@ -34,47 +34,35 @@ const Prints = () => {
             <p className="print-intro__paper mb-0">{t('prints.paper_description')}</p>
           </div>
 
-          <div className="row">
+          <div className="prints-grid">
             {prints.map((print) => {
               const title = getPrintDisplayTitle(print, t);
 
               return (
-                <div key={print.slug} className="col-lg-4 col-md-6 col-12 mb-4">
-                  <Link
-                    to={`/prints/${print.slug}`}
-                    style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
-                  >
-                    <div
-                      className="custom-block custom-block-full print-card"
-                      style={{ cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%' }}
-                    >
-                      <div className="custom-block-image-wrap" style={{ height: '400px', overflow: 'hidden' }}>
-                        <ImageLoader
-                          src={`/${print.image}`}
-                          alt={title}
-                          className="custom-block-image img-fluid"
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                        <span className="print-card__edition">{t('prints.edition_badge')}</span>
-                      </div>
-                      <div className="custom-block-info">
-                        <span className="badge mb-2">{t('prints.fine_art_print')}</span>
-                        <h5 className="mb-2" style={{ color: '#000' }}>{title}</h5>
-                        <p className="print-card__meta mb-1">
-                          {t('prints.paper_value')} - {t('prints.sizes_chip')}
-                        </p>
-                        <p className="print-card__meta mb-2">
-                          {t('prints.signed_badge')}
-                        </p>
-                        <p className="mb-0">
-                          <strong>
-                            {t('prints.from_price')} {print.priceEur} {t('euro')}
-                          </strong>
-                        </p>
-                      </div>
+                <Link
+                  key={print.slug}
+                  to={`/prints/${print.slug}`}
+                  className="print-card"
+                  aria-label={title}
+                >
+                  <div className="print-card__frame">
+                    <span className="print-card__badge">{t('prints.fine_art_print')}</span>
+                    <ImageLoader
+                      src={`/${print.image}`}
+                      alt={title}
+                      className="img-fluid"
+                    />
+                    <div className="print-card__overlay">
+                      <h3 className="print-card__title">{title}</h3>
+                      <p className="print-card__price">
+                        {t('prints.from_price')}{' '}
+                        <strong>
+                          {print.priceEur} {t('euro')}
+                        </strong>
+                      </p>
                     </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               );
             })}
           </div>

@@ -193,15 +193,15 @@ const Home = () => {
                                             alt={title}
                                             className="img-fluid"
                                         />
-                                    </div>
-                                    <div className="home-print__meta">
-                                        <h3 className="home-print__title">{title}</h3>
-                                        <p className="home-print__price">
-                                            {t('prints.from_price')}{' '}
-                                            <strong>
-                                                {print.priceEur} {t('euro')}
-                                            </strong>
-                                        </p>
+                                        <div className="home-print__meta">
+                                            <h3 className="home-print__title">{title}</h3>
+                                            <p className="home-print__price">
+                                                {t('prints.from_price')}{' '}
+                                                <strong>
+                                                    {print.priceEur} {t('euro')}
+                                                </strong>
+                                            </p>
+                                        </div>
                                     </div>
                                 </Link>
                             );
