@@ -124,8 +124,8 @@ const Gallery = () => {
                             />
                           </Link>
                           {painting.sold && (
-                            <span className="badge-soldmin badgem position-absolute">
-                              <strong>{t('sold_tag')}</strong>
+                            <span className="status-tag status-tag--sold status-tag--compact position-absolute">
+                              {t('sold_tag')}
                             </span>
                           )}
                         </div>

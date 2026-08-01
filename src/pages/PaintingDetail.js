@@ -184,7 +184,11 @@ const PaintingDetail = () => {
                               </svg>
                             </button>
                           </div>
-                      <span className={`position-absolute ${painting.sold ? 'badge-sold-left' : 'badge-left badgem'}`}>
+                      <span
+                        className={`status-tag position-absolute ${
+                          painting.sold ? 'status-tag--sold' : 'status-tag--available'
+                        }`}
+                      >
                         {painting.sold ? t('sold') : t('available')}
                       </span>
                     </div>
@@ -215,16 +219,7 @@ const PaintingDetail = () => {
 
                       {painting.framed && (
                         <div className="mb-3">
-                          <span className="badge" style={{ 
-                            backgroundColor: '#8B4513', 
-                            color: '#fff', 
-                            fontSize: '14px', 
-                            padding: '8px 16px',
-                            fontWeight: 'bold',
-                            border: '2px solid #654321'
-                          }}>
-                            {t('framed')}
-                          </span>
+                          <span className="meta-tag meta-tag--framed">{t('framed')}</span>
                         </div>
                       )}
 
@@ -363,9 +358,9 @@ const PaintingDetail = () => {
                                     style={{width: '100%', height: '100%', objectFit: 'cover'}}
                                 />
                                 {relatedPainting.sold && (
-                                    <span className="badge-soldmin badgem position-absolute">
-                                  <strong>{t('sold')}</strong>
-                                </span>
+                                    <span className="status-tag status-tag--sold status-tag--compact position-absolute">
+                                      {t('sold')}
+                                    </span>
                                 )}
                             </div>
                               <div className="custom-block-info">

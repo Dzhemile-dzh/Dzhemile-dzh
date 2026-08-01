@@ -699,6 +699,7 @@ export const translations = {
           image: 'images/2025/2025-a.jpg',
           price: '600',
           sold: false,
+          framed: true,
         },
         {
           title: 'Hunter',
@@ -1788,6 +1789,7 @@ export const translations = {
           image: 'images/2025/2025-a.jpg',
           price: '550',
           sold: false,
+          framed: true,
         },
       ]
     },

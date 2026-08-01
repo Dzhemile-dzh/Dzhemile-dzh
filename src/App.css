@@ -64,6 +64,136 @@ body {
   overflow-x: hidden;
 }
 
+/* Gallery status tags - modern art / museum label */
+.status-tag {
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.45rem 0.85rem 0.45rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  background: rgba(18, 18, 18, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f7f4ef;
+  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  animation: status-tag-in 0.45s ease both;
+}
+
+.status-tag::before {
+  content: '';
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-tag--available::before {
+  background: #3ecf8e;
+  box-shadow: 0 0 0 3px rgba(62, 207, 142, 0.28);
+}
+
+.status-tag--sold {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(28, 22, 22, 0.72);
+  color: rgba(247, 244, 239, 0.88);
+}
+
+.status-tag--sold::before {
+  background: #b85c5c;
+  box-shadow: 0 0 0 3px rgba(184, 92, 92, 0.22);
+}
+
+.status-tag--compact {
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.38rem 0.7rem 0.38rem 0.58rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+@keyframes status-tag-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .status-tag {
+    top: 0.7rem;
+    left: 0.7rem;
+    padding: 0.38rem 0.7rem 0.38rem 0.55rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+
+  .status-tag--compact {
+    top: 0.55rem;
+    left: 0.55rem;
+    font-size: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-tag {
+    animation: none;
+  }
+}
+
+/* Framed tag - wooden gallery frame */
+.meta-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.15rem;
+  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.meta-tag--framed {
+  position: relative;
+  color: #2a1c12;
+  border: 5px solid transparent;
+  border-radius: 1px;
+  background:
+    linear-gradient(180deg, #fffaf3 0%, #f3ebe0 100%) padding-box,
+    linear-gradient(
+      135deg,
+      #e6c49a 0%,
+      #a06732 18%,
+      #6e4018 36%,
+      #d4a56a 52%,
+      #8b5528 70%,
+      #c48a4a 86%,
+      #5a3010 100%
+    ) border-box;
+  box-shadow:
+    0 0 0 1px #3d2410,
+    inset 0 0 0 1px rgba(255, 248, 235, 0.85),
+    inset 0 0 0 3px rgba(90, 48, 16, 0.35),
+    0 6px 18px rgba(58, 32, 12, 0.18);
+}
+
 /* Yellow CTA buttons: keep label white */
 .custom-btn,
 .contact-btn,
