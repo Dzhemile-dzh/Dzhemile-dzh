@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendSubscribeEmails } from '../utils/sendEmails';
+import { markNewsletterSubscribed } from '../utils/cookies';
 import SuccessModal from './SuccessModal';
 import './Footer.css';
 
@@ -37,6 +38,7 @@ const Footer = () => {
       const data = await response.json().catch(() => ({}));
 
       if (response.status === 409 || data.error === 'already_subscribed') {
+        markNewsletterSubscribed();
         alert(t('footer.subscribe_error_already'));
         setIsSubmitting(false);
         return;
@@ -66,6 +68,7 @@ const Footer = () => {
         console.error('Subscribe email error:', emailError);
       }
 
+      markNewsletterSubscribed();
       setEmail('');
       setShowSubscribeSuccess(true);
     } catch (error) {

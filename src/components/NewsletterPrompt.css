@@ -1,0 +1,160 @@
+.newsletter-prompt {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 9500;
+  width: min(420px, calc(100vw - 2rem));
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 18px 50px rgba(38, 1, 120, 0.28);
+  border-top: 3px solid #ffc107;
+  animation: newsletter-prompt-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.newsletter-prompt__close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.45rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.newsletter-prompt__close:hover {
+  color: #260178;
+}
+
+.newsletter-prompt__inner {
+  padding: 1.35rem 1.25rem 1.1rem;
+}
+
+.newsletter-prompt__eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #260178;
+}
+
+.newsletter-prompt__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #141414;
+  line-height: 1.25;
+  padding-right: 1.5rem;
+}
+
+.newsletter-prompt__text {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #555;
+}
+
+.newsletter-prompt__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newsletter-prompt__form input {
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(20, 20, 20, 0.18);
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.newsletter-prompt__form input:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.28);
+}
+
+.newsletter-prompt__form button[type='submit'] {
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: #ffc107;
+  color: #fff !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.newsletter-prompt__form button[type='submit']:hover:not(:disabled) {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+
+.newsletter-prompt__form button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.newsletter-prompt__error {
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
+  color: #b42318;
+}
+
+.newsletter-prompt__later {
+  display: block;
+  width: 100%;
+  margin-top: 0.65rem;
+  padding: 0.35rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.newsletter-prompt__later:hover {
+  color: #260178;
+}
+
+@keyframes newsletter-prompt-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .newsletter-prompt {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .newsletter-prompt {
+    animation: none;
+  }
+}
