@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import DoartiCta from '../components/DoartiCta';
 import { isEmailJsConfigured, sendPurchaseEmails } from '../utils/sendEmails';
 
 const emailSentKey = (sessionId) => `doarti_purchase_email_${sessionId}`;
@@ -153,9 +154,9 @@ const CheckoutSuccess = () => {
       )}
 
       <div className="text-center">
-        <Link to="/prints" className="btn custom-btn me-2">
+        <DoartiCta to="/prints" className="me-2" icon="bi-grid">
           {t('prints.back')}
-        </Link>
+        </DoartiCta>
         <Link to="/" className="btn btn-outline-secondary">
           {t('back_to_home')}
         </Link>

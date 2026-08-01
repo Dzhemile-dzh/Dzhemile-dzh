@@ -111,13 +111,16 @@ const BuyButton = ({
     <div className={className}>
       <button
         type="button"
-        className={`btn buy-action-btn${loading ? ' is-loading' : ''}`}
+        className={`btn buy-action-btn doarti-cta${loading ? ' is-loading' : ''}`}
         onClick={handleBuy}
         disabled={loading || !canBuy}
         aria-busy={loading}
       >
-        <span className="buy-action-btn__label">
+        <span className="doarti-cta__label buy-action-btn__label">
           {loading ? t('shop.processing') : t('shop.buy_now')}
+        </span>
+        <span className="doarti-cta__icon buy-action-btn__icon" aria-hidden="true">
+          <i className={`bi ${loading ? 'bi-hourglass-split' : 'bi-bag-check'}`} />
         </span>
       </button>
       {error !== null && (

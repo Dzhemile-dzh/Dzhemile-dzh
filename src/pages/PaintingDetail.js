@@ -3,6 +3,7 @@ import {Link, useParams} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import BuyButton from '../components/BuyButton';
+import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import { getPrintForPainting } from '../data/prints';
 import '../components/ImageLoader.css';
@@ -67,7 +68,9 @@ const PaintingDetail = () => {
       <div className="container text-center py-5">
         <h2>Painting not found</h2>
         <p>Year: {year}, Slug: {slug}</p>
-        <Link to="/" className="btn custom-btn">Back to Home</Link>
+        <DoartiCta to="/" icon="bi-house-door">
+          Back to Home
+        </DoartiCta>
       </div>
     );
   }
@@ -261,14 +264,15 @@ const PaintingDetail = () => {
                                 </div>
                               </div>
                               <div className="mt-3">
-                                <a
+                                <DoartiCta
                                   href={painting.externalBuyUrl}
-                                  className="btn buy-action-btn w-100"
+                                  className="buy-action-btn w-100"
+                                  icon="bi-box-arrow-up-right"
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
                                   {t('buy_external')}
-                                </a>
+                                </DoartiCta>
                               </div>
                               <ShippingInfo />
                             </div>

@@ -32,8 +32,11 @@ const NotFound = () => {
         <p className="not-found__text">{t('notFound.message')}</p>
 
         <div className="not-found__actions">
-          <Link to="/" className="not-found__btn not-found__btn--primary">
-            {t('notFound.home')}
+          <Link to="/" className="not-found__btn not-found__btn--primary doarti-cta">
+            <span className="doarti-cta__label">{t('notFound.home')}</span>
+            <span className="doarti-cta__icon" aria-hidden="true">
+              <i className="bi bi-house-door" />
+            </span>
           </Link>
           <Link to="/gallery/2026" className="not-found__btn not-found__btn--ghost">
             {t('notFound.gallery')}

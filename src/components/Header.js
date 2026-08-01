@@ -241,12 +241,14 @@ const Header = () => {
               <li className="nav-item nav-item--contact">
                 <Link
                   to="/contact"
-                  className="nav-link contact-btn"
+                  className="nav-link contact-btn doarti-cta"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="contact-btn__label">{t('header.contact')}</span>
-                  <span className="contact-btn__icon" aria-hidden="true">
-                    <i className="bi bi-arrow-up-right" />
+                  <span className="doarti-cta__label contact-btn__label">
+                    {t('header.contact')}
+                  </span>
+                  <span className="doarti-cta__icon contact-btn__icon" aria-hidden="true">
+                    <i className="bi bi-envelope" />
                   </span>
                 </Link>
               </li>

@@ -418,121 +418,26 @@
   width: auto;
 }
 
-@keyframes buy-action-pulse {
-  0%,
-  100% {
-    box-shadow: 0 6px 18px rgba(255, 193, 7, 0.35);
-  }
-
-  50% {
-    box-shadow: 0 8px 26px rgba(255, 193, 7, 0.55);
-  }
-}
-
-@keyframes buy-action-shine {
-  0%,
-  55% {
-    transform: translateX(-120%) skewX(-18deg);
-  }
-
-  100% {
-    transform: translateX(220%) skewX(-18deg);
-  }
-}
-
 .buy-action-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
   min-width: 9.5rem;
-  padding: 0.85rem 1.5rem;
-  border: none;
-  border-radius: 999px;
-  background: #FFC107;
-  color: #fff !important;
-  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(255, 193, 7, 0.35);
-  transition: background-color 0.2s ease;
   white-space: nowrap;
-  cursor: pointer;
-  animation: buy-action-pulse 2.4s ease-in-out infinite;
-}
-
-.buy-action-btn__label {
-  position: relative;
-  z-index: 1;
-}
-
-.buy-action-btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.45),
-    transparent
-  );
-  transform: translateX(-120%) skewX(-18deg);
-  pointer-events: none;
-  animation: buy-action-shine 2.8s ease-in-out infinite;
-}
-
-.buy-action-btn:hover,
-.buy-action-btn:focus {
-  background: #FFC107;
-  color: #fff !important;
   text-decoration: none;
+  animation: none;
 }
 
-.buy-action-btn.is-loading,
-.buy-action-btn:disabled {
-  opacity: 1 !important;
+.buy-action-btn.w-100 {
+  width: 100%;
+  min-width: 0;
+}
+
+.buy-action-btn.is-loading {
   cursor: wait;
-  background: #FFC107;
-  color: #fff !important;
-  box-shadow: 0 6px 18px rgba(255, 193, 7, 0.35);
-  animation: buy-action-pulse 2.4s ease-in-out infinite;
-}
-
-.buy-action-btn.is-loading::after,
-.buy-action-btn:disabled::after {
-  animation: buy-action-shine 2.8s ease-in-out infinite;
 }
 
 .buy-action-btn:disabled:not(.is-loading) {
   cursor: not-allowed;
   opacity: 0.65 !important;
   box-shadow: none;
-  animation: none;
-}
-
-.buy-action-btn:disabled:not(.is-loading)::after {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .buy-action-btn,
-  .buy-action-btn::after,
-  .buy-action-btn.is-loading,
-  .buy-action-btn.is-loading::after {
-    animation: none;
-  }
-}
-
-.buy-action-btn.w-100 {
-  width: 100%;
-  min-width: 0;
 }
 
 .buy-print-btn {
@@ -655,8 +560,6 @@
 
   .buy-action-btn {
     min-width: 7.5rem;
-    padding: 0.65rem 1.1rem;
-    font-size: 0.82rem;
   }
 }
 

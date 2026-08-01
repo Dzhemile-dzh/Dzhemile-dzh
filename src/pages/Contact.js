@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SuccessModal from '../components/SuccessModal';
+import DoartiCta from '../components/DoartiCta';
 import './Contact.css';
 
 const CONTACT_EMAIL = 'dzhemile.ahmet@gmail.com';
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const isValidEmail = (value) => {
+  if (typeof value !== 'string') {
+    return false;
+  }
+  const trimmed = value.trim();
+  return trimmed.length > 0 && EMAIL_PATTERN.test(trimmed);
+};
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -35,10 +45,25 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setFormError('');
 
-    const submittedData = { ...formData };
+    const submittedData = {
+      fullName: formData.fullName.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+    };
+
+    if (submittedData.fullName.length === 0 || submittedData.message.length === 0) {
+      setFormError(t('contact.popup_error_required'));
+      return;
+    }
+
+    if (!isValidEmail(submittedData.email)) {
+      setFormError(t('contact.popup_error_invalid_email'));
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(FORMSUBMIT_ENDPOINT, {
@@ -109,7 +134,7 @@ const Contact = () => {
       href: 'https://t.me/+359895627511',
       label: t('contact.telegram'),
       value: '+359 895 627 511',
-      icon: 'bi-telegram',
+      icon: 'bi-send-fill',
       external: true,
     },
     {
@@ -211,7 +236,11 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       autoComplete="email"
+                      inputMode="email"
                       required
+                      aria-invalid={
+                        formError.length > 0 && !isValidEmail(formData.email)
+                      }
                     />
                   </div>
                 </div>
@@ -234,13 +263,14 @@ const Contact = () => {
                   </p>
                 )}
 
-                <button
+                <DoartiCta
                   type="submit"
                   className="contact-form__submit"
+                  icon={isSubmitting ? 'bi-hourglass-split' : 'bi-send'}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? t('contact.popup_sending') : t('contact.popup_send')}
-                </button>
+                </DoartiCta>
               </form>
             </div>
           </div>

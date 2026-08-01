@@ -228,19 +228,6 @@
     transform 0.3s ease;
 }
 
-.not-found__btn--primary {
-  background: var(--nf-gold);
-  border: 1px solid var(--nf-gold);
-  color: #fff;
-}
-
-.not-found__btn--primary:hover {
-  background: #ffc107;
-  border-color: #ffc107;
-  color: #fff;
-  transform: translateY(-2px);
-}
-
 .not-found__btn--ghost {
   background: transparent;
   border: 1px solid rgba(247, 244, 239, 0.4);

@@ -398,60 +398,264 @@ html[data-lang='en'] {
   --title-font-family: 'Sono', 'Manrope', sans-serif;
 }
 
-/* Shared yellow CTA buttons: same yellow + white label */
+/* Shared gold CTA buttons (label + action icon) */
+.doarti-cta,
 .custom-btn,
 .contact-btn,
 .contact-form__submit,
 .buy-action-btn,
-.doarti-footer .subscribe-form #subscribe-email + button,
-.doarti-footer .subscribe-form #submit,
-.newsletter-prompt__form button[type='submit'],
 .doarti-modal__btn,
 .success-close-btn,
 .popup-submit-btn,
-.scroll-to-top,
-.home-hero__cta--primary {
-  background: #FFC107 !important;
-  background-image: none !important;
-  color: #fff !important;
-  border-color: #FFC107;
+.home-hero__cta--primary,
+.not-found__btn--primary {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.55rem;
+  padding: 0.55rem 1.05rem 0.55rem 1.2rem !important;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 193, 7, 0.95) !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, #ffd54f 0%, #ffc107 48%, #f5a623 100%) !important;
+  background-image:
+    linear-gradient(135deg, #ffd54f 0%, #ffc107 48%, #f5a623 100%) !important;
+  color: #1e1b4b !important;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 8px 22px rgba(255, 193, 7, 0.28);
+  cursor: pointer;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
+.doarti-cta::before,
+.custom-btn::before,
+.contact-btn::before,
+.contact-form__submit::before,
+.buy-action-btn::before,
+.doarti-modal__btn::before,
+.success-close-btn::before,
+.popup-submit-btn::before,
+.home-hero__cta--primary::before,
+.not-found__btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 48%,
+    transparent 72%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.doarti-cta::after,
+.custom-btn::after,
+.contact-btn::after,
+.contact-form__submit::after,
+.buy-action-btn::after,
+.doarti-modal__btn::after,
+.success-close-btn::after,
+.popup-submit-btn::after,
+.home-hero__cta--primary::after,
+.not-found__btn--primary::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    transparent 42%,
+    rgba(30, 27, 75, 0.06) 100%
+  );
+  pointer-events: none;
+}
+
+.doarti-cta__label,
+.doarti-cta__icon,
+.contact-btn__label,
+.contact-btn__icon,
+.buy-action-btn__label,
+.buy-action-btn__icon {
+  position: relative;
+  z-index: 1;
+}
+
+.doarti-cta__icon,
+.contact-btn__icon,
+.buy-action-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  background: rgba(30, 27, 75, 0.12);
+  color: #1e1b4b;
+  font-size: 0.78rem;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.doarti-cta:hover,
+.doarti-cta:focus-visible,
 .custom-btn:hover,
-.custom-btn:focus,
+.custom-btn:focus-visible,
 .contact-btn:hover,
-.contact-btn:focus,
-.contact-form__submit:hover,
-.contact-form__submit:focus,
+.contact-btn:focus-visible,
+.contact-form__submit:hover:not(:disabled),
+.contact-form__submit:focus-visible:not(:disabled),
 .buy-action-btn:hover,
-.buy-action-btn:focus,
-.doarti-footer .subscribe-form #submit:hover,
-.newsletter-prompt__form button[type='submit']:hover,
+.buy-action-btn:focus-visible,
 .doarti-modal__btn:hover,
+.doarti-modal__btn:focus-visible,
 .success-close-btn:hover,
 .popup-submit-btn:hover,
-.scroll-to-top:hover,
 .home-hero__cta--primary:hover,
-.home-hero__cta--primary:focus {
-  background: #FFC107 !important;
-  background-image: none !important;
-  color: #fff !important;
-  border-color: #FFC107;
+.home-hero__cta--primary:focus-visible,
+.not-found__btn--primary:hover,
+.not-found__btn--primary:focus-visible {
+  transform: translateY(-2px);
+  color: #1e1b4b !important;
+  border-color: #ffe082 !important;
+  background:
+    linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #ffb300 100%) !important;
+  background-image:
+    linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #ffb300 100%) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 12px 28px rgba(255, 193, 7, 0.4);
+  outline: none;
 }
 
-.custom-btn,
+.doarti-cta:hover::before,
+.doarti-cta:focus-visible::before,
+.custom-btn:hover::before,
+.custom-btn:focus-visible::before,
+.contact-btn:hover::before,
+.contact-btn:focus-visible::before,
+.contact-form__submit:hover:not(:disabled)::before,
+.buy-action-btn:hover::before,
+.buy-action-btn:focus-visible::before,
+.doarti-modal__btn:hover::before,
+.home-hero__cta--primary:hover::before,
+.not-found__btn--primary:hover::before {
+  transform: translateX(130%);
+}
+
+.doarti-cta:hover .doarti-cta__icon,
+.doarti-cta:focus-visible .doarti-cta__icon,
+.contact-btn:hover .contact-btn__icon,
+.contact-btn:focus-visible .contact-btn__icon,
+.buy-action-btn:hover .buy-action-btn__icon,
+.buy-action-btn:focus-visible .buy-action-btn__icon,
+.doarti-cta:hover .contact-btn__icon,
+.doarti-cta:focus-visible .contact-btn__icon,
+.doarti-cta:hover .buy-action-btn__icon,
+.doarti-cta:focus-visible .buy-action-btn__icon {
+  background: #1e1b4b;
+  color: #ffc107;
+  transform: translate(1px, -1px);
+}
+
+.doarti-cta:active,
+.custom-btn:active,
+.contact-btn:active,
+.contact-form__submit:active,
+.buy-action-btn:active,
+.home-hero__cta--primary:active,
+.not-found__btn--primary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 4px 12px rgba(255, 193, 7, 0.25);
+}
+
+.doarti-cta:disabled,
+.contact-form__submit:disabled,
+.buy-action-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.doarti-cta:disabled:hover::before,
+.contact-form__submit:disabled:hover::before,
+.buy-action-btn:disabled:hover::before {
+  transform: translateX(-130%);
+}
+
+.doarti-cta.w-100,
+.buy-action-btn.w-100 {
+  width: 100%;
+}
+
+.buy-action-btn.is-loading {
+  cursor: wait;
+  opacity: 1;
+}
+
 .custom-border-btn,
-.contact-btn,
-.contact-form__submit,
-.buy-action-btn,
 .buy-print-btn,
-.newsletter-prompt__form button[type='submit'],
-.doarti-modal__btn,
-.success-close-btn,
-.popup-submit-btn,
 .home-hero__cta,
 .home-link-btn {
   border-radius: 999px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doarti-cta,
+  .custom-btn,
+  .contact-btn,
+  .contact-form__submit,
+  .buy-action-btn,
+  .home-hero__cta--primary,
+  .not-found__btn--primary,
+  .doarti-cta::before,
+  .custom-btn::before,
+  .contact-btn::before,
+  .contact-form__submit::before,
+  .buy-action-btn::before,
+  .home-hero__cta--primary::before,
+  .not-found__btn--primary::before,
+  .doarti-cta__icon,
+  .contact-btn__icon,
+  .buy-action-btn__icon {
+    transition: none !important;
+  }
+
+  .doarti-cta:hover,
+  .custom-btn:hover,
+  .contact-btn:hover,
+  .buy-action-btn:hover,
+  .home-hero__cta--primary:hover,
+  .not-found__btn--primary:hover {
+    transform: none;
+  }
 }
 
 /* Optimize for mobile */

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
+import DoartiCta from '../components/DoartiCta';
 import '../components/ImageLoader.css';
 import './Gallery.css';
 
@@ -85,7 +86,9 @@ const Gallery = () => {
             <div className="text-center py-5">
               <h3>{t('no_paintings_found').replace('{year}', year)}</h3>
               <p>{t('check_back_later')}</p>
-              <Link to="/" className="btn custom-btn">{t('back_to_home')}</Link>
+              <DoartiCta to="/" icon="bi-house-door">
+                {t('back_to_home')}
+              </DoartiCta>
             </div>
           ) : (
             <div className="gallery-grid">

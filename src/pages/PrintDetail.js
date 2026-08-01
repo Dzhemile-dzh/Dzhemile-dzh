@@ -7,6 +7,7 @@ import {
   getPrintSizeById,
 } from '../data/prints';
 import BuyButton from '../components/BuyButton';
+import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
@@ -25,9 +26,9 @@ const PrintDetail = () => {
     return (
       <div className="container text-center py-5">
         <h2>{t('prints.not_found')}</h2>
-        <Link to="/prints" className="btn custom-btn mt-3">
+        <DoartiCta to="/prints" className="mt-3" icon="bi-grid">
           {t('prints.back')}
-        </Link>
+        </DoartiCta>
       </div>
     );
   }

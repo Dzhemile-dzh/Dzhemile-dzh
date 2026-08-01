@@ -40,7 +40,7 @@
 }
 
 .doarti-footer .subscribe-form-wrap {
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid #1e1b4b !important;
   border-radius: 8px !important;
   width: 100%;
   position: relative;
@@ -58,10 +58,10 @@
   transform: translateY(-50%);
   margin: 0 !important;
   padding: 0.2rem 0.65rem !important;
-  background: #fff !important;
+  background: #1e1b4b !important;
   border: none !important;
   border-radius: 4px !important;
-  color: #1e1b4b !important;
+  color: #fff !important;
   text-align: left;
   font-size: 0.92rem;
   font-weight: 700;
@@ -73,13 +73,13 @@
 }
 
 .doarti-footer .subscribe-form #subscribe-email {
-  border: 1px solid #d3d3d3;
+  border: none;
   border-radius: 10px 10px 0 0;
   margin-bottom: 0;
   padding: 12px 15px;
   font-size: 14px;
-  background: #fff;
-  color: #333;
+  background: rgba(255, 255, 255, 0.55);
+  color: #1e1b4b;
   width: 100%;
   box-sizing: border-box;
 }
@@ -90,39 +90,56 @@
 
 .doarti-footer .subscribe-form #subscribe-email:focus {
   outline: none;
-  border-color: #1e1b4b;
-  box-shadow: 0 0 0 2px rgba(30, 27, 75, 0.2);
+  border: none;
+  box-shadow: none;
 }
 
 .doarti-footer .subscribe-form #submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0 0 10px 10px !important;
-  background: #FFC107;
-  color: #fff !important;
-  border: none;
-  padding: 12px 20px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  background: #ffc107 !important;
+  background-image: none !important;
+  color: #1e1b4b !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
+  box-shadow: none !important;
+  min-height: 0;
 }
 
 .doarti-footer .subscribe-form #submit:hover:not(:disabled) {
-  background: #FFC107;
-  color: #fff !important;
+  background: #ffc107 !important;
+  color: #1e1b4b !important;
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35) !important;
 }
 
 .doarti-footer .subscribe-form #submit:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+  transform: none;
+}
+
+.doarti-footer .subscribe-form #submit::before,
+.doarti-footer .subscribe-form #submit::after {
+  content: none !important;
+  display: none !important;
 }
 
 .doarti-footer__heading {
   margin: 0 0 1rem;
-  color: #fff;
+  color: #1e1b4b;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -146,7 +163,7 @@
 }
 
 .doarti-footer__contacts span {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(30, 27, 75, 0.72);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -154,7 +171,7 @@
 }
 
 .doarti-footer__contacts a {
-  color: #fff;
+  color: #1e1b4b;
   text-decoration: none;
   border-bottom: none;
   padding-bottom: 0;
@@ -163,7 +180,7 @@
 }
 
 .doarti-footer__contacts a:hover {
-  color: #ffc107;
+  color: #312e81;
 }
 
 .doarti-footer__socials {
@@ -182,21 +199,29 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #FFC107;
-  color: #fff;
+  background: #ffc107;
+  color: #1e1b4b;
   text-decoration: none;
   font-size: 1.05rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .doarti-footer__social-link:hover {
-  background: #FFC107;
-  color: #fff;
+  background: #ffc107;
+  color: #1e1b4b;
   transform: translateY(-2px);
 }
 
 .doarti-footer__social-link::before {
-  color: #fff;
+  color: #1e1b4b;
+  font-weight: normal;
+  -webkit-text-stroke: 0;
+  text-stroke: 0;
+}
+
+.doarti-footer__social-link.bi-send-fill::before {
+  /* Solid plane — Bootstrap bi-telegram is outline/stroke */
+  font-size: 1.05em;
 }
 
 .doarti-footer__bar {

@@ -148,7 +148,7 @@ const Footer = () => {
               <li>
                 <a
                   href="https://t.me/+359895627511"
-                  className="doarti-footer__social-link bi-telegram"
+                  className="doarti-footer__social-link bi-send-fill"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Telegram"

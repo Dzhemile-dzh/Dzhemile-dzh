@@ -84,21 +84,28 @@
 }
 
 .newsletter-prompt__form button[type='submit'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   margin: 0;
   padding: 0.8rem 1rem;
   border: none;
   border-radius: 999px;
-  background: #FFC107;
-  color: #fff !important;
-  font-size: 0.95rem;
+  background: #ffc107;
+  color: #1e1b4b !important;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .newsletter-prompt__form button[type='submit']:hover:not(:disabled) {
-  background: #FFC107;
+  background: #ffc107;
+  color: #1e1b4b !important;
   transform: translateY(-1px);
 }
 

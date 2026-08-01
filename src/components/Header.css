@@ -115,130 +115,14 @@ body[data-page='inner'] .site-header#header-solid {
   -webkit-backdrop-filter: blur(22px) saturate(1.35);
 }
 
-/* Header contact CTA */
+/* Header contact CTA — uses shared .doarti-cta look; nav sizing only */
 .modern-header .nav-item--contact {
   margin-left: 0.35rem;
 }
 
 .modern-header .nav-link.contact-btn {
-  position: relative;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  min-height: 2.55rem;
   margin: 0 !important;
-  padding: 0.55rem 1.05rem 0.55rem 1.2rem !important;
-  overflow: hidden;
-  isolation: isolate;
-  border: 1px solid rgba(255, 193, 7, 0.95) !important;
-  border-radius: 999px !important;
-  background:
-    linear-gradient(135deg, #ffd54f 0%, #ffc107 48%, #f5a623 100%) !important;
-  background-image:
-    linear-gradient(135deg, #ffd54f 0%, #ffc107 48%, #f5a623 100%) !important;
-  color: #1e1b4b !important;
-  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
-  font-size: 0.78rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 1;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.45) inset,
-    0 8px 22px rgba(255, 193, 7, 0.28);
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.modern-header .nav-link.contact-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-    110deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.55) 48%,
-    transparent 72%
-  );
-  transform: translateX(-130%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-
-.modern-header .nav-link.contact-btn::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  z-index: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.28) 0%,
-    transparent 42%,
-    rgba(30, 27, 75, 0.06) 100%
-  );
-  pointer-events: none;
-}
-
-.modern-header .contact-btn__label,
-.modern-header .contact-btn__icon {
-  position: relative;
-  z-index: 1;
-}
-
-.modern-header .contact-btn__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.45rem;
-  height: 1.45rem;
-  border-radius: 50%;
-  background: rgba(30, 27, 75, 0.12);
-  color: #1e1b4b;
-  font-size: 0.78rem;
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.modern-header .nav-link.contact-btn:hover,
-.modern-header .nav-link.contact-btn:focus-visible {
-  transform: translateY(-2px);
-  color: #1e1b4b !important;
-  border-color: #ffe082 !important;
-  background:
-    linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #ffb300 100%) !important;
-  background-image:
-    linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #ffb300 100%) !important;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 12px 28px rgba(255, 193, 7, 0.4);
-  outline: none;
-}
-
-.modern-header .nav-link.contact-btn:hover::before,
-.modern-header .nav-link.contact-btn:focus-visible::before {
-  transform: translateX(130%);
-}
-
-.modern-header .nav-link.contact-btn:hover .contact-btn__icon,
-.modern-header .nav-link.contact-btn:focus-visible .contact-btn__icon {
-  background: #1e1b4b;
-  color: #ffc107;
-  transform: translate(1px, -1px);
-}
-
-.modern-header .nav-link.contact-btn:active {
-  transform: translateY(0);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.35) inset,
-    0 4px 12px rgba(255, 193, 7, 0.25);
+  min-height: 2.55rem;
 }
 
 @media (max-width: 991px) {
@@ -329,23 +213,5 @@ body[data-page='inner'] .site-header#header-solid {
   .modern-header .nav-link {
     font-size: 1rem;
     padding: 0.45rem 0.65rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .modern-header .nav-link.contact-btn,
-  .modern-header .nav-link.contact-btn::before,
-  .modern-header .contact-btn__icon {
-    transition: none !important;
-  }
-
-  .modern-header .nav-link.contact-btn:hover,
-  .modern-header .nav-link.contact-btn:focus-visible {
-    transform: none;
-  }
-
-  .modern-header .nav-link.contact-btn:hover::before,
-  .modern-header .nav-link.contact-btn:focus-visible::before {
-    transform: none;
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { SAATCHI_ART_URL } from '../components/ShippingInfo';
 import './Shipping.css';
@@ -70,18 +69,6 @@ const Shipping = () => {
                     {t('shipping.abroad_text_after')}
                   </p>
                 </article>
-              </div>
-
-              <div className="shipping-page__footer-links">
-                <Link to="/prints" className="shipping-page__nav-link">
-                  {t('shipping.link_prints')}
-                </Link>
-                <Link to="/gallery/2026" className="shipping-page__nav-link">
-                  {t('shipping.link_paintings')}
-                </Link>
-                <Link to="/contact" className="shipping-page__nav-link">
-                  {t('shipping.link_contact')}
-                </Link>
               </div>
             </div>
           </div>

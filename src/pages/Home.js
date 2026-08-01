@@ -95,8 +95,11 @@ const Home = () => {
                     </h1>
                     <p className="home-hero__lede">{t('hero.lede')}</p>
                     <div className="home-hero__actions">
-                        <Link to="/gallery/2026" className="home-hero__cta home-hero__cta--primary">
-                            {t('hero.cta_paintings')}
+                        <Link to="/gallery/2026" className="home-hero__cta home-hero__cta--primary doarti-cta">
+                            <span className="doarti-cta__label">{t('hero.cta_paintings')}</span>
+                            <span className="doarti-cta__icon" aria-hidden="true">
+                                <i className="bi bi-palette" />
+                            </span>
                         </Link>
                         <Link to="/prints" className="home-hero__cta home-hero__cta--ghost">
                             {t('hero.cta_prints')}
