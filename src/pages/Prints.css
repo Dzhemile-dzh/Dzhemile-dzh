@@ -125,13 +125,14 @@
 }
 
 .print-selected-size {
-  margin-top: 0.35rem;
-  font-size: 0.8rem;
+  margin: 0;
+  font-size: 0.9rem;
   color: #6c757d;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .price-card .price-left {
     flex-wrap: wrap;
     align-items: baseline;
@@ -141,7 +142,6 @@
     flex: 1 0 100%;
     width: 100%;
     margin-top: 0.15rem;
-    white-space: nowrap;
   }
 }
 

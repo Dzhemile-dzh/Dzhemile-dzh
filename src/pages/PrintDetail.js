@@ -122,44 +122,23 @@ const PrintDetail = () => {
                           <span className="print-selected-size">{selectedSize.label}</span>
                         </div>
                         <div className="price-right">
-                          <div className="contact-buttons">
-                            <a
-                              href="mailto:dzhemile.ahmet@gmail.com"
-                              className="contact-btn contact-btn-email"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <i className="bi bi-envelope-fill"></i>
-                              <span>Email</span>
-                            </a>
-                            <a
-                              href="viber://chat?number=0895627511"
-                              className="contact-btn contact-btn-viber"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <i className="bi bi-chat-fill"></i>
-                              <span>Viber</span>
-                            </a>
-                          </div>
+                          {print.inStock === true ? (
+                            <BuyButton
+                              productType="print"
+                              productId={print.slug}
+                              title={`${title} - limited edition of 10 - ${selectedSize.label}`}
+                              priceEur={selectedSize.priceEur}
+                              imagePath={`/${print.image}`}
+                              paymentLink={print.paymentLink}
+                              sizeLabel={selectedSize.label}
+                              className="buy-action-wrap"
+                            />
+                          ) : (
+                            <p className="mb-0">{t('prints.out_of_stock')}</p>
+                          )}
                         </div>
                       </div>
 
-                      <p className="contact-cta-text mt-2 mb-3">{t('prints.shipping_note')}</p>
-
-                      {print.inStock === true ? (
-                        <BuyButton
-                          productType="print"
-                          productId={print.slug}
-                          title={`${title} - limited edition of 10 - ${selectedSize.label}`}
-                          priceEur={selectedSize.priceEur}
-                          imagePath={`/${print.image}`}
-                          paymentLink={print.paymentLink}
-                          sizeLabel={selectedSize.label}
-                        />
-                      ) : (
-                        <p className="mb-0">{t('prints.out_of_stock')}</p>
-                      )}
                       <ShippingInfo />
                     </div>
                   </div>

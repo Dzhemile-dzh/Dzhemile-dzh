@@ -111,12 +111,14 @@ const BuyButton = ({
     <div className={className}>
       <button
         type="button"
-        className="btn custom-btn w-100"
+        className={`btn buy-action-btn${loading ? ' is-loading' : ''}`}
         onClick={handleBuy}
         disabled={loading || !canBuy}
         aria-busy={loading}
       >
-        {loading ? t('shop.processing') : t('shop.buy_now')}
+        <span className="buy-action-btn__label">
+          {loading ? t('shop.processing') : t('shop.buy_now')}
+        </span>
       </button>
       {error !== null && (
         <p className="text-danger small mt-2 mb-0">{error}</p>

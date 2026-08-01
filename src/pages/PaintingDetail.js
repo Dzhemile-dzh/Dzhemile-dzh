@@ -273,16 +273,14 @@ const PaintingDetail = () => {
                               <div className="mt-3">
                                 <a
                                   href={painting.externalBuyUrl}
-                                  className="btn custom-btn w-100"
+                                  className="btn buy-action-btn w-100"
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
                                   {t('buy_external')}
                                 </a>
                               </div>
-                              <div className="contact-cta-text-row">
-                                <p className="contact-cta-text">{t('contact_for_orders')}</p>
-                              </div>
+                              <ShippingInfo />
                             </div>
                         ) : (
                             <div className="price-card">
@@ -301,51 +299,25 @@ const PaintingDetail = () => {
                                   </div>
                                 </div>
 
-                                <div className="price-right">
-                                  <div className="contact-buttons">
-                                    <a
-                                        href="mailto:dzhemile.ahmet@gmail.com"
-                                        className="contact-btn contact-btn-email"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Email"
-                                    >
-                                      <i className="bi bi-envelope-fill"></i>
-                                      <span>Email</span>
-                                    </a>
-                                    <a
-                                        href="viber://chat?number=0895627511"
-                                        className="contact-btn contact-btn-viber"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Viber"
-                                    >
-                                      <i className="bi bi-chat-fill"></i>
-                                      <span>Viber</span>
-                                    </a>
+                                {painting.price && (
+                                  <div className="price-right">
+                                    <BuyButton
+                                      productType="original"
+                                      productId={`${year}/${slug}`}
+                                      title={getPaintingTitle()}
+                                      priceEur={painting.price}
+                                      imagePath={`/${painting.image}`}
+                                      className="buy-action-wrap"
+                                    />
                                   </div>
-                                </div>
+                                )}
                               </div>
-                              {painting.price && (
-                                <div className="mt-3">
-                                  <BuyButton
-                                    productType="original"
-                                    productId={`${year}/${slug}`}
-                                    title={getPaintingTitle()}
-                                    priceEur={painting.price}
-                                    imagePath={`/${painting.image}`}
-                                  />
-                                </div>
-                              )}
                               <ShippingInfo />
-                              <div className="contact-cta-text-row">
-                                <p className="contact-cta-text">{t('contact_for_orders')}</p>
-                              </div>
                             </div>
                         )}
                         {matchingPrint && (
                           <div className="mt-3">
-                            <Link to={`/prints/${matchingPrint.slug}`} className="btn custom-btn w-100">
+                            <Link to={`/prints/${matchingPrint.slug}`} className="btn buy-print-btn w-100">
                               {t('prints.buy_print')}
                             </Link>
                           </div>
