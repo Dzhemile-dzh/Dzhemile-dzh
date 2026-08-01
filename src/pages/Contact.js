@@ -266,7 +266,6 @@ const Contact = () => {
                 <DoartiCta
                   type="submit"
                   className="contact-form__submit"
-                  icon={isSubmitting ? 'bi-hourglass-split' : 'bi-send'}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? t('contact.popup_sending') : t('contact.popup_send')}

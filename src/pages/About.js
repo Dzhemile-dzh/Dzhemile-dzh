@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import './About.css';
 
@@ -7,6 +8,8 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [lightboxImage, setLightboxImage] = useState(null);
   const sectionRef = useRef(null);
+
+  const closeLightbox = () => setLightboxImage(null);
 
   const aboutImages = [
     { src: '4.jpg', size: 'medium' },
@@ -43,6 +46,30 @@ const About = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (lightboxImage === null) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('studio-lightbox-open');
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.classList.remove('studio-lightbox-open');
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [lightboxImage]);
 
   return (
     <>
@@ -207,43 +234,38 @@ const About = () => {
             </div>
           </div>
 
-          {lightboxImage !== null && (
-            <div
-              className="studio-lightbox"
-              onClick={() => setLightboxImage(null)}
-              role="dialog"
-              aria-modal="true"
-            >
+          {lightboxImage !== null &&
+            createPortal(
               <div
-                className="studio-lightbox-content"
-                onClick={(e) => e.stopPropagation()}
+                className="studio-lightbox"
+                onClick={closeLightbox}
+                role="dialog"
+                aria-modal="true"
+                aria-label={t('about.studio_title')}
               >
-                <button
-                  className="studio-lightbox-close"
-                  onClick={() => setLightboxImage(null)}
-                  aria-label="Close lightbox"
-                  type="button"
+                <div
+                  className="studio-lightbox-content"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
-                <img
-                  src={lightboxImage}
-                  alt="Studio & Exhibition"
-                  className="studio-lightbox-image"
-                />
-              </div>
-            </div>
-          )}
+                  <img
+                    src={lightboxImage}
+                    alt="Studio & Exhibition"
+                    className="studio-lightbox-image"
+                  />
+                  <div className="studio-lightbox-bar">
+                    <button
+                      className="studio-lightbox-close"
+                      onClick={closeLightbox}
+                      aria-label="Close lightbox"
+                      type="button"
+                    >
+                      <i className="bi bi-x-lg" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+              </div>,
+              document.body
+            )}
         </div>
       </section>
     </>

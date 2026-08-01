@@ -466,12 +466,12 @@ body[data-page='inner'] .site-header#header-solid {
 .studio-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 11000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  background: rgba(12, 11, 10, 0.94);
+  padding: 1.5rem;
+  background: rgba(12, 11, 10, 0.96);
   backdrop-filter: blur(10px);
   animation: aboutFade 0.28s ease;
 }
@@ -479,42 +479,60 @@ body[data-page='inner'] .site-header#header-solid {
 .studio-lightbox-content {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 90vw;
-  max-height: 90vh;
+  gap: 0.85rem;
+  max-width: min(92vw, 1100px);
+  max-height: 92vh;
   animation: aboutZoom 0.28s ease;
 }
 
-.studio-lightbox-close {
-  position: absolute;
-  top: -3rem;
-  right: 0;
-  z-index: 10000;
+.studio-lightbox-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.studio-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
+  font-size: 1.15rem;
+  line-height: 1;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .studio-lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.05);
 }
 
 .studio-lightbox-image {
+  display: block;
   max-width: 100%;
-  max-height: 90vh;
+  max-height: calc(92vh - 4.5rem);
+  width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+body.studio-lightbox-open .newsletter-prompt,
+body.studio-lightbox-open .scroll-to-top {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @keyframes aboutFade {
@@ -603,10 +621,13 @@ body[data-page='inner'] .site-header#header-solid {
     column-count: 1;
   }
 
+  .studio-lightbox {
+    padding: 1rem;
+  }
+
   .studio-lightbox-close {
-    top: -2.5rem;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 

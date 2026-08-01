@@ -78,11 +78,10 @@ html {
 /* Gallery images */
 /* height: 300px; - removed to allow natural aspect ratio */
 
-/* Painting detail images */
+/* Painting detail images keep original aspect ratio */
 .painting-detail-section img {
   width: 100%;
   height: auto;
-  max-height: 600px;
   object-fit: contain;
 }
 
@@ -114,16 +113,51 @@ html {
   position: relative;
 }
 
-.section-padding .custom-block-image-wrap .image-loader-container {
+.section-padding .custom-block-image-wrap:not(.painting-image-container):not(.custom-block-image-detail-page) .image-loader-container {
   height: 100% !important;
 }
 
-.section-padding .custom-block-image-wrap img,
-.section-padding .custom-block-image-wrap .image-loaded {
+.section-padding .custom-block-image-wrap:not(.painting-image-container):not(.custom-block-image-detail-page) img,
+.section-padding .custom-block-image-wrap:not(.painting-image-container):not(.custom-block-image-detail-page) .image-loaded {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   object-position: center !important;
+}
+
+.painting-detail-section .painting-image-container,
+.painting-detail-section .custom-block-image-detail-page {
+  height: auto !important;
+}
+
+.painting-detail-section .painting-image-container .image-loader-container,
+.painting-detail-section .custom-block-image-detail-page .image-loader-container,
+.painting-detail-section .painting-image-container.image-loader-container {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 16rem !important;
+}
+
+.painting-detail-section .painting-image-container:has(.image-loaded.loaded),
+.painting-detail-section .painting-image-container .image-loader-container:has(.image-loaded.loaded) {
+  min-height: 0 !important;
+}
+
+.painting-detail-section .painting-image-container img,
+.painting-detail-section .painting-image-container .image-loaded,
+.painting-detail-section .custom-block-image-detail-page img,
+.painting-detail-section .custom-block-image-detail-page .image-loaded {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center top !important;
 }
 
 /* Owl Carousel cards - clickable */

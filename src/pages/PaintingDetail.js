@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
-import {useLanguage} from '../contexts/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import BuyButton from '../components/BuyButton';
 import DoartiCta from '../components/DoartiCta';
@@ -50,6 +51,48 @@ const PaintingDetail = () => {
   const painting = getPaintingData(year, slug);
   const matchingPrint = getPrintForPainting(year, slug);
 
+  const handleZoomIn = () => {
+    setZoomLevel((prev) => Math.min(prev + 25, 300));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel((prev) => Math.max(prev - 25, 50));
+  };
+
+  const handleResetZoom = () => {
+    setZoomLevel(100);
+  };
+
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false);
+    setZoomLevel(100);
+  };
+
+  useEffect(() => {
+    if (!lightboxOpen) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('painting-lightbox-open');
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setLightboxOpen(false);
+        setZoomLevel(100);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.classList.remove('painting-lightbox-open');
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [lightboxOpen]);
+
   // Show loading state if translations are not loaded
   if (!translations || Object.keys(translations).length === 0) {
     return (
@@ -78,7 +121,7 @@ const PaintingDetail = () => {
   // Get related paintings for "You can also like" section
   const getRelatedPaintings = () => {
     if (!translations || Object.keys(translations).length === 0) return [];
-    
+
     const galleries = {
       '2022': translations.gallery,
       '2023': translations.gallery2023,
@@ -86,40 +129,23 @@ const PaintingDetail = () => {
       '2025': translations.gallery2025,
       '2026': translations.gallery2026,
     };
-    
+
     const allPaintings = [];
-    Object.values(galleries).forEach(gallery => {
+    Object.values(galleries).forEach((gallery) => {
       if (gallery && gallery.paintings) {
         allPaintings.push(...gallery.paintings);
       }
     });
-    
+
     // Filter out current painting, shuffle, and return up to 3 random paintings
-    const filteredPaintings = allPaintings.filter(p => p.link !== `${year}/${slug}`);
-    
+    const filteredPaintings = allPaintings.filter((p) => p.link !== `${year}/${slug}`);
+
     // Shuffle array and take first 3
     const shuffled = filteredPaintings.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
   };
 
   const relatedPaintings = getRelatedPaintings();
-
-  const handleZoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 25, 300));
-  };
-
-  const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 25, 50));
-  };
-
-  const handleResetZoom = () => {
-    setZoomLevel(100);
-  };
-
-  const handleCloseLightbox = () => {
-    setLightboxOpen(false);
-    setZoomLevel(100);
-  };
 
   // Get painting title
   const getPaintingTitle = () => {
@@ -180,7 +206,7 @@ const PaintingDetail = () => {
                               src={`/${painting.image}`}
                               alt={painting.title}
                               className="custom-block-image img-fluid painting-main-image"
-                              style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                              natural
                             />
                             <button 
                               className="painting-view-fullsize-btn"
@@ -382,76 +408,72 @@ const PaintingDetail = () => {
           </section>
         )}
 
-      {/* Full Size Lightbox with Zoom */}
-      {lightboxOpen && (
-        <div 
-          className="painting-lightbox" 
-          onClick={handleCloseLightbox}
-        >
-          <div className="painting-lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="painting-lightbox-close"
-              onClick={handleCloseLightbox}
-              aria-label="Close lightbox"
+      {lightboxOpen &&
+        createPortal(
+          <div
+            className="painting-lightbox"
+            onClick={handleCloseLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={getPaintingTitle()}
+          >
+            <div
+              className="painting-lightbox-content"
+              onClick={(e) => e.stopPropagation()}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-            
-            <div className="painting-lightbox-zoom-controls">
-              <button 
-                className="painting-zoom-btn"
-                onClick={handleZoomOut}
-                disabled={zoomLevel <= 50}
-                aria-label="Zoom out"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
-              </button>
-              <span className="painting-zoom-level">{zoomLevel}%</span>
-              <button 
-                className="painting-zoom-btn"
-                onClick={handleZoomIn}
-                disabled={zoomLevel >= 300}
-                aria-label="Zoom in"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
-              </button>
-              <button 
-                className="painting-zoom-btn"
-                onClick={handleResetZoom}
-                aria-label="Reset zoom"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-                  <path d="M21 3v5h-5"></path>
-                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-                  <path d="M3 21v-5h5"></path>
-                </svg>
-              </button>
-            </div>
+              <div className="painting-lightbox-image-container">
+                <img
+                  src={`/${painting.image}`}
+                  alt={getPaintingTitle()}
+                  className="painting-lightbox-image"
+                  style={{ transform: `scale(${zoomLevel / 100})` }}
+                />
+              </div>
 
-            <div className="painting-lightbox-image-container">
-              <img 
-                src={`/${painting.image}`} 
-                alt={painting.title} 
-                className="painting-lightbox-image"
-                style={{ transform: `scale(${zoomLevel / 100})` }}
-              />
+              <div className="painting-lightbox-bar">
+                <div className="painting-lightbox-zoom-controls">
+                  <button
+                    type="button"
+                    className="painting-zoom-btn"
+                    onClick={handleZoomOut}
+                    disabled={zoomLevel <= 50}
+                    aria-label="Zoom out"
+                  >
+                    <i className="bi bi-zoom-out" aria-hidden="true" />
+                  </button>
+                  <span className="painting-zoom-level">{zoomLevel}%</span>
+                  <button
+                    type="button"
+                    className="painting-zoom-btn"
+                    onClick={handleZoomIn}
+                    disabled={zoomLevel >= 300}
+                    aria-label="Zoom in"
+                  >
+                    <i className="bi bi-zoom-in" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    className="painting-zoom-btn"
+                    onClick={handleResetZoom}
+                    aria-label="Reset zoom"
+                  >
+                    <i className="bi bi-arrow-counterclockwise" aria-hidden="true" />
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  className="painting-lightbox-close"
+                  onClick={handleCloseLightbox}
+                  aria-label="Close lightbox"
+                >
+                  <i className="bi bi-x-lg" aria-hidden="true" />
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   );
 };

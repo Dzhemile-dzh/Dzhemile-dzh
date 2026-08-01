@@ -60,11 +60,8 @@ const SuccessModal = ({
           {typeof note === 'string' && note.length > 0 && (
             <p className="doarti-modal__note">{note}</p>
           )}
-          <button type="button" className="doarti-modal__btn doarti-cta" onClick={onClose}>
-            <span className="doarti-cta__label">{closeLabel}</span>
-            <span className="doarti-cta__icon" aria-hidden="true">
-              <i className={`bi ${isInfo ? 'bi-check2' : 'bi-check-lg'}`} />
-            </span>
+          <button type="button" className="doarti-modal__btn" onClick={onClose}>
+            {closeLabel}
           </button>
         </div>
       </div>

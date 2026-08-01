@@ -404,7 +404,6 @@ html[data-lang='en'] {
 .contact-btn,
 .contact-form__submit,
 .buy-action-btn,
-.doarti-modal__btn,
 .success-close-btn,
 .popup-submit-btn,
 .home-hero__cta--primary,
@@ -448,7 +447,6 @@ html[data-lang='en'] {
 .contact-btn::before,
 .contact-form__submit::before,
 .buy-action-btn::before,
-.doarti-modal__btn::before,
 .success-close-btn::before,
 .popup-submit-btn::before,
 .home-hero__cta--primary::before,
@@ -473,7 +471,6 @@ html[data-lang='en'] {
 .contact-btn::after,
 .contact-form__submit::after,
 .buy-action-btn::after,
-.doarti-modal__btn::after,
 .success-close-btn::after,
 .popup-submit-btn::after,
 .home-hero__cta--primary::after,
@@ -563,15 +560,12 @@ html[data-lang='en'] {
 .contact-form__submit:focus-visible:not(:disabled),
 .buy-action-btn:hover,
 .buy-action-btn:focus-visible,
-.doarti-modal__btn:hover,
-.doarti-modal__btn:focus-visible,
 .success-close-btn:hover,
 .popup-submit-btn:hover,
 .home-hero__cta--primary:hover,
 .home-hero__cta--primary:focus-visible,
 .not-found__btn--primary:hover,
 .not-found__btn--primary:focus-visible {
-  transform: translateY(-2px);
   color: #1e1b4b !important;
   border-color: #ffe082 !important;
   background:
@@ -584,6 +578,28 @@ html[data-lang='en'] {
   outline: none;
 }
 
+.doarti-cta:hover,
+.doarti-cta:focus-visible,
+.custom-btn:hover,
+.custom-btn:focus-visible,
+.contact-btn:hover,
+.contact-btn:focus-visible,
+.contact-form__submit:hover:not(:disabled),
+.contact-form__submit:focus-visible:not(:disabled),
+.success-close-btn:hover,
+.popup-submit-btn:hover,
+.home-hero__cta--primary:hover,
+.home-hero__cta--primary:focus-visible,
+.not-found__btn--primary:hover,
+.not-found__btn--primary:focus-visible {
+  transform: translateY(-2px);
+}
+
+.buy-action-btn:hover,
+.buy-action-btn:focus-visible {
+  transform: none;
+}
+
 .doarti-cta:hover::before,
 .doarti-cta:focus-visible::before,
 .custom-btn:hover::before,
@@ -593,7 +609,6 @@ html[data-lang='en'] {
 .contact-form__submit:hover:not(:disabled)::before,
 .buy-action-btn:hover::before,
 .buy-action-btn:focus-visible::before,
-.doarti-modal__btn:hover::before,
 .home-hero__cta--primary:hover::before,
 .not-found__btn--primary:hover::before {
   transform: translateX(130%);
@@ -618,7 +633,13 @@ html[data-lang='en'] {
 .custom-btn:active,
 .contact-btn:active,
 .contact-form__submit:active,
-.buy-action-btn:active,
+.buy-action-btn:active {
+  transform: none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 4px 12px rgba(255, 193, 7, 0.25);
+}
+
 .home-hero__cta--primary:active,
 .not-found__btn--primary:active {
   transform: translateY(0);
