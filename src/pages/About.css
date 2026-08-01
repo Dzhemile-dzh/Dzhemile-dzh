@@ -101,6 +101,15 @@
 .about-section .about-mew {
   color: var(--about-ink);
   font-weight: 600;
+  border-bottom: none;
+  padding: 0.08em 0.18em;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 56' preserveAspectRatio='none'%3E%3Cpath fill='%23ffc107' d='M6 34c28-18 62 8 98-8 34-14 58 16 96 2 40-14 66 18 108 4 36-12 58 14 90 2 22-8 48 10 70-2 8-4 14 6 10 14-18 16-54 4-84 14-36 12-64-6-98 8-40 16-72-2-112 10-42 12-74-4-108 8-28 10-52-2-72 6-6 2-12-4-8-12 10-10 6-22 10-34z'/%3E%3Cpath fill='%23ffd54f' opacity='.55' d='M18 30c36-12 70 10 108-4 32-12 60 14 94 2 38-12 64 16 102 4 28-10 54 12 78 2 10-4 18 8 12 14-22 10-52 0-78 8-40 12-70-4-108 8-44 14-78-2-118 8-28 8-54-2-74 4-5 2-10-4-6-10 8-8 4-18 10-28z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 92%;
+  background-position: 50% 72%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .about-modern-list {

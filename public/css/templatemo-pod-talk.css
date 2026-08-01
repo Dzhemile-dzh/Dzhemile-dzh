@@ -1815,11 +1815,11 @@ main {
 }
 
 .about-mew1 {
-  background-color: #fbcd08;
+  background-color: transparent;
 }
 .about-mew {
-  background-color: #fbcd08;
-  border-bottom: 5px solid #fbcd08;
+  background-color: transparent;
+  border-bottom: none;
 }
 #header-solid {
    min-height: 160px ; 
