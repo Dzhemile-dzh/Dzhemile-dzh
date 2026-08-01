@@ -1238,7 +1238,7 @@ export const translations = {
       cta_prints: 'Магазин принтове',
     },
     footer: {
-      subscribe: 'Получавай новините',
+      subscribe: 'Получавай известия',
       email_placeholder: 'Имейл адрес',
       subscribe_button: 'Абонирай се',
       subscribe_sending: 'Абониране...',

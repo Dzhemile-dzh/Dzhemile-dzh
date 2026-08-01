@@ -64,12 +64,36 @@ body {
   overflow-x: hidden;
 }
 
+/* Yellow CTA buttons: keep label white */
+.custom-btn,
+.contact-btn,
+.contact-form__submit,
+.doarti-footer .subscribe-form #subscribe-email + button,
+.doarti-footer .subscribe-form #submit,
+.doarti-modal__btn,
+.success-close-btn,
+.popup-submit-btn,
+.scroll-to-top {
+  color: #fff !important;
+}
+
+.custom-btn:hover,
+.contact-btn:hover,
+.contact-form__submit:hover,
+.doarti-footer .subscribe-form #submit:hover,
+.doarti-modal__btn:hover,
+.success-close-btn:hover,
+.popup-submit-btn:hover,
+.scroll-to-top:hover {
+  color: #fff !important;
+}
+
 /* Optimize for mobile */
 @media (max-width: 768px) {
   .loading-spinner p {
     font-size: 16px;
   }
-  
+
   .spinner {
     width: 40px;
     height: 40px;

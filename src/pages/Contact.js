@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SuccessModal from '../components/SuccessModal';
 import './Contact.css';
 
 const CONTACT_EMAIL = 'dzhemile.ahmet@gmail.com';
@@ -207,25 +208,13 @@ const Contact = () => {
       </section>
 
       {showSuccessPopup && (
-        <div className="popup-overlay contact-success-overlay" onClick={closeSuccessPopup}>
-          <div
-            className="contact-success-dialog"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="contact-success-title"
-          >
-            <div className="contact-success-dialog__icon" aria-hidden="true">
-              ✓
-            </div>
-            <h3 id="contact-success-title">{t('contact.success_title')}</h3>
-            <p>{t('contact.popup_success')}</p>
-            <p className="contact-success-dialog__note">{t('contact.success_note')}</p>
-            <button className="contact-form__submit" onClick={closeSuccessPopup}>
-              {t('contact.success_close')}
-            </button>
-          </div>
-        </div>
+        <SuccessModal
+          title={t('contact.success_title')}
+          message={t('contact.popup_success')}
+          note={t('contact.success_note')}
+          closeLabel={t('contact.success_close')}
+          onClose={closeSuccessPopup}
+        />
       )}
     </>
   );

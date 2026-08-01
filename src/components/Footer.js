@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendSubscribeEmails } from '../utils/sendEmails';
+import SuccessModal from './SuccessModal';
 import './Footer.css';
 
 const Footer = () => {
@@ -176,23 +177,13 @@ const Footer = () => {
       </div>
 
       {showSubscribeSuccess && (
-        <div className="popup-overlay" onClick={closeSubscribeSuccess}>
-          <div className="success-popup-content" onClick={(e) => e.stopPropagation()}>
-            <div className="success-popup-header">
-              <div className="success-icon">✓</div>
-              <h3>{t('footer.subscribe_success_title')}</h3>
-            </div>
-            <div className="success-popup-body">
-              <p>{t('footer.subscribe_success_message')}</p>
-              <p className="success-note">{t('footer.subscribe_success_note')}</p>
-            </div>
-            <div className="success-popup-footer">
-              <button className="success-close-btn" onClick={closeSubscribeSuccess}>
-                {t('footer.subscribe_success_close')}
-              </button>
-            </div>
-          </div>
-        </div>
+        <SuccessModal
+          title={t('footer.subscribe_success_title')}
+          message={t('footer.subscribe_success_message')}
+          note={t('footer.subscribe_success_note')}
+          closeLabel={t('footer.subscribe_success_close')}
+          onClose={closeSubscribeSuccess}
+        />
       )}
     </footer>
   );

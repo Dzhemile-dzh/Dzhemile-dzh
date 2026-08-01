@@ -86,8 +86,8 @@
 
 .doarti-footer .subscribe-form #submit {
   border-radius: 0 0 10px 10px;
-  background: #ffd700;
-  color: #fff;
+  background: #ffc107;
+  color: #fff !important;
   border: none;
   padding: 12px 20px;
   font-weight: 600;
@@ -99,9 +99,10 @@
 }
 
 .doarti-footer .subscribe-form #submit:hover:not(:disabled) {
-  background: #ffa500;
+  background: #e0a800;
+  color: #fff !important;
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);
 }
 
 .doarti-footer .subscribe-form #submit:disabled {

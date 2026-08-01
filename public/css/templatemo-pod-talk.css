@@ -1944,8 +1944,8 @@ main {
 
 .subscribe-form #submit {
   border-radius: 0 0 10px 10px;
-  background: #FFD700;
-  color: white;
+  background: #ffc107;
+  color: #fff;
   border: none;
   padding: 12px 20px;
   font-weight: 600;
@@ -1957,9 +1957,10 @@ main {
 }
 
 .subscribe-form #submit:hover {
-  background: #FFA500;
+  background: #e0a800;
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);
 }
 
 /* Contact Info Styling */
