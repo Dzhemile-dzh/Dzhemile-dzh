@@ -35,7 +35,7 @@
 }
 
 .doarti-modal__brand {
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -71,7 +71,7 @@
 
 .doarti-modal__body h3 {
   margin: 0 0 0.7rem;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 1.25rem;
   font-weight: 700;
   color: #141414;
@@ -100,7 +100,7 @@
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 999px;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff !important;
   font-size: 0.95rem;
   font-weight: 700;
@@ -109,7 +109,7 @@
 }
 
 .doarti-modal__btn:hover {
-  background: #e0a800;
+  background: #FFC107;
   color: #fff !important;
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(255, 193, 7, 0.35);

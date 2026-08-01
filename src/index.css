@@ -88,10 +88,10 @@ html {
 
 /* Status badges */
 .status-badge .badge {
-  font-size: 0.9rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 /* Related paintings section */
@@ -127,8 +127,8 @@ html {
 }
 
 .related-paintings-section .badge {
-  font-size: 0.8rem;
-  border-radius: 15px;
+  font-size: 0.62rem;
+  border-radius: 2px;
 }
 
 /* Favorites section - clickable cards */

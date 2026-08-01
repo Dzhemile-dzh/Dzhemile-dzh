@@ -95,12 +95,11 @@ const Home = () => {
                             {t('hero.cta_prints')}
                         </Link>
                     </div>
+                    <a href="#latest-paintings" className="home-hero__scroll">
+                        <span>{t('home.scroll')}</span>
+                        <span className="home-hero__scroll-line" aria-hidden="true"/>
+                    </a>
                 </div>
-
-                <a href="#latest-paintings" className="home-hero__scroll">
-                    <span>{t('home.scroll')}</span>
-                    <span className="home-hero__scroll-line" aria-hidden="true"/>
-                </a>
             </section>
 
             <section className="home-section home-latest" id="latest-paintings">

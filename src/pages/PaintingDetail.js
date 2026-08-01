@@ -195,9 +195,9 @@ const PaintingDetail = () => {
                   </div>
                   <div className="col-lg-6 col-12">
                     <div className="custom-block-info">
-                      <h2 className="mb-4" style={{fontSize: '2rem', fontWeight: '600'}}>
-                        {getPaintingTitle()}
-                      </h2>
+                      <div className="page-heading">
+                        <h1 className="page-heading__title">{getPaintingTitle()}</h1>
+                      </div>
 
                       <div className="custom-block-top d-flex mb-3">
                         <small className="me-4">
@@ -229,14 +229,7 @@ const PaintingDetail = () => {
 
                       {painting.recreatedBy && (
                         <div className="mb-3 mt-3">
-                          <span className="badge" style={{ 
-                            backgroundColor: '#6c757d', 
-                            color: '#fff', 
-                            fontSize: '13px', 
-                            padding: '6px 12px',
-                            fontWeight: 'normal',
-                            fontStyle: 'italic'
-                          }}>
+                          <span className="badge badge--muted">
                             {t(`created_by_${painting.recreatedBy}`)}
                           </span>
                         </div>

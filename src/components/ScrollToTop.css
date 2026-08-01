@@ -5,7 +5,7 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #ffc107 0%, #FFA500 100%);
+  background: #FFC107;
   color: white;
   border: none;
   border-radius: 50%;
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 193, 7, 0.35);
   transition: all 0.3s ease;
   z-index: 1000;
   opacity: 0;
@@ -23,8 +23,8 @@
 
 .scroll-to-top:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
-  background: linear-gradient(135deg, #FFA500 0%, #ffc107 100%);
+  box-shadow: 0 8px 30px rgba(255, 193, 7, 0.45);
+  background: #FFC107;
 }
 
 .scroll-to-top:active {

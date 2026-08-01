@@ -32,34 +32,44 @@
 
 .doarti-footer .subscription-box {
   position: relative;
-  text-align: center;
+  text-align: left;
   max-width: 320px;
   width: 100%;
   margin: 0;
+  padding-top: 0.65rem;
 }
 
 .doarti-footer .subscribe-form-wrap {
-  border: 1px solid #fff;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 8px !important;
   width: 100%;
   position: relative;
-  top: 0;
-  padding: 2rem 1.5rem 1.5rem;
+  top: 0 !important;
+  padding: 1.5rem 1.25rem 1.25rem !important;
   box-sizing: border-box;
+  background: transparent !important;
 }
 
 .doarti-footer .subscribe-form-wrap h6 {
-  background: #fff;
-  border-radius: 8px;
-  color: #260178;
-  text-align: center;
-  position: relative;
-  bottom: auto;
-  top: -2.55rem;
-  margin: 0 0 -1.35rem;
-  padding: 0.45rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
+  position: absolute !important;
+  top: 0 !important;
+  left: 1rem !important;
+  bottom: auto !important;
+  transform: translateY(-50%);
+  margin: 0 !important;
+  padding: 0.2rem 0.65rem !important;
+  background: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  color: #260178 !important;
+  text-align: left;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .doarti-footer .subscribe-form #subscribe-email {
@@ -86,7 +96,7 @@
 
 .doarti-footer .subscribe-form #submit {
   border-radius: 0 0 10px 10px !important;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff !important;
   border: none;
   padding: 12px 20px;
@@ -99,7 +109,7 @@
 }
 
 .doarti-footer .subscribe-form #submit:hover:not(:disabled) {
-  background: #e0a800;
+  background: #FFC107;
   color: #fff !important;
   transform: translateY(-1px);
   box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);
@@ -172,7 +182,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff;
   text-decoration: none;
   font-size: 1.05rem;
@@ -180,7 +190,7 @@
 }
 
 .doarti-footer__social-link:hover {
-  background: #e6ac00;
+  background: #FFC107;
   color: #fff;
   transform: translateY(-2px);
 }

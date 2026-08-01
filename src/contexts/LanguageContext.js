@@ -33,6 +33,10 @@ export const LanguageProvider = ({ children }) => {
     // Save language preference to localStorage
     const languageString = typeof language === 'string' ? language : String(language || 'en');
     localStorage.setItem('language', languageString);
+
+    // Drive title font: Sono for EN, Manrope for BG (Cyrillic)
+    document.documentElement.lang = languageString === 'bg' ? 'bg' : 'en';
+    document.documentElement.setAttribute('data-lang', languageString);
   }, [language]);
 
   const changeLanguage = (newLanguage) => {

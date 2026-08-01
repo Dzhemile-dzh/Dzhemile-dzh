@@ -44,7 +44,7 @@
 
 .newsletter-prompt__title {
   margin: 0 0 0.5rem;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 1.2rem;
   font-weight: 700;
   color: #141414;
@@ -89,7 +89,7 @@
   padding: 0.8rem 1rem;
   border: none;
   border-radius: 999px;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff !important;
   font-size: 0.95rem;
   font-weight: 700;
@@ -98,7 +98,7 @@
 }
 
 .newsletter-prompt__form button[type='submit']:hover:not(:disabled) {
-  background: #e0a800;
+  background: #FFC107;
   transform: translateY(-1px);
 }
 

@@ -426,9 +426,9 @@
   padding: 0.85rem 1.5rem;
   border: none;
   border-radius: 999px;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff !important;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -466,7 +466,7 @@
 
 .buy-action-btn:hover,
 .buy-action-btn:focus {
-  background: #e0a800;
+  background: #FFC107;
   color: #fff !important;
   text-decoration: none;
 }
@@ -475,7 +475,7 @@
 .buy-action-btn:disabled {
   opacity: 1 !important;
   cursor: wait;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff !important;
   box-shadow: 0 6px 18px rgba(255, 193, 7, 0.35);
   animation: buy-action-pulse 2.4s ease-in-out infinite;
@@ -517,26 +517,31 @@
   justify-content: center;
   width: 100%;
   padding: 0.85rem 1.5rem;
-  border: 2px solid #2563eb;
+  border: 1px solid rgba(22, 21, 19, 0.28);
   border-radius: 999px;
-  background: #2563eb;
-  color: #fff !important;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  background: #fff;
+  color: #161513 !important;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1.2;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
   white-space: nowrap;
 }
 
 .buy-print-btn:hover,
 .buy-print-btn:focus {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-  color: #fff !important;
+  background: #161513;
+  border-color: #161513;
+  color: #f7f4ef !important;
   text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .price-label {

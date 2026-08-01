@@ -1,12 +1,60 @@
-/* Mobile menu: compact item spacing */
-
-/* Homepage: header floats over video — no hard purple bar */
-.modern-header--over-hero {
-  position: fixed;
+/* Slimmer header — fixed on all pages */
+.modern-header {
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+.modern-header .nav-container {
+  height: 64px;
+}
+
+.modern-header .nav-logo {
+  height: 64px;
+  gap: 10px;
+}
+
+.modern-header .logo-img {
+  height: 56px;
+  max-height: 56px;
+  padding: 0;
+}
+
+.modern-header .logo-title {
+  font-size: 1.15rem;
+}
+
+.modern-header .logo-subtitle {
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+}
+
+/* Inner pages: keep content clear of fixed header */
+body[data-page='inner'] main {
+  padding-top: 5rem;
+  overflow: visible;
+  max-height: none;
+}
+
+body[data-page='inner'] .App {
+  overflow: visible;
+  max-height: none;
+  height: auto;
+}
+
+/* Solid page banners under fixed header */
+body[data-page='inner'] .site-header#header-solid {
+  max-height: none;
+  min-height: 7.5rem;
+  overflow: visible;
+}
+
+/* Homepage: header floats over video — no hard purple bar */
+.modern-header--over-hero {
   background: linear-gradient(
     180deg,
     rgba(12, 8, 20, 0.55) 0%,
@@ -29,6 +77,25 @@
 }
 
 @media (max-width: 991px) {
+  .modern-header {
+    padding: 6px 0;
+  }
+
+  .modern-header .nav-container,
+  .modern-header .nav-logo {
+    height: 52px;
+  }
+
+  .modern-header .logo-img {
+    height: 42px;
+    max-height: 42px;
+    max-width: 72px;
+  }
+
+  body[data-page='inner'] main {
+    padding-top: 4rem;
+  }
+
   .modern-header .nav-menu {
     justify-content: flex-start;
     padding: 4.5rem 1.25rem 1.5rem;

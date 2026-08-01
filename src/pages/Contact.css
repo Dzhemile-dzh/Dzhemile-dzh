@@ -2,8 +2,8 @@
   --contact-ink: #141414;
   --contact-muted: #5c5c5c;
   --contact-line: rgba(20, 20, 20, 0.12);
-  --contact-accent: #ffc107;
-  --contact-accent-deep: #e6ac00;
+  --contact-accent: #FFC107;
+  --contact-accent-deep: #FFC107;
   --contact-link: #2563eb;
   position: relative;
   overflow: hidden;
@@ -207,7 +207,7 @@ a.contact-channel:focus-visible .contact-channel__value {
 }
 
 .contact-form__submit:hover:not(:disabled) {
-  background: var(--contact-accent-deep);
+  background: #FFC107;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);

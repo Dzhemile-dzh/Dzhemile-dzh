@@ -14,15 +14,15 @@ https://templatemo.com/tm-584-pod-talk
   --primary-color: #0dcaf0;
   --secondary-color: #ffc107;
   --section-bg-color: #f0f8ff;
-  --custom-btn-bg-color: #ffc107;
-  --custom-btn-bg-hover-color: #0dcaf0;
+  --custom-btn-bg-color: #FFC107;
+  --custom-btn-bg-hover-color: #FFC107;
   --dark-color: #000000;
   --p-color: #717275;
   --border-color: #7ffff9;
   --link-hover-color: #ffc107;
 
-  --body-font-family: "Montserrat", sans-serif;
-  --title-font-family: "Sono", sans-serif;
+  --body-font-family: "Montserrat", "Manrope", sans-serif;
+  --title-font-family: "Sono", "Manrope", sans-serif;
 
   --h1-font-size: 58px;
   --h2-font-size: 46px;
@@ -380,19 +380,19 @@ html {
 
 /* Contact Button */
 .contact-btn {
-  background: linear-gradient(45deg, #ffa500, #ff8c00);
+  background: #FFC107;
   color: white !important;
   border-radius: 25px;
   padding: 12px 25px !important;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
   transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-  background: linear-gradient(45deg, #ff8c00, #ffa500);
+  background: #FFC107;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
 }
 
 /* Dropdown Styles */
@@ -1229,11 +1229,17 @@ main {
 }
 
 .badge {
-  background-color: var(--custom-btn-bg-color);
+  background-color: #eef7f9;
   font-family: var(--title-font-family);
-  border-radius: var(--border-radius-large);
-  color: var(--white-color);
-  padding-bottom: 5px;
+  border-radius: 2px;
+  border: 1px solid rgba(31, 155, 181, 0.28);
+  color: #1a5f6e;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .owl-carousel-info-wrap .social-share,
@@ -1442,7 +1448,7 @@ main {
 }
 
 .custom-block .custom-block-info + div .badge:hover {
-  background-color: var(--secondary-color);
+  background-color: #1f9bb5;
 }
 
 .custom-block-full {
@@ -1560,12 +1566,20 @@ main {
 }
 
 .custom-block-top .badge {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  display: inline-block;
+  background-color: #eef7f9;
+  color: #1a5f6e;
+  border: 1px solid rgba(31, 155, 181, 0.28);
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
   vertical-align: middle;
-  height: 26.64px;
-  line-height: 20px;
+  height: auto;
+  line-height: 1.2;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .custom-block-bottom a:hover span {
@@ -1944,7 +1958,7 @@ main {
 
 .subscribe-form #submit {
   border-radius: 0 0 10px 10px;
-  background: #ffc107;
+  background: #FFC107;
   color: #fff;
   border: none;
   padding: 12px 20px;
@@ -1957,7 +1971,7 @@ main {
 }
 
 .subscribe-form #submit:hover {
-  background: #e0a800;
+  background: #FFC107;
   color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);

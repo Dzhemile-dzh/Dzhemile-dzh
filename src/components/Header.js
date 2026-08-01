@@ -85,6 +85,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [isHome]);
 
+  // Mark page type for fixed-header content offset
+  useEffect(() => {
+    document.body.dataset.page = isHome ? 'home' : 'inner';
+    return () => {
+      delete document.body.dataset.page;
+    };
+  }, [isHome]);
+
   return (
     <header
       className={[

@@ -33,7 +33,7 @@
 }
 
 .loading-spinner p {
-  font-family: 'Sono', sans-serif;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 18px;
   margin: 0;
 }
@@ -59,9 +59,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal scroll */
+/* Prevent horizontal scroll without creating a vertical scrollport */
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
 }
 
 /* Gallery status tags - modern art / museum label */
@@ -80,7 +84,7 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #f7f4ef;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -166,7 +170,7 @@ body {
   margin: 0 0 0.55rem;
   padding-bottom: 0.85rem;
   color: #161513;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: clamp(1.55rem, 2.8vw, 2.2rem);
   font-weight: 700;
   line-height: 1.2;
@@ -186,7 +190,7 @@ body {
 .page-heading__sub {
   margin: 0.85rem 0 0;
   color: #5c5852;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -208,13 +212,45 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* Meta labels / badges — teal caption plate (yellow reserved for CTAs) */
+.badge,
+.custom-block-top .badge,
+.related-paintings-section .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 2px;
+  border: 1px solid rgba(31, 155, 181, 0.28);
+  background: #eef7f9;
+  color: #1a5f6e;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.badge--muted {
+  background: #f1f1ef;
+  border-color: rgba(22, 21, 19, 0.14);
+  color: #5c5852;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
 /* Framed tag - wooden gallery frame */
 .meta-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.55rem 1.15rem;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -246,7 +282,16 @@ body {
     0 6px 18px rgba(58, 32, 12, 0.18);
 }
 
-/* Yellow CTA buttons: keep label white */
+/* Title font: Sono for English; Manrope for Bulgarian (Cyrillic-capable twin) */
+html[data-lang='bg'] {
+  --title-font-family: 'Manrope', 'Montserrat', sans-serif;
+}
+
+html[data-lang='en'] {
+  --title-font-family: 'Sono', 'Manrope', sans-serif;
+}
+
+/* Shared yellow CTA buttons: same yellow + white label */
 .custom-btn,
 .contact-btn,
 .contact-form__submit,
@@ -257,8 +302,34 @@ body {
 .doarti-modal__btn,
 .success-close-btn,
 .popup-submit-btn,
-.scroll-to-top {
+.scroll-to-top,
+.home-hero__cta--primary {
+  background: #FFC107 !important;
+  background-image: none !important;
   color: #fff !important;
+  border-color: #FFC107;
+}
+
+.custom-btn:hover,
+.custom-btn:focus,
+.contact-btn:hover,
+.contact-btn:focus,
+.contact-form__submit:hover,
+.contact-form__submit:focus,
+.buy-action-btn:hover,
+.buy-action-btn:focus,
+.doarti-footer .subscribe-form #submit:hover,
+.newsletter-prompt__form button[type='submit']:hover,
+.doarti-modal__btn:hover,
+.success-close-btn:hover,
+.popup-submit-btn:hover,
+.scroll-to-top:hover,
+.home-hero__cta--primary:hover,
+.home-hero__cta--primary:focus {
+  background: #FFC107 !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-color: #FFC107;
 }
 
 .custom-btn,
@@ -274,19 +345,6 @@ body {
 .home-hero__cta,
 .home-link-btn {
   border-radius: 999px !important;
-}
-
-.custom-btn:hover,
-.contact-btn:hover,
-.contact-form__submit:hover,
-.buy-action-btn:hover,
-.doarti-footer .subscribe-form #submit:hover,
-.newsletter-prompt__form button[type='submit']:hover,
-.doarti-modal__btn:hover,
-.success-close-btn:hover,
-.popup-submit-btn:hover,
-.scroll-to-top:hover {
-  color: #fff !important;
 }
 
 /* Optimize for mobile */
