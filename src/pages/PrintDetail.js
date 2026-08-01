@@ -57,35 +57,66 @@ const PrintDetail = () => {
 
               <div className="col-lg-6 col-12">
                 <div className="custom-block-info">
-                  <div className="d-flex flex-wrap gap-2 mb-3">
-                    <span className="badge">{t('prints.fine_art_print')}</span>
-                    <span className="badge">{t('prints.signed_badge')}</span>
+                  <div className="page-heading">
+                    <h1 className="page-heading__title">{title}</h1>
                   </div>
 
-                  <h2 className="mb-3" style={{ fontSize: '2rem', fontWeight: '600' }}>
-                    {title}
-                  </h2>
+                  <div className="painting-detail-tags">
+                    <span className="painting-detail-tag painting-detail-tag--medium">
+                      <i className="bi bi-collection" aria-hidden="true"></i>
+                      {t('prints.edition_badge')}
+                    </span>
+                    <span className="painting-detail-tag painting-detail-tag--size">
+                      <i className="bi bi-pen" aria-hidden="true"></i>
+                      {t('prints.signed_badge')}
+                    </span>
+                    <span className="painting-detail-tag painting-detail-tag--year">
+                      <i className="bi bi-file-earmark" aria-hidden="true"></i>
+                      {t('prints.paper_value')}
+                    </span>
+                    <span className="painting-detail-tag painting-detail-tag--sizes">
+                      <i className="bi bi-aspect-ratio" aria-hidden="true"></i>
+                      {t('prints.sizes_chip')}
+                    </span>
+                  </div>
 
                   <p className="print-detail-note">{t('prints.item_description')}</p>
                   <p className="print-detail-note">{t('prints.paper_description')}</p>
 
-                  <ul className="list-unstyled print-detail-specs">
-                    <li>
-                      <strong>{t('prints.edition')}:</strong> {t('prints.edition_value')}
-                    </li>
-                    <li>
-                      <strong>{t('prints.paper')}:</strong> {t('prints.paper_value')}
-                    </li>
-                    <li>
-                      <strong>{t('prints.signed')}:</strong> {t('prints.signed_value')}
-                    </li>
-                    <li>
-                      <strong>{t('prints.based_on')}:</strong>{' '}
-                      <Link to={`/painting/${print.year}/${print.paintingSlug}`}>
-                        {title}
-                      </Link>
-                    </li>
-                  </ul>
+                  <dl className="print-detail-facts">
+                    <div className="print-detail-fact">
+                      <dt>
+                        <i className="bi bi-collection" aria-hidden="true"></i>
+                        {t('prints.edition')}
+                      </dt>
+                      <dd>{t('prints.edition_value')}</dd>
+                    </div>
+                    <div className="print-detail-fact">
+                      <dt>
+                        <i className="bi bi-file-earmark" aria-hidden="true"></i>
+                        {t('prints.paper')}
+                      </dt>
+                      <dd>{t('prints.paper_value')}</dd>
+                    </div>
+                    <div className="print-detail-fact">
+                      <dt>
+                        <i className="bi bi-pen" aria-hidden="true"></i>
+                        {t('prints.signed')}
+                      </dt>
+                      <dd>{t('prints.signed_value')}</dd>
+                    </div>
+                    <div className="print-detail-fact">
+                      <dt>
+                        <i className="bi bi-link-45deg" aria-hidden="true"></i>
+                        {t('prints.based_on')}
+                      </dt>
+                      <dd>
+                        <Link to={`/painting/${print.year}/${print.paintingSlug}`}>
+                          {title}
+                        </Link>
+                      </dd>
+                    </div>
+                  </dl>
 
                   <div className="print-size-picker" role="group" aria-label={t('prints.size')}>
                     <p className="print-size-picker__label">{t('prints.choose_size')}</p>

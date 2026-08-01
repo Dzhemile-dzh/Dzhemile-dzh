@@ -1,5 +1,56 @@
 /* Painting Detail Page - Full Size View & Zoom */
 
+.painting-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.15rem;
+}
+
+.painting-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.75rem;
+  border-radius: 0.4rem;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.painting-detail-tag i {
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.painting-detail-tag--medium {
+  background: #eef7f9;
+  border: 1px solid rgba(31, 155, 181, 0.32);
+  color: #1a5f6e;
+}
+
+.painting-detail-tag--size {
+  background: #f3f0ea;
+  border: 1px solid rgba(90, 72, 48, 0.22);
+  color: #5a4830;
+}
+
+.painting-detail-tag--year {
+  background: #eef2f8;
+  border: 1px solid rgba(55, 90, 140, 0.28);
+  color: #2f4f78;
+}
+
+.painting-detail-tag--sizes {
+  background: #eef6ef;
+  border: 1px solid rgba(52, 110, 70, 0.28);
+  color: #2f6a45;
+}
+
 .painting-image-container {
   position: relative;
   overflow: hidden;
@@ -197,48 +248,9 @@
   cursor: grabbing;
 }
 
-/* Related Paintings Cards - Clickable */
-.related-podcast-section .custom-block {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.related-podcast-section .custom-block:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.related-podcast-section .custom-block-info h5 {
-  color: #000 !important;
-  transition: color 0.2s ease;
-}
-
-.related-podcast-section a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.related-podcast-section a:hover {
-  text-decoration: none;
-}
-
-/* Ensure all related painting images are the same size */
-.related-podcast-section .custom-block-image-wrap {
-  height: 400px !important;
-  overflow: hidden;
-  position: relative;
-}
-
-.related-podcast-section .custom-block-image-wrap .image-loader-container {
-  height: 100% !important;
-  min-height: 400px !important;
-}
-
-.related-podcast-section .custom-block-image-wrap img,
-.related-podcast-section .custom-block-image-wrap .image-loaded {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
+/* Related paintings use shared gallery-card styles from Gallery.css */
+.related-paintings-section .page-heading {
+  margin-bottom: 1.75rem;
 }
 
 /* Responsive Design */

@@ -26,10 +26,22 @@ const Prints = () => {
           <div className="print-intro mx-auto mb-5">
             <p className="print-intro__lead">{t('prints.intro')}</p>
             <div className="print-specs-row">
-              <div className="print-spec-chip">{t('prints.edition_badge')}</div>
-              <div className="print-spec-chip">{t('prints.paper_value')}</div>
-              <div className="print-spec-chip">{t('prints.sizes_chip')}</div>
-              <div className="print-spec-chip">{t('prints.signed_badge')}</div>
+              <span className="print-spec-chip print-spec-chip--edition">
+                <i className="bi bi-collection" aria-hidden="true"></i>
+                {t('prints.edition_badge')}
+              </span>
+              <span className="print-spec-chip print-spec-chip--paper">
+                <i className="bi bi-file-earmark" aria-hidden="true"></i>
+                {t('prints.paper_value')}
+              </span>
+              <span className="print-spec-chip print-spec-chip--sizes">
+                <i className="bi bi-aspect-ratio" aria-hidden="true"></i>
+                {t('prints.sizes_chip')}
+              </span>
+              <span className="print-spec-chip print-spec-chip--signed">
+                <i className="bi bi-pen" aria-hidden="true"></i>
+                {t('prints.signed_badge')}
+              </span>
             </div>
             <p className="print-intro__paper mb-0">{t('prints.paper_description')}</p>
           </div>

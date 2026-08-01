@@ -79,7 +79,7 @@ html {
   margin: 0;
   padding: 0.45rem 0.85rem 0.45rem 0.7rem;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 2px;
+  border-radius: 0.4rem;
   background: rgba(18, 18, 18, 0.62);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -221,7 +221,7 @@ html {
   justify-content: center;
   margin: 0;
   padding: 0.4rem 0.75rem;
-  border-radius: 2px;
+  border-radius: 0.4rem;
   border: 1px solid rgba(31, 155, 181, 0.28);
   background: #eef7f9;
   color: #1a5f6e;

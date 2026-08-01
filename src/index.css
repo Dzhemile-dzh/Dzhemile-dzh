@@ -90,45 +90,14 @@ html {
 .status-badge .badge {
   font-size: 0.68rem;
   font-weight: 600;
-  border-radius: 2px;
+  border-radius: 0.4rem;
   box-shadow: none;
 }
 
-/* Related paintings section */
-.related-paintings-section {
-  background-color: #f8f9fa;
-}
-
-.related-paintings-section .card {
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.related-paintings-section .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.related-paintings-section .card-img-top {
-  border-radius: 15px 15px 0 0;
-}
-
-.related-paintings-section .card-body {
-  padding: 1.5rem;
-}
-
-.related-paintings-section .card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
+/* Related paintings section - cards styled via Gallery.css */
 .related-paintings-section .badge {
   font-size: 0.62rem;
-  border-radius: 2px;
+  border-radius: 0.4rem;
 }
 
 /* Favorites section - clickable cards */

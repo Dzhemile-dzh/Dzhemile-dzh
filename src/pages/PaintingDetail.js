@@ -6,6 +6,7 @@ import BuyButton from '../components/BuyButton';
 import ShippingInfo from '../components/ShippingInfo';
 import { getPrintForPainting } from '../data/prints';
 import '../components/ImageLoader.css';
+import './Gallery.css';
 import './PaintingDetail.css';
 
 // Utility function to truncate text to 100 characters and clean paragraph spacing
@@ -199,22 +200,19 @@ const PaintingDetail = () => {
                         <h1 className="page-heading__title">{getPaintingTitle()}</h1>
                       </div>
 
-                      <div className="custom-block-top d-flex mb-3">
-                        <small className="me-4">
-                          <span>
-                            <i className="bi-play"></i>
-                            {painting.dimensions}
-                          </span>
-                        </small>
-
-                        <small>
-                          <i className="bi-clock-fill custom-icon"></i>
+                      <div className="painting-detail-tags">
+                        <span className="painting-detail-tag painting-detail-tag--medium">
+                          <i className="bi bi-palette2" aria-hidden="true"></i>
+                          {t('oil_painting')}
+                        </span>
+                        <span className="painting-detail-tag painting-detail-tag--size">
+                          <i className="bi bi-aspect-ratio" aria-hidden="true"></i>
+                          {painting.dimensions}
+                        </span>
+                        <span className="painting-detail-tag painting-detail-tag--year">
+                          <i className="bi bi-calendar3" aria-hidden="true"></i>
                           {painting.year || year}
-                        </small>
-
-                        <small className="ms-auto">
-                          <span className="badge">{t('oil_painting')}</span>
-                        </small>
+                        </span>
                       </div>
 
                       {painting.framed && (
@@ -321,58 +319,56 @@ const PaintingDetail = () => {
 
         {/* You can also like section */}
         {relatedPaintings.length > 0 && (
-          <section className="related-podcast-section section-padding">
+          <section className="related-paintings-section section-padding">
             <div className="container">
-              <div className="row">
-                <div className="col-lg-12 col-12">
-                  <div className="section-title-wrap mb-5">
-                    <h4 className="section-title">{t('you_may_also_like')}</h4>
-                  </div>
-                </div>
-                <div className="row">
-                  {relatedPaintings.map((relatedPainting, index) => {
-                    const paintingSlug = relatedPainting.link.split('/').pop();
-                    const paintingTitle = t(`${paintingSlug}_heading`) || relatedPainting.title;
-                    const paintingDescription = truncateText(t(`${paintingSlug}_description`) || relatedPainting.description, 100);
+              <div className="page-heading mb-4">
+                <h2 className="page-heading__title">{t('you_may_also_like')}</h2>
+              </div>
+              <div className="gallery-grid">
+                {relatedPaintings.map((relatedPainting) => {
+                  const paintingSlug = relatedPainting.link.split('/').pop();
+                  const paintingTitle = t(`${paintingSlug}_heading`) || relatedPainting.title;
+                  const paintingDescription = truncateText(
+                    t(`${paintingSlug}_description`) || relatedPainting.description,
+                    100
+                  );
 
-                    return (
-                        <div key={index} className="col-lg-4 col-12 mb-4 mb-lg-0">
-                          <Link
-                              to={`/painting/${relatedPainting.link}`}
-                              style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
-                          >
-                            <div className="custom-block custom-block-full"
-                                 style={{cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%'}}>
-                              <div className="custom-block-image-wrap" style={{height: '400px', overflow: 'hidden'}}>
-                                <ImageLoader
-                                    src={`/${relatedPainting.image}`}
-                                    alt={relatedPainting.title}
-                                    className="custom-block-image img-fluid gallery-image-loader"
-                                    style={{width: '100%', height: '100%', objectFit: 'cover'}}
-                                />
-                                {relatedPainting.sold && (
-                                    <span className="status-tag status-tag--sold status-tag--compact position-absolute">
-                                      {t('sold')}
-                                    </span>
-                                )}
-                            </div>
-                              <div className="custom-block-info">
-                                <h5 className="mb-2" style={{color: '#000'}}>
-                                  {paintingTitle}
-                                </h5>
-                                <div className="profile-block d-flex">
-                                  <p>{t('oil_painting')} <strong>{relatedPainting.dimensions}</strong></p>
-                                </div>
-                                <p className="mb-0">
-                                  {paintingDescription}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
+                  return (
+                    <Link
+                      key={relatedPainting.link}
+                      to={`/painting/${relatedPainting.link}`}
+                      className="gallery-card"
+                      aria-label={paintingTitle}
+                    >
+                      <div className="gallery-card__frame">
+                        {relatedPainting.sold ? (
+                          <span className="status-tag status-tag--sold status-tag--compact">
+                            {t('sold')}
+                          </span>
+                        ) : (
+                          <span className="status-tag status-tag--available status-tag--compact">
+                            {t('available')}
+                          </span>
+                        )}
+                        <ImageLoader
+                          src={`/${relatedPainting.image}`}
+                          alt={paintingTitle}
+                          className="img-fluid"
+                        />
+                        <div className="gallery-card__overlay">
+                          <h3 className="gallery-card__title">{paintingTitle}</h3>
+                          <div className="gallery-card__tags">
+                            <span className="gallery-card__tag">{t('oil_painting')}</span>
+                            <span className="gallery-card__tag">{relatedPainting.dimensions}</span>
+                          </div>
+                          {paintingDescription ? (
+                            <p className="gallery-card__desc">{paintingDescription}</p>
+                          ) : null}
                         </div>
-                    );
-                  })}
-                </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </section>
