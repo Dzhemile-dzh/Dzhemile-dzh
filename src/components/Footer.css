@@ -99,9 +99,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 0 0 10px 10px !important;
-  background: #ffc107 !important;
+  background: #1e1b4b !important;
   background-image: none !important;
-  color: #1e1b4b !important;
+  color: #fff !important;
   border: none !important;
   padding: 12px 20px !important;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
@@ -119,10 +119,10 @@
 }
 
 .doarti-footer .subscribe-form #submit:hover:not(:disabled) {
-  background: #ffc107 !important;
-  color: #1e1b4b !important;
+  background: #312e81 !important;
+  color: #fff !important;
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35) !important;
+  box-shadow: 0 3px 12px rgba(30, 27, 75, 0.35) !important;
 }
 
 .doarti-footer .subscribe-form #submit:disabled {
@@ -200,7 +200,7 @@
   justify-content: center;
   border-radius: 50%;
   background: #1e1b4b;
-  color: #ffc107;
+  color: #fff;
   text-decoration: none;
   font-size: 1.05rem;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -208,12 +208,12 @@
 
 .doarti-footer__social-link:hover {
   background: #312e81;
-  color: #ffc107;
+  color: #fff;
   transform: translateY(-2px);
 }
 
 .doarti-footer__social-link::before {
-  color: #ffc107;
+  color: #fff;
 }
 
 .doarti-footer__bar {
