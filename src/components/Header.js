@@ -238,13 +238,16 @@ const Header = () => {
               </li>
 
               {/* Contact Button */}
-              <li className="nav-item">
-                <Link 
-                  to="/contact" 
+              <li className="nav-item nav-item--contact">
+                <Link
+                  to="/contact"
                   className="nav-link contact-btn"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('header.contact')}
+                  <span className="contact-btn__label">{t('header.contact')}</span>
+                  <span className="contact-btn__icon" aria-hidden="true">
+                    <i className="bi bi-arrow-up-right" />
+                  </span>
                 </Link>
               </li>
             </ul>

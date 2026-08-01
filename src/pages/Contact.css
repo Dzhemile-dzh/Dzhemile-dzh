@@ -75,10 +75,14 @@
   animation-delay: 2.4s;
 }
 
-.contact-page__shell {
+.contact-page__shell,
+.container.contact-page__shell {
   position: relative;
   z-index: 1;
   max-width: 1120px;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
 }
 
 .contact-page__grid {
@@ -86,6 +90,7 @@
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 3.5rem);
   align-items: start;
+  overflow: visible;
 }
 
 .contact-page__reveal {
@@ -272,7 +277,7 @@ a.contact-channel:focus-visible .contact-channel__arrow {
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 12px 36px rgba(30, 27, 75, 0.06);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .contact-form-panel::before {
@@ -360,6 +365,8 @@ a.contact-channel:focus-visible .contact-channel__arrow {
   resize: vertical;
   min-height: 160px;
   padding-top: 0.65rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .contact-form__field input::placeholder,
