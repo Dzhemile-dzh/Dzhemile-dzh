@@ -61,7 +61,7 @@
   background: #fff !important;
   border: none !important;
   border-radius: 4px !important;
-  color: #260178 !important;
+  color: #161513 !important;
   text-align: left;
   font-size: 0.92rem;
   font-weight: 700;
@@ -90,8 +90,8 @@
 
 .doarti-footer .subscribe-form #subscribe-email:focus {
   outline: none;
-  border-color: #260178;
-  box-shadow: 0 0 0 2px rgba(38, 1, 120, 0.2);
+  border-color: #161513;
+  box-shadow: 0 0 0 2px rgba(22, 21, 19, 0.2);
 }
 
 .doarti-footer .subscribe-form #submit {
@@ -236,7 +236,7 @@
 
 .doarti-footer__copy {
   margin: 0;
-  color: rgba(255, 255, 255, 0.88);
+  color: #fff !important;
   font-size: 0.82rem;
   line-height: 1.4;
   text-align: right;
@@ -246,6 +246,7 @@
 .doarti-footer__copy strong {
   font-family: inherit;
   font-weight: 700;
+  color: #fff !important;
 }
 
 @media (max-width: 991.98px) {

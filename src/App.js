@@ -23,25 +23,49 @@ import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Initialize interactive features
     initInteractiveFeatures();
-    
-    // Simulate loading time for better UX
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
 
-    return () => clearTimeout(timer);
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true);
+    }, 1100);
+
+    const doneTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(doneTimer);
+    };
   }, []);
 
   if (isLoading) {
     return (
-      <div className="loading-screen">
-        <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Loading Doarti...</p>
+      <div
+        className={`loading-screen${isExiting ? ' loading-screen--exit' : ''}`}
+        role="status"
+        aria-live="polite"
+        aria-label="Loading Doarti"
+      >
+        <div className="loading-screen__glow" aria-hidden="true" />
+        <div className="loading-screen__content">
+          <div className="loading-screen__mark">
+            <img
+              src="/images/logo-doarti.png"
+              alt=""
+              className="loading-screen__logo"
+              width="72"
+              height="72"
+            />
+            <p className="loading-screen__brand">DOARTi</p>
+          </div>
+          <div className="loading-screen__bar" aria-hidden="true">
+            <span className="loading-screen__bar-fill" />
+          </div>
+          <p className="loading-screen__label">Loading the atelier</p>
         </div>
       </div>
     );

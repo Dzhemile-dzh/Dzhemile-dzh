@@ -14,15 +14,15 @@ https://templatemo.com/tm-584-pod-talk
   --primary-color: #0dcaf0;
   --secondary-color: #ffc107;
   --section-bg-color: #f0f8ff;
-  --custom-btn-bg-color: #ffc107;
-  --custom-btn-bg-hover-color: #0dcaf0;
+  --custom-btn-bg-color: #FFC107;
+  --custom-btn-bg-hover-color: #FFC107;
   --dark-color: #000000;
   --p-color: #717275;
   --border-color: #7ffff9;
   --link-hover-color: #ffc107;
 
-  --body-font-family: "Montserrat", sans-serif;
-  --title-font-family: "Sono", sans-serif;
+  --body-font-family: "Montserrat", "Manrope", sans-serif;
+  --title-font-family: "Sono", "Manrope", sans-serif;
 
   --h1-font-size: 58px;
   --h2-font-size: 46px;
@@ -197,7 +197,7 @@ html {
 /* MODERN HEADER NAVIGATION - Complete Rewrite */
 
 .modern-header {
-  background: #260178;
+  background: #161513;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -380,19 +380,19 @@ html {
 
 /* Contact Button */
 .contact-btn {
-  background: linear-gradient(45deg, #ffa500, #ff8c00);
+  background: #FFC107;
   color: white !important;
   border-radius: 25px;
   padding: 12px 25px !important;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
   transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-  background: linear-gradient(45deg, #ff8c00, #ffa500);
+  background: #FFC107;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
 }
 
 /* Dropdown Styles */
@@ -529,7 +529,7 @@ html {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #260178;
+    background: #161513;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -935,7 +935,7 @@ main {
   SITE HEADER              
 -----------------------------------------*/
 .site-header {
-  background-image: linear-gradient(#260178, #ffffff);
+  background-image: linear-gradient(#161513, #ffffff);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1167,7 +1167,7 @@ main {
   CAROUSEL        
 -----------------------------------------*/
 .hero-section {
-  background-image: linear-gradient(#260178, #ffffff);
+  background-image: linear-gradient(#161513, #ffffff);
   background-repeat: no-repeat;
   background-size: 100% 76%;
   background-position: top;
@@ -1829,11 +1829,11 @@ main {
 }
 
 .about-mew1 {
-  background-color: #fbcd08;
+  background-color: transparent;
 }
 .about-mew {
-  background-color: #fbcd08;
-  border-bottom: 5px solid #fbcd08;
+  background-color: transparent;
+  border-bottom: none;
 }
 #header-solid {
    min-height: 160px ; 
@@ -1843,7 +1843,7 @@ main {
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-image: linear-gradient(#ffffff, #260178);
+  background-image: linear-gradient(#ffffff, #161513);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1953,13 +1953,13 @@ main {
 .subscribe-form #subscribe-email:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(38, 1, 120, 0.2);
+  box-shadow: 0 0 0 2px rgba(22, 21, 19, 0.2);
 }
 
 .subscribe-form #submit {
   border-radius: 0 0 10px 10px;
-  background: #FFD700;
-  color: white;
+  background: #FFC107;
+  color: #fff;
   border: none;
   padding: 12px 20px;
   font-weight: 600;
@@ -1971,9 +1971,10 @@ main {
 }
 
 .subscribe-form #submit:hover {
-  background: #FFA500;
+  background: #FFC107;
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.35);
 }
 
 /* Contact Info Styling */
@@ -2823,7 +2824,7 @@ button, .btn, .nav-link, .social-icon-link, .custom-block {
 
 /* About Section Header Styling */
 .about-section .site-header {
-  background: linear-gradient(135deg, #260178 0%, #20B2AA 100%);
+  background: linear-gradient(135deg, #161513 0%, #2a2826 100%);
   min-height: 200px;
 }
 

@@ -1,41 +1,148 @@
-/* Loading Screen Styles */
+/* Loading Screen */
 .loading-screen {
+  --load-ink: #f7f4ef;
+  --load-muted: rgba(247, 244, 239, 0.58);
+  --load-gold: #ffc107;
+  --load-deep: #0e0d0c;
+  --load-surface: #161513;
+  --load-edge: #242220;
+  --load-teal: #1f9bb5;
+
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #260178 0%, #20B2AA 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  inset: 0;
   z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 65% 50% at 20% 10%, rgba(255, 193, 7, 0.08), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 80%, rgba(31, 155, 181, 0.1), transparent 52%),
+    linear-gradient(165deg, var(--load-deep) 0%, var(--load-surface) 48%, var(--load-edge) 100%);
+  color: var(--load-ink);
+  opacity: 1;
+  transition: opacity 0.38s ease, visibility 0.38s ease;
 }
 
-.loading-spinner {
-  text-align: center;
-  color: white;
+.loading-screen--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #ffc107;
+.loading-screen__glow {
+  position: absolute;
+  width: min(42rem, 90vw);
+  height: min(42rem, 90vw);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 68%);
+  animation: loading-breathe 2.4s ease-in-out infinite;
+  pointer-events: none;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.loading-screen__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  padding: 1.5rem;
+  text-align: center;
+  animation: loading-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.loading-spinner p {
-  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
-  font-size: 18px;
+.loading-screen__mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.loading-screen__logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.35));
+  animation: loading-logo 1.8s ease-in-out infinite;
+}
+
+.loading-screen__brand {
   margin: 0;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  color: var(--load-gold);
+  line-height: 1;
+}
+
+.loading-screen__bar {
+  width: min(11rem, 46vw);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.loading-screen__bar-fill {
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, var(--load-gold), var(--load-teal), transparent);
+  animation: loading-sweep 1.15s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+.loading-screen__label {
+  margin: 0;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--load-muted);
+}
+
+@keyframes loading-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loading-breathe {
+  0%, 100% { transform: scale(0.92); opacity: 0.55; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes loading-logo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes loading-sweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(280%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen,
+  .loading-screen__glow,
+  .loading-screen__content,
+  .loading-screen__logo,
+  .loading-screen__bar-fill {
+    animation: none;
+  }
+
+  .loading-screen__bar-fill {
+    width: 70%;
+    transform: none;
+  }
 }
 
 /* App Styles */
@@ -349,13 +456,13 @@ html[data-lang='en'] {
 
 /* Optimize for mobile */
 @media (max-width: 768px) {
-  .loading-spinner p {
-    font-size: 16px;
+  .loading-screen__logo {
+    width: 3.75rem;
+    height: 3.75rem;
   }
 
-  .spinner {
-    width: 40px;
-    height: 40px;
+  .loading-screen__content {
+    gap: 1.15rem;
   }
 }
 
