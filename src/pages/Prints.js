@@ -12,10 +12,17 @@ const Prints = () => {
   return (
     <>
       <header
-        className="site-header"
+        className="site-header d-flex flex-column justify-content-center align-items-center"
         id="header-solid"
-        aria-hidden="true"
-      />
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 col-12 text-center">
+              <h2 className="text-white">{t('prints.header')}</h2>
+            </div>
+          </div>
+        </div>
+      </header>
 
       <section className="section-padding prints-page">
         <div className="container">

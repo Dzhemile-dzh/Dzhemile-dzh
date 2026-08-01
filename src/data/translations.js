@@ -89,7 +89,7 @@ export const translations = {
       bulgaria_only: 'Delivery is available only within Bulgaria.',
     },
     prints: {
-      header: 'Limited Edition Prints',
+      header: 'Prints',
       intro: 'Each work is offered as a limited edition of only 10 archival prints on fine-art paper, hand-signed by me. Available in different sizes. Carefully packed and shipped from Varna, Bulgaria.',
       section_title: 'Limited Edition Prints',
       section_subtitle: 'Only ten prints per work on fine-art paper, each hand-signed. Available in different sizes.',
@@ -1078,7 +1078,7 @@ export const translations = {
       bulgaria_only: 'Доставката е само в България.',
     },
     prints: {
-      header: 'Лимитирани принтове',
+      header: 'Принтове',
       intro: 'Всяка картина се предлага в лимитирана серия от само 10 архивни принта на fine-art хартия, ръчно подписани от мен. Предлагат се в различни размери. Внимателно опаковани и изпратени от Варна.',
       section_title: 'Лимитирани принтове',
       section_subtitle: 'Само по десет отпечатъка от всяка картина върху fine-art хартия, всеки с мой подпис. Предлагат се в различни размери.',
