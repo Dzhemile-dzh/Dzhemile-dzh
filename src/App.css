@@ -6,7 +6,7 @@
   --load-deep: #12103a;
   --load-surface: #1e1b4b;
   --load-edge: #312e81;
-  --load-teal: #1f9bb5;
+  --load-teal: #312e81;
 
   position: fixed;
   inset: 0;
@@ -16,7 +16,7 @@
   overflow: hidden;
   background:
     radial-gradient(ellipse 65% 50% at 20% 10%, rgba(255, 193, 7, 0.08), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 85% 80%, rgba(31, 155, 181, 0.1), transparent 52%),
+    radial-gradient(ellipse 55% 45% at 85% 80%, rgba(49, 46, 129, 0.1), transparent 52%),
     linear-gradient(165deg, var(--load-deep) 0%, var(--load-surface) 48%, var(--load-edge) 100%);
   color: var(--load-ink);
   opacity: 1;
@@ -291,7 +291,7 @@ html {
   bottom: 0;
   width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, #1f9bb5, #ffc107);
+  background: linear-gradient(90deg, #312e81, #ffc107);
 }
 
 .page-heading__sub {
@@ -329,7 +329,7 @@ html {
   margin: 0;
   padding: 0.4rem 0.75rem;
   border-radius: 0.4rem;
-  border: 1px solid rgba(31, 155, 181, 0.28);
+  border: 1px solid rgba(49, 46, 129, 0.28);
   background: #eef7f9;
   color: #1a5f6e;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);

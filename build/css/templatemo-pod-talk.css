@@ -1240,7 +1240,7 @@ main {
   background-color: #eef7f9;
   font-family: var(--title-font-family);
   border-radius: 0.4rem;
-  border: 1px solid rgba(31, 155, 181, 0.28);
+  border: 1px solid rgba(49, 46, 129, 0.28);
   color: #1a5f6e;
   padding: 0.4rem 0.75rem;
   font-size: 0.68rem;
@@ -1456,7 +1456,7 @@ main {
 }
 
 .custom-block .custom-block-info + div .badge:hover {
-  background-color: #1f9bb5;
+  background-color: #312e81;
 }
 
 .custom-block-full {
@@ -1576,7 +1576,7 @@ main {
 .custom-block-top .badge {
   background-color: #eef7f9;
   color: #1a5f6e;
-  border: 1px solid rgba(31, 155, 181, 0.28);
+  border: 1px solid rgba(49, 46, 129, 0.28);
   border-radius: 0.4rem;
   display: inline-flex;
   align-items: center;

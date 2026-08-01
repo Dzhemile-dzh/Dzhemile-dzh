@@ -46,7 +46,7 @@
 
 .print-spec-chip--edition {
   background: #eef7f9;
-  border: 1px solid rgba(31, 155, 181, 0.32);
+  border: 1px solid rgba(49, 46, 129, 0.32);
   color: #1a5f6e;
 }
 
@@ -234,7 +234,7 @@
 .print-detail-fact dt i {
   font-size: 0.9rem;
   letter-spacing: 0;
-  color: #1f9bb5;
+  color: #312e81;
 }
 
 .print-detail-fact dd {
@@ -246,10 +246,10 @@
 }
 
 .print-detail-fact dd a {
-  color: #1f9bb5;
+  color: #312e81;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(31, 155, 181, 0.35);
+  border-bottom: 1px solid rgba(49, 46, 129, 0.35);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -299,14 +299,14 @@
 }
 
 .print-size-option:hover {
-  border-color: rgba(31, 155, 181, 0.45);
+  border-color: rgba(49, 46, 129, 0.45);
   transform: translateY(-1px);
 }
 
 .print-size-option.is-active {
-  border-color: #1f9bb5;
+  border-color: #312e81;
   background: #eef7f9;
-  box-shadow: 0 0 0 1px #1f9bb5;
+  box-shadow: 0 0 0 1px #312e81;
 }
 
 .print-size-option__size {
