@@ -1,7 +1,16 @@
 import React, { useEffect } from 'react';
 import './SuccessModal.css';
 
-const SuccessModal = ({ title, message, note, closeLabel, onClose }) => {
+const SuccessModal = ({
+  title,
+  message,
+  note,
+  closeLabel,
+  onClose,
+  variant = 'success',
+}) => {
+  const isInfo = variant === 'info';
+
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -21,7 +30,7 @@ const SuccessModal = ({ title, message, note, closeLabel, onClose }) => {
   return (
     <div className="doarti-modal-overlay" onClick={onClose} role="presentation">
       <div
-        className="doarti-modal"
+        className={`doarti-modal${isInfo ? ' doarti-modal--info' : ''}`}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -40,8 +49,11 @@ const SuccessModal = ({ title, message, note, closeLabel, onClose }) => {
         </div>
 
         <div className="doarti-modal__body">
-          <div className="doarti-modal__icon" aria-hidden="true">
-            ✓
+          <div
+            className={`doarti-modal__icon${isInfo ? ' doarti-modal__icon--info' : ''}`}
+            aria-hidden="true"
+          >
+            {isInfo ? 'i' : '✓'}
           </div>
           <h3 id="doarti-modal-title">{title}</h3>
           {typeof message === 'string' && message.length > 0 && <p>{message}</p>}

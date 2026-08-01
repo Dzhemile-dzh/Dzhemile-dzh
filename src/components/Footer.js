@@ -10,6 +10,7 @@ const Footer = () => {
   const { t, language } = useLanguage();
   const [email, setEmail] = useState('');
   const [showSubscribeSuccess, setShowSubscribeSuccess] = useState(false);
+  const [showAlreadySubscribed, setShowAlreadySubscribed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -39,7 +40,7 @@ const Footer = () => {
 
       if (response.status === 409 || data.error === 'already_subscribed') {
         markNewsletterSubscribed();
-        alert(t('footer.subscribe_error_already'));
+        setShowAlreadySubscribed(true);
         setIsSubmitting(false);
         return;
       }
@@ -197,6 +198,17 @@ const Footer = () => {
           note={t('footer.subscribe_success_note')}
           closeLabel={t('footer.subscribe_success_close')}
           onClose={closeSubscribeSuccess}
+        />
+      )}
+
+      {showAlreadySubscribed && (
+        <SuccessModal
+          variant="info"
+          title={t('footer.subscribe_already_title')}
+          message={t('footer.subscribe_already_message')}
+          note={t('footer.subscribe_already_note')}
+          closeLabel={t('footer.subscribe_success_close')}
+          onClose={() => setShowAlreadySubscribed(false)}
         />
       )}
     </footer>

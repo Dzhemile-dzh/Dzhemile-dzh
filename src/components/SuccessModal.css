@@ -69,6 +69,19 @@
   font-weight: 700;
 }
 
+.doarti-modal__icon--info {
+  background: #312e81;
+  font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.doarti-modal--info .doarti-modal__header {
+  background: #1e1b4b;
+}
+
 .doarti-modal__body h3 {
   margin: 0 0 0.7rem;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);

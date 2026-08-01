@@ -20,6 +20,7 @@ const NewsletterPrompt = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showAlreadySubscribed, setShowAlreadySubscribed] = useState(false);
 
   useEffect(() => {
     if (location.pathname.startsWith('/checkout')) {
@@ -75,7 +76,8 @@ const NewsletterPrompt = () => {
 
       if (response.status === 409 || data.error === 'already_subscribed') {
         markNewsletterSubscribed();
-        setError(t('newsletter.error_already'));
+        setVisible(false);
+        setShowAlreadySubscribed(true);
         setIsSubmitting(false);
         return;
       }
@@ -191,6 +193,17 @@ const NewsletterPrompt = () => {
           note={t('footer.subscribe_success_note')}
           closeLabel={t('footer.subscribe_success_close')}
           onClose={() => setShowSuccess(false)}
+        />
+      )}
+
+      {showAlreadySubscribed && (
+        <SuccessModal
+          variant="info"
+          title={t('footer.subscribe_already_title')}
+          message={t('footer.subscribe_already_message')}
+          note={t('footer.subscribe_already_note')}
+          closeLabel={t('footer.subscribe_success_close')}
+          onClose={() => setShowAlreadySubscribed(false)}
         />
       )}
     </>
