@@ -24,6 +24,8 @@ const About = () => {
 
   const listItems = t('about.intro.paragraph5_list');
   const hasList = Array.isArray(listItems) && listItems.length > 0;
+  const exhibitions = t('about.exhibitions');
+  const hasExhibitions = Array.isArray(exhibitions) && exhibitions.length > 0;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -150,34 +152,58 @@ const About = () => {
               </p>
             </div>
 
-            <div className="studio-gallery" ref={sectionRef}>
-              {aboutImages.map((image, index) => (
-                <button
-                  key={image.src}
-                  type="button"
-                  className={`studio-gallery-item studio-gallery-item-${image.size} ${
-                    isVisible ? 'fade-in-visible' : 'fade-in'
-                  }`}
-                  style={{ animationDelay: `${index * 0.07}s` }}
-                  onClick={() => setLightboxImage(`/images/about/${image.src}`)}
-                  aria-label={`View studio image ${index + 1}`}
+            <div className="about-studio__body">
+              {hasExhibitions && (
+                <aside
+                  className="about-exhibitions"
+                  aria-label={t('about.exhibitions_title')}
                 >
-                  <div className="studio-gallery-image-wrapper">
-                    <img
-                      src={`/images/about/${image.src}`}
-                      alt={`Studio & Exhibition ${index + 1}`}
-                      className="studio-gallery-image"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <span className="studio-gallery-veil" aria-hidden="true" />
-                    <span className="studio-gallery-cue" aria-hidden="true">
-                      <i className="bi bi-arrows-fullscreen"></i>
-                      <span>{t('about.studio_view')}</span>
-                    </span>
-                  </div>
-                </button>
-              ))}
+                  <ul className="about-exhibitions__list">
+                    {exhibitions.map((item) => (
+                      <li
+                        key={`${item.date}-${item.title}`}
+                        className="about-exhibitions__item"
+                      >
+                        <span className="about-exhibitions__date">{item.date}</span>
+                        <div className="about-exhibitions__copy">
+                          <span className="about-exhibitions__name">{item.title}</span>
+                          <span className="about-exhibitions__place">{item.place}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
+
+              <div className="studio-gallery" ref={sectionRef}>
+                {aboutImages.map((image, index) => (
+                  <button
+                    key={image.src}
+                    type="button"
+                    className={`studio-gallery-item studio-gallery-item-${image.size} ${
+                      isVisible ? 'fade-in-visible' : 'fade-in'
+                    }`}
+                    style={{ animationDelay: `${index * 0.07}s` }}
+                    onClick={() => setLightboxImage(`/images/about/${image.src}`)}
+                    aria-label={`View studio image ${index + 1}`}
+                  >
+                    <div className="studio-gallery-image-wrapper">
+                      <img
+                        src={`/images/about/${image.src}`}
+                        alt={`Studio & Exhibition ${index + 1}`}
+                        className="studio-gallery-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span className="studio-gallery-veil" aria-hidden="true" />
+                      <span className="studio-gallery-cue" aria-hidden="true">
+                        <i className="bi bi-arrows-fullscreen"></i>
+                        <span>{t('about.studio_view')}</span>
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

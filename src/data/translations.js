@@ -255,8 +255,46 @@ export const translations = {
         paragraph6: 'Art, much like code, is a language. But here on <b class="about-mew">Doarti</b>, I\'ve stopped trying to solve the problem. <b class="about-mew">I\'m just enjoying the beautiful, surreal mystery of the process.</b><br><br>Welcome to my laboratory of dreams.',
       },
       studio_title: 'Studio & Exhibitions',
-      studio_subtitle: 'A glimpse into the creative process and artistic journey',
+      studio_subtitle: 'Exhibitions and moments from the studio. One continuous path of making and showing.',
       studio_view: 'View',
+      exhibitions_title: 'Exhibitions',
+      exhibitions: [
+        {
+          date: '06.2026',
+          title: 'Freedom',
+          place: 'Red House Studio, Sofia, group exhibition',
+        },
+        {
+          date: '04.2026',
+          title: 'After Venus',
+          place: 'Graffit Gallery, Varna, organized by Women Artists Frida',
+        },
+        {
+          date: '11.2025',
+          title: 'Women Artists of Bulgaria',
+          place: 'Sea Casino, Varna, group exhibition',
+        },
+        {
+          date: '09.2024',
+          title: 'Emotion',
+          place: 'Genger Art Gallery, Burgas',
+        },
+        {
+          date: '02.2024',
+          title: 'Collective exhibition',
+          place: 'Graffit Gallery, Varna',
+        },
+        {
+          date: '10.2023',
+          title: 'Collective exhibition',
+          place: 'Graffit Gallery, Varna',
+        },
+        {
+          date: '02.2023',
+          title: 'Collective exhibition',
+          place: 'Graffit Gallery, Varna',
+        },
+      ],
     },
     contact: {
       header: "I'm open for commissions",
@@ -1348,8 +1386,46 @@ export const translations = {
         paragraph6: 'Изкуството, точно като кода, е език. Но тук в <b class="about-mew">Doarti</b>, спрях да се опитвам да реша проблема. <b class="about-mew">Просто се наслаждавам на красивата, сюрреалистична мистерия на процеса.</b><br><br>Добре дошли в моята лаборатория на мечтите.',
       },
       studio_title: 'Студио и изложби',
-      studio_subtitle: 'Поглед в творческия процес и художествения път',
+      studio_subtitle: 'Изложби и моменти от ателието. Един непрекъснат път на създаване и показване.',
       studio_view: 'Разгледай',
+      exhibitions_title: 'Изложби',
+      exhibitions: [
+        {
+          date: '06.2026',
+          title: 'Свобода',
+          place: 'Ред Хаус Студио, София, обща изложба',
+        },
+        {
+          date: '04.2026',
+          title: 'След Венера',
+          place: 'Галерия Графит, Варна, организирана от Жените художнички Фрида',
+        },
+        {
+          date: '11.2025',
+          title: 'Жените художнички на България',
+          place: 'Морско казино, Варна, обща изложба',
+        },
+        {
+          date: '09.2024',
+          title: 'Емоция',
+          place: 'Генгер Арт галерия, Бургас',
+        },
+        {
+          date: '02.2024',
+          title: 'Обща изложба',
+          place: 'Галерия Графит, Варна',
+        },
+        {
+          date: '10.2023',
+          title: 'Обща изложба',
+          place: 'Галерия Графит, Варна',
+        },
+        {
+          date: '02.2023',
+          title: 'Обща изложба',
+          place: 'Галерия Графит, Варна',
+        },
+      ],
     },
     contact: {
       header: 'Отворена съм за поръчки',
