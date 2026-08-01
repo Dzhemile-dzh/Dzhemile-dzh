@@ -4,6 +4,7 @@ const { put, get } = require('@vercel/blob');
 
 const BLOB_PATHNAME = 'doarti-subscribers.json';
 const LOCAL_PATH = path.join(__dirname, '..', '..', 'data', 'subscribers.json');
+const TMP_PATH = path.join('/tmp', 'doarti-subscribers.json');
 
 function normalizeEmail(email) {
   if (typeof email !== 'string') {
@@ -23,12 +24,20 @@ function useBlobStore() {
   );
 }
 
-function readLocalSubscribers() {
+function isVercelRuntime() {
+  return process.env.VERCEL === '1' || typeof process.env.VERCEL_ENV === 'string';
+}
+
+function fileStorePath() {
+  return isVercelRuntime() ? TMP_PATH : LOCAL_PATH;
+}
+
+function readFileSubscribers(filePath) {
   try {
-    if (!fs.existsSync(LOCAL_PATH)) {
+    if (!fs.existsSync(filePath)) {
       return [];
     }
-    const raw = fs.readFileSync(LOCAL_PATH, 'utf8');
+    const raw = fs.readFileSync(filePath, 'utf8');
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
   } catch {
@@ -36,12 +45,12 @@ function readLocalSubscribers() {
   }
 }
 
-function writeLocalSubscribers(subscribers) {
-  const dir = path.dirname(LOCAL_PATH);
+function writeFileSubscribers(filePath, subscribers) {
+  const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
-  fs.writeFileSync(LOCAL_PATH, JSON.stringify(subscribers, null, 2), 'utf8');
+  fs.writeFileSync(filePath, JSON.stringify(subscribers, null, 2), 'utf8');
 }
 
 async function streamToString(stream) {
@@ -50,6 +59,9 @@ async function streamToString(stream) {
   }
   if (typeof stream === 'string') {
     return stream;
+  }
+  if (Buffer.isBuffer(stream)) {
+    return stream.toString('utf8');
   }
   if (typeof stream.text === 'function') {
     return stream.text();
@@ -69,18 +81,22 @@ async function readBlobSubscribers() {
       token: process.env.BLOB_READ_WRITE_TOKEN,
     });
 
-    if (!result || !result.stream) {
+    if (!result) {
       return [];
     }
 
-    const raw = await streamToString(result.stream);
+    if (typeof result === 'string') {
+      const parsed = JSON.parse(result);
+      return Array.isArray(parsed) ? parsed : [];
+    }
+
+    const raw = await streamToString(result.stream || result);
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
-    if (error && error.name === 'BlobNotFoundError') {
+    if (error && (error.name === 'BlobNotFoundError' || error.status === 404)) {
       return [];
     }
-    // Older stores / first run
     if (error && /not found/i.test(String(error.message || ''))) {
       return [];
     }
@@ -102,7 +118,7 @@ async function readSubscribers() {
   if (useBlobStore()) {
     return readBlobSubscribers();
   }
-  return readLocalSubscribers();
+  return readFileSubscribers(fileStorePath());
 }
 
 async function writeSubscribers(subscribers) {
@@ -110,7 +126,7 @@ async function writeSubscribers(subscribers) {
     await writeBlobSubscribers(subscribers);
     return;
   }
-  writeLocalSubscribers(subscribers);
+  writeFileSubscribers(fileStorePath(), subscribers);
 }
 
 /**
@@ -148,4 +164,5 @@ module.exports = {
   normalizeEmail,
   isValidEmail,
   readSubscribers,
+  useBlobStore,
 };

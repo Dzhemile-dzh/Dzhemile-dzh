@@ -1,5 +1,29 @@
 const { addSubscriber } = require('./_lib/subscribersStore');
 
+function readJsonBody(req) {
+  if (!req.body) {
+    return {};
+  }
+  if (typeof req.body === 'string') {
+    try {
+      return JSON.parse(req.body);
+    } catch {
+      return {};
+    }
+  }
+  if (Buffer.isBuffer(req.body)) {
+    try {
+      return JSON.parse(req.body.toString('utf8'));
+    } catch {
+      return {};
+    }
+  }
+  if (typeof req.body === 'object') {
+    return req.body;
+  }
+  return {};
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -13,8 +37,8 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const email =
-    req.body && typeof req.body.email === 'string' ? req.body.email : '';
+  const body = readJsonBody(req);
+  const email = typeof body.email === 'string' ? body.email : '';
 
   try {
     const result = await addSubscriber(email);
