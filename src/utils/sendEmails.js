@@ -1,31 +1,19 @@
 /**
- * Shared EmailJS helpers for Doarti (subscribe + purchase thank-you emails).
+ * Shared email helpers for Doarti (subscribe + purchase thank-you emails).
  */
 import emailjs from '@emailjs/browser';
 
 const ARTIST_EMAIL = 'dzhemile.ahmet@gmail.com';
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${ARTIST_EMAIL}`;
 
 export const getEmailJsConfig = () => ({
   serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID || '',
   publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '',
-  contactTemplateId:
-    process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID ||
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
-    '',
   // Dedicated thank-you templates (paste HTML from /email-templates).
   subscribeThankYouTemplateId:
     process.env.REACT_APP_EMAILJS_SUBSCRIBE_TEMPLATE_ID || '',
   purchaseThankYouTemplateId:
     process.env.REACT_APP_EMAILJS_PURCHASE_TEMPLATE_ID || '',
-  // Artist alerts: optional dedicated IDs, else legacy TEMPLATE_ID.
-  subscribeNotifyTemplateId:
-    process.env.REACT_APP_EMAILJS_SUBSCRIBE_NOTIFY_TEMPLATE_ID ||
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
-    '',
-  purchaseNotifyTemplateId:
-    process.env.REACT_APP_EMAILJS_PURCHASE_NOTIFY_TEMPLATE_ID ||
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
-    '',
 });
 
 export const isEmailJsConfigured = () => {
@@ -44,7 +32,33 @@ const sendTemplate = async (templateId, params) => {
 };
 
 /**
- * Thank-you email to the subscriber + optional artist notification.
+ * Plain artist notification (no EmailJS template).
+ */
+const notifyArtist = async ({ subject, message, replyTo }) => {
+  const response = await fetch(FORMSUBMIT_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      _subject: subject,
+      message,
+      email: typeof replyTo === 'string' && replyTo.length > 0 ? replyTo : ARTIST_EMAIL,
+      _replyto: typeof replyTo === 'string' && replyTo.length > 0 ? replyTo : ARTIST_EMAIL,
+      _captcha: 'false',
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Artist notification failed');
+  }
+
+  return true;
+};
+
+/**
+ * Thank-you email to the subscriber + plain artist notification with subscriber email.
  */
 export const sendSubscribeEmails = async ({ subscriberEmail, language, copy }) => {
   const config = getEmailJsConfig();
@@ -52,43 +66,46 @@ export const sendSubscribeEmails = async ({ subscriberEmail, language, copy }) =
   let thankYouSent = false;
 
   if (config.subscribeThankYouTemplateId.length > 0) {
-    thankYouSent = await sendTemplate(config.subscribeThankYouTemplateId, {
-      to_email: subscriberEmail,
-      reply_to: ARTIST_EMAIL,
-      subscriber_email: subscriberEmail,
-      locale,
-      subject: copy.subject,
-      preheader: copy.preheader,
-      headline: copy.headline,
-      intro: copy.intro,
-      body: copy.body,
-      closing: copy.closing,
-      cta_label: copy.ctaLabel,
-      cta_url: 'https://www.doarti.com',
-      site_name: 'Doarti',
-      year: String(new Date().getFullYear()),
-    });
-  }
-
-  if (config.subscribeNotifyTemplateId.length > 0) {
     try {
-      await sendTemplate(config.subscribeNotifyTemplateId, {
-        to_email: ARTIST_EMAIL,
-        reply_to: subscriberEmail,
+      thankYouSent = await sendTemplate(config.subscribeThankYouTemplateId, {
+        to_email: subscriberEmail,
+        reply_to: ARTIST_EMAIL,
         subscriber_email: subscriberEmail,
-        subject: 'New newsletter subscription - Doarti',
-        message: `New subscription from: ${subscriberEmail}\nDate: ${new Date().toLocaleString()}`,
+        locale,
+        subject: copy.subject,
+        preheader: copy.preheader,
+        headline: copy.headline,
+        intro: copy.intro,
+        body: copy.body,
+        closing: copy.closing,
+        cta_label: copy.ctaLabel,
+        cta_url: 'https://www.doarti.com',
+        site_name: 'Doarti',
+        year: String(new Date().getFullYear()),
       });
     } catch (error) {
-      console.error('Subscribe notify email failed:', error);
+      console.error('Subscribe thank-you email failed:', error);
     }
+  }
+
+  try {
+    await notifyArtist({
+      subject: 'New Doarti newsletter subscription',
+      replyTo: subscriberEmail,
+      message: `New newsletter subscription on doarti.com
+
+Subscriber email: ${subscriberEmail}
+Date: ${new Date().toLocaleString()}`,
+    });
+  } catch (error) {
+    console.error('Subscribe notify email failed:', error);
   }
 
   return thankYouSent;
 };
 
 /**
- * Thank-you email to the buyer + optional artist order notification.
+ * Thank-you email to the buyer + plain artist order notification.
  */
 export const sendPurchaseEmails = async ({ order, language, copy }) => {
   const config = getEmailJsConfig();
@@ -127,30 +144,35 @@ export const sendPurchaseEmails = async ({ order, language, copy }) => {
     year: String(new Date().getFullYear()),
   };
 
-  const thankYouSent = await sendTemplate(
-    config.purchaseThankYouTemplateId,
-    thankYouParams
-  );
+  let thankYouSent = false;
+  try {
+    thankYouSent = await sendTemplate(
+      config.purchaseThankYouTemplateId,
+      thankYouParams
+    );
+  } catch (error) {
+    console.error('Purchase thank-you email failed:', error);
+  }
 
-  if (config.purchaseNotifyTemplateId.length > 0) {
-    try {
-      await sendTemplate(config.purchaseNotifyTemplateId, {
-        to_email: ARTIST_EMAIL,
-        reply_to: customerEmail,
-        customer_email: customerEmail,
-        customer_name: thankYouParams.customer_name,
-        product_title: order.productTitle,
-        amount: order.amountFormatted,
-        size: thankYouParams.size,
-        shipping_address: thankYouParams.shipping_address,
-        shipping_courier: thankYouParams.shipping_courier,
-        order_id: order.orderId,
-        subject: `New order - ${order.productTitle}`,
-        message: `New paid order\n${order.productTitle}\n${order.amountFormatted}\n${customerEmail}\n${thankYouParams.shipping_address}`,
-      });
-    } catch (error) {
-      console.error('Purchase notify email failed:', error);
-    }
+  try {
+    await notifyArtist({
+      subject: `New Doarti order - ${order.productTitle}`,
+      replyTo: customerEmail,
+      message: `New paid order on doarti.com
+
+Customer: ${thankYouParams.customer_name}
+Email: ${customerEmail}
+Product: ${order.productTitle}
+Type: ${order.productTypeLabel || ''}
+Size: ${thankYouParams.size}
+Amount: ${order.amountFormatted}
+Shipping: ${thankYouParams.shipping_address}
+Courier: ${thankYouParams.shipping_courier}
+Phone: ${thankYouParams.shipping_phone}
+Order ID: ${order.orderId}`,
+    });
+  } catch (error) {
+    console.error('Purchase notify email failed:', error);
   }
 
   return thankYouSent;

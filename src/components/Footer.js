@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { isEmailJsConfigured, sendSubscribeEmails } from '../utils/sendEmails';
+import { sendSubscribeEmails } from '../utils/sendEmails';
 import './Footer.css';
 
 const Footer = () => {
@@ -38,24 +38,22 @@ const Footer = () => {
         localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
       }
 
-      if (isEmailJsConfigured()) {
-        try {
-          await sendSubscribeEmails({
-            subscriberEmail: email,
-            language,
-            copy: {
-              subject: t('emails.subscribe_subject'),
-              preheader: t('emails.subscribe_preheader'),
-              headline: t('emails.subscribe_headline'),
-              intro: t('emails.subscribe_intro'),
-              body: t('emails.subscribe_body'),
-              closing: t('emails.subscribe_closing'),
-              ctaLabel: t('emails.subscribe_cta'),
-            },
-          });
-        } catch (emailError) {
-          console.error('Subscribe email error:', emailError);
-        }
+      try {
+        await sendSubscribeEmails({
+          subscriberEmail: email,
+          language,
+          copy: {
+            subject: t('emails.subscribe_subject'),
+            preheader: t('emails.subscribe_preheader'),
+            headline: t('emails.subscribe_headline'),
+            intro: t('emails.subscribe_intro'),
+            body: t('emails.subscribe_body'),
+            closing: t('emails.subscribe_closing'),
+            ctaLabel: t('emails.subscribe_cta'),
+          },
+        });
+      } catch (emailError) {
+        console.error('Subscribe email error:', emailError);
       }
 
       setEmail('');

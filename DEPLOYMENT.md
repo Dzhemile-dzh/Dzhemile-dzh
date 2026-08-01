@@ -20,7 +20,7 @@ REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 1. In EmailJS, create two templates from `email-templates/subscribe-thank-you.html` and `email-templates/purchase-thank-you.html`.
 2. Set **To email** to `{{to_email}}` and **Subject** to `{{subject}}`.
 3. Add `REACT_APP_EMAILJS_SUBSCRIBE_TEMPLATE_ID` and `REACT_APP_EMAILJS_PURCHASE_TEMPLATE_ID` in Vercel.
-4. Keep `REACT_APP_EMAILJS_TEMPLATE_ID` for artist alerts (new subscriber / new order), or set dedicated `*_NOTIFY_TEMPLATE_ID` vars.
+4. Keep `REACT_APP_EMAILJS_TEMPLATE_ID` only if you still use it elsewhere; artist alerts for new subscribers/orders are plain FormSubmit emails (no EmailJS template).
 5. Redeploy after changing any `REACT_APP_*` value (they are baked into the frontend build).
 
 **Contact form:** sends to `dzhemile.ahmet@gmail.com` via FormSubmit - no EmailJS template. Confirm the address once if FormSubmit asks.
