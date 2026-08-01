@@ -505,9 +505,8 @@ html[data-lang='en'] {
 .doarti-cta__icon,
 .contact-btn__icon,
 .buy-action-btn__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-grid;
+  place-items: center;
   flex-shrink: 0;
   width: 1.45rem;
   height: 1.45rem;
@@ -515,10 +514,43 @@ html[data-lang='en'] {
   background: rgba(30, 27, 75, 0.12);
   color: #1e1b4b;
   font-size: 0.78rem;
+  line-height: 0;
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.3s ease,
     color 0.3s ease;
+}
+
+.doarti-cta__icon i,
+.doarti-cta__icon .bi,
+.contact-btn__icon i,
+.contact-btn__icon .bi,
+.buy-action-btn__icon i,
+.buy-action-btn__icon .bi {
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.doarti-cta__icon i::before,
+.doarti-cta__icon .bi::before,
+.contact-btn__icon i::before,
+.contact-btn__icon .bi::before,
+.buy-action-btn__icon i::before,
+.buy-action-btn__icon .bi::before {
+  display: block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
 }
 
 .doarti-cta:hover,
@@ -579,7 +611,7 @@ html[data-lang='en'] {
 .doarti-cta:focus-visible .buy-action-btn__icon {
   background: #1e1b4b;
   color: #ffc107;
-  transform: translate(1px, -1px);
+  transform: none;
 }
 
 .doarti-cta:active,

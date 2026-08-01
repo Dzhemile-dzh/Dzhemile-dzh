@@ -422,6 +422,33 @@
   min-width: 9.5rem;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.buy-action-btn:not(:disabled):not(.is-loading) {
+  animation: buy-action-pulse 2.6s ease-in-out infinite;
+}
+
+.buy-action-btn:not(:disabled):not(.is-loading)::before {
+  transition: none;
+  animation: buy-action-shine 2.9s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+.buy-action-btn:not(:disabled):not(.is-loading) .buy-action-btn__icon {
+  animation: buy-action-icon 2.6s ease-in-out infinite;
+}
+
+.buy-action-btn:hover:not(:disabled):not(.is-loading),
+.buy-action-btn:focus-visible:not(:disabled):not(.is-loading) {
+  animation: none;
+}
+
+.buy-action-btn:hover:not(:disabled):not(.is-loading)::before,
+.buy-action-btn:focus-visible:not(:disabled):not(.is-loading)::before {
+  animation: buy-action-shine 1.35s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+.buy-action-btn:hover:not(:disabled):not(.is-loading) .buy-action-btn__icon,
+.buy-action-btn:focus-visible:not(:disabled):not(.is-loading) .buy-action-btn__icon {
   animation: none;
 }
 
@@ -432,12 +459,72 @@
 
 .buy-action-btn.is-loading {
   cursor: wait;
+  animation: none;
+}
+
+.buy-action-btn.is-loading::before,
+.buy-action-btn.is-loading .buy-action-btn__icon {
+  animation: none;
 }
 
 .buy-action-btn:disabled:not(.is-loading) {
   cursor: not-allowed;
   opacity: 0.65 !important;
   box-shadow: none;
+  animation: none;
+}
+
+.buy-action-btn:disabled:not(.is-loading)::before,
+.buy-action-btn:disabled:not(.is-loading) .buy-action-btn__icon {
+  animation: none;
+}
+
+@keyframes buy-action-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.45) inset,
+      0 8px 22px rgba(255, 193, 7, 0.28);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.55) inset,
+      0 12px 28px rgba(255, 193, 7, 0.48);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes buy-action-shine {
+  0%,
+  35% {
+    transform: translateX(-130%);
+  }
+  70%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes buy-action-icon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-1px);
+  }
+  60% {
+    transform: translateY(0.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buy-action-btn:not(:disabled):not(.is-loading),
+  .buy-action-btn:not(:disabled):not(.is-loading)::before,
+  .buy-action-btn:not(:disabled):not(.is-loading) .buy-action-btn__icon {
+    animation: none !important;
+  }
 }
 
 .buy-print-btn {

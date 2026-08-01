@@ -199,29 +199,21 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #ffc107;
-  color: #1e1b4b;
+  background: #1e1b4b;
+  color: #ffc107;
   text-decoration: none;
   font-size: 1.05rem;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .doarti-footer__social-link:hover {
-  background: #ffc107;
-  color: #1e1b4b;
+  background: #312e81;
+  color: #ffc107;
   transform: translateY(-2px);
 }
 
 .doarti-footer__social-link::before {
-  color: #1e1b4b;
-  font-weight: normal;
-  -webkit-text-stroke: 0;
-  text-stroke: 0;
-}
-
-.doarti-footer__social-link.bi-send-fill::before {
-  /* Solid plane — Bootstrap bi-telegram is outline/stroke */
-  font-size: 1.05em;
+  color: #ffc107;
 }
 
 .doarti-footer__bar {

@@ -6,6 +6,38 @@ import {getPrintDisplayTitle, prints} from '../data/prints';
 import '../components/ImageLoader.css';
 import './Home.css';
 
+// "dreams" / "??????" ? Unicode escapes keep Cyrillic safe across encodings
+const DREAM_WORD = /(dreams?|\u0441\u044a\u043d\u0438\u0449\u0430)/gi;
+const DREAM_EXACT = /^(dreams?|\u0441\u044a\u043d\u0438\u0449\u0430)$/i;
+
+const renderHeadlineLine = (line) => {
+  const parts = String(line).split(DREAM_WORD);
+
+  return parts.map((part, index) => {
+    if (part.length === 0) {
+      return null;
+    }
+
+    if (DREAM_EXACT.test(part)) {
+      return (
+        <span key={`dream-${index}`} className="home-hero__dream">
+          <span className="home-hero__dream-text">{part}</span>
+          <span className="home-hero__dream-aura" aria-hidden="true" />
+          <span className="home-hero__dream-dust" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+        </span>
+      );
+    }
+
+    return <React.Fragment key={`text-${index}`}>{part}</React.Fragment>;
+  });
+};
+
 const Home = () => {
     const {t, translations} = useLanguage();
     const videoRef = useRef(null);
@@ -88,7 +120,7 @@ const Home = () => {
                             .split('\n')
                             .map((line, index, lines) => (
                                 <span key={`${line}-${index}`}>
-                                    {line}
+                                    {renderHeadlineLine(line)}
                                     {index < lines.length - 1 ? <br /> : null}
                                 </span>
                             ))}
