@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import '../pages/Shipping.css';
 
-export const SAATCHI_ART_URL = 'https://www.saatchiart.com/en-bg/brushwhisker42';
+export const SAATCHI_ART_URL = 'https://www.saatchiart.com/en-bg/doarti42';
 
 /**
  * Short delivery teaser with link to the full Shipping page.

@@ -132,6 +132,17 @@ const Contact = () => {
                 <li>
                   <a
                     className="contact-channel"
+                    href="https://t.me/+359895627511"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="contact-channel__label">{t('contact.telegram')}</span>
+                    <span className="contact-channel__value">+359 895 627 511</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="contact-channel"
                     href="https://www.instagram.com/doarti42/"
                     target="_blank"
                     rel="noopener noreferrer"

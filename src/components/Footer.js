@@ -146,6 +146,17 @@ const Footer = () => {
               </li>
               <li>
                 <a
+                  href="https://t.me/+359895627511"
+                  className="doarti-footer__social-link bi-telegram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                >
+                  <span className="sr-only">Telegram</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://www.instagram.com/doarti42/"
                   className="doarti-footer__social-link bi-instagram"
                   target="_blank"
