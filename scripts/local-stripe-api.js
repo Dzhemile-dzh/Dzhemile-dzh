@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const { createCheckoutSession } = require('../api/_lib/buildCheckoutSession');
 const { getCheckoutSessionSummary } = require('../api/_lib/getCheckoutSession');
+const { addSubscriber } = require('../api/_lib/subscribersStore');
 
 const PORT = Number(process.env.STRIPE_DEV_API_PORT) || 4242;
 const ROOT = path.join(__dirname, '..');
@@ -89,6 +90,49 @@ const server = http.createServer(async (req, res) => {
   const isGetSession =
     url.pathname === '/api/get-checkout-session' ||
     url.pathname === '/get-checkout-session';
+  const isSubscribe =
+    url.pathname === '/api/subscribe' || url.pathname === '/subscribe';
+
+  if (isSubscribe) {
+    if (req.method !== 'POST') {
+      sendJson(res, 405, { error: 'Method not allowed' });
+      return;
+    }
+
+    let body;
+    try {
+      body = await readBody(req);
+    } catch {
+      sendJson(res, 400, { error: 'Invalid JSON body' });
+      return;
+    }
+
+    try {
+      const result = await addSubscriber(
+        typeof body.email === 'string' ? body.email : ''
+      );
+
+      if (result.alreadySubscribed) {
+        sendJson(res, 409, {
+          error: 'already_subscribed',
+          email: result.email,
+        });
+        return;
+      }
+
+      sendJson(res, 200, { ok: true, email: result.email });
+    } catch (error) {
+      console.error('Subscribe error:', error.message || error);
+      const status = error.statusCode === 400 ? 400 : 500;
+      sendJson(res, status, {
+        error:
+          status === 400
+            ? 'Invalid email'
+            : 'Unable to save subscription. Please try again.',
+      });
+    }
+    return;
+  }
 
   if (isGetSession) {
     if (req.method !== 'GET') {

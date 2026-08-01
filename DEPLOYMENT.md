@@ -25,6 +25,11 @@ REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_or_pk_test_...
 
 **Contact form:** sends to `dzhemile.ahmet@gmail.com` via FormSubmit - no EmailJS template. Confirm the address once if FormSubmit asks.
 
+**Newsletter subscribers (unique emails):**
+1. Locally, emails are stored in `data/subscribers.json` (gitignored).
+2. On Vercel, open Storage → create a **Blob** store for the project so `BLOB_READ_WRITE_TOKEN` is available.
+3. `/api/subscribe` rejects duplicate emails with "already subscribed".
+
 **Stripe setup (Vercel):**
 1. Create a Stripe account and get API keys from the Dashboard.
 2. Add `STRIPE_SECRET_KEY` as a Vercel environment variable (Production + Preview).

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
+import './Header.css';
 
 const Header = () => {
   const { language, changeLanguage, t } = useLanguage();

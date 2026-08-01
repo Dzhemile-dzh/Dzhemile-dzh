@@ -28,14 +28,23 @@ const Footer = () => {
     }
 
     try {
-      const subscriptions = JSON.parse(localStorage.getItem('subscriptions') || '[]');
-      const emailExists = subscriptions.some((sub) => sub.email === email || sub === email);
-      if (!emailExists) {
-        subscriptions.push({
-          email,
-          date: new Date().toISOString(),
-        });
-        localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (response.status === 409 || data.error === 'already_subscribed') {
+        alert(t('footer.subscribe_error_already'));
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          typeof data.error === 'string' ? data.error : 'Subscribe failed'
+        );
       }
 
       try {

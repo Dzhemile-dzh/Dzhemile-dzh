@@ -1,0 +1,56 @@
+/* Mobile menu: compact item spacing */
+@media (max-width: 991px) {
+  .modern-header .nav-menu {
+    justify-content: flex-start;
+    padding: 4.5rem 1.25rem 1.5rem;
+    overflow-y: auto;
+  }
+
+  .modern-header .nav-list {
+    gap: 0.2rem;
+    max-width: 280px;
+    margin: 0 auto;
+    justify-content: flex-start;
+  }
+
+  .modern-header .nav-link {
+    font-size: 1.05rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .modern-header .nav-link.contact-btn {
+    margin-top: 0.65rem;
+    padding: 0.7rem 1.25rem !important;
+  }
+
+  .modern-header .dropdown-btn {
+    gap: 6px;
+  }
+
+  .modern-header .dropdown-menu {
+    margin-top: 0.25rem;
+  }
+
+  .modern-header .dropdown-item {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .modern-header .nav-menu {
+    padding-top: 4rem;
+  }
+
+  .modern-header .nav-list {
+    gap: 0.1rem;
+  }
+
+  .modern-header .nav-link {
+    font-size: 1rem;
+    padding: 0.45rem 0.65rem;
+  }
+}
