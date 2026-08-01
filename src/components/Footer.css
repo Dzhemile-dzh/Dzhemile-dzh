@@ -85,7 +85,7 @@
 }
 
 .doarti-footer .subscribe-form #submit {
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px !important;
   background: #ffc107;
   color: #fff !important;
   border: none;

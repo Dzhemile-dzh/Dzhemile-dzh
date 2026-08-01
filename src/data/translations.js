@@ -173,11 +173,18 @@ export const translations = {
       },
     },
     hero: {
-      brand_line: 'By me',
-      headline: 'Oil paintings shaped like dreams you almost remember',
-      lede: 'Original canvases and archival prints from a Varna atelier: surreal portraits with quiet fire.',
+      brand_line: 'Doarti',
+      headline: 'Oil paintings shaped like\ndreams you almost remember',
+      lede: 'Original canvases and archival prints: surreal portraits with quiet fire and lasting colour.',
       cta_paintings: 'View paintings',
       cta_prints: 'Shop prints',
+    },
+    home: {
+      scroll: 'Scroll',
+      latest_eyebrow: 'Studio 2026',
+      latest_sub: 'New oil paintings from the atelier — surreal figures, quiet fire, and unfinished questions.',
+      view_gallery: 'View full gallery',
+      prints_eyebrow: 'Collect',
     },
     footer: {
       subscribe: 'Get the news',
@@ -1247,11 +1254,18 @@ export const translations = {
       },
     },
     hero: {
-      brand_line: 'От мен',
-      headline: 'Маслени картини, оформени като сънища, които почти помните',
-      lede: 'Оригинални платна и архивни принтове от ателие във Варна: сюрреални портрети с тих огън.',
+      brand_line: 'Doarti',
+      headline: 'Маслени картини, оформени като\nсънища, които почти помните',
+      lede: 'Оригинални платна и архивни принтове: сюрреални портрети с тих огън и жива светлина.',
       cta_paintings: 'Виж картините',
       cta_prints: 'Магазин принтове',
+    },
+    home: {
+      scroll: 'Надолу',
+      latest_eyebrow: 'Ателие 2026',
+      latest_sub: 'Нови маслени картини от ателието — сюрреални фигури, тих огън и незавършени въпроси.',
+      view_gallery: 'Към цялата галерия',
+      prints_eyebrow: 'Колекция',
     },
     footer: {
       subscribe: 'Получавай известия',

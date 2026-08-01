@@ -1,4 +1,33 @@
 /* Mobile menu: compact item spacing */
+
+/* Homepage: header floats over video — no hard purple bar */
+.modern-header--over-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 8, 20, 0.55) 0%,
+    rgba(12, 8, 20, 0.22) 55%,
+    transparent 100%
+  );
+  box-shadow: none;
+  border: none;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+.modern-header--over-hero.modern-header--scrolled,
+.modern-header--over-hero.modern-header--menu-open {
+  background: #260178;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+  backdrop-filter: none;
+}
+
 @media (max-width: 991px) {
   .modern-header .nav-menu {
     justify-content: flex-start;

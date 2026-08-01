@@ -9,6 +9,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubItem, setActiveSubItem] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const isHome = location.pathname === '/';
 
   const isActive = (path) => {
     if (path === '/') {
@@ -66,8 +69,31 @@ const Header = () => {
     };
   }, []);
 
+  // Homepage: solid sticky header after scroll
+  useEffect(() => {
+    if (!isHome) {
+      setIsScrolled(false);
+      return undefined;
+    }
+
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 48);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive: true});
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isHome]);
+
   return (
-    <header className="modern-header">
+    <header
+      className={[
+        'modern-header',
+        isHome ? 'modern-header--over-hero' : '',
+        isHome && isScrolled ? 'modern-header--scrolled' : '',
+        isMenuOpen ? 'modern-header--menu-open' : '',
+      ].filter(Boolean).join(' ')}
+    >
       <nav className="modern-nav">
         <div className="nav-container">
           {/* Logo */}

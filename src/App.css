@@ -261,6 +261,21 @@ body {
   color: #fff !important;
 }
 
+.custom-btn,
+.custom-border-btn,
+.contact-btn,
+.contact-form__submit,
+.buy-action-btn,
+.buy-print-btn,
+.newsletter-prompt__form button[type='submit'],
+.doarti-modal__btn,
+.success-close-btn,
+.popup-submit-btn,
+.home-hero__cta,
+.home-link-btn {
+  border-radius: 999px !important;
+}
+
 .custom-btn:hover,
 .contact-btn:hover,
 .contact-form__submit:hover,

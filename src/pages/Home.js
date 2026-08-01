@@ -1,295 +1,222 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import {getPrintDisplayTitle, prints} from '../data/prints';
 import '../components/ImageLoader.css';
+import './Home.css';
+
+const truncateText = (text, maxLength = 160) => {
+    if (!text) {
+        return '';
+    }
+    if (text.length <= maxLength) {
+        return text;
+    }
+    return `${text.substring(0, maxLength).trim()}\u2026`;
+};
 
 const Home = () => {
-    const {t} = useLanguage();
+    const {t, translations} = useLanguage();
     const videoRef = useRef(null);
+    const [ready, setReady] = useState(false);
+
+    const latestPaintings = (() => {
+        const all = translations?.gallery2026?.paintings?.slice(0, 4) ?? [];
+        const isLandscape = (painting) =>
+            typeof painting.link === 'string' && painting.link.includes('from-flesh-to-icon');
+        const portraits = all.filter((painting) => !isLandscape(painting));
+        const landscapes = all.filter(isLandscape);
+        return [...portraits, ...landscapes];
+    })();
+    const featuredPrints = prints.slice(0, 6);
 
     useEffect(() => {
-        // Load jQuery and Owl Carousel
-        const loadScript = (src) => {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = src;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-        };
-
-        const loadCSS = (href) => {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        };
-
-        // Load jQuery first, then Owl Carousel
-        loadScript('/js/jquery.min.js')
-            .then(() => loadScript('/js/owl.carousel.min.js'))
-            .then(() => {
-                // eslint-disable-next-line no-undef
-                const $ = window.$ || window.jQuery;
-                if ($ && typeof $.fn !== 'undefined' && typeof $.fn.owlCarousel === 'function') {
-                    $('.owl-carousel').owlCarousel({
-                        center: true,
-                        loop: true,
-                        margin: 30,
-                        autoplay: true,
-                        responsiveClass: true,
-                        responsive: {
-                            0: {
-                                items: 2,
-                            },
-                            767: {
-                                items: 3,
-                            },
-                            1200: {
-                                items: 4,
-                            }
-                        }
-                    });
-                }
-            })
-            .catch(console.error);
-
-        // Load CSS
-        loadCSS('/css/owl.carousel.min.css');
-        loadCSS('/css/owl.theme.default.min.css');
+        const frame = requestAnimationFrame(() => setReady(true));
+        return () => cancelAnimationFrame(frame);
     }, []);
 
-    const profiles = [
-        {
-            img: '1.jpg',
-            name: 'Aurora',
-            badges: ['portrait', 'surrealism'],
-            links: ['/painting/2024/aurora', 'https://www.instagram.com/doarti42/']
-        },
-        {
-            img: '2.jpg',
-            name: 'Alice',
-            badges: ['present & past'],
-            links: ['/painting/2024/alice', 'https://www.instagram.com/doarti42/']
-        },
-        {
-            img: '3.jpg',
-            name: 'Hera',
-            badges: ['portraits', 'mother'],
-            links: ['/painting/2024/hera', 'https://www.instagram.com/doarti42/']
-        },
-        {
-            img: '4.jpg',
-            name: 'Amaya Rei',
-            badges: ['warrior'],
-            links: ['/painting/2024/amaya-rei', 'https://www.instagram.com/doarti42/']
-        },
-        {
-            img: '5.jpg',
-            name: 'Nora',
-            badges: ['warrior'],
-            links: ['/painting/2023/nora', 'https://www.instagram.com/doarti42/']
-        },
-        {
-            img: '6.jpg',
-            name: 'Gaia',
-            badges: ['woman body'],
-            links: ['/painting/2024/gaia', 'https://www.instagram.com/doarti42/']
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) {
+            return undefined;
         }
-    ];
 
-    const paintings = [
-        {
-            name: "Aurora",
-            image: "/images/2024/2024-b.png",
-            link: "/painting/2024/aurora",
-            year: 2024,
-            size: "60 x 80 cm",
-            type: "portrait",
-            desc: t('painting_details.aurora_desc')
-        },
-        {
-            name: "Alice",
-            image: "/images/2024/2024-h.png",
-            link: "/painting/2024/alice",
-            year: 2024,
-            size: "60 x 80 cm",
-            type: "portrait",
-            desc: t('painting_details.alice_desc')
-        }
-    ];
+        const tryPlay = () => {
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    // Autoplay may be blocked; muted loop still works on interaction.
+                });
+            }
+        };
+
+        tryPlay();
+        video.addEventListener('loadeddata', tryPlay);
+        return () => video.removeEventListener('loadeddata', tryPlay);
+    }, []);
 
     return (
-        <>
-            <main>
-                <section className="hero-section" aria-label="Featured Artwork Gallery">
-                    <div className="container">
-                        <header className="text-center mb-5 pb-2">
-                            <h1 className="text-white" dangerouslySetInnerHTML={{__html: t('hero_title')}}></h1>
-                        </header>
-                        <div className="owl-carousel owl-theme" role="region" aria-label="Featured Artwork Carousel">
-                            {profiles.map((profile, index) => (
+        <div className={`home-page${ready ? ' home-page--ready' : ''}`}>
+            <section className="home-hero" aria-label={String(t('hero.headline')).replace(/\n/g, ' ')}>
+                <div className="home-hero__media" aria-hidden="true">
+                    <video
+                        ref={videoRef}
+                        className="home-hero__video"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster="/images/2026/2026-imago.png"
+                    >
+                        <source src="/images/20230917_152650_1_1.mp4" type="video/mp4"/>
+                    </video>
+                    <div className="home-hero__veil"/>
+                </div>
+
+                <div className="home-hero__content">
+                    <h1 className="home-hero__headline">
+                        {String(t('hero.headline'))
+                            .split('\n')
+                            .map((line, index, lines) => (
+                                <span key={`${line}-${index}`}>
+                                    {line}
+                                    {index < lines.length - 1 ? <br /> : null}
+                                </span>
+                            ))}
+                    </h1>
+                    <p className="home-hero__lede">{t('hero.lede')}</p>
+                    <div className="home-hero__actions">
+                        <Link to="/gallery/2026" className="home-hero__cta home-hero__cta--primary">
+                            {t('hero.cta_paintings')}
+                        </Link>
+                        <Link to="/prints" className="home-hero__cta home-hero__cta--ghost">
+                            {t('hero.cta_prints')}
+                        </Link>
+                    </div>
+                </div>
+
+                <a href="#latest-paintings" className="home-hero__scroll">
+                    <span>{t('home.scroll')}</span>
+                    <span className="home-hero__scroll-line" aria-hidden="true"/>
+                </a>
+            </section>
+
+            <section className="home-section home-latest" id="latest-paintings">
+                <div className="home-section__inner">
+                    <header className="home-section__header">
+                        <p className="home-section__eyebrow">{t('home.latest_eyebrow')}</p>
+                        <h2 className="home-section__title">{t('latest_paintings')}</h2>
+                        <p className="home-section__sub">{t('home.latest_sub')}</p>
+                    </header>
+
+                    <div className="home-latest__grid">
+                        {latestPaintings.map((painting, index) => {
+                            const description = t(painting.description);
+                            const descText = typeof description === 'string' ? description : '';
+                            const isLandscape =
+                                typeof painting.link === 'string' &&
+                                painting.link.includes('from-flesh-to-icon');
+                            const isFeature = index === 0 && !isLandscape;
+
+                            return (
                                 <Link
-                                    key={index}
-                                    to={profile.links[0]}
-                                    style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
-                                    aria-label={`View ${t(`names.${profile.name}`) || profile.name} painting details`}
+                                    key={painting.link}
+                                    to={`/painting/${painting.link}`}
+                                    className={[
+                                        'home-painting',
+                                        isFeature ? 'home-painting--feature' : '',
+                                        isLandscape ? 'home-painting--landscape' : '',
+                                    ].filter(Boolean).join(' ')}
+                                    aria-label={painting.title}
                                 >
-                                    <article className="owl-carousel-info-wrap item"
-                                             style={{cursor: 'pointer', transition: 'transform 0.2s ease'}}>
-                                        <div style={{width: '100%', height: '400px', position: 'relative'}}>
-                                            <ImageLoader
-                                                src={`/images/profile/${profile.img}`}
-                                                alt={`${t(`names.${profile.name}`) || profile.name} - Portrait by me`}
-                                                className="owl-carousel-image img-fluid"
-                                                style={{width: '100%', height: '100%', objectFit: 'cover'}}
-                                            />
-                                        </div>
-                                        <div className="owl-carousel-info">
-                                            <h2 className="mb-2">
-                                                {t(`names.${profile.name}`) || profile.name}
-                                                {['Aurora', 'Alice', 'Nora'].includes(profile.name)}
-                                            </h2>
-                                            {profile.badges.map((badge, badgeIndex) => (
-                                                <span key={badgeIndex}
-                                                      className="badge">{t(`badges.${badge}`) || badge}</span>
-                                            ))}
-                                        </div>
-                                    </article>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section className="latest-podcast-section section-padding pb-0" id="section_2">
-                    <div className="container">
-                        <div className="section-title-wrap mb-5">
-                            <h4 className="section-title">{t('latest_paintings')}</h4>
-                        </div>
-                        <div className="row justify-content-center mt-5">
-                            {paintings.map((painting, index) => (
-                                <div key={index} className="col-lg-6 col-12 mb-4">
-                                    <Link to={painting.link}
-                                          style={{textDecoration: 'none', color: 'inherit', display: 'block'}}>
-                                        <div className="custom-block d-flex"
-                                             style={{cursor: 'pointer', transition: 'transform 0.2s ease'}}>
-                                            <div className="row">
-                                                <div className="col-5" id="index-image">
-                                                    <img src={painting.image} className="img-fluid" alt=""
-                                                         id="section-painting-img"
-                                                         loading="lazy"/>
-                                                </div>
-                                                <div className="col-7 custom-block-info" id="index-content">
-                                                    <div className="custom-block-top d-flex mb-1">
-                                                        <small className="me-4">
-                                                            <i className="bi-clock-fill custom-icon"></i> {painting.year}
-                                                        </small>
-                                                        <span className="badge">{painting.size}</span>
-                                                    </div>
-                                                    <h5 className="mb-2">
-                                                        {t(`names.${painting.name}`) || painting.name}
-                                                    </h5>
-                                                    <div className="profile-block d-flex">
-                                                        <p>
-                                                            <small className="me-4">
-                                                                {t('oil_painting')}
-                                                            </small>
-                                                            <strong>{t('badges.portraits')}</strong>
-                                                        </p>
-                                                    </div>
-                                                    <p>{painting.desc}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section id="section_3">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <video
-                                ref={videoRef}
-                                autoPlay
-                                loop
-                                muted
-                                className="video-index"
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '100%',
-                                    height: '800px',
-                                    objectFit: 'cover',
-                                    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
-                                    maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
-                                    WebkitMaskRepeat: 'no-repeat',
-                                    maskRepeat: 'no-repeat',
-                                    WebkitMaskSize: '100%',
-                                    maskSize: '100%'
-                                }}
-                            >
-                                <source src="/images/20230917_152650_1_1.mp4" type="video/mp4"/>
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="section-padding pb-0" id="prints_section">
-                    <div className="container">
-                        <div className="section-title-wrap mb-5">
-                            <h4 className="section-title">{t('prints.section_title')}</h4>
-                        </div>
-                        <div className="row">
-                            {prints.slice(0, 6).map((print) => {
-                                const title = getPrintDisplayTitle(print, t);
-                                return (
-                                    <div key={print.slug} className="col-lg-4 col-md-6 col-12 mb-4">
-                                        <Link
-                                            to={`/prints/${print.slug}`}
-                                            style={{textDecoration: 'none', color: 'inherit', display: 'block'}}
-                                        >
-                                            <div
-                                                className="custom-block custom-block-full"
-                                                style={{cursor: 'pointer', transition: 'transform 0.2s ease', height: '100%'}}
-                                            >
-                                                <div className="custom-block-image-wrap" style={{height: '360px', overflow: 'hidden'}}>
-                                                    <ImageLoader
-                                                        src={`/${print.image}`}
-                                                        alt={title}
-                                                        className="custom-block-image img-fluid"
-                                                        style={{width: '100%', height: '100%', objectFit: 'cover'}}
-                                                    />
-                                                </div>
-                                                <div className="custom-block-info">
-                                                    <span className="badge mb-2">{t('prints.fine_art_print')}</span>
-                                                    <h5 className="mb-2" style={{color: '#000'}}>{title}</h5>
-                                                    <p className="mb-0">
-                                                        {t('prints.from_price')}{' '}
-                                                        <strong>{print.priceEur} {t('euro')}</strong>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </Link>
+                                    <div className="home-painting__frame">
+                                        {painting.sold ? (
+                                            <span className="status-tag status-tag--sold status-tag--compact">
+                                                {t('sold_tag')}
+                                            </span>
+                                        ) : (
+                                            <span className="status-tag status-tag--available status-tag--compact">
+                                                {t('available')}
+                                            </span>
+                                        )}
+                                        <ImageLoader
+                                            src={`/${painting.image}`}
+                                            alt={painting.title}
+                                            className="img-fluid"
+                                        />
                                     </div>
-                                );
-                            })}
-                        </div>
-                        <div className="text-center mb-4">
-                            <Link to="/prints" className="btn custom-btn">
-                                {t('prints.view_all')}
-                            </Link>
-                        </div>
+                                    <div className="home-painting__meta">
+                                        <h3 className="home-painting__title">{painting.title}</h3>
+                                        <p className="home-painting__info">
+                                            {painting.dimensions}{' \u00B7 '}{t('oil_painting')}
+                                        </p>
+                                        {isFeature && descText ? (
+                                            <p className="home-painting__desc">{truncateText(descText)}</p>
+                                        ) : null}
+                                    </div>
+                                </Link>
+                            );
+                        })}
                     </div>
-                </section>
-            </main>
-        </>
+
+                    <div className="home-section__footer">
+                        <Link to="/gallery/2026" className="home-link-btn">
+                            {t('home.view_gallery')}
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="home-section home-prints" id="prints_section">
+                <div className="home-section__inner">
+                    <header className="home-section__header">
+                        <p className="home-section__eyebrow">{t('home.prints_eyebrow')}</p>
+                        <h2 className="home-section__title">{t('prints.section_title')}</h2>
+                        <p className="home-section__sub">{t('prints.section_subtitle')}</p>
+                    </header>
+
+                    <div className="home-prints__grid">
+                        {featuredPrints.map((print) => {
+                            const title = getPrintDisplayTitle(print, t);
+                            return (
+                                <Link
+                                    key={print.slug}
+                                    to={`/prints/${print.slug}`}
+                                    className="home-print"
+                                    aria-label={title}
+                                >
+                                    <div className="home-print__frame">
+                                        <span className="home-print__badge">{t('prints.fine_art_print')}</span>
+                                        <ImageLoader
+                                            src={`/${print.image}`}
+                                            alt={title}
+                                            className="img-fluid"
+                                        />
+                                    </div>
+                                    <div className="home-print__meta">
+                                        <h3 className="home-print__title">{title}</h3>
+                                        <p className="home-print__price">
+                                            {t('prints.from_price')}{' '}
+                                            <strong>
+                                                {print.priceEur} {t('euro')}
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+
+                    <div className="home-section__footer">
+                        <Link to="/prints" className="home-link-btn">
+                            {t('prints.view_all')}
+                        </Link>
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 };
 
