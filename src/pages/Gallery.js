@@ -3,20 +3,19 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
 import '../components/ImageLoader.css';
+import './Gallery.css';
 
-// Utility function to truncate text to 200 characters
 const truncateText = (text, maxLength = 200) => {
   if (!text) return '';
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength).trim() + '...';
+  const cleaned = String(text).replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= maxLength) return cleaned;
+  return cleaned.substring(0, maxLength).trim() + '...';
 };
 
-// Type guard helper function
 const isPlainObject = (value) => {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 };
 
-// Safe Object.keys wrapper
 const getObjectKeys = (obj) => {
   if (isPlainObject(obj)) {
     return Object.keys(obj);
@@ -28,18 +27,17 @@ const Gallery = () => {
   const { year } = useParams();
   const { t, translations } = useLanguage();
 
-  const getGalleryData = (year) => {
+  const getGalleryData = (selectedYear) => {
     if (!isPlainObject(translations)) {
       return { header: 'Loading...', paintings: [] };
     }
-    
-    // Type guard: ensure translations is a plain object
+
     const keys = getObjectKeys(translations);
     if (keys.length === 0) {
       return { header: 'Loading...', paintings: [] };
     }
-    
-    switch (year) {
+
+    switch (selectedYear) {
       case '2022':
         return translations.gallery || { header: '2022 Paintings', paintings: [] };
       case '2023':
@@ -58,8 +56,7 @@ const Gallery = () => {
   const galleryData = getGalleryData(year);
   const paintings = galleryData.paintings || [];
 
-  // Show loading state if translations are not loaded
-  if (!isPlainObject(translations)) {
+  if (!isPlainObject(translations) || getObjectKeys(translations).length === 0) {
     return (
       <div className="container text-center py-5">
         <div className="spinner-border" role="status">
@@ -69,25 +66,6 @@ const Gallery = () => {
       </div>
     );
   }
-
-  // Type guard: ensure translations is a plain object with keys
-  const translationKeys = getObjectKeys(translations);
-  if (translationKeys.length === 0) {
-    return (
-      <div className="container text-center py-5">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-3">Loading paintings...</p>
-      </div>
-    );
-  }
-
-  // Debug logging
-  console.log('Gallery data for year', year, ':', galleryData);
-  console.log('Paintings count:', paintings.length);
-  console.log('Available translations keys:', translationKeys);
-  console.log('Translations object:', translations);
 
   return (
     <>
@@ -110,42 +88,50 @@ const Gallery = () => {
               <Link to="/" className="btn custom-btn">{t('back_to_home')}</Link>
             </div>
           ) : (
-            <div className="row">
-              {paintings.map((painting, index) => (
-                <div key={index} className="col-lg-4 col-md-6 col-12 mb-4">
-                      <div className="custom-block custom-block-full">
-                        <div className="custom-block-image-wrap">
-                          <Link to={`/painting/${year}/${painting.link.split('/').pop()}`}>
-                            <ImageLoader
-                              src={`/${painting.image}`}
-                              alt={t(`${painting.link.split('/').pop()}_heading`) || painting.title}
-                              className="custom-block-image img-fluid gallery-image-loader"
-                              style={{ width: '100%', objectFit: 'cover' }}
-                            />
-                          </Link>
-                          {painting.sold && (
-                            <span className="status-tag status-tag--sold status-tag--compact position-absolute">
-                              {t('sold_tag')}
-                            </span>
-                          )}
+            <div className="gallery-grid">
+              {paintings.map((painting) => {
+                const slug = painting.link.split('/').pop();
+                const title = t(`${slug}_heading`) || painting.title;
+                const description = truncateText(
+                  t(`${slug}_description`) || painting.description
+                );
+
+                return (
+                  <Link
+                    key={painting.link}
+                    to={`/painting/${year}/${slug}`}
+                    className="gallery-card"
+                    aria-label={title}
+                  >
+                    <div className="gallery-card__frame">
+                      {painting.sold ? (
+                        <span className="status-tag status-tag--sold status-tag--compact">
+                          {t('sold_tag')}
+                        </span>
+                      ) : (
+                        <span className="status-tag status-tag--available status-tag--compact">
+                          {t('available')}
+                        </span>
+                      )}
+                      <ImageLoader
+                        src={`/${painting.image}`}
+                        alt={title}
+                        className="img-fluid"
+                      />
+                      <div className="gallery-card__overlay">
+                        <h3 className="gallery-card__title">{title}</h3>
+                        <div className="gallery-card__tags">
+                          <span className="gallery-card__tag">{t('oil_painting')}</span>
+                          <span className="gallery-card__tag">{painting.dimensions}</span>
                         </div>
-                    <div className="custom-block-info">
-                      <h5 className="mb-2">
-                        <Link to={`/painting/${year}/${painting.link.split('/').pop()}`}>
-                          {t(`${painting.link.split('/').pop()}_heading`) || painting.title}
-                        </Link>
-                      </h5>
-                      <div className="profile-block d-flex">
-                        <p>
-                          {t('oil_painting')}
-                          <strong>{painting.dimensions}</strong>
-                        </p>
+                        {description ? (
+                          <p className="gallery-card__desc">{description}</p>
+                        ) : null}
                       </div>
-                      <p className="mb-0">{truncateText(t(`${painting.link.split('/').pop()}_description`) || painting.description)}</p>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
