@@ -1,5 +1,17 @@
 /* Painting Detail Page - Full Size View & Zoom */
 
+.painting-detail-section.section-padding,
+.print-detail-section.section-padding {
+  padding-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .painting-detail-section.section-padding,
+  .print-detail-section.section-padding {
+    padding-top: 0.5rem;
+  }
+}
+
 .painting-detail-tags {
   display: flex;
   flex-wrap: wrap;
@@ -529,10 +541,10 @@
   justify-content: center;
   width: 100%;
   padding: 0.85rem 1.5rem;
-  border: 1px solid rgba(22, 21, 19, 0.28);
+  border: 1px solid #312e81;
   border-radius: 999px;
   background: #fff;
-  color: #161513 !important;
+  color: #312e81 !important;
   font-family: var(--title-font-family, 'Sono', 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
@@ -549,9 +561,9 @@
 
 .buy-print-btn:hover,
 .buy-print-btn:focus {
-  background: #161513;
-  border-color: #161513;
-  color: #f7f4ef !important;
+  background: #312e81;
+  border-color: #312e81;
+  color: #fff !important;
   text-decoration: none;
   transform: translateY(-2px);
 }

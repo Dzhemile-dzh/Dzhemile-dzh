@@ -75,12 +75,12 @@ const NewsletterPrompt = () => {
 
       if (response.status === 409 || data.error === 'already_subscribed') {
         markNewsletterSubscribed();
-        setVisible(false);
+        setError(t('newsletter.error_already'));
         setIsSubmitting(false);
         return;
       }
 
-      if (!response.ok) {
+      if (!response.ok || data.ok !== true) {
         throw new Error(
           typeof data.error === 'string' ? data.error : 'Subscribe failed'
         );

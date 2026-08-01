@@ -160,8 +160,12 @@ const PaintingDetail = () => {
 
   return (
       <>
-      <main>
-        <section className="latest-podcast-section section-padding pb-0" id="section_2">
+      <header
+        className="site-header"
+        id="header-solid"
+        aria-hidden="true"
+      />
+      <section className="latest-podcast-section section-padding painting-detail-section pb-0" id="section_2">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-10 col-12">
@@ -373,7 +377,6 @@ const PaintingDetail = () => {
             </div>
           </section>
         )}
-      </main>
 
       {/* Full Size Lightbox with Zoom */}
       {lightboxOpen && (

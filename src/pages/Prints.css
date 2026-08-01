@@ -228,7 +228,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #1a5f6e;
+  color: #312e81;
 }
 
 .print-detail-fact dt i {
@@ -254,8 +254,8 @@
 }
 
 .print-detail-fact dd a:hover {
-  color: #167a90;
-  border-color: #167a90;
+  color: #1e1b4b;
+  border-color: #1e1b4b;
 }
 
 .print-size-picker {
@@ -318,7 +318,7 @@
 
 .print-size-option__price {
   font-size: 0.88rem;
-  color: #1a5f6e;
+  color: #2563eb;
   font-weight: 600;
 }
 

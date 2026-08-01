@@ -12,8 +12,8 @@ const { addSubscriber } = require('../api/_lib/subscribersStore');
 const PORT = Number(process.env.STRIPE_DEV_API_PORT) || 4242;
 const ROOT = path.join(__dirname, '..');
 
-function loadEnvFile() {
-  const envPath = path.join(ROOT, '.env');
+function loadEnvFile(fileName) {
+  const envPath = path.join(ROOT, fileName);
   if (!fs.existsSync(envPath)) {
     return;
   }
@@ -73,7 +73,8 @@ function sendJson(res, status, payload) {
   res.end(body);
 }
 
-loadEnvFile();
+loadEnvFile('.env');
+loadEnvFile('.env.local');
 
 const ALLOWED_TYPES = new Set(['print', 'original']);
 
@@ -123,12 +124,15 @@ const server = http.createServer(async (req, res) => {
       sendJson(res, 200, { ok: true, email: result.email });
     } catch (error) {
       console.error('Subscribe error:', error.message || error);
-      const status = error.statusCode === 400 ? 400 : 500;
+      const status =
+        error.statusCode === 400 ? 400 : error.statusCode === 503 ? 503 : 500;
       sendJson(res, status, {
         error:
           status === 400
             ? 'Invalid email'
-            : 'Unable to save subscription. Please try again.',
+            : status === 503
+              ? 'Subscription storage is temporarily unavailable. Please try again later.'
+              : 'Unable to save subscription. Please try again.',
       });
     }
     return;

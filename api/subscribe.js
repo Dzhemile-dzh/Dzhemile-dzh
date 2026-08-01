@@ -56,12 +56,15 @@ module.exports = async function handler(req, res) {
     });
   } catch (error) {
     console.error('Subscribe error:', error);
-    const status = error.statusCode === 400 ? 400 : 500;
+    const status =
+      error.statusCode === 400 ? 400 : error.statusCode === 503 ? 503 : 500;
     return res.status(status).json({
       error:
         status === 400
           ? 'Invalid email'
-          : 'Unable to save subscription. Please try again.',
+          : status === 503
+            ? 'Subscription storage is temporarily unavailable. Please try again later.'
+            : 'Unable to save subscription. Please try again.',
     });
   }
 };

@@ -286,9 +286,9 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--home-ink);
+  color: #312e81;
   background: transparent;
-  border: 1px solid rgba(22, 21, 19, 0.28);
+  border: 1px solid #312e81;
   border-radius: 999px;
   transition:
     background 0.3s ease,
@@ -298,9 +298,9 @@
 }
 
 .home-link-btn:hover {
-  background: var(--home-ink);
-  border-color: var(--home-ink);
-  color: #f7f4ef;
+  background: #312e81;
+  border-color: #312e81;
+  color: #fff;
   transform: translateY(-2px);
 }
 

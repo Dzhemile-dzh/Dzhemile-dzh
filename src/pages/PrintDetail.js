@@ -36,7 +36,13 @@ const PrintDetail = () => {
   const selectedSize = getPrintSizeById(selectedSizeId);
 
   return (
-    <section className="latest-podcast-section section-padding" id="section_2">
+    <>
+      <header
+        className="site-header"
+        id="header-solid"
+        aria-hidden="true"
+      />
+      <section className="latest-podcast-section section-padding print-detail-section" id="section_2">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-10 col-12">
@@ -184,6 +190,7 @@ const PrintDetail = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

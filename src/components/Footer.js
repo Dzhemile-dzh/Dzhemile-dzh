@@ -44,7 +44,7 @@ const Footer = () => {
         return;
       }
 
-      if (!response.ok) {
+      if (!response.ok || data.ok !== true) {
         throw new Error(
           typeof data.error === 'string' ? data.error : 'Subscribe failed'
         );
