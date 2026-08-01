@@ -63,7 +63,10 @@ const About = () => {
         <div className="container about-page">
           <div className="about-hero">
             <div className="about-hero__copy">
-              <h3 className="about-hero__title">{t('about.header_about')}</h3>
+              <div className="about-hero__heading">
+                <h3 className="about-hero__title">{t('about.header_about')}</h3>
+                <p className="about-hero__sub">{t('about.header_about_sub')}</p>
+              </div>
               <p
                 className="about-hero__lead"
                 dangerouslySetInnerHTML={{ __html: t('about.intro.paragraph1') }}
@@ -81,27 +84,26 @@ const About = () => {
 
           <div className="about-story">
             <article className="about-block">
-              <h4 className="about-block__title">
-                {t('about.intro.section1_title')}
-              </h4>
+              <div className="about-block__heading">
+                <h4 className="about-block__title">
+                  {t('about.intro.section1_title')}
+                </h4>
+              </div>
               <div className="about-block__body">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: t('about.intro.paragraph2'),
                   }}
                 />
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: t('about.intro.paragraph3'),
-                  }}
-                />
               </div>
             </article>
 
             <article className="about-block">
-              <h4 className="about-block__title">
-                {t('about.intro.section2_title')}
-              </h4>
+              <div className="about-block__heading">
+                <h4 className="about-block__title">
+                  {t('about.intro.section2_title')}
+                </h4>
+              </div>
               <div className="about-block__body">
                 <p
                   dangerouslySetInnerHTML={{
@@ -112,9 +114,11 @@ const About = () => {
             </article>
 
             <article className="about-block">
-              <h4 className="about-block__title">
-                {t('about.intro.section3_title')}
-              </h4>
+              <div className="about-block__heading">
+                <h4 className="about-block__title">
+                  {t('about.intro.section3_title')}
+                </h4>
+              </div>
               <div className="about-block__body">
                 <p
                   dangerouslySetInnerHTML={{

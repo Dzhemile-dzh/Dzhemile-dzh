@@ -36,25 +36,6 @@
   transition-delay: 0.3s;
 }
 
-.contact-page__eyebrow {
-  margin: 0 0 0.85rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--contact-muted);
-}
-
-.contact-page__title {
-  margin: 0 0 1rem;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
-  font-size: clamp(1.85rem, 3.5vw, 2.55rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--contact-ink);
-  letter-spacing: -0.02em;
-}
-
 .contact-page__lead {
   margin: 0 0 0.85rem;
   font-size: 1.05rem;
@@ -142,19 +123,8 @@ a.contact-channel:focus-visible .contact-channel__value {
   background: var(--contact-accent);
 }
 
-.contact-form-panel__title {
-  margin: 0 0 0.45rem;
-  font-family: var(--title-font-family, 'Sono', sans-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--contact-ink);
-}
-
-.contact-form-panel__subtitle {
+.contact-form-panel .page-heading {
   margin: 0 0 1.75rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--contact-muted);
 }
 
 .contact-form {

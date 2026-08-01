@@ -156,6 +156,58 @@ body {
   }
 }
 
+/* Shared page heading: title + accent separator + subtitle */
+.page-heading {
+  margin: 0 0 1.35rem;
+}
+
+.page-heading__title {
+  position: relative;
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.85rem;
+  color: #161513;
+  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.page-heading__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, #1f9bb5, #ffc107);
+}
+
+.page-heading__sub {
+  margin: 0.85rem 0 0;
+  color: #5c5852;
+  font-family: var(--title-font-family, 'Sono', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.page-heading--compact .page-heading__title {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  letter-spacing: -0.01em;
+}
+
+.page-heading--compact .page-heading__title::after {
+  width: 2.75rem;
+}
+
+.page-heading--compact .page-heading__sub {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
 /* Framed tag - wooden gallery frame */
 .meta-tag {
   display: inline-flex;

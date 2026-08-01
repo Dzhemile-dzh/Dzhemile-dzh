@@ -219,10 +219,11 @@ export const translations = {
     about: {
       header: 'My Story',
       header_about: 'Between Logic and Liminality:',
+      header_about_sub: 'The Art of Dzhemile',
       intro: {
-        paragraph1: 'By day, I exist in a world of binary - a landscape of rigid logic, semicolons, and the relentless pursuit of "The Fix." But when the screen goes dark, I step into a different dimension. Away from my software engineer identity, <b class="about-mew">I am a traveler in the realm of the subconscious, an art enthusiast, and an oil painter</b> wandering through the beautiful fog of Surrealism.',
+        paragraph1: 'By day, I exist in a world of binary - a landscape of rigid logic, semicolons, and the relentless pursuit of "The Fix." But when the screen goes dark, I step into a different dimension. Away from my software engineer identity, <b class="about-mew">I am a traveler in the realm of the subconscious, an art enthusiast, and an oil painter</b> wandering through the beautiful fog of Surrealism.<br><br><b class="about-mew">I\'ve embraced the challenge of bending reality to find a deeper truth.</b> Why paint a tree as it is, when I can paint how it feels to stand beneath it in a dream? My work is a constant dialogue between the harmony of nature and the delightful chaos of the surreal.',
         paragraph2: 'My journey didn\'t start with a plan; it started with a glitch in my perception. I became obsessed with the architecture of the human face - <b class="about-mew">not just the anatomy, but the stories hidden in the twitch of a lip or the shadow of an eyelid</b>. I realized that every face is a living, breathing work of art, but it\'s the things we don\'t see that interest me most.',
-        paragraph3: '<b class="about-mew">I\'ve embraced the challenge of bending reality to find a deeper truth.</b> Why paint a tree as it is, when I can paint how it feels to stand beneath it in a dream? My work is a constant dialogue between the harmony of nature and the delightful chaos of the surreal.',
+        paragraph3: '',
         section1_title: 'The Spark of the Strange',
         paragraph4: 'I\'ve been deep-diving into the buttery, slow-moving world of oil paints since 2022. Unlike the instant execution of a line of code, <b class="about-mew">oils demand patience, scent, and a bit of soul</b>. It is a medium that allows for "beautiful bugs" - those happy accidents where a stray brushstroke turns a standard portrait into something otherworldly.',
         section2_title: 'The Medium and the Metamorphosis',
@@ -1292,10 +1293,11 @@ export const translations = {
     about: {
       header: 'Моята история',
       header_about: 'Между логиката и лиминалността:',
+      header_about_sub: 'Изкуството на Джемиле',
       intro: {
-        paragraph1: 'През деня съществувам в свят на бинарни кодове - пейзаж от твърда логика, точка и запетая, и безмилостното преследване на "Бъга" Но когато екранът потъмнее, стъпвам в различна размерност. Далеч от моята идентичност като софтуерен инженер, <b class="about-mew">аз съм пътешественик в царството на подсъзнанието, ентусиаст по изкуство и художник</b> с маслени бои, който се скита през красивата мъгла на Сюрреализма.',
+        paragraph1: 'През деня съществувам в свят на бинарни кодове - пейзаж от твърда логика, точка и запетая, и безмилостното преследване на "Бъга" Но когато екранът потъмнее, стъпвам в различна размерност. Далеч от моята идентичност като софтуерен инженер, <b class="about-mew">аз съм пътешественик в царството на подсъзнанието, ентусиаст по изкуство и художник</b> с маслени бои, който се скита през красивата мъгла на Сюрреализма.<br><br><b class="about-mew">Приех предизвикателството да изкривя реалността, за да намеря по-дълбока истина.</b> Защо да рисувам дърво такова, каквото е, когато мога да рисувам как се чувства да стоиш под него в сън? Моята работа е постоянен диалог между хармонията на природата и възхитителния хаос на сюрреализма.',
         paragraph2: 'Моето пътешествие не започна с план; започна с грешка в моето възприятие. Станах обсебена от архитектурата на човешкото лице - <b class="about-mew">не само анатомията, а историите, скрити в подръпването на устна или сянката на клепач</b>. Разбрах, че всяко лице е жива, дишаща творба на изкуството, но нещата, които не виждаме, са тези, които ме интересуват най-много.',
-        paragraph3: '<b class="about-mew">Приех предизвикателството да изкривя реалността, за да намеря по-дълбока истина.</b> Защо да рисувам дърво такова, каквото е, когато мога да рисувам как се чувства да стоиш под него в сън? Моята работа е постоянен диалог между хармонията на природата и възхитителния хаос на сюрреализма.',
+        paragraph3: '',
         section1_title: 'Искрата на странното',
         paragraph4: 'От 2022 г. се гмурвам дълбоко в маслените бои - кремообразния, бавно движещ се свят. За разлика от мигновеното изпълнение на ред код, <b class="about-mew">маслените бои изискват търпение, аромат и малко душа</b>. Това е среда, която позволява "красиви грешки" - тези щастливи случайности, където случайно движение на четка превръща стандартен портрет в нещо свръхестествено.',
         section2_title: 'Средата и метаморфозата',

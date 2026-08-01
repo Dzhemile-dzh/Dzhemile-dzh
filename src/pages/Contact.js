@@ -101,8 +101,10 @@ const Contact = () => {
           <div className="row g-5 align-items-start">
             <div className="col-lg-5 col-12">
               <div className="contact-page__intro contact-page__reveal contact-page__reveal--1">
-                <p className="contact-page__eyebrow">{t('contact.commission_title')}</p>
-                <h1 className="contact-page__title">{t('contact.page_title')}</h1>
+                <div className="page-heading">
+                  <h1 className="page-heading__title">{t('contact.page_title')}</h1>
+                  <p className="page-heading__sub">{t('contact.commission_title')}</p>
+                </div>
                 <p className="contact-page__lead">{t('contact.intro')}</p>
                 <p className="contact-page__note">{t('contact.response_note')}</p>
               </div>
@@ -156,8 +158,10 @@ const Contact = () => {
 
             <div className="col-lg-7 col-12">
               <div className="contact-form-panel contact-page__reveal contact-page__reveal--3">
-                <h2 className="contact-form-panel__title">{t('contact.form_title')}</h2>
-                <p className="contact-form-panel__subtitle">{t('contact.form_subtitle')}</p>
+                <div className="page-heading page-heading--compact">
+                  <h2 className="page-heading__title">{t('contact.form_title')}</h2>
+                  <p className="page-heading__sub">{t('contact.form_subtitle')}</p>
+                </div>
 
                 <form onSubmit={handleSubmit} className="contact-form" noValidate>
                   <div className="contact-form__field">
