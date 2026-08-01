@@ -79,6 +79,49 @@ const Contact = () => {
     setShowSuccessPopup(false);
   };
 
+  const channels = [
+    {
+      key: 'email',
+      href: `mailto:${CONTACT_EMAIL}`,
+      label: t('contact.email'),
+      value: CONTACT_EMAIL,
+      icon: 'bi-envelope',
+      external: false,
+    },
+    {
+      key: 'phone',
+      href: 'tel:+359895627511',
+      label: t('contact.phone'),
+      value: '+359 895 627 511',
+      icon: 'bi-telephone',
+      external: false,
+    },
+    {
+      key: 'viber',
+      href: 'viber://chat?number=0895627511',
+      label: t('contact.viber'),
+      value: t('contact.viber_value'),
+      icon: 'bi-chat-dots',
+      external: false,
+    },
+    {
+      key: 'telegram',
+      href: 'https://t.me/+359895627511',
+      label: t('contact.telegram'),
+      value: '+359 895 627 511',
+      icon: 'bi-telegram',
+      external: true,
+    },
+    {
+      key: 'instagram',
+      href: 'https://www.instagram.com/doarti42/',
+      label: t('contact.instagram'),
+      value: '@doarti42',
+      icon: 'bi-instagram',
+      external: true,
+    },
+  ];
+
   return (
     <>
       <header
@@ -95,75 +138,57 @@ const Contact = () => {
       </header>
 
       <section
-        className={`contact-page section-padding${entered ? ' contact-page--entered' : ''}`}
+        className={`contact-page${entered ? ' contact-page--entered' : ''}`}
       >
-        <div className="container">
-          <div className="row g-5 align-items-start">
-            <div className="col-lg-5 col-12">
-              <div className="contact-page__intro contact-page__reveal contact-page__reveal--1">
-                <div className="page-heading">
-                  <h1 className="page-heading__title">{t('contact.page_title')}</h1>
-                  <p className="page-heading__sub">{t('contact.commission_title')}</p>
-                </div>
-                <p className="contact-page__lead">{t('contact.intro')}</p>
-                <p className="contact-page__note">{t('contact.response_note')}</p>
-              </div>
+        <div className="contact-page__atmosphere" aria-hidden="true">
+          <span className="contact-page__orb contact-page__orb--a" />
+          <span className="contact-page__orb contact-page__orb--b" />
+          <span className="contact-page__stroke contact-page__stroke--1" />
+          <span className="contact-page__stroke contact-page__stroke--2" />
+        </div>
+
+        <div className="container contact-page__shell">
+          <div className="contact-page__grid">
+            <div className="contact-page__aside contact-page__reveal contact-page__reveal--1">
+              <p className="contact-page__eyebrow">{t('contact.commission_title')}</p>
+              <h1 className="contact-page__title">{t('contact.page_title')}</h1>
+              <p className="contact-page__lead">{t('contact.intro')}</p>
+              <p className="contact-page__note">{t('contact.response_note')}</p>
 
               <ul className="contact-channels contact-page__reveal contact-page__reveal--2">
-                <li>
-                  <a className="contact-channel" href={`mailto:${CONTACT_EMAIL}`}>
-                    <span className="contact-channel__label">{t('contact.email')}</span>
-                    <span className="contact-channel__value">{CONTACT_EMAIL}</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="contact-channel" href="tel:+359895627511">
-                    <span className="contact-channel__label">{t('contact.phone')}</span>
-                    <span className="contact-channel__value">+359 895 627 511</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="contact-channel"
-                    href="viber://chat?number=0895627511"
-                  >
-                    <span className="contact-channel__label">{t('contact.viber')}</span>
-                    <span className="contact-channel__value">{t('contact.viber_value')}</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="contact-channel"
-                    href="https://t.me/+359895627511"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="contact-channel__label">{t('contact.telegram')}</span>
-                    <span className="contact-channel__value">+359 895 627 511</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="contact-channel"
-                    href="https://www.instagram.com/doarti42/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="contact-channel__label">{t('contact.instagram')}</span>
-                    <span className="contact-channel__value">@doarti42</span>
-                  </a>
-                </li>
+                {channels.map((channel) => (
+                  <li key={channel.key}>
+                    <a
+                      className="contact-channel"
+                      href={channel.href}
+                      {...(channel.external
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
+                    >
+                      <span className="contact-channel__icon" aria-hidden="true">
+                        <i className={`bi ${channel.icon}`} />
+                      </span>
+                      <span className="contact-channel__text">
+                        <span className="contact-channel__label">{channel.label}</span>
+                        <span className="contact-channel__value">{channel.value}</span>
+                      </span>
+                      <span className="contact-channel__arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="col-lg-7 col-12">
-              <div className="contact-form-panel contact-page__reveal contact-page__reveal--3">
-                <div className="page-heading page-heading--compact">
-                  <h2 className="page-heading__title">{t('contact.form_title')}</h2>
-                  <p className="page-heading__sub">{t('contact.form_subtitle')}</p>
-                </div>
+            <div className="contact-form-panel contact-page__reveal contact-page__reveal--3">
+              <div className="contact-form-panel__header">
+                <h2 className="contact-form-panel__title">{t('contact.form_title')}</h2>
+                <p className="contact-form-panel__sub">{t('contact.form_subtitle')}</p>
+              </div>
 
-                <form onSubmit={handleSubmit} className="contact-form" noValidate>
+              <form onSubmit={handleSubmit} className="contact-form" noValidate>
+                <div className="contact-form__row">
                   <div className="contact-form__field">
                     <label htmlFor="contact-name">{t('contact.popup_name')}</label>
                     <input
@@ -189,34 +214,34 @@ const Contact = () => {
                       required
                     />
                   </div>
+                </div>
 
-                  <div className="contact-form__field">
-                    <label htmlFor="contact-message">{t('contact.popup_message')}</label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="6"
-                    ></textarea>
-                  </div>
+                <div className="contact-form__field">
+                  <label htmlFor="contact-message">{t('contact.popup_message')}</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows="6"
+                  ></textarea>
+                </div>
 
-                  {formError.length > 0 && (
-                    <p className="contact-form__error" role="alert">
-                      {formError}
-                    </p>
-                  )}
+                {formError.length > 0 && (
+                  <p className="contact-form__error" role="alert">
+                    {formError}
+                  </p>
+                )}
 
-                  <button
-                    type="submit"
-                    className="contact-form__submit"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? t('contact.popup_sending') : t('contact.popup_send')}
-                  </button>
-                </form>
-              </div>
+                <button
+                  type="submit"
+                  className="contact-form__submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t('contact.popup_sending') : t('contact.popup_send')}
+                </button>
+              </form>
             </div>
           </div>
         </div>
