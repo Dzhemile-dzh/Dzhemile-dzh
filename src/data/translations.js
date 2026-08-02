@@ -18,7 +18,7 @@ export const translations = {
       price_unavailable: 'Price is unavailable for checkout.',
       api_offline: 'Payment server is not running. In a second terminal run: npm run start:api (keep npm start running too).',
       success_title: 'Thank you for your order',
-      success_message: 'Payment received. Free shipping within Bulgaria with your chosen courier (Speedy or Econt). I will confirm by email.',
+      success_message: 'Payment received. I will confirm by email and ship with the delivery option you chose at checkout.',
       success_email_sent: 'A confirmation email with your order and shipping details has been sent.',
       success_loading: 'Loading your order details…',
       success_order_title: 'Order details',
@@ -37,7 +37,7 @@ export const translations = {
       purchase_subject: 'Thank you for your purchase - Doarti',
       purchase_preheader: 'Your payment is confirmed. Shipping details are inside.',
       purchase_headline: 'Thank you for your purchase',
-      purchase_intro: 'Your payment was successful. I will prepare your order carefully and ship it within 1-3 business days in Bulgaria.',
+      purchase_intro: 'Your payment was successful. I will prepare your order carefully and ship it within 1-3 business days. Delivery time then depends on your country (Bulgaria usually 1-3 business days after dispatch; Europe/UK typically longer).',
       purchase_order_title: 'Your order',
       purchase_shipping_title: 'Shipping details',
       purchase_closing: 'If anything looks incorrect, reply to this email and I will help.\n\nThank you for supporting original art,\nDzhemile Ahmed',
@@ -53,40 +53,52 @@ export const translations = {
       intro:
         'Every original oil painting and limited-edition print ordered on this website is prepared and shipped personally from my studio in Varna, Bulgaria.',
       scope:
-        'The policy below applies to all purchases made through doarti.com - both original canvases and archival prints. International buyers are kindly directed to Saatchi Art.',
-      free_title: 'Free delivery',
-      free_text:
-        'Shipping within Bulgaria is completely free. Courier costs are covered by me, so the price you see is the price you pay - with no extra delivery fees at checkout.',
+        'Checkout on doarti.com ships to Bulgaria (free), other EU countries, and the United Kingdom. Buyers in the United States are kindly directed to Saatchi Art.',
+      bulgaria_title: 'Bulgaria - free shipping',
+      bulgaria_text:
+        'Shipping within Bulgaria is completely free. At checkout choose Speedy or Econt to your address. Courier costs are covered by me - the artwork price is what you pay.',
+      europe_title: 'Europe - shipping fee',
+      europe_text:
+        'Orders to other EU countries can be placed on this website. At checkout select tracked Europe shipping (€35). Delivery usually takes about 5-12 business days after dispatch, depending on the destination.',
+      uk_title: 'United Kingdom - shipping & tax',
+      uk_text:
+        'UK orders are available on this website with tracked shipping (€45). Artwork prices are shown as listed. UK import VAT, duties, or carrier handling fees may be charged on arrival and are the buyer\'s responsibility - they are not collected at checkout on doarti.com.',
+      us_title: 'United States',
+      us_text_before:
+        'For buyers in the United States, please purchase through my profile on',
+      saatchi: 'Saatchi Art',
+      us_text_after:
+        '. International shipping, customs, and handling for the US are arranged through their platform.',
       packaging_title: 'Careful packaging',
       packaging_text:
         'Each artwork is packed with care for safe transport: protective layers, secure wrapping, and sturdy packaging chosen for paintings and fine-art prints. Your order leaves the studio ready for a calm, protected journey.',
       timeframe_title: 'Dispatch time',
       timeframe_text:
         'Orders are usually shipped within 1-3 business days after payment is confirmed. You will receive an email confirmation, and courier details follow once the parcel is on its way.',
-      couriers_title: 'Couriers',
+      couriers_title: 'At checkout',
       couriers_text:
-        'At checkout you can choose Speedy or Econt delivery to your address in Bulgaria. Both options are free and available only for Bulgarian shipping addresses.',
-      bulgaria_title: 'Bulgaria only',
-      bulgaria_text:
-        'Online checkout on this website ships exclusively within Bulgaria. Stripe will only accept a Bulgarian delivery address - orders with an address outside Bulgaria cannot be completed here.',
+        'Choose the shipping option that matches your country: free Speedy or Econt for Bulgaria, tracked Europe shipping for other EU addresses, or tracked UK shipping for the United Kingdom. Address and phone are required.',
       abroad_title: 'Orders from abroad',
       abroad_text_before:
         'If you are ordering from outside Bulgaria, please purchase through my profile on',
-      saatchi: 'Saatchi Art',
       abroad_text_after:
         '. International shipping, customs, and handling are arranged through their platform.',
       saatchi_cta: 'View my Saatchi Art profile',
-      teaser: 'Free shipping in Bulgaria for original paintings and limited prints. Abroad - via Saatchi Art.',
+      teaser:
+        'Free shipping in Bulgaria. Europe €35 · UK €45 (import VAT may apply). US via Saatchi Art.',
       teaser_link: 'Full shipping details →',
       link_prints: 'Browse prints',
       link_paintings: 'Browse paintings',
       link_contact: 'Contact',
       abroad_before: 'Ordering from abroad? Please purchase through',
       abroad_after: '.',
-      free: 'Free delivery - shipping costs are covered by me.',
+      free: 'Free delivery within Bulgaria - shipping costs are covered by me.',
       packaging: 'Carefully and safely packed for transport.',
       timeframe: 'Shipped within 1-3 business days.',
-      bulgaria_only: 'Delivery is available only within Bulgaria.',
+      bulgaria_only: 'Free Speedy or Econt delivery within Bulgaria.',
+      free_title: 'Free delivery',
+      free_text:
+        'Shipping within Bulgaria is completely free. Courier costs are covered by me, so the price you see is the price you pay - with no extra delivery fees at checkout.',
     },
     prints: {
       header: 'Prints',
@@ -112,7 +124,7 @@ export const translations = {
       signed_value: 'Hand-signed by me',
       based_on: 'Based on original',
       item_description: 'A limited fine-art print from an edition of only 10. Printed on fine-art paper in 40 x 60 cm or 60 x 80 cm and hand-signed by me on the reverse. Each print is numbered within the edition and prepared for collectors.',
-      shipping_note: 'Secure Stripe checkout. Free Speedy or Econt delivery within Bulgaria. See the Shipping page for full details.',
+      shipping_note: 'Secure Stripe checkout. Free Speedy or Econt in Bulgaria; Europe €35; UK €45. US via Saatchi Art. See the Shipping page for full details.',
       out_of_stock: 'This edition is sold out',
       not_found: 'Print not found',
       back: 'Back to prints',
@@ -1047,7 +1059,7 @@ export const translations = {
       price_unavailable: 'Цената не е налична за плащане.',
       api_offline: 'Сървърът за плащания не работи. В втори терминал пуснете: npm run start:api (и дръжте npm start).',
       success_title: 'Благодаря за поръчката',
-      success_message: 'Плащането е получено. Безплатна доставка в България с избрания куриер (Speedy или Econt). Ще потвърдя по имейл.',
+      success_message: 'Плащането е получено. Ще потвърдя по имейл и ще изпратя с опцията за доставка, която избрахте при плащане.',
       success_email_sent: 'Изпратихме имейл с потвърждение, данни за поръчката и доставката.',
       success_loading: 'Зареждане на детайлите по поръчката…',
       success_order_title: 'Детайли за поръчката',
@@ -1066,7 +1078,7 @@ export const translations = {
       purchase_subject: 'Благодаря за покупката - Doarti',
       purchase_preheader: 'Плащането е потвърдено. Детайлите за доставка са вътре.',
       purchase_headline: 'Благодаря за покупката',
-      purchase_intro: 'Плащането е успешно. Ще подготвя поръчката внимателно и ще я изпратя в рамките на 1-3 работни дни в България.',
+      purchase_intro: 'Плащането е успешно. Ще подготвя поръчката внимателно и ще я изпратя в рамките на 1-3 работни дни. Срокът за доставка след това зависи от държавата (България обикновено 1-3 работни дни след изпращане; Европа/UK обикновено по-дълго).',
       purchase_order_title: 'Вашата поръчка',
       purchase_shipping_title: 'Детайли за доставка',
       purchase_closing: 'Ако нещо изглежда неправилно, отговорете на този имейл и ще помогна.\n\nБлагодаря, че подкрепяте оригиналното изкуство,\nДжемиле Ахмед',
@@ -1082,40 +1094,52 @@ export const translations = {
       intro:
         'Всяка оригинална маслена картина и всеки лимитиран принт, поръчан през този сайт, се подготвя и изпраща лично от моето ателие във Варна.',
       scope:
-        'Правилата по-долу важат за всички покупки през doarti.com - както за оригинални платна, така и за архивни принтове. Поръчки от чужбина се правят през Saatchi Art.',
-      free_title: 'Безплатна доставка',
-      free_text:
-        'Доставката в България е напълно безплатна. Куриерските разходи поемам аз, така че цената, която виждате, е крайната цена - без допълнителни такси за доставка при плащане.',
+        'Плащането в doarti.com е за доставка в България (безплатно), други държави от ЕС и Обединеното кралство. Купувачите от САЩ са любезно насочени към Saatchi Art.',
+      bulgaria_title: 'България - безплатна доставка',
+      bulgaria_text:
+        'Доставката в България е напълно безплатна. При плащане изберете Speedy или Econt до адрес. Куриерските разходи поемам аз - цената на творбата е това, което плащате.',
+      europe_title: 'Европа - такса за доставка',
+      europe_text:
+        'Поръчки към други държави от ЕС могат да се правят през този сайт. При плащане изберете проследяема доставка за Европа (35 €). Доставката обикновено отнема около 5-12 работни дни след изпращане, в зависимост от дестинацията.',
+      uk_title: 'Обединено кралство - доставка и данъци',
+      uk_text:
+        'Поръчки за UK са налични през този сайт с проследяема доставка (45 €). Цените на творбите са както са показани. Вносен ДДС, мита или такси на куриера в UK може да се начислят при пристигане и са за сметка на купувача - не се събират при плащане в doarti.com.',
+      us_title: 'Съединени американски щати',
+      us_text_before:
+        'За купувачи от САЩ, моля направете покупка през моя профил в',
+      saatchi: 'Saatchi Art',
+      us_text_after:
+        '. Международната доставка, митниците и обработката за САЩ се уреждат през тяхната платформа.',
       packaging_title: 'Внимателно опаковане',
       packaging_text:
         'Всяка творба се опакова грижливо за безопасен транспорт: защитни слоеве, сигурно увиване и здрава опаковка, подходяща за картини и fine-art принтове. Поръчката напуска ателието готова за спокоен и защитен път.',
       timeframe_title: 'Срок за изпращане',
       timeframe_text:
         'Поръчките обикновено се изпращат в рамките на 1-3 работни дни след потвърдено плащане. Ще получите имейл потвърждение, а данните за куриера следват, щом пратката е на път.',
-      couriers_title: 'Куриери',
+      couriers_title: 'При плащане',
       couriers_text:
-        'При плащане можете да изберете доставка със Speedy или Econt до адрес в България. И двата варианта са безплатни и са налични само за адреси в България.',
-      bulgaria_title: 'Само в България',
-      bulgaria_text:
-        'Онлайн плащането в този сайт е само за доставка в България. Stripe приема единствено български адрес за доставка - поръчка с адрес извън България не може да бъде завършена тук.',
+        'Изберете опцията за доставка според държавата: безплатно Speedy или Econt за България, проследяема доставка за Европа за други адреси в ЕС, или проследяема доставка за Обединеното кралство. Адресът и телефонът са задължителни.',
       abroad_title: 'Поръчки от чужбина',
       abroad_text_before:
         'Ако поръчвате от чужбина, моля направете го през моя профил в',
-      saatchi: 'Saatchi Art',
       abroad_text_after:
         '. Международната доставка, митниците и обработката се уреждат през тяхната платформа.',
       saatchi_cta: 'Към профила ми в Saatchi Art',
-      teaser: 'Безплатна доставка в България за оригинални картини и лимитирани принтове. От чужбина - през Saatchi Art.',
+      teaser:
+        'Безплатна доставка в България. Европа 35 € · UK 45 € (възможен вносен ДДС). САЩ през Saatchi Art.',
       teaser_link: 'Пълна информация за доставка →',
       link_prints: 'Към принтовете',
       link_paintings: 'Към картините',
       link_contact: 'Контакт',
       abroad_before: 'Ако поръчвате от чужбина, моля направете го през',
       abroad_after: '.',
-      free: 'Безплатна доставка - разходите поемам аз.',
+      free: 'Безплатна доставка в България - разходите поемам аз.',
       packaging: 'Добре опаковани и изпратени безопасно.',
       timeframe: 'Изпращане в рамките на 1-3 работни дни.',
-      bulgaria_only: 'Доставката е само в България.',
+      bulgaria_only: 'Безплатна доставка със Speedy или Econt в България.',
+      free_title: 'Безплатна доставка',
+      free_text:
+        'Доставката в България е напълно безплатна. Куриерските разходи поемам аз, така че цената, която виждате, е крайната цена - без допълнителни такси за доставка при плащане.',
     },
     prints: {
       header: 'Принтове',
@@ -1141,7 +1165,7 @@ export const translations = {
       signed_value: 'Ръчно подписан от мен',
       based_on: 'По оригинала',
       item_description: 'Лимитиран арт принт от серия от само 10 броя. Отпечатан на fine-art хартия в размер 40 x 60 cm или 60 x 80 cm и ръчно подписан от мен на гърба. Всеки принт е номериран в рамките на серията и подготвен за колекционери.',
-      shipping_note: 'Сигурно плащане със Stripe. Безплатна доставка със Speedy или Econt в България. Вижте страницата Доставка за пълна информация.',
+      shipping_note: 'Сигурно плащане със Stripe. Безплатно Speedy/Econt в България; Европа 35 €; UK 45 €. САЩ през Saatchi Art. Вижте страницата Доставка за пълна информация.',
       out_of_stock: 'Тази серия е изчерпана',
       not_found: 'Принтът не е намерен',
       back: 'Към принтовете',

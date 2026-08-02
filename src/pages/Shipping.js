@@ -30,8 +30,34 @@ const Shipping = () => {
 
               <div className="shipping-page__sections">
                 <article className="shipping-block">
-                  <h3 className="shipping-block__title">{t('shipping.free_title')}</h3>
-                  <p className="shipping-block__text">{t('shipping.free_text')}</p>
+                  <h3 className="shipping-block__title">{t('shipping.bulgaria_title')}</h3>
+                  <p className="shipping-block__text">{t('shipping.bulgaria_text')}</p>
+                </article>
+
+                <article className="shipping-block">
+                  <h3 className="shipping-block__title">{t('shipping.europe_title')}</h3>
+                  <p className="shipping-block__text">{t('shipping.europe_text')}</p>
+                </article>
+
+                <article className="shipping-block">
+                  <h3 className="shipping-block__title">{t('shipping.uk_title')}</h3>
+                  <p className="shipping-block__text">{t('shipping.uk_text')}</p>
+                </article>
+
+                <article className="shipping-block">
+                  <h3 className="shipping-block__title">{t('shipping.us_title')}</h3>
+                  <p className="shipping-block__text">
+                    {t('shipping.us_text_before')}{' '}
+                    <a
+                      href={SAATCHI_ART_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shipping-page__link"
+                    >
+                      {t('shipping.saatchi')}
+                    </a>
+                    {t('shipping.us_text_after')}
+                  </p>
                 </article>
 
                 <article className="shipping-block">
@@ -47,27 +73,6 @@ const Shipping = () => {
                 <article className="shipping-block">
                   <h3 className="shipping-block__title">{t('shipping.couriers_title')}</h3>
                   <p className="shipping-block__text">{t('shipping.couriers_text')}</p>
-                </article>
-
-                <article className="shipping-block">
-                  <h3 className="shipping-block__title">{t('shipping.bulgaria_title')}</h3>
-                  <p className="shipping-block__text">{t('shipping.bulgaria_text')}</p>
-                </article>
-
-                <article className="shipping-block">
-                  <h3 className="shipping-block__title">{t('shipping.abroad_title')}</h3>
-                  <p className="shipping-block__text">
-                    {t('shipping.abroad_text_before')}{' '}
-                    <a
-                      href={SAATCHI_ART_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="shipping-page__link"
-                    >
-                      {t('shipping.saatchi')}
-                    </a>
-                    {t('shipping.abroad_text_after')}
-                  </p>
                 </article>
               </div>
             </div>

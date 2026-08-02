@@ -157,7 +157,6 @@ const PrintDetail = () => {
                             <span className="price-value">{selectedSize.priceEur}</span>
                             <span className="price-currency">{t('euro')}</span>
                           </div>
-                          <span className="print-selected-size">{selectedSize.label}</span>
                         </div>
                         <div className="price-right">
                           {print.inStock === true ? (
@@ -175,6 +174,7 @@ const PrintDetail = () => {
                             <p className="mb-0">{t('prints.out_of_stock')}</p>
                           )}
                         </div>
+                        <span className="print-selected-size">{selectedSize.label}</span>
                       </div>
 
                       <ShippingInfo />
