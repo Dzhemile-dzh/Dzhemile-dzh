@@ -6,7 +6,7 @@ import {
   getPrintDisplayTitle,
   getPrintSizeById,
 } from '../data/prints';
-import BuyButton from '../components/BuyButton';
+import BuyButton, { ShippingRegionSelect } from '../components/BuyButton';
 import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import ImageLoader from '../components/ImageLoader';
@@ -21,6 +21,7 @@ const PrintDetail = () => {
   const [selectedSizeId, setSelectedSizeId] = useState(
     print?.defaultSizeId ?? '40x60'
   );
+  const [shippingRegion, setShippingRegion] = useState('bg');
 
   if (!print) {
     return (
@@ -152,11 +153,21 @@ const PrintDetail = () => {
                     <div className="price-card">
                       <div className="price-row">
                         <div className="price-left">
-                          <span className="price-label-text">{t('price')}</span>
-                          <div className="price-amount">
-                            <span className="price-value">{selectedSize.priceEur}</span>
-                            <span className="price-currency">{t('euro')}</span>
+                          <div className="price-left__main">
+                            <span className="price-label-text">{t('price')}</span>
+                            <div className="price-amount">
+                              <span className="price-value">{selectedSize.priceEur}</span>
+                              <span className="price-currency">{t('euro')}</span>
+                            </div>
+                            <span className="print-selected-size">{selectedSize.label}</span>
                           </div>
+                          {print.inStock === true && (
+                            <ShippingRegionSelect
+                              id={`ship-print-${print.slug}`}
+                              value={shippingRegion}
+                              onChange={setShippingRegion}
+                            />
+                          )}
                         </div>
                         <div className="price-right">
                           {print.inStock === true ? (
@@ -168,13 +179,15 @@ const PrintDetail = () => {
                               imagePath={`/${print.image}`}
                               paymentLink={print.paymentLink}
                               sizeLabel={selectedSize.label}
+                              shippingRegion={shippingRegion}
+                              onShippingRegionChange={setShippingRegion}
+                              showShippingSelect={false}
                               className="buy-action-wrap"
                             />
                           ) : (
                             <p className="mb-0">{t('prints.out_of_stock')}</p>
                           )}
                         </div>
-                        <span className="print-selected-size">{selectedSize.label}</span>
                       </div>
 
                       <ShippingInfo />

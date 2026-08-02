@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
-import BuyButton from '../components/BuyButton';
+import BuyButton, { ShippingRegionSelect } from '../components/BuyButton';
 import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import { getPrintForPainting } from '../data/prints';
@@ -25,6 +25,7 @@ const PaintingDetail = () => {
   const { t, translations } = useLanguage();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(100);
+  const [shippingRegion, setShippingRegion] = useState('bg');
 
   // This would typically come from an API or more detailed data structure
   const getPaintingData = (year, slug) => {
@@ -306,17 +307,26 @@ const PaintingDetail = () => {
                             <div className="price-card">
                               <div className="price-row">
                                 <div className="price-left">
-                                  <span className="price-label-text">{t('price')}</span>
-                                  <div className="price-amount">
-                                    {painting.price ? (
-                                        <>
-                                          <span className="price-value">{painting.price}</span>
-                                          <span className="price-currency">{t('euro')}</span>
-                                        </>
-                                    ) : (
-                                        <span className="price-contact">Contact for price</span>
-                                    )}
+                                  <div className="price-left__main">
+                                    <span className="price-label-text">{t('price')}</span>
+                                    <div className="price-amount">
+                                      {painting.price ? (
+                                          <>
+                                            <span className="price-value">{painting.price}</span>
+                                            <span className="price-currency">{t('euro')}</span>
+                                          </>
+                                      ) : (
+                                          <span className="price-contact">Contact for price</span>
+                                      )}
+                                    </div>
                                   </div>
+                                  {painting.price && (
+                                    <ShippingRegionSelect
+                                      id={`ship-painting-${year}-${slug}`}
+                                      value={shippingRegion}
+                                      onChange={setShippingRegion}
+                                    />
+                                  )}
                                 </div>
 
                                 {painting.price && (
@@ -327,6 +337,9 @@ const PaintingDetail = () => {
                                       title={getPaintingTitle()}
                                       priceEur={painting.price}
                                       imagePath={`/${painting.image}`}
+                                      shippingRegion={shippingRegion}
+                                      onShippingRegionChange={setShippingRegion}
+                                      showShippingSelect={false}
                                       className="buy-action-wrap"
                                     />
                                   </div>

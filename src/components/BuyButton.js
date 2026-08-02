@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import './BuyButton.css';
 
@@ -19,6 +19,120 @@ const getCheckoutEndpoint = () => {
   return '/api/create-checkout-session';
 };
 
+export const ShippingRegionSelect = ({
+  id,
+  value,
+  onChange,
+  disabled = false,
+}) => {
+  const { t } = useLanguage();
+  const reactId = useId();
+  const rootRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const listId = id ? `${id}-list` : `ship-region-list-${reactId}`;
+  const buttonId = id || `ship-region-${reactId}`;
+  const selected =
+    SHIP_REGIONS.find((region) => region.id === value) || SHIP_REGIONS[0];
+
+  useEffect(() => {
+    if (!open) {
+      return undefined;
+    }
+
+    const onPointerDown = (event) => {
+      if (rootRef.current && !rootRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (disabled) {
+      setOpen(false);
+    }
+  }, [disabled]);
+
+  const chooseRegion = (regionId) => {
+    onChange(regionId);
+    setOpen(false);
+  };
+
+  return (
+    <div
+      ref={rootRef}
+      className={`buy-ship-region${open ? ' is-open' : ''}${
+        disabled ? ' is-disabled' : ''
+      }`}
+    >
+      <span className="buy-ship-region__label" id={`${buttonId}-label`}>
+        {t('shop.ship_to')}
+      </span>
+      <div className="buy-ship-region__select-wrap">
+        <button
+          type="button"
+          id={buttonId}
+          className="buy-ship-region__trigger"
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-controls={listId}
+          aria-labelledby={`${buttonId}-label ${buttonId}`}
+          disabled={disabled}
+          onClick={() => setOpen((current) => !current)}
+        >
+          <span className="buy-ship-region__value">{t(`shop.${selected.feeKey}`)}</span>
+          <i
+            className={`bi ${open ? 'bi-chevron-up' : 'bi-chevron-down'} buy-ship-region__chevron`}
+            aria-hidden="true"
+          />
+        </button>
+
+        {open && (
+          <ul
+            id={listId}
+            className="buy-ship-region__menu"
+            role="listbox"
+            aria-labelledby={`${buttonId}-label`}
+          >
+            {SHIP_REGIONS.map((region) => {
+              const isActive = region.id === selected.id;
+              return (
+                <li key={region.id} role="presentation">
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={isActive}
+                    className={`buy-ship-region__option${isActive ? ' is-active' : ''}`}
+                    onClick={() => chooseRegion(region.id)}
+                  >
+                    <span>{t(`shop.${region.feeKey}`)}</span>
+                    {isActive ? (
+                      <i className="bi bi-check2" aria-hidden="true" />
+                    ) : null}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+};
+
 /**
  * Starts Stripe Checkout via /api/create-checkout-session.
  * Destination region sets a single automatic shipping rate (no courier choice on Stripe).
@@ -33,11 +147,19 @@ const BuyButton = ({
   sold = false,
   className = '',
   sizeLabel = null,
+  shippingRegion: shippingRegionProp = null,
+  onShippingRegionChange = null,
+  showShippingSelect = true,
 }) => {
   const { t, language } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [shippingRegion, setShippingRegion] = useState('bg');
+  const [internalRegion, setInternalRegion] = useState('bg');
+
+  const isControlled =
+    typeof shippingRegionProp === 'string' && typeof onShippingRegionChange === 'function';
+  const shippingRegion = isControlled ? shippingRegionProp : internalRegion;
+  const setShippingRegion = isControlled ? onShippingRegionChange : setInternalRegion;
 
   if (sold === true) {
     return null;
@@ -45,6 +167,10 @@ const BuyButton = ({
 
   const numericPrice = Number(priceEur);
   const canBuy = Number.isFinite(numericPrice) && numericPrice > 0;
+  const selectId = `ship-region-${productType}-${productId}`.replace(
+    /[^a-zA-Z0-9_-]/g,
+    '-'
+  );
 
   const handleBuy = async () => {
     setError(null);
@@ -117,36 +243,14 @@ const BuyButton = ({
 
   return (
     <div className={`buy-button-block ${className}`.trim()}>
-      <fieldset className="buy-ship-region" disabled={loading}>
-        <legend className="buy-ship-region__legend">{t('shop.ship_to')}</legend>
-        <div className="buy-ship-region__options" role="radiogroup" aria-label={t('shop.ship_to')}>
-          {SHIP_REGIONS.map((region) => {
-            const inputId = `ship-${productType}-${productId}-${region.id}`.replace(
-              /[^a-zA-Z0-9_-]/g,
-              '-'
-            );
-            return (
-              <label
-                key={region.id}
-                htmlFor={inputId}
-                className={`buy-ship-region__option${
-                  shippingRegion === region.id ? ' is-active' : ''
-                }`}
-              >
-                <input
-                  id={inputId}
-                  type="radio"
-                  name={`ship-region-${productType}-${productId}`}
-                  value={region.id}
-                  checked={shippingRegion === region.id}
-                  onChange={() => setShippingRegion(region.id)}
-                />
-                <span>{t(`shop.${region.feeKey}`)}</span>
-              </label>
-            );
-          })}
-        </div>
-      </fieldset>
+      {showShippingSelect === true && (
+        <ShippingRegionSelect
+          id={selectId}
+          value={shippingRegion}
+          onChange={setShippingRegion}
+          disabled={loading}
+        />
+      )}
 
       <button
         type="button"
