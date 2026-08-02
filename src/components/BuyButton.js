@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import './BuyButton.css';
+
+const SHIP_REGIONS = [
+  { id: 'bg', feeKey: 'ship_bg' },
+  { id: 'eu', feeKey: 'ship_eu' },
+  { id: 'uk', feeKey: 'ship_uk' },
+];
 
 const getCheckoutEndpoint = () => {
   const configured = process.env.REACT_APP_STRIPE_API_URL;
@@ -14,8 +21,7 @@ const getCheckoutEndpoint = () => {
 
 /**
  * Starts Stripe Checkout via /api/create-checkout-session.
- * Local: run `npm run start:api` (or `npm run dev`) so port 4242 is up.
- * Production (Vercel): uses /api/create-checkout-session.js
+ * Destination region sets a single automatic shipping rate (no courier choice on Stripe).
  */
 const BuyButton = ({
   productType,
@@ -31,6 +37,7 @@ const BuyButton = ({
   const { t, language } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [shippingRegion, setShippingRegion] = useState('bg');
 
   if (sold === true) {
     return null;
@@ -66,6 +73,7 @@ const BuyButton = ({
           priceEur: numericPrice,
           imagePath,
           sizeLabel,
+          shippingRegion,
           locale: language === 'bg' ? 'bg' : 'en',
           successUrl: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
           cancelUrl: `${origin}/checkout/cancel`,
@@ -108,7 +116,38 @@ const BuyButton = ({
   };
 
   return (
-    <div className={className}>
+    <div className={`buy-button-block ${className}`.trim()}>
+      <fieldset className="buy-ship-region" disabled={loading}>
+        <legend className="buy-ship-region__legend">{t('shop.ship_to')}</legend>
+        <div className="buy-ship-region__options" role="radiogroup" aria-label={t('shop.ship_to')}>
+          {SHIP_REGIONS.map((region) => {
+            const inputId = `ship-${productType}-${productId}-${region.id}`.replace(
+              /[^a-zA-Z0-9_-]/g,
+              '-'
+            );
+            return (
+              <label
+                key={region.id}
+                htmlFor={inputId}
+                className={`buy-ship-region__option${
+                  shippingRegion === region.id ? ' is-active' : ''
+                }`}
+              >
+                <input
+                  id={inputId}
+                  type="radio"
+                  name={`ship-region-${productType}-${productId}`}
+                  value={region.id}
+                  checked={shippingRegion === region.id}
+                  onChange={() => setShippingRegion(region.id)}
+                />
+                <span>{t(`shop.${region.feeKey}`)}</span>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
       <button
         type="button"
         className={`btn buy-action-btn doarti-cta${loading ? ' is-loading' : ''}`}

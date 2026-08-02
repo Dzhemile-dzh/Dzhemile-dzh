@@ -17,6 +17,10 @@ export const translations = {
       checkout_error: 'Checkout could not start. Please try again or contact me.',
       price_unavailable: 'Price is unavailable for checkout.',
       api_offline: 'Payment server is not running. In a second terminal run: npm run start:api (keep npm start running too).',
+      ship_to: 'Ship to',
+      ship_bg: 'Bulgaria · Free',
+      ship_eu: 'Europe · €35',
+      ship_uk: 'UK · €45',
       success_title: 'Thank you for your order',
       success_message: 'Payment received. I will confirm by email and ship with the delivery option you chose at checkout.',
       success_email_sent: 'A confirmation email with your order and shipping details has been sent.',
@@ -56,13 +60,13 @@ export const translations = {
         'Checkout on doarti.com ships to Bulgaria (free), other EU countries, and the United Kingdom. Buyers in the United States are kindly directed to Saatchi Art.',
       bulgaria_title: 'Bulgaria - free shipping',
       bulgaria_text:
-        'Shipping within Bulgaria is completely free. At checkout choose Speedy or Econt to your address. Courier costs are covered by me - the artwork price is what you pay.',
+        'Shipping within Bulgaria is completely free. Choose Bulgaria before checkout and the free rate is applied automatically. I ship with Speedy or Econt to your address.',
       europe_title: 'Europe - shipping fee',
       europe_text:
-        'Orders to other EU countries can be placed on this website. At checkout select tracked Europe shipping (€35). Delivery usually takes about 5-12 business days after dispatch, depending on the destination.',
+        'Orders to other EU countries can be placed on this website. Choose Europe before checkout and tracked shipping (€35) is applied automatically. Delivery usually takes about 5-12 business days after dispatch, depending on the destination.',
       uk_title: 'United Kingdom - shipping & tax',
       uk_text:
-        'UK orders are available on this website with tracked shipping (€45). Artwork prices are shown as listed. UK import VAT, duties, or carrier handling fees may be charged on arrival and are the buyer\'s responsibility - they are not collected at checkout on doarti.com.',
+        'UK orders are available on this website. Choose UK before checkout and tracked shipping (€45) is applied automatically. Artwork prices are shown as listed. UK import VAT, duties, or carrier handling fees may be charged on arrival and are the buyer\'s responsibility - they are not collected at checkout on doarti.com.',
       us_title: 'United States',
       us_text_before:
         'For buyers in the United States, please purchase through my profile on',
@@ -77,7 +81,7 @@ export const translations = {
         'Orders are usually shipped within 1-3 business days after payment is confirmed. You will receive an email confirmation, and courier details follow once the parcel is on its way.',
       couriers_title: 'At checkout',
       couriers_text:
-        'Choose the shipping option that matches your country: free Speedy or Econt for Bulgaria, tracked Europe shipping for other EU addresses, or tracked UK shipping for the United Kingdom. Address and phone are required.',
+        'Before payment, choose your destination: Bulgaria (free), Europe (€35), or UK (€45). Shipping is applied automatically - there is no courier choice on the Stripe page. Address and phone are required.',
       abroad_title: 'Orders from abroad',
       abroad_text_before:
         'If you are ordering from outside Bulgaria, please purchase through my profile on',
@@ -1058,6 +1062,10 @@ export const translations = {
       checkout_error: 'Плащането не можа да започне. Опитайте отново или се свържете с мен.',
       price_unavailable: 'Цената не е налична за плащане.',
       api_offline: 'Сървърът за плащания не работи. В втори терминал пуснете: npm run start:api (и дръжте npm start).',
+      ship_to: 'Доставка до',
+      ship_bg: 'България · Безплатно',
+      ship_eu: 'Европа · 35 €',
+      ship_uk: 'UK · 45 €',
       success_title: 'Благодаря за поръчката',
       success_message: 'Плащането е получено. Ще потвърдя по имейл и ще изпратя с опцията за доставка, която избрахте при плащане.',
       success_email_sent: 'Изпратихме имейл с потвърждение, данни за поръчката и доставката.',
@@ -1097,13 +1105,13 @@ export const translations = {
         'Плащането в doarti.com е за доставка в България (безплатно), други държави от ЕС и Обединеното кралство. Купувачите от САЩ са любезно насочени към Saatchi Art.',
       bulgaria_title: 'България - безплатна доставка',
       bulgaria_text:
-        'Доставката в България е напълно безплатна. При плащане изберете Speedy или Econt до адрес. Куриерските разходи поемам аз - цената на творбата е това, което плащате.',
+        'Доставката в България е напълно безплатна. Изберете България преди плащане и безплатната ставка се прилага автоматично. Изпращам със Speedy или Econt до адрес.',
       europe_title: 'Европа - такса за доставка',
       europe_text:
-        'Поръчки към други държави от ЕС могат да се правят през този сайт. При плащане изберете проследяема доставка за Европа (35 €). Доставката обикновено отнема около 5-12 работни дни след изпращане, в зависимост от дестинацията.',
+        'Поръчки към други държави от ЕС могат да се правят през този сайт. Изберете Европа преди плащане и проследяемата доставка (35 €) се прилага автоматично. Доставката обикновено отнема около 5-12 работни дни след изпращане, в зависимост от дестинацията.',
       uk_title: 'Обединено кралство - доставка и данъци',
       uk_text:
-        'Поръчки за UK са налични през този сайт с проследяема доставка (45 €). Цените на творбите са както са показани. Вносен ДДС, мита или такси на куриера в UK може да се начислят при пристигане и са за сметка на купувача - не се събират при плащане в doarti.com.',
+        'Поръчки за UK са налични през този сайт. Изберете UK преди плащане и проследяемата доставка (45 €) се прилага автоматично. Цените на творбите са както са показани. Вносен ДДС, мита или такси на куриера в UK може да се начислят при пристигане и са за сметка на купувача - не се събират при плащане в doarti.com.',
       us_title: 'Съединени американски щати',
       us_text_before:
         'За купувачи от САЩ, моля направете покупка през моя профил в',
@@ -1118,7 +1126,7 @@ export const translations = {
         'Поръчките обикновено се изпращат в рамките на 1-3 работни дни след потвърдено плащане. Ще получите имейл потвърждение, а данните за куриера следват, щом пратката е на път.',
       couriers_title: 'При плащане',
       couriers_text:
-        'Изберете опцията за доставка според държавата: безплатно Speedy или Econt за България, проследяема доставка за Европа за други адреси в ЕС, или проследяема доставка за Обединеното кралство. Адресът и телефонът са задължителни.',
+        'Преди плащане изберете дестинацията: България (безплатно), Европа (35 €) или UK (45 €). Доставката се прилага автоматично - в Stripe няма избор на куриер. Адресът и телефонът са задължителни.',
       abroad_title: 'Поръчки от чужбина',
       abroad_text_before:
         'Ако поръчвате от чужбина, моля направете го през моя профил в',

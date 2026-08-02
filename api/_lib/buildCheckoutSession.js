@@ -5,20 +5,16 @@ const PRINT_SIZE_PRICES = {
   '60 x 80 cm': 70,
 };
 
-/** Flat shipping fees in euro cents (easy to tweak). */
+/** Flat shipping fees in euro (easy to tweak). */
 const SHIPPING_FEES = {
+  bgEur: 0,
   europeEur: 35,
   ukEur: 45,
 };
 
-/**
- * Site checkout ships to Bulgaria (free), EU, and UK.
- * United States stays on Saatchi Art - not listed here.
- */
-const CHECKOUT_COUNTRIES = [
+const EU_COUNTRIES = [
   'AT',
   'BE',
-  'BG',
   'HR',
   'CY',
   'CZ',
@@ -43,12 +39,35 @@ const CHECKOUT_COUNTRIES = [
   'SI',
   'ES',
   'SE',
-  'GB',
 ];
+
+const SHIPPING_REGIONS = {
+  bg: {
+    countries: ['BG'],
+    feeEur: SHIPPING_FEES.bgEur,
+    courier: 'bg_free',
+    minDays: 1,
+    maxDays: 3,
+  },
+  eu: {
+    countries: EU_COUNTRIES,
+    feeEur: SHIPPING_FEES.europeEur,
+    courier: 'tracked_eu',
+    minDays: 5,
+    maxDays: 12,
+  },
+  uk: {
+    countries: ['GB'],
+    feeEur: SHIPPING_FEES.ukEur,
+    courier: 'tracked_uk',
+    minDays: 5,
+    maxDays: 14,
+  },
+};
 
 function toCents(priceEur) {
   const value = Number(priceEur);
-  if (!Number.isFinite(value) || value <= 0) {
+  if (!Number.isFinite(value) || value < 0) {
     return null;
   }
   return Math.round(value * 100);
@@ -87,43 +106,82 @@ function resolvePrintCheckout(sizeLabel, priceEur) {
   return { sizeLabel: label, priceEur: expectedPrice };
 }
 
-function checkoutCopy(locale, productType, sizeLabel) {
+function resolveShippingRegion(shippingRegion) {
+  const regionKey =
+    typeof shippingRegion === 'string' && shippingRegion in SHIPPING_REGIONS
+      ? shippingRegion
+      : 'bg';
+  return { key: regionKey, ...SHIPPING_REGIONS[regionKey] };
+}
+
+function checkoutCopy(locale, productType, sizeLabel, regionKey) {
   const isPrint = productType === 'print';
   const sizeText = sizeLabel || '40 x 60 cm';
   const europeFee = SHIPPING_FEES.europeEur;
   const ukFee = SHIPPING_FEES.ukEur;
 
   if (locale === 'bg') {
+    const shippingLabel =
+      regionKey === 'uk'
+        ? `Проследяема доставка до Обединеното кралство - ${ukFee} €`
+        : regionKey === 'eu'
+          ? `Проследяема доставка в Европа - ${europeFee} €`
+          : 'Безплатна доставка в България';
+
+    const note =
+      regionKey === 'uk'
+        ? isPrint
+          ? `Лимитиран принт, серия от 10. Fine-art хартия, ${sizeText}, с мой подпис. Доставката до UK е ${ukFee} €. Вносен ДДС/мита в UK са за сметка на купувача.`
+          : `Оригинална маслена картина от мен. Доставката до UK е ${ukFee} €. Вносен ДДС/мита в UK са за сметка на купувача.`
+        : regionKey === 'eu'
+          ? isPrint
+            ? `Лимитиран принт, серия от 10. Fine-art хартия, ${sizeText}, с мой подпис. Доставката в Европа е ${europeFee} €.`
+            : `Оригинална маслена картина от мен. Доставката в Европа е ${europeFee} €.`
+          : isPrint
+            ? `Лимитиран принт, серия от 10. Fine-art хартия, ${sizeText}, с мой подпис. Безплатна доставка в България (1-3 работни дни).`
+            : 'Оригинална маслена картина от мен. Безплатна доставка в България (1-3 работни дни).';
+
     return {
-      speedy: 'България - Speedy (Спиди) до адрес - безплатно',
-      econt: 'България - Econt (Еконт) до адрес - безплатно',
-      europe: `Европа (извън България) - проследяема доставка - ${europeFee} €`,
-      uk: `Обединено кралство - проследяема доставка - ${ukFee} €`,
+      shippingLabel,
       phone: 'Телефон за доставка',
-      note: isPrint
-        ? `Лимитиран принт, серия от 10. Fine-art хартия, ${sizeText}, с мой подпис. България: безплатно (Speedy/Econt). Европа: ${europeFee} €. UK: ${ukFee} € (вносен ДДС/мита в UK са за сметка на купувача). САЩ: през Saatchi Art. Изберете опция, която съответства на държавата на адреса.`
-        : `Оригинална маслена картина от мен. България: безплатно (Speedy/Econt). Европа: ${europeFee} €. UK: ${ukFee} € (вносен ДДС/мита в UK са за сметка на купувача). САЩ: през Saatchi Art. Изберете опция, която съответства на държавата на адреса.`,
+      note,
       productNameSuffix: isPrint ? ' | Лимитирана серия от 10' : '',
       sizeMeta: isPrint ? sizeText : 'original',
     };
   }
 
+  const shippingLabel =
+    regionKey === 'uk'
+      ? `Tracked shipping to the United Kingdom - €${ukFee}`
+      : regionKey === 'eu'
+        ? `Tracked shipping within Europe - €${europeFee}`
+        : 'Free shipping within Bulgaria';
+
+  const note =
+    regionKey === 'uk'
+      ? isPrint
+        ? `Limited edition of 10. Fine-art paper, ${sizeText}, hand-signed by me. UK shipping is €${ukFee}. UK import VAT/duties are the buyer's responsibility.`
+        : `Original oil painting by me. UK shipping is €${ukFee}. UK import VAT/duties are the buyer's responsibility.`
+      : regionKey === 'eu'
+        ? isPrint
+          ? `Limited edition of 10. Fine-art paper, ${sizeText}, hand-signed by me. Europe shipping is €${europeFee}.`
+          : `Original oil painting by me. Europe shipping is €${europeFee}.`
+        : isPrint
+          ? `Limited edition of 10. Fine-art paper, ${sizeText}, hand-signed by me. Free shipping within Bulgaria (1-3 business days).`
+          : 'Original oil painting by me. Free shipping within Bulgaria (1-3 business days).';
+
   return {
-    speedy: 'Bulgaria - Speedy to your address - free',
-    econt: 'Bulgaria - Econt to your address - free',
-    europe: `Europe (outside Bulgaria) - tracked shipping - €${europeFee}`,
-    uk: `United Kingdom - tracked shipping - €${ukFee}`,
+    shippingLabel,
     phone: 'Phone number for delivery',
-    note: isPrint
-      ? `Limited edition of 10. Fine-art paper, ${sizeText}, hand-signed by me. Bulgaria: free (Speedy/Econt). Europe: €${europeFee}. UK: €${ukFee} (UK import VAT/duties are the buyer's responsibility). US: via Saatchi Art. Choose the option that matches your shipping country.`
-      : `Original oil painting by me. Bulgaria: free (Speedy/Econt). Europe: €${europeFee}. UK: €${ukFee} (UK import VAT/duties are the buyer's responsibility). US: via Saatchi Art. Choose the option that matches your shipping country.`,
+    note,
     productNameSuffix: isPrint ? ' | Limited edition of 10' : '',
     sizeMeta: isPrint ? sizeText : 'original',
   };
 }
 
 /**
- * Creates a Stripe Checkout Session with product image + shipping choices.
+ * Creates a Stripe Checkout Session with one automatic shipping rate
+ * for the selected destination region (no courier choice on Checkout).
  */
 async function createCheckoutSession({
   secret,
@@ -133,6 +191,7 @@ async function createCheckoutSession({
   priceEur,
   imagePath,
   sizeLabel,
+  shippingRegion,
   locale,
   successUrl,
   cancelUrl,
@@ -147,20 +206,26 @@ async function createCheckoutSession({
   }
 
   const unitAmount = toCents(resolvedPrice);
-  if (unitAmount === null) {
+  if (unitAmount === null || unitAmount <= 0) {
     const error = new Error('Invalid price');
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const region = resolveShippingRegion(shippingRegion);
+  const shippingCents = toCents(region.feeEur);
+  if (shippingCents === null) {
+    const error = new Error('Invalid shipping region');
     error.statusCode = 400;
     throw error;
   }
 
   const stripe = new Stripe(secret);
   const lang = locale === 'bg' ? 'bg' : 'en';
-  const labels = checkoutCopy(lang, productType, resolvedSize);
+  const labels = checkoutCopy(lang, productType, resolvedSize, region.key);
   const imageUrl = resolveProductImage(imagePath);
   const images = imageUrl ? [imageUrl] : [];
   const productName = `${title}${labels.productNameSuffix}`;
-  const europeCents = toCents(SHIPPING_FEES.europeEur);
-  const ukCents = toCents(SHIPPING_FEES.ukEur);
 
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
@@ -176,7 +241,7 @@ async function createCheckoutSession({
       },
     },
     shipping_address_collection: {
-      allowed_countries: CHECKOUT_COUNTRIES,
+      allowed_countries: region.countries,
     },
     custom_fields: [
       {
@@ -189,53 +254,21 @@ async function createCheckoutSession({
         optional: false,
       },
     ],
+    // Single rate only - Stripe applies it automatically (no method choice).
     shipping_options: [
       {
         shipping_rate_data: {
           type: 'fixed_amount',
-          fixed_amount: { amount: 0, currency: 'eur' },
-          display_name: labels.speedy,
+          fixed_amount: { amount: shippingCents, currency: 'eur' },
+          display_name: labels.shippingLabel,
           delivery_estimate: {
-            minimum: { unit: 'business_day', value: 1 },
-            maximum: { unit: 'business_day', value: 3 },
+            minimum: { unit: 'business_day', value: region.minDays },
+            maximum: { unit: 'business_day', value: region.maxDays },
           },
-          metadata: { courier: 'speedy', region: 'bg' },
-        },
-      },
-      {
-        shipping_rate_data: {
-          type: 'fixed_amount',
-          fixed_amount: { amount: 0, currency: 'eur' },
-          display_name: labels.econt,
-          delivery_estimate: {
-            minimum: { unit: 'business_day', value: 1 },
-            maximum: { unit: 'business_day', value: 3 },
+          metadata: {
+            courier: region.courier,
+            region: region.key,
           },
-          metadata: { courier: 'econt', region: 'bg' },
-        },
-      },
-      {
-        shipping_rate_data: {
-          type: 'fixed_amount',
-          fixed_amount: { amount: europeCents, currency: 'eur' },
-          display_name: labels.europe,
-          delivery_estimate: {
-            minimum: { unit: 'business_day', value: 5 },
-            maximum: { unit: 'business_day', value: 12 },
-          },
-          metadata: { courier: 'tracked_eu', region: 'eu' },
-        },
-      },
-      {
-        shipping_rate_data: {
-          type: 'fixed_amount',
-          fixed_amount: { amount: ukCents, currency: 'eur' },
-          display_name: labels.uk,
-          delivery_estimate: {
-            minimum: { unit: 'business_day', value: 5 },
-            maximum: { unit: 'business_day', value: 14 },
-          },
-          metadata: { courier: 'tracked_uk', region: 'uk' },
         },
       },
     ],
@@ -258,6 +291,7 @@ async function createCheckoutSession({
               productType,
               productId,
               size: labels.sizeMeta,
+              shippingRegion: region.key,
             },
           },
         },
@@ -267,6 +301,7 @@ async function createCheckoutSession({
       productType,
       productId,
       size: labels.sizeMeta,
+      shippingRegion: region.key,
     },
   });
 
@@ -279,5 +314,5 @@ module.exports = {
   toCents,
   PRINT_SIZE_PRICES,
   SHIPPING_FEES,
-  CHECKOUT_COUNTRIES,
+  SHIPPING_REGIONS,
 };

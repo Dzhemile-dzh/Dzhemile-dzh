@@ -445,12 +445,13 @@ body.painting-lightbox-open .scroll-to-top {
 
 .price-right {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-shrink: 0;
+  min-width: min(100%, 16rem);
 }
 
 .buy-action-wrap {
-  width: auto;
+  width: 100%;
 }
 
 .buy-action-btn {
