@@ -61,9 +61,3 @@ I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and R
 
 <br/>
 
-## GitHub snapshot
-
-![GitHub Stats](https://github-readme-stats-sigma-five.vercel.app/api?username=Dzhemile-dzh&show_icons=true&theme=radical&hide_border=true&count_private=true)
-![Top Langs](https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Dzhemile-dzh&layout=compact&theme=radical&hide_border=true&count_private=true)
-
-![GitHub Streak](https://streak-stats.demolab.com/?user=Dzhemile-dzh&theme=radical&hide_border=true)
