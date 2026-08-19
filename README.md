@@ -27,6 +27,8 @@ I build end to end web products: clean PHP APIs, Laravel/Symfony backends, and R
 
 | | Project | Stack | Link |
 | :---: | --- | --- | --- |
+| 🎨 | [doarti](https://github.com/Dzhemile-dzh/Dzhemile-dzh) | `React` `Stripe` `Vercel` | [Live site](https://www.doarti.com/) |
+| 🖼️ | [frida-art](https://github.com/Dzhemile-dzh/frida-art) | `React` `Vercel` | [Live site](https://frida-art.vercel.app/bg) |
 | 🩷 | [cv-portfolio](https://github.com/Dzhemile-dzh/cv-portfolio) | `React 19` `TypeScript` `PHP 8.5` | [Live site](https://www.dzhemile-ahmed.xyz) |
 | 🧡 | [hotel-api](https://github.com/Dzhemile-dzh/hotel-api) | `Laravel` `REST` | PMS synced hotel API |
 | 💚 | [ecomerce-api](https://github.com/Dzhemile-dzh/ecomerce-api) | `PHP` `API` | Product catalog backend |
