@@ -174,16 +174,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+}
+
+.contact-channels > li:nth-child(3),
+.contact-channels > li:nth-child(5) {
   border-top: 1px solid var(--contact-line);
-  border-left: 1px solid var(--contact-line);
 }
 
-.contact-channels > li {
-  border-right: 1px solid var(--contact-line);
-  border-bottom: 1px solid var(--contact-line);
-}
-
-.contact-channels > li:first-child {
+.contact-channels > li:last-child {
   grid-column: 1 / -1;
 }
 
