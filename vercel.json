@@ -85,6 +85,16 @@
       "source": "/contact.php",
       "destination": "/contact",
       "permanent": true
+    },
+    {
+      "source": "/painting/futures-keeper",
+      "destination": "/painting/2025/futures-keeper",
+      "permanent": true
+    },
+    {
+      "source": "/painting/2024/futures-keeper",
+      "destination": "/painting/2025/futures-keeper",
+      "permanent": true
     }
   ]
 }
