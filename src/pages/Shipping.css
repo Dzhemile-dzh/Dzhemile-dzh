@@ -62,25 +62,26 @@
 }
 
 .shipping-teaser {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   border-top: 1px solid #e9ecef;
 }
 
 .shipping-teaser__text {
-  margin: 0 0 0.35rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
   color: #495057;
   font-weight: 500;
 }
 
 .shipping-teaser__link {
-  font-size: 0.85rem;
+  font-size: inherit;
   font-weight: 600;
   color: #2563eb;
   text-decoration: underline;
   text-underline-offset: 2px;
+  white-space: nowrap;
 }
 
 .shipping-teaser__link:hover {

@@ -14,10 +14,12 @@ const ShippingInfo = () => {
 
   return (
     <div className="shipping-teaser">
-      <p className="shipping-teaser__text">{t('shipping.teaser')}</p>
-      <Link to="/shipping" className="shipping-teaser__link">
-        {t('shipping.teaser_link')}
-      </Link>
+      <p className="shipping-teaser__text">
+        {t('shipping.teaser')}{' '}
+        <Link to="/shipping" className="shipping-teaser__link">
+          {t('shipping.teaser_link')}
+        </Link>
+      </p>
     </div>
   );
 };

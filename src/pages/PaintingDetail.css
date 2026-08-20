@@ -370,7 +370,7 @@ body.painting-lightbox-open .scroll-to-top {
 
 /* Modern Price CTA Section */
 .modern-price-cta-section {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   overflow: visible;
 }
 
@@ -378,7 +378,7 @@ body.painting-lightbox-open .scroll-to-top {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border: 2px solid #e9ecef;
   border-radius: 16px;
-  padding: 1.25rem;
+  padding: 0.9rem 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   overflow: visible;
@@ -399,7 +399,7 @@ body.painting-lightbox-open .scroll-to-top {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
@@ -407,7 +407,7 @@ body.painting-lightbox-open .scroll-to-top {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.75rem;
+  gap: 0.45rem;
   flex: 1 1 12rem;
   min-width: 0;
   position: relative;
@@ -469,6 +469,40 @@ body.painting-lightbox-open .scroll-to-top {
 
 .buy-action-wrap {
   width: 100%;
+}
+
+.price-card .buy-action-btn {
+  min-height: 2.15rem;
+  padding: 0.42rem 0.85rem 0.42rem 0.95rem !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em;
+}
+
+.price-card .shipping-teaser {
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+}
+
+.price-card .shipping-teaser__text {
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+.price-card .buy-ship-region__menu {
+  top: auto;
+  bottom: calc(100% + 0.35rem);
+  animation: buy-ship-menu-up 0.18s ease;
+}
+
+@keyframes buy-ship-menu-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .buy-action-btn {
@@ -617,7 +651,7 @@ body.painting-lightbox-open .scroll-to-top {
 /* Responsive Design for Price Section */
 @media (max-width: 768px) {
   .price-card {
-    padding: 0.75rem;
+    padding: 0.65rem 0.7rem;
     border-radius: 12px;
   }
 
@@ -625,14 +659,14 @@ body.painting-lightbox-open .scroll-to-top {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.75rem;
+    gap: 0.45rem;
     flex-wrap: nowrap;
   }
 
   .price-left {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
+    gap: 0.4rem;
     flex: 0 0 auto;
     width: 100%;
     min-width: 0;
@@ -690,19 +724,19 @@ body.painting-lightbox-open .scroll-to-top {
 
 @media (max-width: 576px) {
   .price-card {
-    padding: 0.6rem;
+    padding: 0.55rem 0.6rem;
   }
 
   .price-row {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
+    gap: 0.4rem;
   }
 
   .price-left {
     width: 100%;
-    gap: 0.55rem;
+    gap: 0.35rem;
   }
 
   .price-left__main {

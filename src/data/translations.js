@@ -88,9 +88,8 @@ export const translations = {
       abroad_text_after:
         '. International shipping, customs, and handling are arranged through their platform.',
       saatchi_cta: 'View my Saatchi Art profile',
-      teaser:
-        'Free shipping in Bulgaria. Europe €35 · UK €45 (import VAT may apply). US via Saatchi Art.',
-      teaser_link: 'Full shipping details →',
+      teaser: 'BG free · EU €35 · UK €45.',
+      teaser_link: 'Shipping →',
       link_prints: 'Browse prints',
       link_paintings: 'Browse paintings',
       link_contact: 'Contact',
@@ -1061,10 +1060,10 @@ export const translations = {
       checkout_error: 'Плащането не можа да започне. Опитайте отново или се свържете с мен.',
       price_unavailable: 'Цената не е налична за плащане.',
       api_offline: 'Сървърът за плащания не работи. В втори терминал пуснете: npm run start:api (и дръжте npm start).',
-      ship_to: 'До',
-      ship_bg: 'БГ · 0 €',
-      ship_eu: 'EU · 35 €',
-      ship_uk: 'UK · 45 €',
+      ship_to: 'Доставка',
+      ship_bg: 'България · безплатно',
+      ship_eu: 'Европа · 35 €',
+      ship_uk: 'Великобритания · 45 €',
       success_title: 'Благодаря за поръчката',
       success_message: 'Плащането е получено. Ще потвърдя по имейл и ще изпратя с опцията за доставка, която избрахте при плащане.',
       success_email_sent: 'Изпратихме имейл с потвърждение, данни за поръчката и доставката.',
@@ -1132,9 +1131,8 @@ export const translations = {
       abroad_text_after:
         '. Международната доставка, митниците и обработката се уреждат през тяхната платформа.',
       saatchi_cta: 'Към профила ми в Saatchi Art',
-      teaser:
-        'Безплатна доставка в България. Европа 35 € · UK 45 € (възможен вносен ДДС). САЩ през Saatchi Art.',
-      teaser_link: 'Пълна информация за доставка →',
+      teaser: 'България безплатно · Европа 35 € · Великобритания 45 €.',
+      teaser_link: 'Доставка →',
       link_prints: 'Към принтовете',
       link_paintings: 'Към картините',
       link_contact: 'Контакт',
