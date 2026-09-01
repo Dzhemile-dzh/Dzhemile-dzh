@@ -893,6 +893,15 @@ export const translations = {
           price: '595',
           sold: false,
         },
+        {
+          title: 'Test Painting',
+          dimensions: '20 x 20 cm',
+          description: 'test-painting_description',
+          link: '2026/test-painting',
+          image: 'images/miniatures/day-1.jpg',
+          price: '0.20',
+          sold: false,
+        },
       ],
     },
     'imago_heading': 'Imago',
@@ -903,6 +912,8 @@ export const translations = {
     'from-flesh-to-icon_description': 'We all wear masks.\n\nSome simply become too heavy to remove.\n\nFrom Flesh to Icon explores the quiet distance between who we are, who we pretend to be, and the version of ourselves the world chooses to remember. Flesh slowly gives way to gold; emotion hardens into symbol. What begins as a face becomes an image. What begins as a person becomes an icon.\n\nThe gilded figure stands frozen in perfection - untouched by doubt, untouched by time. The faces beside it are less fortunate. They still carry questions, scars, hesitation. They are beautifully unfinished, still negotiating with life while perfection waits, silent and unmoving.\n\nThe hand between them isn\'t just dividing two worlds.\n\nIt\'s choosing.\n\nEvery day we decide whether to remain beautifully imperfect or polish ourselves into something untouchable. The irony, of course, is that statues never make mistakes.\n\nThey also never feel the warmth of another hand.\n\nThis painting is about identity, performance, and the quiet cost of becoming someone\'s idea instead of remaining yourself. Because admiration can be as confining as a cage - especially when it\'s made of gold.\n\nAfter all, icons are remembered.\n\nPeople are loved.',
     'kral-vsichko_heading': 'King of Everything',
     'kral-vsichko_description': 'Every nation gets the leaders it deserves.\n\nThe pig never argued.\n\nSeated high above the crowd, he doesn\'t wear a crown because he doesn\'t need one. Power has a curious habit of crowning itself. The throne is comfortable, the applause is loud enough to drown out questions, and the distance from the people below grows with every cheer.\n\nThe crowd keeps looking up.\n\nHe keeps looking down.\n\nBetween them hangs an invisible agreement: You pretend to believe. I\'ll pretend to serve.\n\nThe faces below are different, yet strangely alike. Angry. Hopeful. Exhausted. They shout, they protest, they celebrate, they complain - often all in the same afternoon. Above them sits the one creature that has mastered the oldest political trick of all:\n\nNever leave the throne.\n\nThis painting isn\'t really about a pig.\n\nPigs, after all, are honest creatures. They eat, they sleep, and they never promise a brighter tomorrow.\n\nIt\'s about power that grows fat on admiration, fear, and short memories. About leaders who become symbols long before they become legends, and about crowds that mistake a throne for proof of wisdom.\n\nIn the end, every ruler wants to be remembered as the King of Everything.\n\nSome simply become the owner of nothing but everyone\'s disappointment.',
+    'test-painting_heading': 'Test Painting',
+    'test-painting_description': 'Stripe checkout test item priced at €0.20. Not a real artwork for sale.',
     articles2024: [
       {
         title: "Oscar's Dichotomy",
@@ -2116,6 +2127,15 @@ export const translations = {
           price: '595',
           sold: false,
         },
+        {
+          title: 'Тестова картина',
+          dimensions: '20 x 20 cm',
+          description: 'test-painting_description',
+          link: '2026/test-painting',
+          image: 'images/miniatures/day-1.jpg',
+          price: '0.20',
+          sold: false,
+        },
       ],
     },
     'imago_heading': 'Имаго',
@@ -2126,5 +2146,7 @@ export const translations = {
     'from-flesh-to-icon_description': 'Всички носим маски.\n\nНякои просто стават прекалено тежки, за да бъдат свалени.\n\nОт плът към икона изследва тихото разстояние между това, което сме, това, за което се представяме, и образа, с който светът избира да ни запомни. Плътта бавно отстъпва място на златото; емоцията се втвърдява в символ. Лицето се превръща в образ. Човекът - в икона.\n\nПозлатената фигура е застинала в съвършенство - недокосната от съмнение и неподвластна на времето. Лицата до нея нямат този лукс. Те все още носят въпроси, белези и колебание. Красиво незавършени, те продължават да преговарят с живота, докато съвършенството стои безмълвно и неподвижно.\n\nРъката между тях не разделя просто два свята.\n\nТя избира.\n\nВсеки ден решаваме дали да останем красиво несъвършени или да се полираме, докато станем недосегаеми. Иронията е, че статуите никога не грешат.\n\nНо никога не усещат и топлината на чужда ръка.\n\nТази картина е за идентичността, за ролите, които играем, и за тихата цена на това да се превърнем в нечия представа, вместо да останем себе си. Защото възхищението може да бъде също толкова ограничаващо, колкото и клетката - особено когато е изработена от злато.\n\nВ крайна сметка иконите се помнят.\n\nХората се обичат.',
     'kral-vsichko_heading': 'Крал Всичко',
     'kral-vsichko_description': 'Всеки народ заслужава управниците си.\n\nПрасето никога не е спорило с това.\n\nНастанено високо над тълпата, то не носи корона. Не му е нужна. Властта има странния навик сама да си поставя корона. Тронът е удобен, аплодисментите са достатъчно шумни, за да заглушат въпросите, а разстоянието до хората отдолу расте с всяко ново обещание.\n\nНародът гледа нагоре.\n\nТо гледа надолу.\n\nМежду тях съществува едно мълчаливо споразумение: Вие ще се преструвате, че вярвате. Аз ще се преструвам, че служа.\n\nЛицата долу са различни, но по нещо си приличат. Гневни. Надяващи се. Уморени. Викат, протестират, празнуват, после пак протестират. А горе седи онзи, който е усвоил най-стария политически номер:\n\nДа не става от трона.\n\nТази картина всъщност не е за едно прасе.\n\nПрасетата, ако трябва да сме честни, са почтени животни. Те не обещават светло бъдеще. Просто си вършат прасешката работа.\n\nТя е за властта, която се угоява от възхищение, страх и къса памет. За онези, които искат да бъдат крале на всичко...\n\n...и междувременно крали всичко.\n\nЗащото на български понякога една буква е разликата между владетел и крадец.\n\nА понякога дори тази разлика изчезва.\n\nВ края на краищата всеки иска да бъде Крал Всичко.\n\nВъпросът е единствено дали ще управлява всичко...\n\nили ще го открадне.',
+    'test-painting_heading': 'Тестова картина',
+    'test-painting_description': 'Тестов артикул за Stripe плащане на цена 0.20 €. Не е реална картина за продажба.',
   }
 };
