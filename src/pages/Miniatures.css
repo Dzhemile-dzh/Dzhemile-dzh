@@ -1,0 +1,173 @@
+.miniatures-page {
+  padding-top: 28px;
+}
+
+.miniatures-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.75rem;
+}
+
+.miniatures-price-line {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.miniatures-story {
+  max-width: 40rem;
+  margin: 0 auto 1.75rem;
+}
+
+.miniatures-story--detail {
+  max-width: none;
+  margin: 0 0 0.5rem;
+}
+
+.miniatures-story-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+}
+
+.miniatures-story-more {
+  margin: 0 0 1.5rem;
+}
+
+.miniatures-story-more summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1e1b4b;
+  list-style: none;
+}
+
+.miniatures-story-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.miniatures-story-more summary::after {
+  content: ' +';
+}
+
+.miniatures-story-more[open] summary::after {
+  content: ' −';
+}
+
+.miniatures-story-more summary:hover,
+.miniatures-story-more summary:focus-visible {
+  color: #5b21b6;
+}
+
+.miniatures-chapter {
+  margin-bottom: 2rem;
+}
+
+.miniatures-chapter-label {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 0.35rem;
+}
+
+.miniatures-chapter-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.miniatures-chapter p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.miniatures-ship {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.miniatures-card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.miniatures-card {
+  height: 100%;
+}
+
+.miniatures-card-link:hover {
+  color: inherit;
+}
+
+.miniatures-detail-image {
+  background: #efe6dc;
+}
+
+.miniatures-description {
+  margin: 1.25rem 0 1.5rem;
+}
+
+.miniatures-description-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.miniatures-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #efe6dc;
+  overflow: hidden;
+}
+
+.miniatures-frame .image-loader-container,
+.miniatures-frame-image {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+.miniatures-frame img,
+.miniatures-frame .image-loaded {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.miniatures-card-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.miniatures-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  color: #1e1b4b;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.miniatures-back-link i {
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.miniatures-back-link:hover,
+.miniatures-back-link:focus-visible {
+  color: #5b21b6;
+  border-bottom-color: currentColor;
+}
+
+.miniatures-back-link:hover i,
+.miniatures-back-link:focus-visible i {
+  transform: translateX(-3px);
+}

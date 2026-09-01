@@ -1,8 +1,13 @@
 const { createCheckoutSession } = require('./_lib/buildCheckoutSession');
 
-const ALLOWED_TYPES = new Set(['print', 'original']);
-
 function readJsonBody(req) {
+  if (typeof req.body === 'string' && req.body.length > 0) {
+    try {
+      return JSON.parse(req.body);
+    } catch {
+      return {};
+    }
+  }
   if (req.body && typeof req.body === 'object') {
     return req.body;
   }
@@ -32,6 +37,7 @@ module.exports = async function handler(req, res) {
 
   const body = readJsonBody(req);
   const {
+    items,
     productType,
     productId,
     title,
@@ -44,18 +50,6 @@ module.exports = async function handler(req, res) {
     cancelUrl,
   } = body;
 
-  if (!ALLOWED_TYPES.has(productType)) {
-    return res.status(400).json({ error: 'Invalid product type' });
-  }
-
-  if (typeof productId !== 'string' || productId.length === 0) {
-    return res.status(400).json({ error: 'Missing product id' });
-  }
-
-  if (typeof title !== 'string' || title.length === 0) {
-    return res.status(400).json({ error: 'Missing product title' });
-  }
-
   if (typeof successUrl !== 'string' || typeof cancelUrl !== 'string') {
     return res.status(400).json({ error: 'Missing return URLs' });
   }
@@ -63,6 +57,7 @@ module.exports = async function handler(req, res) {
   try {
     const session = await createCheckoutSession({
       secret,
+      items,
       productType,
       productId,
       title,

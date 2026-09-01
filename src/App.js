@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { CartProvider } from './contexts/CartContext';
 import { initInteractiveFeatures } from './utils/interactive';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -20,6 +21,9 @@ import Shipping from './pages/Shipping';
 import CheckoutSuccess from './pages/CheckoutSuccess';
 import CheckoutCancel from './pages/CheckoutCancel';
 import NotFound from './pages/NotFound';
+import Miniatures from './pages/Miniatures';
+import MiniatureDetail from './pages/MiniatureDetail';
+import Basket from './pages/Basket';
 import './App.css';
 
 function App() {
@@ -84,6 +88,7 @@ function App() {
 
   return (
     <LanguageProvider>
+      <CartProvider>
       <Router
         future={{
           v7_startTransition: true,
@@ -102,6 +107,9 @@ function App() {
               <Route path="/painting/:year/:slug" element={<PaintingDetail />} />
               <Route path="/prints" element={<Prints />} />
               <Route path="/prints/:slug" element={<PrintDetail />} />
+              <Route path="/miniatures" element={<Miniatures />} />
+              <Route path="/miniatures/:slug" element={<MiniatureDetail />} />
+              <Route path="/basket" element={<Basket />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/checkout/success" element={<CheckoutSuccess />} />
               <Route path="/checkout/cancel" element={<CheckoutCancel />} />
@@ -115,6 +123,7 @@ function App() {
           <SpeedInsights />
         </div>
       </Router>
+      </CartProvider>
     </LanguageProvider>
   );
 }

@@ -205,6 +205,35 @@ const Home = () => {
                 </div>
             </section>
 
+            <section className="home-section home-prints" id="miniatures_section">
+                <div className="home-section__inner">
+                    <header className="home-section__header">
+                        <p className="home-section__eyebrow">{t('home.miniatures_eyebrow')}</p>
+                        <h2 className="home-section__title">{t('home.miniatures_title')}</h2>
+                        <p className="home-section__sub">{t('home.miniatures_sub')}</p>
+                    </header>
+
+                    <Link
+                        to="/miniatures"
+                        className="home-miniatures-all"
+                        aria-label={t('home.view_miniatures')}
+                    >
+                        <ImageLoader
+                            src="/images/miniatures/all-nine.jpg"
+                            alt={t('home.miniatures_title')}
+                            className="img-fluid"
+                            natural
+                        />
+                        <span className="home-miniatures-all__veil" aria-hidden="true" />
+                        <span className="home-miniatures-all__label">
+                            <span className="home-miniatures-all__btn">
+                                {t('home.view_miniatures')}
+                            </span>
+                        </span>
+                    </Link>
+                </div>
+            </section>
+
             <section className="home-section home-prints" id="prints_section">
                 <div className="home-section__inner">
                     <header className="home-section__header">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useCart } from '../contexts/CartContext';
 import DoartiCta from '../components/DoartiCta';
 import { isEmailJsConfigured, sendPurchaseEmails } from '../utils/sendEmails';
 
@@ -8,6 +9,7 @@ const emailSentKey = (sessionId) => `doarti_purchase_email_${sessionId}`;
 
 const CheckoutSuccess = () => {
   const { t, language } = useLanguage();
+  const { clearCart } = useCart();
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get('session_id') || '';
 
@@ -45,6 +47,7 @@ const CheckoutSuccess = () => {
         }
 
         setOrder(data);
+        clearCart();
 
         const alreadySent = sessionStorage.getItem(emailSentKey(sessionId)) === '1';
         if (alreadySent) {

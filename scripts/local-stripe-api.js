@@ -76,8 +76,6 @@ function sendJson(res, status, payload) {
 loadEnvFile('.env');
 loadEnvFile('.env.local');
 
-const ALLOWED_TYPES = new Set(['print', 'original']);
-
 const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
     sendJson(res, 204, {});
@@ -193,6 +191,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   const {
+    items,
     productType,
     productId,
     title,
@@ -205,21 +204,6 @@ const server = http.createServer(async (req, res) => {
     cancelUrl,
   } = body;
 
-  if (!ALLOWED_TYPES.has(productType)) {
-    sendJson(res, 400, { error: 'Invalid product type' });
-    return;
-  }
-
-  if (typeof productId !== 'string' || productId.length === 0) {
-    sendJson(res, 400, { error: 'Missing product id' });
-    return;
-  }
-
-  if (typeof title !== 'string' || title.length === 0) {
-    sendJson(res, 400, { error: 'Missing product title' });
-    return;
-  }
-
   if (typeof successUrl !== 'string' || typeof cancelUrl !== 'string') {
     sendJson(res, 400, { error: 'Missing return URLs' });
     return;
@@ -228,6 +212,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const session = await createCheckoutSession({
       secret,
+      items,
       productType,
       productId,
       title,

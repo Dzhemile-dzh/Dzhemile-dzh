@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ImageLoader from '../components/ImageLoader';
-import BuyButton, { ShippingRegionSelect } from '../components/BuyButton';
+import BuyButton from '../components/BuyButton';
 import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import { getPrintForPainting } from '../data/prints';
@@ -25,7 +25,6 @@ const PaintingDetail = () => {
   const { t, translations } = useLanguage();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(100);
-  const [shippingRegion, setShippingRegion] = useState('bg');
 
   // This would typically come from an API or more detailed data structure
   const getPaintingData = (year, slug) => {
@@ -301,7 +300,6 @@ const PaintingDetail = () => {
                                   {t('buy_external')}
                                 </DoartiCta>
                               </div>
-                              <ShippingInfo />
                             </div>
                         ) : (
                             <div className="price-card">
@@ -320,13 +318,6 @@ const PaintingDetail = () => {
                                       )}
                                     </div>
                                   </div>
-                                  {painting.price && (
-                                    <ShippingRegionSelect
-                                      id={`ship-painting-${year}-${slug}`}
-                                      value={shippingRegion}
-                                      onChange={setShippingRegion}
-                                    />
-                                  )}
                                 </div>
 
                                 {painting.price && (
@@ -337,9 +328,6 @@ const PaintingDetail = () => {
                                       title={getPaintingTitle()}
                                       priceEur={painting.price}
                                       imagePath={`/${painting.image}`}
-                                      shippingRegion={shippingRegion}
-                                      onShippingRegionChange={setShippingRegion}
-                                      showShippingSelect={false}
                                       className="buy-action-wrap"
                                     />
                                   </div>

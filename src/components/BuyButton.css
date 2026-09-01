@@ -159,6 +159,11 @@
   width: 100%;
 }
 
+.price-right .buy-button-block,
+.price-right .buy-button-block .buy-action-btn {
+  width: auto;
+}
+
 .price-left .buy-ship-region {
   width: 100%;
   max-width: 100%;

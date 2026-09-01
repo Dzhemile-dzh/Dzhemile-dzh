@@ -6,7 +6,7 @@ import {
   getPrintDisplayTitle,
   getPrintSizeById,
 } from '../data/prints';
-import BuyButton, { ShippingRegionSelect } from '../components/BuyButton';
+import BuyButton from '../components/BuyButton';
 import DoartiCta from '../components/DoartiCta';
 import ShippingInfo from '../components/ShippingInfo';
 import ImageLoader from '../components/ImageLoader';
@@ -21,7 +21,6 @@ const PrintDetail = () => {
   const [selectedSizeId, setSelectedSizeId] = useState(
     print?.defaultSizeId ?? '40x60'
   );
-  const [shippingRegion, setShippingRegion] = useState('bg');
 
   if (!print) {
     return (
@@ -161,13 +160,6 @@ const PrintDetail = () => {
                             </div>
                             <span className="print-selected-size">{selectedSize.label}</span>
                           </div>
-                          {print.inStock === true && (
-                            <ShippingRegionSelect
-                              id={`ship-print-${print.slug}`}
-                              value={shippingRegion}
-                              onChange={setShippingRegion}
-                            />
-                          )}
                         </div>
                         <div className="price-right">
                           {print.inStock === true ? (
@@ -177,11 +169,7 @@ const PrintDetail = () => {
                               title={`${title} - limited edition of 10 - ${selectedSize.label}`}
                               priceEur={selectedSize.priceEur}
                               imagePath={`/${print.image}`}
-                              paymentLink={print.paymentLink}
                               sizeLabel={selectedSize.label}
-                              shippingRegion={shippingRegion}
-                              onShippingRegionChange={setShippingRegion}
-                              showShippingSelect={false}
                               className="buy-action-wrap"
                             />
                           ) : (
@@ -189,7 +177,6 @@ const PrintDetail = () => {
                           )}
                         </div>
                       </div>
-
                       <ShippingInfo />
                     </div>
                   </div>

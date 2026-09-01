@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {useLanguage} from '../contexts/LanguageContext';
+import {useCart} from '../contexts/CartContext';
 import './Header.css';
 
 const Header = () => {
   const { language, changeLanguage, t } = useLanguage();
+  const { itemCount } = useCart();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -117,18 +119,31 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="mobile-menu-btn"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
+          <div className="nav-header-end">
+            {itemCount > 0 ? (
+              <Link
+                to="/basket"
+                className={`nav-basket nav-basket--bar ${isActive('/basket') ? 'is-active' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={`${t('shop.basket')} (${itemCount})`}
+              >
+                <i className="bi bi-bag" aria-hidden="true" />
+                <span className="nav-basket__count">{itemCount}</span>
+              </Link>
+            ) : null}
+
+            <button
+              className="mobile-menu-btn"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
 
           {/* Navigation Menu */}
           <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -184,6 +199,17 @@ const Header = () => {
                 </div>
               </li>
 
+              {/* Miniatures */}
+              <li className="nav-item">
+                <Link
+                  to="/miniatures"
+                  className={`nav-link ${isActive('/miniatures') ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('header.miniatures')}
+                </Link>
+              </li>
+
               {/* Prints */}
               <li className="nav-item">
                 <Link
@@ -205,6 +231,20 @@ const Header = () => {
                   {t('header.shipping')}
                 </Link>
               </li>
+
+              {itemCount > 0 ? (
+                <li className="nav-item nav-item--basket">
+                  <Link
+                    to="/basket"
+                    className={`nav-link nav-basket ${isActive('/basket') ? 'active' : ''}`}
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-label={`${t('shop.basket')} (${itemCount})`}
+                  >
+                    <i className="bi bi-bag" aria-hidden="true" />
+                    <span className="nav-basket__count">{itemCount}</span>
+                  </Link>
+                </li>
+              ) : null}
 
               {/* Language Dropdown */}
               <li className="nav-item nav-dropdown">

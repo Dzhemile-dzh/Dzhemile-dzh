@@ -178,6 +178,7 @@ const Footer = () => {
 
           <nav className="doarti-footer__nav" aria-label="Footer">
             <Link to="/">{t('footer.homepage')}</Link>
+            <Link to="/miniatures">{t('footer.miniatures_page')}</Link>
             <Link to="/prints">{t('footer.prints_page')}</Link>
             <Link to="/shipping">{t('footer.shipping_page')}</Link>
             <Link to="/contact">{t('footer.contact_page')}</Link>
