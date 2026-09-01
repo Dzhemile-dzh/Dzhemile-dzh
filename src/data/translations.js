@@ -899,7 +899,7 @@ export const translations = {
           description: 'test-painting_description',
           link: '2026/test-painting',
           image: 'images/miniatures/day-1.jpg',
-          price: '0.20',
+          price: '0.51',
           sold: false,
         },
       ],
@@ -913,7 +913,7 @@ export const translations = {
     'kral-vsichko_heading': 'King of Everything',
     'kral-vsichko_description': 'Every nation gets the leaders it deserves.\n\nThe pig never argued.\n\nSeated high above the crowd, he doesn\'t wear a crown because he doesn\'t need one. Power has a curious habit of crowning itself. The throne is comfortable, the applause is loud enough to drown out questions, and the distance from the people below grows with every cheer.\n\nThe crowd keeps looking up.\n\nHe keeps looking down.\n\nBetween them hangs an invisible agreement: You pretend to believe. I\'ll pretend to serve.\n\nThe faces below are different, yet strangely alike. Angry. Hopeful. Exhausted. They shout, they protest, they celebrate, they complain - often all in the same afternoon. Above them sits the one creature that has mastered the oldest political trick of all:\n\nNever leave the throne.\n\nThis painting isn\'t really about a pig.\n\nPigs, after all, are honest creatures. They eat, they sleep, and they never promise a brighter tomorrow.\n\nIt\'s about power that grows fat on admiration, fear, and short memories. About leaders who become symbols long before they become legends, and about crowds that mistake a throne for proof of wisdom.\n\nIn the end, every ruler wants to be remembered as the King of Everything.\n\nSome simply become the owner of nothing but everyone\'s disappointment.',
     'test-painting_heading': 'Test Painting',
-    'test-painting_description': 'Stripe checkout test item priced at €0.20. Not a real artwork for sale.',
+    'test-painting_description': 'Stripe checkout test item priced at €0.51. Not a real artwork for sale.',
     articles2024: [
       {
         title: "Oscar's Dichotomy",
@@ -2133,7 +2133,7 @@ export const translations = {
           description: 'test-painting_description',
           link: '2026/test-painting',
           image: 'images/miniatures/day-1.jpg',
-          price: '0.20',
+          price: '0.51',
           sold: false,
         },
       ],
@@ -2147,6 +2147,6 @@ export const translations = {
     'kral-vsichko_heading': 'Крал Всичко',
     'kral-vsichko_description': 'Всеки народ заслужава управниците си.\n\nПрасето никога не е спорило с това.\n\nНастанено високо над тълпата, то не носи корона. Не му е нужна. Властта има странния навик сама да си поставя корона. Тронът е удобен, аплодисментите са достатъчно шумни, за да заглушат въпросите, а разстоянието до хората отдолу расте с всяко ново обещание.\n\nНародът гледа нагоре.\n\nТо гледа надолу.\n\nМежду тях съществува едно мълчаливо споразумение: Вие ще се преструвате, че вярвате. Аз ще се преструвам, че служа.\n\nЛицата долу са различни, но по нещо си приличат. Гневни. Надяващи се. Уморени. Викат, протестират, празнуват, после пак протестират. А горе седи онзи, който е усвоил най-стария политически номер:\n\nДа не става от трона.\n\nТази картина всъщност не е за едно прасе.\n\nПрасетата, ако трябва да сме честни, са почтени животни. Те не обещават светло бъдеще. Просто си вършат прасешката работа.\n\nТя е за властта, която се угоява от възхищение, страх и къса памет. За онези, които искат да бъдат крале на всичко...\n\n...и междувременно крали всичко.\n\nЗащото на български понякога една буква е разликата между владетел и крадец.\n\nА понякога дори тази разлика изчезва.\n\nВ края на краищата всеки иска да бъде Крал Всичко.\n\nВъпросът е единствено дали ще управлява всичко...\n\nили ще го открадне.',
     'test-painting_heading': 'Тестова картина',
-    'test-painting_description': 'Тестов артикул за Stripe плащане на цена 0.20 €. Не е реална картина за продажба.',
+    'test-painting_description': 'Тестов артикул за Stripe плащане на цена 0.51 €. Не е реална картина за продажба.',
   }
 };
