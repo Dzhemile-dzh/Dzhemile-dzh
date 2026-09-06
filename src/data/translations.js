@@ -88,6 +88,8 @@ export const translations = {
       packaging_process_title: 'How I pack an original',
       packaging_view: 'View',
       packaging_close: 'Close',
+      packaging_prev: 'Previous step',
+      packaging_next: 'Next step',
       packaging_steps: [
         {
           title: 'Packaging',
@@ -1267,6 +1269,8 @@ export const translations = {
       packaging_process_title: 'Как опаковам оригинал',
       packaging_view: 'Разгледай',
       packaging_close: 'Затвори',
+      packaging_prev: 'Предишна стъпка',
+      packaging_next: 'Следваща стъпка',
       packaging_steps: [
         {
           title: 'Опаковане',
