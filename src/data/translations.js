@@ -61,8 +61,8 @@ export const translations = {
       not_applicable: 'n/a',
     },
     shipping: {
-      title: 'Shipping',
-      page_title: 'Shipping',
+      title: 'Packaging & Shipping',
+      page_title: 'Packaging & Shipping',
       intro:
         'Every original oil painting and limited-edition print ordered on this website is prepared and shipped personally from my studio in Varna, Bulgaria.',
       scope:
@@ -1242,8 +1242,8 @@ export const translations = {
       not_applicable: 'н/д',
     },
     shipping: {
-      title: 'Доставка',
-      page_title: 'Доставка',
+      title: 'Опаковане и доставка',
+      page_title: 'Опаковане и доставка',
       intro:
         'Всяка оригинална маслена картина и всеки лимитиран принт, поръчан през този сайт, се подготвя и изпраща лично от моето ателие във Варна.',
       scope:

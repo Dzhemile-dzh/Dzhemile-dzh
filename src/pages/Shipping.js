@@ -153,35 +153,30 @@ const Shipping = () => {
                   <svg className="shipping-pack__defs" aria-hidden="true" focusable="false">
                     <filter
                       id="shipping-pack-ink"
-                      x="-12%"
-                      y="-12%"
-                      width="124%"
-                      height="124%"
+                      x="-8%"
+                      y="-8%"
+                      width="116%"
+                      height="116%"
                     >
                       <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.9"
-                        numOctaves="4"
-                        seed="6"
-                        result="grain"
-                      />
-                      <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="grain"
-                        scale="2.8"
-                        xChannelSelector="R"
-                        yChannelSelector="G"
-                        result="warped"
+                        type="turbulence"
+                        baseFrequency="0.03 0.16"
+                        numOctaves="2"
+                        seed="11"
+                        result="fibers"
                       />
                       <feColorMatrix
-                        in="grain"
-                        type="matrix"
-                        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0"
-                        result="speckle"
+                        in="fibers"
+                        type="saturate"
+                        values="0"
+                        result="fiberGray"
                       />
+                      <feComponentTransfer in="fiberGray" result="weave">
+                        <feFuncA type="discrete" tableValues="0 0.2 0.5 0.82 1" />
+                      </feComponentTransfer>
                       <feComposite
-                        in="warped"
-                        in2="speckle"
+                        in="SourceGraphic"
+                        in2="weave"
                         operator="in"
                       />
                     </filter>
