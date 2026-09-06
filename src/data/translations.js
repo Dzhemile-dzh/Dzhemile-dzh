@@ -85,6 +85,75 @@ export const translations = {
       packaging_title: 'Careful packaging',
       packaging_text:
         'Each artwork is packed with care for safe transport: protective layers, secure wrapping, and sturdy packaging chosen for paintings and fine-art prints. Your order leaves the studio ready for a calm, protected journey.',
+      packaging_process_title: 'How I pack an original',
+      packaging_view: 'View',
+      packaging_close: 'Close',
+      packaging_steps: [
+        {
+          title: 'Packaging',
+          lines: [
+            'How I pack an original. Dusted, checked, and ready.',
+            'Not “in a box and hope for the best.”',
+            'Careful hands. The right materials. That’s it.',
+          ],
+        },
+        {
+          title: 'Varnish',
+          lines: [
+            'A clear coat so dust stays on the varnish, not the paint.',
+            'The colour comes back. Dark tones look rich again.',
+            'One even sheen. No patchy glossy-and-matte surprises.',
+          ],
+        },
+        {
+          title: 'Ready to hang',
+          lines: [
+            'Hardware is already on the stretcher.',
+            'When it arrives, you hang it. No toolbox required.',
+            'I like my paintings on walls, not leaning on furniture.',
+          ],
+        },
+        {
+          title: 'The original',
+          lines: [
+            'Every original comes with a signed Certificate of Authenticity.',
+            'Proof this is the real thing, not a very committed print.',
+            'Signed, dated, and kept with the work.',
+          ],
+        },
+        {
+          title: 'Glassine & note',
+          lines: [
+            'Glassine, ribbon, and a handwritten thank-you.',
+            'A little note travels with every original.',
+            'A warehouse robot felt slightly too impersonal.',
+          ],
+        },
+        {
+          title: 'The papers',
+          lines: [
+            'The certificate travels with the painting.',
+            'No mystery envelope hiding in the box.',
+            'Everything together, where it belongs.',
+          ],
+        },
+        {
+          title: 'Bubble wrap',
+          lines: [
+            'Every side gets a generous layer of aeroplast.',
+            'The painting never touches the carton.',
+            'We like canvas. We do not like cardboard prints of accidents.',
+          ],
+        },
+        {
+          title: 'On its way',
+          lines: [
+            'Packed. Checked. Ready to travel.',
+            'Studio to wall, with care at every step.',
+            'And yes, I probably checked the box twice.',
+          ],
+        },
+      ],
       timeframe_title: 'Dispatch time',
       timeframe_text:
         'Orders are usually shipped within 1-3 business days after payment is confirmed. You will receive an email confirmation, and courier details follow once the parcel is on its way.',
@@ -1195,6 +1264,75 @@ export const translations = {
       packaging_title: 'Внимателно опаковане',
       packaging_text:
         'Всяка творба се опакова грижливо за безопасен транспорт: защитни слоеве, сигурно увиване и здрава опаковка, подходяща за картини и fine-art принтове. Поръчката напуска ателието готова за спокоен и защитен път.',
+      packaging_process_title: 'Как опаковам оригинал',
+      packaging_view: 'Разгледай',
+      packaging_close: 'Затвори',
+      packaging_steps: [
+        {
+          title: 'Опаковане',
+          lines: [
+            'Как опаковам оригинал. Почистен, проверен и готов.',
+            'Не „в кашон и дано мине“.',
+            'Внимателни ръце. Правилните материали. Това е.',
+          ],
+        },
+        {
+          title: 'Лак',
+          lines: [
+            'Прозрачен слой, за да остава прахът върху лака, не върху боята.',
+            'Цветът се връща. Тъмните тонове отново изглеждат наситени.',
+            'Равномерен блясък. Без изненади гланц тук, мат там.',
+          ],
+        },
+        {
+          title: 'Готова за окачване',
+          lines: [
+            'Окачалката вече е на рамката.',
+            'Когато пристигне, я окачвате. Кутия с инструменти не е нужна.',
+            'Обичам картините си на стени, не облегнати на мебели.',
+          ],
+        },
+        {
+          title: 'Оригиналът',
+          lines: [
+            'Всеки оригинал идва с подписан сертификат за автентичност.',
+            'Доказателство, че това е истинската творба, а не много старателен принт.',
+            'Подписан, датиран и пътува заедно с картината.',
+          ],
+        },
+        {
+          title: 'Гласин и бележка',
+          lines: [
+            'Гласин, панделка и ръчно написано благодаря.',
+            'Малко писмо пътува с всеки оригинал.',
+            'Складов робот ми се стори малко твърде безличен.',
+          ],
+        },
+        {
+          title: 'Документите',
+          lines: [
+            'Сертификатът пътува с картината.',
+            'Без мистериозен плик, скрит някъде в кашона.',
+            'Всичко заедно, където му е мястото.',
+          ],
+        },
+        {
+          title: 'Аеропласт',
+          lines: [
+            'Всяка страна получава щедър слой аеропласт.',
+            'Картината никога не докосва кашона.',
+            'Обичаме платното. Не обичаме картонени отпечатъци от инциденти.',
+          ],
+        },
+        {
+          title: 'На път',
+          lines: [
+            'Опакована. Проверена. Готова за път.',
+            'От ателието до стената, с грижа на всяка стъпка.',
+            'И да, вероятно проверих кашона два пъти.',
+          ],
+        },
+      ],
       timeframe_title: 'Срок за изпращане',
       timeframe_text:
         'Поръчките обикновено се изпращат в рамките на 1-3 работни дни след потвърдено плащане. Ще получите имейл потвърждение, а данните за куриера следват, щом пратката е на път.',
