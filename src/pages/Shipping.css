@@ -108,13 +108,18 @@
   text-align: left;
 }
 
+.shipping-pack__photo picture {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
 .shipping-pack__photo img {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center center;
-  filter: url('#shipping-pack-grade');
 }
 
 .shipping-pack__caption {
@@ -247,7 +252,6 @@
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  filter: url('#shipping-pack-grade');
 }
 
 .shipping-lightbox__bar {

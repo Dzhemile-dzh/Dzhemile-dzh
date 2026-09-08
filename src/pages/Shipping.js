@@ -32,6 +32,7 @@ function readPackagingSteps(rawSteps) {
     return [
       {
         image,
+        webp: image.replace(/\.jpe?g$/i, '.webp'),
         title,
         lines,
         number: String(index + 1).padStart(2, '0'),
@@ -180,60 +181,40 @@ const Shipping = () => {
                         operator="in"
                       />
                     </filter>
-                    <filter
-                      id="shipping-pack-grade"
-                      colorInterpolationFilters="sRGB"
-                      x="0"
-                      y="0"
-                      width="100%"
-                      height="100%"
-                    >
-                      <feGaussianBlur
-                        in="SourceGraphic"
-                        stdDeviation="0.75"
-                        result="soft"
-                      />
-                      <feComposite
-                        in="SourceGraphic"
-                        in2="soft"
-                        operator="arithmetic"
-                        k1="0"
-                        k2="1.1"
-                        k3="-0.1"
-                        k4="0"
-                        result="clarity"
-                      />
-                      <feComponentTransfer in="clarity" result="tone">
-                        <feFuncR type="linear" slope="1.08" intercept="-0.03" />
-                        <feFuncG type="linear" slope="1.08" intercept="-0.03" />
-                        <feFuncB type="linear" slope="1.08" intercept="-0.03" />
-                      </feComponentTransfer>
-                      <feColorMatrix
-                        in="tone"
-                        type="saturate"
-                        values="1.1"
-                      />
-                    </filter>
                   </svg>
 
                   <ol className="shipping-pack__lookbook">
-                    {packagingSteps.map((step) => {
+                    {packagingSteps.map((step, index) => {
                       const alt = `${step.number} ${step.title}`;
+                      const isPriority = index < 2;
 
                       return (
                         <li key={step.image} className="shipping-pack__item">
                           <button
                             type="button"
                             className="shipping-pack__photo"
-                            onClick={() => setLightbox({ src: step.image, alt })}
+                            onClick={() =>
+                              setLightbox({
+                                src: step.image,
+                                webp: step.webp,
+                                alt,
+                              })
+                            }
                             aria-label={`${t('shipping.packaging_view')}: ${alt}`}
                           >
-                            <img
-                              src={step.image}
-                              alt={alt}
-                              loading="lazy"
-                              decoding="async"
-                            />
+                            <picture>
+                              <source srcSet={step.webp} type="image/webp" />
+                              <img
+                                src={step.image}
+                                alt={alt}
+                                width={576}
+                                height={768}
+                                sizes="(max-width: 767px) 100vw, 50vw"
+                                loading={isPriority ? 'eager' : 'lazy'}
+                                fetchPriority={isPriority ? 'high' : 'low'}
+                                decoding="async"
+                              />
+                            </picture>
                             <span className="shipping-pack__caption">
                               <span className="shipping-pack__name">{step.title}</span>
                               {step.lines.map((line) => (
@@ -270,11 +251,14 @@ const Shipping = () => {
               className="shipping-lightbox__content"
               onClick={(event) => event.stopPropagation()}
             >
-              <img
-                src={lightbox.src}
-                alt={lightbox.alt}
-                className="shipping-lightbox__image"
-              />
+              <picture>
+                <source srcSet={lightbox.webp} type="image/webp" />
+                <img
+                  src={lightbox.src}
+                  alt={lightbox.alt}
+                  className="shipping-lightbox__image"
+                />
+              </picture>
               <div className="shipping-lightbox__bar">
                 <button
                   className="shipping-lightbox__close"
